@@ -15,19 +15,21 @@ class CreateBuildingsTable extends Migration
     {
         Schema::create('buildings', function (Blueprint $table) {
             $table->id();
-            $table->string('user_id');
+            $table->bigInteger('user_id');
             $table->string('post_type');
-            $table->string('date');
+            $table->date('date');
             $table->string('address');
             $table->string('building_name');
             $table->string('building_size');
-            $table->string('phone');
+            $table->bigInteger('phone');
             $table->bigInteger('floor');
             $table->string('floor_size');
             $table->string('road_width');
-            $table->string('s_charge');
+            $table->bigInteger('s_charge');
+            $table->string('s_per_charge');
             $table->string('t_build');
-            $table->string('price');
+            $table->bigInteger('price');
+            $table->string('per_price');
             $table->string('description')->nullable();
             $table->string('gas')->nullable();
             $table->string('water')->nullable();
@@ -49,7 +51,6 @@ class CreateBuildingsTable extends Migration
             $table->timestamps();
         });
     }
-
     /**
      * Reverse the migrations.
      *

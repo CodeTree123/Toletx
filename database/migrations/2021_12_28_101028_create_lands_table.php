@@ -15,18 +15,18 @@ class CreateLandsTable extends Migration
     {
         Schema::create('lands', function (Blueprint $table) {
             $table->id();
-            $table->string('user_id');
+            $table->bigInteger('user_id');
             $table->string('post_type');
             $table->string('title');
-            $table->string('date');
-            $table->string('phone');
+            $table->date('date');
+            $table->bigInteger('phone');
             $table->string('description')->nullable();
             $table->string('address');
             $table->string('land_area');
             $table->string('land_height');
             $table->string('road_width');
-            $table->string('price');
-            $table->string('y_price')->nullable();
+            $table->bigInteger('price');
+            $table->string('per_price');
             $table->string('electricity')->nullable();
             $table->string('gas')->nullable();
             $table->string('water')->nullable();
@@ -42,7 +42,6 @@ class CreateLandsTable extends Migration
             $table->string('video')->nullable();
             $table->integer('active')->default(1);
             $table->bigInteger('table_api')->default(13);
-            $table->SoftDeletes();
             $table->timestamps();
         });
     }

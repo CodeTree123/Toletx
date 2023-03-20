@@ -15,16 +15,18 @@ class CreateShootingSpotsTable extends Migration
     {
         Schema::create('shooting__spots', function (Blueprint $table) {
             $table->id();
-            $table->string('user_id');
+            $table->bigInteger('user_id');
             $table->string('post_type');
             $table->string('title');
-            $table->string('date');
-            $table->string('phone');
+            $table->string('c_name');
+            $table->date('date');
+            $table->bigInteger('phone');
             $table->string('description')->nullable();
             $table->string('address');
             $table->string('floor_area');
             $table->string('road_width');
-            $table->string('price');
+            $table->bigInteger('price');
+            $table->string('per_price');
             $table->string('lift')->nullable();
             $table->string('parking')->nullable();
             $table->string('dining')->nullable();
@@ -45,7 +47,6 @@ class CreateShootingSpotsTable extends Migration
             $table->string('video')->nullable();
             $table->integer('active')->default(1);
             $table->bigInteger('table_api')->default(18);
-            $table->SoftDeletes();
             $table->timestamps();
         });
     }

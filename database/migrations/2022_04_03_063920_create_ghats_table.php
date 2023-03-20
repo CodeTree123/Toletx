@@ -15,15 +15,15 @@ class CreateGhatsTable extends Migration
     {
         Schema::create('ghats', function (Blueprint $table) {
             $table->id();
-            $table->string('user_id');
+            $table->bigInteger('user_id');
             $table->string('post_type');
             $table->string('title');
-            $table->string('date');
-            $table->string('phone');
+            $table->date('date');
+            $table->bigInteger('phone');
             $table->string('description')->nullable();
             $table->string('address');
-            $table->string('price');
-            $table->string('y_price')->nullable();
+            $table->bigInteger('price');
+            $table->string('per_price');
             $table->string('toilet')->nullable();
             $table->string('parking')->nullable();
             $table->string('photo')->nullable();
@@ -36,7 +36,6 @@ class CreateGhatsTable extends Migration
             $table->string('video')->nullable();
             $table->integer('active')->default(1);
             $table->bigInteger('table_api')->default(15);
-            $table->SoftDeletes();
             $table->timestamps();
         });
     }

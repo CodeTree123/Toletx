@@ -15,17 +15,17 @@ class CreateRooftopsTable extends Migration
     {
         Schema::create('rooftops', function (Blueprint $table) {
             $table->id();
-            $table->string('user_id');
+            $table->bigInteger('user_id');
             $table->string('post_type');
-            $table->string('post_title');
             $table->string('title');
-            $table->string('date');
-            $table->string('phone');
+            $table->string('c_name');
+            $table->date('date');
+            $table->bigInteger('phone');
             $table->string('description')->nullable();
             $table->string('address');
             $table->string('floor_area');
-            $table->string('price');
-            $table->string('per');
+            $table->bigInteger('price');
+            $table->string('per_price');
             $table->string('toilet')->nullable();
             $table->string('p_protection')->nullable();
             $table->string('generator')->nullable();
@@ -44,7 +44,6 @@ class CreateRooftopsTable extends Migration
             $table->string('video')->nullable();
             $table->integer('active')->default(1);
             $table->bigInteger('table_api')->default(21);
-            $table->SoftDeletes();
             $table->timestamps();
         });
     }

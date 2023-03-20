@@ -15,19 +15,21 @@ class CreateOfficesTable extends Migration
     {
         Schema::create('offices', function (Blueprint $table) {
             $table->id();
-            $table->string('user_id');
+            $table->bigInteger('user_id');
             $table->string('post_type');
             $table->string('title');
-            $table->string('date');
-            $table->string('phone');
+            $table->date('date');
+            $table->bigInteger('phone');
             $table->string('description')->nullable();
-            $table->string('s_charge');
+            $table->bigInteger('s_charge');
+            $table->string('s_per_price');
             $table->string('address');
             $table->string('floor_level');
             $table->string('floor_size');
             $table->string('road_width');
             $table->string('interior_condition');
-            $table->string('price');
+            $table->bigInteger('price');
+            $table->string('per_price');
             $table->string('fire_safety')->nullable();
             $table->string('lift')->nullable();
             $table->string('ac')->nullable();
@@ -46,7 +48,6 @@ class CreateOfficesTable extends Migration
             $table->string('video')->nullable();
             $table->integer('active')->default(1);
             $table->bigInteger('table_api')->default(8);
-            $table->SoftDeletes();
             $table->timestamps();
         });
     }

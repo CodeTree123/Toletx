@@ -15,16 +15,17 @@ class CreateSwimmingPoolsTable extends Migration
     {
         Schema::create('swimming__pools', function (Blueprint $table) {
             $table->id();
-            $table->string('user_id');
+            $table->bigInteger('user_id');
             $table->string('post_type');
             $table->string('title');
-            $table->string('date');
-            $table->string('phone');
+            $table->date('date');
+            $table->bigInteger('phone');
             $table->string('description')->nullable();
             $table->string('address');
             $table->string('type');
             $table->string('size');
-            $table->string('price');
+            $table->bigInteger('price');
+            $table->string('per_price');
             $table->string('wifi')->nullable();
             $table->string('shed')->nullable();
             $table->string('laundry')->nullable();
@@ -42,7 +43,6 @@ class CreateSwimmingPoolsTable extends Migration
             $table->string('video')->nullable();
             $table->integer('active')->default(1);
             $table->bigInteger('table_api')->default(16);
-            $table->SoftDeletes();
             $table->timestamps();
         });
     }

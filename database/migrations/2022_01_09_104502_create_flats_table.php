@@ -21,12 +21,14 @@ class CreateFlatsTable extends Migration
             $table->string('date');
             $table->string('phone');
             $table->string('s_charge');
+            $table->string('s_per_charge');
             $table->string('description')->nullable();
             $table->string('address');
             $table->string('flat_size');
             $table->bigInteger('floor_level');
             $table->bigInteger('bedrooms');
             $table->string('price');
+            $table->string('per_price');
             $table->string('fire_exit')->nullable();
             $table->string('wifi')->nullable();
             $table->string('attached_toilet')->nullable();

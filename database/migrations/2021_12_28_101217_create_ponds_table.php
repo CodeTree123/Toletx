@@ -15,18 +15,18 @@ class CreatePondsTable extends Migration
     {
         Schema::create('ponds', function (Blueprint $table) {
             $table->id();
-            $table->string('user_id');
+            $table->bigInteger('user_id');
             $table->string('post_type');
             $table->string('title');
-            $table->string('date');
-            $table->string('phone');
+            $table->date('date');
+            $table->bigInteger('phone');
             $table->string('description')->nullable();
             $table->string('address');
             $table->string('road_width');
             $table->string('water_level');
             $table->string('pond_area');
-            $table->string('price')->nullable();
-            $table->string('y_price')->nullable();
+            $table->bigInteger('price');
+            $table->string('per_price');
             $table->string('photo')->nullable();
             $table->string('photo1')->nullable();
             $table->string('photo2')->nullable();
@@ -37,7 +37,6 @@ class CreatePondsTable extends Migration
             $table->string('video')->nullable();
             $table->integer('active')->default(1);
             $table->bigInteger('table_api')->default(14);
-            $table->SoftDeletes();
             $table->timestamps();
         });
     }

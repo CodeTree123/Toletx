@@ -78,7 +78,7 @@ Route::get('/hostel', [UserController::class, 'hostel'])->name('hostel');
 Route::get('/resort', [UserController::class, 'resort'])->name('resort');
 Route::get('/office', [UserController::class, 'office'])->name('office');
 Route::get('/shop', [UserController::class, 'shop'])->name('shop');
-Route::get('/community_hall', [UserController::class, 'community_hall'])->name('community_hall');
+Route::get('/community/hall', [UserController::class, 'community_hall'])->name('community_hall');
 Route::get('/factory', [UserController::class, 'factory'])->name('factory');
 Route::get('/warehouse', [UserController::class, 'warehouse'])->name('warehouse');
 Route::get('/land', [UserController::class, 'land'])->name('land');
@@ -103,7 +103,7 @@ Route::get('/post/bilboard', [PostController::class, 'post_bilboard'])->name('po
 Route::get('/post/hostel', [PostController::class, 'post_hostel'])->name('post_hostel');
 Route::get('/post/office', [PostController::class, 'post_office'])->name('post_office');
 Route::get('/post/resort', [PostController::class, 'post_resort'])->name('post_resort');
-Route::get('/post/community', [PostController::class, 'post_community'])->name('post_community');
+Route::get('/post/community/hall', [PostController::class, 'post_community'])->name('post_community');
 Route::get('/post/shop', [PostController::class, 'post_shop'])->name('post_shop');
 Route::get('/post/factory', [PostController::class, 'post_factory'])->name('post_factory');
 Route::get('/post/warehouse', [PostController::class, 'post_warehouse'])->name('post_warehouse');
@@ -119,7 +119,7 @@ Route::get('/post/hotel', [PostController::class, 'post_hotel'])->name('post_hot
 Route::get('/post/room', [PostController::class, 'post_room'])->name('post_room'); //m
 Route::get('/post/flat', [PostController::class, 'post_flat'])->name('post_flat'); //modify
 Route::get('/post/building', [PostController::class, 'post_building'])->name('post_building');
-Route::get('/post/parking', [PostController::class, 'post_parking_spot'])->name('post_parking_spot');
+Route::get('/post/garage', [PostController::class, 'post_parking_spot'])->name('post_parking_spot');
 
 //post Store korar Route
 Route::post('/post/exibution_center/wanted', [PostController::class, 'post_exibution_center_wanted'])->name('post_exibution_center_wanted');
@@ -144,16 +144,16 @@ Route::post('/post/shop/rented', [PostController::class, 'post_shop_rented'])->n
 Route::post('/post/shop/wanted', [PostController::class, 'post_shop_wanted'])->name('post_shop_wanted');
 Route::post('/post/shooting/rented', [PostController::class, 'post_shooting_rented'])->name('post_shooting_rented');
 Route::post('/post/shooting/wanted', [PostController::class, 'post_shooting_wanted'])->name('post_shooting_wanted');
-Route::post('/post/community/rented', [PostController::class, 'post_community_rented'])->name('post_community_rented');
-Route::post('/post/community/wanted', [PostController::class, 'post_community_wanted'])->name('post_community_wanted');
+Route::post('/post/community/hall/rented', [PostController::class, 'post_community_rented'])->name('post_community_rented');
+Route::post('/post/community/hall/wanted', [PostController::class, 'post_community_wanted'])->name('post_community_wanted');
 Route::post('/post/land/rented', [PostController::class, 'post_land_rented'])->name('post_land_rented');
 Route::post('/post/land/wanted', [PostController::class, 'post_land_wanted'])->name('post_land_wanted');
 Route::post('/post/office/rented', [PostController::class, 'post_office_rented'])->name('post_office_rented');
 Route::post('/post/office/wanted', [PostController::class, 'post_office_wanted'])->name('post_office_wanted');
 Route::post('/post/hostel/rented', [PostController::class, 'post_hostel_rented'])->name('post_hostel_rented');
 Route::post('/post/hostel/wented', [PostController::class, 'post_hostel_wanted'])->name('post_hostel_wanted');
-Route::post('/post/parking/rented', [PostController::class, 'post_parking_spot_rented'])->name('post_parking_spot_rented');
-Route::post('/post/parking/wanted', [PostController::class, 'post_parking_spot_wanted'])->name('post_parking_spot_wanted');
+Route::post('/post/garage/rented', [PostController::class, 'post_parking_spot_rented'])->name('post_parking_spot_rented');
+Route::post('/post/garage/wanted', [PostController::class, 'post_parking_spot_wanted'])->name('post_parking_spot_wanted');
 Route::post('/post/building/rented', [PostController::class, 'post_building_rented'])->name('post_building_rented');
 Route::post('/post/building/wanted', [PostController::class, 'post_building_wanted'])->name('post_building_wanted');
 Route::post('/post/picnic/rented', [PostController::class, 'post_picnic_rented'])->name('post_picnic_rented');
@@ -168,12 +168,12 @@ Route::post('/post/flat/rented', [PostController::class, 'post_flat_rented'])->n
 Route::post('/post/flat/wanted', [PostController::class, 'post_flat_wanted'])->name('post_flat_wanted');
 
 //post edit routes
-Route::get('/parking/edit/{id}', [DetailesController::class, 'user_parking_edit'])->name('user_parking_edit');
+Route::get('/garage/edit/{id}', [DetailesController::class, 'user_parking_edit'])->name('user_parking_edit');
 Route::get('/building/edit/{id}', [DetailesController::class, 'user_building_edit'])->name('user_building_edit');
 Route::get('/room/edit/{id}', [DetailesController::class, 'user_room_edit'])->name('user_room_edit');
 Route::get('/hotel/edit/{id}', [DetailesController::class, 'user_hotel_edit'])->name('user_hotel_edit');
 Route::get('/bilboard/edit/{id}', [DetailesController::class, 'user_bilboard_edit'])->name('user_bilboard_edit');
-Route::get('/community/edit/{id}', [DetailesController::class, 'user_community_edit'])->name('user_community_edit');
+Route::get('/community/hall/edit/{id}', [DetailesController::class, 'user_community_edit'])->name('user_community_edit');
 Route::get('/exibution/edit/{id}', [DetailesController::class, 'user_exhibution_edit'])->name('user_exhibution_edit');
 Route::get('/factory/edit/{id}', [DetailesController::class, 'user_factory_edit'])->name('user_factory_edit');
 Route::get('/hostel/edit/{id}', [DetailesController::class, 'user_hostel_edit'])->name('user_hostel_edit');
@@ -202,7 +202,7 @@ Route::post('/pond/update/{id}', [UpdateController::class, 'pond_update'])->name
 Route::post('/warehouse/update/{id}', [UpdateController::class, 'warehouse_update'])->name('warehouse_update');
 Route::post('/shop/update/{id}', [UpdateController::class, 'shop_update'])->name('shop_update');
 Route::post('/shooting/update/{id}', [UpdateController::class, 'shooting_update'])->name('shooting_update');
-Route::post('/community/update/{id}', [UpdateController::class, 'community_update'])->name('community_update');
+Route::post('/community/hall/update/{id}', [UpdateController::class, 'community_update'])->name('community_update');
 Route::post('/land/update/{id}', [UpdateController::class, 'land_update'])->name('land_update');
 Route::post('/hostel/update/{id}', [UpdateController::class, 'hostel_update'])->name('hostel_update');
 Route::post('/picnic/update/{id}', [UpdateController::class, 'picnic_update'])->name('picnic_update');
@@ -212,7 +212,7 @@ Route::post('/office/update/{id}', [UpdateController::class, 'office_update'])->
 Route::post('/factory/update/{id}', [UpdateController::class, 'factory_update'])->name('factory_update');
 Route::post('/building/update/{id}', [UpdateController::class, 'building_update'])->name('building_update');
 Route::post('/room/update/{id}', [UpdateController::class, 'room_update'])->name('room_update');
-Route::post('/parking/update/{id}', [UpdateController::class, 'parking_spot_update'])->name('parking_spot_update');
+Route::post('/garage/update/{id}', [UpdateController::class, 'parking_spot_update'])->name('parking_spot_update');
 Route::post('/flat/update/{id}', [UpdateController::class, 'flat_update'])->name('flat_update');
 
 
@@ -228,10 +228,10 @@ Route::get('/warehouse/delete/{id}', [PostController::class, 'warehouse_delete']
 Route::get('/factory/delete/{id}', [PostController::class, 'factory_delete'])->name('factory_delete');
 Route::get('/shop/delete/{id}', [PostController::class, 'shop_delete'])->name('shop_delete');
 Route::get('/shooting/delete/{id}', [PostController::class, 'shooting_delete'])->name('shooting_delete');
-Route::get('/community/delete/{id}', [PostController::class, 'community_delete'])->name('community_delete');
+Route::get('/community/hall/delete/{id}', [PostController::class, 'community_delete'])->name('community_delete');
 Route::get('/land/delete/{id}', [PostController::class, 'land_delete'])->name('land_delete');
 Route::get('/office/delete/{id}', [PostController::class, 'office_delete'])->name('office_delete');
-Route::get('/parking/delete/{id}', [PostController::class, 'parking_spot_delete'])->name('parking_spot_delete');
+Route::get('/garage/delete/{id}', [PostController::class, 'parking_spot_delete'])->name('parking_spot_delete');
 Route::get('/picnic/delete/{id}', [PostController::class, 'picnic_delete'])->name('picnic_delete');
 Route::get('/building/delete/{id}', [PostController::class, 'building_delete'])->name('building_delete');
 Route::get('/hotel/delete/{id}', [PostController::class, 'hotel_delete'])->name('hotel_delete');
@@ -263,15 +263,15 @@ Route::get('/playground/search', [SearchController::class, 'playground_search'])
 Route::get('/office/search', [SearchController::class, 'office_search'])->name('office_search');
 Route::get('/land/search', [SearchController::class, 'land_search'])->name('land_search');
 Route::get('/factory/search', [SearchController::class, 'factory_search'])->name('factory_search');
-Route::get('/community/search', [SearchController::class, 'community_search'])->name('community_search');
+Route::get('/community/hall/search', [SearchController::class, 'community_search'])->name('community_search');
 Route::get('/hostel/search', [SearchController::class, 'hostel_search'])->name('hostel_search');
-Route::get('/parking/search', [SearchController::class, 'parking_spot_search'])->name('parking_spot_search');
+Route::get('/garage/search', [SearchController::class, 'parking_spot_search'])->name('parking_spot_search');
 
 // all detailes page route
 Route::get('/room/details/{id}', [DetailesController::class, 'room_details'])->name('room_details');
 Route::get('/flat/details/{id}', [DetailesController::class, 'flat_details'])->name('flat_details');
 Route::get('/building/details/{id}', [DetailesController::class, 'building_details'])->name('building_details');
-Route::get('/parking/details/{id}', [DetailesController::class, 'parking_details'])->name('parking_details');
+Route::get('/garage/details/{id}', [DetailesController::class, 'parking_details'])->name('parking_details');
 Route::get('/hotel/details/{id}', [DetailesController::class, 'hotel_details'])->name('hotel_details');
 Route::get('/hostel/details/{id}', [DetailesController::class, 'hostel_details'])->name('hostel_details');
 Route::get('/exibution/details/{id}', [DetailesController::class, 'exibution_details'])->name('exibution_details');
@@ -288,7 +288,7 @@ Route::get('/playground/details/{id}', [DetailesController::class, 'playground_d
 Route::get('/office/details/{id}', [DetailesController::class, 'office_details'])->name('office_details');
 Route::get('/land/details/{id}', [DetailesController::class, 'land_details'])->name('land_details');
 Route::get('/factory/details/{id}', [DetailesController::class, 'factory_details'])->name('factory_details');
-Route::get('/community/details/{id}', [DetailesController::class, 'community_details'])->name('community_details');
+Route::get('/community/hall/details/{id}', [DetailesController::class, 'community_details'])->name('community_details');
 Route::get('/bilboard/details/{id}', [DetailesController::class, 'bilboard_details'])->name('bilboard_details');
 
 
@@ -316,7 +316,7 @@ Route::group(['middleware' => 'admin'], function () {
     Route::get('/resort/list', [AdminController::class, 'resort_list'])->name('resort_list');
     Route::get('/office/list', [AdminController::class, 'office_list'])->name('office_list');
     Route::get('/shop/list', [AdminController::class, 'shop_list'])->name('shop_list');
-    Route::get('/community/list', [AdminController::class, 'community_list'])->name('community_list');
+    Route::get('/community/hall/list', [AdminController::class, 'community_list'])->name('community_list');
     Route::get('/factory/list', [AdminController::class, 'factory_list'])->name('factory_list');
     Route::get('/warehouse/list', [AdminController::class, 'warehouse_list'])->name('warehouse_list');
     Route::get('/land/list', [AdminController::class, 'land_list'])->name('land_list');

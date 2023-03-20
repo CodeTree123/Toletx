@@ -1,35 +1,13 @@
 @extends('frontend.master.post_master')
-
 @section('content')
-
 <div class="container  post_container">
-     
-    <!-- Default Basic Forms Start -->
-    @if ($message = Session::get('success'))
-    <div class="alert alert-success alert-block" id="hello">
-        <button type="button" class="close" data-dismiss="alert">×</button>
-        <strong>{{ $message }}</strong>
-    </div>
-    @endif
-
-    @if (count($errors) > 0)
-    <div class="alert alert-danger" id="hello">
-        <strong>Whoops!</strong> There were some problems with your input.
-        <ul>
-            @foreach ($errors->all() as $error)
-            <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-    @endif
-
-    <div class="row shadow p-4 rounded mb-5 mt-2    ">
-    <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
-                    <ol class="breadcrumb bg-transparent">
-                        <li class="breadcrumb-item"><a href="{{route('index')}}">Home</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Add Community Hall</li>
-                    </ol>
-                </nav>
+    <div class="row shadow p-4 rounded mb-5 mt-2">
+        <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
+            <ol class="breadcrumb bg-transparent">
+                <li class="breadcrumb-item"><a href="{{route('index')}}">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Add Community Hall</li>
+            </ol>
+        </nav>
         <div class="col-sm-12 col-md-12 mb-3">
             <select id="choose_post_type" onchange="val()" class="form-select w-50 mx-auto">
                 <option value="">Choose Post Type...</option>
@@ -80,7 +58,7 @@
                     <div class="col-lg-4 co-md-4 col-sm-12 col-12 mb-3">
                         <label for="floor_rented" class="form-label me-2 fw-bold">Floor Level</label>
                         <select id="floor_rented" class="form-select" name="floor_level" required>
-                           <option value="">Choose number</option>
+                            <option value="">Choose number</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
@@ -97,8 +75,6 @@
                             <option value="14">14</option>
                             <option value="15">15</option>
                             <option value="15">15+</option>
-
-
                         </select>
                     </div>
                     <div class="col-lg-4 co-md-4 col-sm-12 col-12 mb-3">
@@ -108,7 +84,7 @@
                     <div class="col-lg-4 co-md-4 col-sm-12 col-12 mb-3">
                         <label for="interior_rented" class="form-label me-2 fw-bold">Interior Condition</label>
                         <select id="interior_rented" class="form-select" name="interior_condition" required>
-                           <option value="">Choose number</option>
+                            <option value="">Choose number</option>
                             <option value="good">good</option>
                             <option value="moderate">moderate</option>
                             <option value="best">best</option>
@@ -131,7 +107,7 @@
                         <textarea name="description" type="text" class="form-control" id="description_rented" rows="3" placeholder="Enter Description"></textarea>
                     </div>
                     <div class="col-lg-4 co-md-4 col-sm-12 col-12 mb-3 ">
-                        <h2 class="fw-bold mb-3">Ameneties</h2>
+                        <h2 class="fw-bold mb-3">Amenities</h2>
                         <div class="form-check ms-5 mb-2">
                             <input class="form-check-input" type="checkbox" id="elect_rented" name="electricity">
                             <label class="form-check-label" for="elect_rented">
@@ -280,7 +256,7 @@
                     <div class="col-lg-4 co-md-4 col-sm-12 col-12 mb-3">
                         <label for="floor_wanted" class="form-label me-2 fw-bold">Floor Level</label>
                         <select id="floor_wanted" class="form-select" name="floor_level" required>
-                           <option value="">Choose number</option>
+                            <option value="">Choose number</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
@@ -297,8 +273,6 @@
                             <option value="14">14</option>
                             <option value="15">15</option>
                             <option value="15">15+</option>
-
-
                         </select>
                     </div>
                     <div class="col-lg-4 co-md-4 col-sm-12 col-12 mb-3">
@@ -308,7 +282,7 @@
                     <div class="col-lg-4 co-md-4 col-sm-12 col-12 mb-3">
                         <label for="interior_wanted" class="form-label me-2 fw-bold">Interior Condition</label>
                         <select id="interior_wanted" class="form-select" name="interior_condition" required>
-                           <option value="">Choose number</option>
+                            <option value="">Choose number</option>
                             <option value="good">good</option>
                             <option value="moderate">moderate</option>
                             <option value="best">best</option>
@@ -331,7 +305,7 @@
                         <textarea name="description" type="text" class="form-control" id="description_wanted" rows="3" placeholder="Enter Description"></textarea>
                     </div>
                     <div class="col-12 mb-3 ">
-                        <h2 class="fw-bold mb-3">Ameneties</h2>
+                        <h2 class="fw-bold mb-3">Amenities</h2>
                         <div class="row ms-5 ">
                             <div class="form-check mb-2">
                                 <input class="form-check-input" type="checkbox" id="elect_wanted" name="electricity">
@@ -396,35 +370,4 @@
 
     </div>
 </div>
-<!-- js -->
-<script>
-    function val() {
-        var choose = document.getElementById('choose_post_type').value;
-        var rented = document.getElementById('rent');
-        var wanted = document.getElementById('want');
-        var post = document.getElementById('post_rent');
-        var post2 = document.getElementById('post_want');
-        if (choose == "Want") {
-            wanted.style.display = "flex";
-            rented.style.display = "none";
-            post2.value = choose;
-
-        } else if (choose == "Rent") {
-            rented.style.display = "flex";
-            wanted.style.display = "none";
-
-            post.value = choose;
-        } else {
-            rented.style.display = "none";
-            wanted.style.display = "none";
-            post.value = choose;
-        }
-        // console.log(choose);
-    }
-</script>
-<script>
-    $(document).ready(function() {
-        $("#hello").slideDown(300).delay(1000).slideUp(300);
-    });
-</script>
 @endsection

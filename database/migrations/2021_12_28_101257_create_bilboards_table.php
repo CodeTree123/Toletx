@@ -15,7 +15,7 @@ class CreateBilboardsTable extends Migration
     {
         Schema::create('bilboards', function (Blueprint $table) {
             $table->id();
-            $table->string('user_id');
+            $table->bigInteger('user_id');
             $table->string('post_type');
             $table->string('title');
             $table->date('date');
@@ -23,7 +23,7 @@ class CreateBilboardsTable extends Migration
             $table->bigInteger('price');
             $table->string('per');
             $table->string('size');
-            $table->string('hieght');
+            $table->string('height');
             $table->string('type');
             $table->string('description')->nullable();
             $table->string('address');

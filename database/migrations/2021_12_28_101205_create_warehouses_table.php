@@ -15,11 +15,11 @@ class CreateWarehousesTable extends Migration
     {
         Schema::create('warehouses', function (Blueprint $table) {
             $table->id();
-            $table->string('user_id');
+            $table->bigInteger('user_id');
             $table->string('post_type');
             $table->string('title');
-            $table->string('date');
-            $table->string('phone');
+            $table->date('date');
+            $table->bigInteger('phone');
             $table->string('description')->nullable();
             $table->string('address');
             $table->string('type');
@@ -27,7 +27,7 @@ class CreateWarehousesTable extends Migration
             $table->string('floor_size');
             $table->string('road_width');
             $table->string('building_condition');
-            $table->string('price');
+            $table->bigInteger('price');
             $table->string('fire_safety')->nullable();
             $table->string('generator')->nullable();
             $table->string('lift')->nullable();
@@ -47,7 +47,6 @@ class CreateWarehousesTable extends Migration
             $table->string('video')->nullable();
             $table->integer('active')->default(1);
             $table->bigInteger('table_api')->default(12);
-            $table->SoftDeletes();
             $table->timestamps();
         });
     }

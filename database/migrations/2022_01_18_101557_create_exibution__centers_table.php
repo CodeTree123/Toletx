@@ -15,11 +15,12 @@ class CreateExibutionCentersTable extends Migration
     {
         Schema::create('exibution__centers', function (Blueprint $table) {
             $table->id();
-            $table->string('user_id');
+            $table->bigInteger('user_id');
             $table->string('post_type');
             $table->string('title');
-            $table->string('date');
-            $table->string('phone');
+            $table->string('c_name');
+            $table->date('date');
+            $table->bigInteger('phone');
             $table->string('description')->nullable();
             $table->string('address');
             $table->string('room_size');
@@ -27,7 +28,7 @@ class CreateExibutionCentersTable extends Migration
             $table->string('floor_level');
             $table->string('room_type');
             $table->string('road_width');
-            $table->string('price');
+            $table->bigInteger('price');
             $table->string('toilet')->nullable();
             $table->string('lift')->nullable();
             $table->string('fire_exit')->nullable();
@@ -43,7 +44,6 @@ class CreateExibutionCentersTable extends Migration
             $table->string('video')->nullable();
             $table->integer('active')->default(1);
             $table->bigInteger('table_api')->default(20);
-            $table->SoftDeletes();
             $table->timestamps();
         });
     }

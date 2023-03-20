@@ -1,9 +1,6 @@
 @extends('frontend.master.post_master')
-
 @section('content')
-
 <div class="container  post_container">
-       
     <!-- Default Basic Forms Start -->
     @if ($message = Session::get('success'))
     <div class="alert alert-success alert-block" id="hello">
@@ -11,7 +8,6 @@
         <strong>{{ $message }}</strong>
     </div>
     @endif
-
     @if (count($errors) > 0)
     <div class="alert alert-danger" id="hello">
         <strong>Whoops!</strong> There were some problems with your input.
@@ -22,14 +18,13 @@
         </ul>
     </div>
     @endif
-
-    <div class="row shadow p-4 rounded mb-5 mt-2    ">
-    <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
-                    <ol class="breadcrumb bg-transparent">
-                        <li class="breadcrumb-item"><a href="{{route('index')}}">Home</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Add Roof Top</li>
-                    </ol>
-                </nav>
+    <div class="row shadow p-4 rounded mb-5 mt-2">
+        <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
+            <ol class="breadcrumb bg-transparent">
+                <li class="breadcrumb-item"><a href="{{route('index')}}">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Add Roof Top</li>
+            </ol>
+        </nav>
         <div class="col-sm-12 col-md-12 mb-3">
             <select id="choose_post_type" onchange="val()" class="form-select w-50 mx-auto">
                 <option value="">Choose Post Type...</option>
@@ -39,22 +34,22 @@
         </div>
         <div class="col-12" id="Rent" style="display: none;">
             <form method="POST" action="{{ route('post_rooftop_rented') }}" enctype="multipart/form-data">
-                    @csrf
-                    <div class="col-md-6">
-                        <input id="user_id" type="hidden" class="form-control @error('user_id') is-invalid @enderror" name="user_id" value="{{ Auth::user()->id }}" required autocomplete="user_id" autofocus>
-                        @error('user_id')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                        @enderror
-                    </div>
+                @csrf
+                <div class="col-md-6">
+                    <input id="user_id" type="hidden" class="form-control @error('user_id') is-invalid @enderror" name="user_id" value="{{ Auth::user()->id }}" required autocomplete="user_id" autofocus>
+                    @error('user_id')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
+                </div>
                 <input class="form-control" type="hidden" id="post_rent" name="post_type">
                 <div class="row">
-                <div class=" col-12 mb-3 ">
-                            <label for="post_title_Rent" class="form-label me-2 fw-bold">Post Title</label>
-                            <input name="post_title" type="text" value="" class="form-control" id="post_title_Rent" placeholder="Enter Post Title">
-                        </div>
-                <div class=" col-lg-4 co-md-4 col-sm-12 col-12 mb-3 ">
+                    <div class=" col-12 mb-3 ">
+                        <label for="post_title_Rent" class="form-label me-2 fw-bold">Post Title</label>
+                        <input name="post_title" type="text" value="" class="form-control" id="post_title_Rent" placeholder="Enter Post Title">
+                    </div>
+                    <div class=" col-lg-4 co-md-4 col-sm-12 col-12 mb-3 ">
                         <label for="resort_name_Rent" class="form-label me-2 fw-bold">Rooftop Name</label>
                         <input name="title" type="text" class="form-control" id="resort_name_Rent" placeholder="Enter Rooftop name" required>
                     </div>
@@ -64,7 +59,7 @@
                     </div>
                     <div class=" col-lg-4 co-md-4 col-sm-12 col-12 mb-3">
                         <label for="phone_Rent" class="form-label me-2 fw-bold">Mobile</label>
-                        <input name="phone" type="number" class="form-control" id="phone_Rent" placeholder="Enter Rooftop name" value="{{$list->phone}}" readonly> 
+                        <input name="phone" type="number" class="form-control" id="phone_Rent" placeholder="Enter Rooftop name" value="{{$list->phone}}" readonly>
                     </div>
                     <div class="col-lg-4 co-md-4 col-sm-12 col-12 mb-3 ">
                         <label for="Area_Rent" class="form-label me-2 fw-bold">Rooftop Area</label>
@@ -84,15 +79,15 @@
                         <textarea name="description" type="text" class="form-control" id="description_Rent" rows="3" placeholder="Enter Description"></textarea>
                     </div>
                     <div class="col-lg-4 co-md-4 col-sm-12 col-12 mb-3 ">
-                        <h2 class="fw-bold mb-3">Ameneties</h2>
+                        <h2 class="fw-bold mb-3">Amenities</h2>
                         <div class="form-check ms-5 mb-2">
-                            <input class="form-check-input" type="checkbox"  id="water_Rent" name="water">
+                            <input class="form-check-input" type="checkbox" id="water_Rent" name="water">
                             <label class="form-check-label" for="water_Rent">
                                 Water
                             </label>
                         </div>
                         <div class="form-check ms-5 mb-2">
-                            <input class="form-check-input" type="checkbox"  id="electricity_Rent" name="electricity">
+                            <input class="form-check-input" type="checkbox" id="electricity_Rent" name="electricity">
                             <label class="form-check-label" for="electricity_Rent">
                                 Electricity
                             </label>
@@ -122,7 +117,7 @@
                             </label>
                         </div>
                         <div class="form-check ms-5 mb-2">
-                            <input class="form-check-input" type="checkbox"  id="shed_Rent" name="shed">
+                            <input class="form-check-input" type="checkbox" id="shed_Rent" name="shed">
                             <label class="form-check-label" for="shed_Rent">
                                 Shed
                             </label>
@@ -186,22 +181,22 @@
         </div>
         <div class="col-12" id="Want" style="display: none;">
             <form method="POST" action="{{ route('post_rooftop_wanted') }}">
-                    @csrf
-                    <div class="col-md-6">
-                        <input id="user_id" type="hidden" class="form-control @error('user_id') is-invalid @enderror" name="user_id" value="{{ Auth::user()->id }}" required autocomplete="user_id" autofocus>
-                        @error('user_id')
-                        <span class="invalid-feedback" role="alert">
-                            <strong>{{ $message }}</strong>
-                        </span>
-                        @enderror
-                    </div>
+                @csrf
+                <div class="col-md-6">
+                    <input id="user_id" type="hidden" class="form-control @error('user_id') is-invalid @enderror" name="user_id" value="{{ Auth::user()->id }}" required autocomplete="user_id" autofocus>
+                    @error('user_id')
+                    <span class="invalid-feedback" role="alert">
+                        <strong>{{ $message }}</strong>
+                    </span>
+                    @enderror
+                </div>
                 <input class="form-control" type="hidden" id="post_want" name="post_type">
                 <div class="row">
-                <div class=" col-12 mb-3 ">
-                            <label for="post_title_Went" class="form-label me-2 fw-bold">Post Title</label>
-                            <input name="post_title" type="text" value="" class="form-control" id="post_title_Went" placeholder="Enter Post Title">
-                        </div>
-                <div class="col-lg-4 co-md-4 col-sm-12 col-12 mb-3">
+                    <div class=" col-12 mb-3 ">
+                        <label for="post_title_Went" class="form-label me-2 fw-bold">Post Title</label>
+                        <input name="post_title" type="text" value="" class="form-control" id="post_title_Went" placeholder="Enter Post Title">
+                    </div>
+                    <div class="col-lg-4 co-md-4 col-sm-12 col-12 mb-3">
                         <label for="resort_name_Want" class="form-label me-2 fw-bold">Rooftop Name</label>
                         <input name="title" type="text" class="form-control" id="resort_name_Want" placeholder="Enter Rooftop name" required>
                     </div>
@@ -211,7 +206,7 @@
                     </div>
                     <div class=" col-lg-4 co-md-4 col-sm-12 col-12 mb-3">
                         <label for="phone_Want" class="form-label me-2 fw-bold">Mobile</label>
-                        <input name="phone" type="number" class="form-control" id="phone_Want" placeholder="Enter Rooftop name" value="{{$list->phone}}" readonly> 
+                        <input name="phone" type="number" class="form-control" id="phone_Want" placeholder="Enter Rooftop name" value="{{$list->phone}}" readonly>
                     </div>
                     <div class="col-lg-4 co-md-4 col-sm-12 col-12 mb-3 ">
                         <label for="Area_Want" class="form-label me-2 fw-bold">Rooftop Area</label>
@@ -219,11 +214,10 @@
                     </div>
                     <div class="col-lg-4 co-md-4 col-sm-12 col-12 mb-3">
                         <label for="price_Rent" class="form-label me-2 fw-bold">Rent</label>
-                        <!-- <input name="price" type="number" class="form-control" id="price_Rent" placeholder="Enter Price" required> -->
                         <div class="row">
                             <div class="col-4 pe-0">
                                 <div class="input-group mb-3">
-                                    <input type="text" class="form-control" aria-label="Text input with dropdown button">
+                                    <input name="price" type="number" id="price_Rent" class="form-control" placeholder="Enter Price" required aria-label="Text input with dropdown button">
                                 </div>
                             </div>
                             <div class="col-1">
@@ -233,12 +227,18 @@
                                 <div class="input-group mb-3">
                                     <select class="form-select form-select-md mb-3" aria-label=".form-select-lg example">
                                         <option selected hidden>Choose Rent Type</option>
-                                        <option value="hour">Hour</></option>
-                                        <option value="day"> Day</></option>
-                                        <option value="night"> Only Night</></option>
-                                        <option value="week"> Week</></option>
-                                        <option value="month"> Month</></option>
-                                        <option value="year"> Year</></option>
+                                        <option value="hour">Hour</>
+                                        </option>
+                                        <option value="day"> Day</>
+                                        </option>
+                                        <option value="night"> Only Night</>
+                                        </option>
+                                        <option value="week"> Week</>
+                                        </option>
+                                        <option value="month"> Month</>
+                                        </option>
+                                        <option value="year"> Year</>
+                                        </option>
                                     </select>
                                 </div>
                             </div>
@@ -255,57 +255,57 @@
                         <textarea name="description" type="text" class="form-control" id="description_Want" rows="3" placeholder="Enter Description"></textarea>
                     </div>
                     <div class="col-12 mb-3 ">
-                        <h2 class="fw-bold mb-3">Ameneties</h2>
+                        <h2 class="fw-bold mb-3">Amenities</h2>
                         <div class="row ms-5 ">
-                        <div class="form-check mb-2">
-                            <input class="form-check-input" type="checkbox"  id="water_Want" name="water">
-                            <label class="form-check-label" for="water_Want">
-                                Water
-                            </label>
+                            <div class="form-check mb-2">
+                                <input class="form-check-input" type="checkbox" id="water_Want" name="water">
+                                <label class="form-check-label" for="water_Want">
+                                    Water
+                                </label>
+                            </div>
+                            <div class="form-check mb-2">
+                                <input class="form-check-input" type="checkbox" id="electricity_Want" name="electricity">
+                                <label class="form-check-label" for="electricity_Want">
+                                    Electricity
+                                </label>
+                            </div>
+                            <div class="form-check mb-2">
+                                <input class="form-check-input" type="checkbox" id="p_Want" name="p_protection">
+                                <label class="form-check-label" for="p_Want">
+                                    Periphery Protection
+                                </label>
+                            </div>
+                            <div class="form-check mb-2">
+                                <input class="form-check-input" type="checkbox" id="lift_Want" name="lift">
+                                <label class="form-check-label" for="lift_Want">
+                                    Lift
+                                </label>
+                            </div>
+                            <div class="form-check mb-2">
+                                <input class="form-check-input" type="checkbox" id="gen_Want" name="generator">
+                                <label class="form-check-label" for="gen_Want">
+                                    Generator
+                                </label>
+                            </div>
+                            <div class="form-check mb-2">
+                                <input class="form-check-input" type="checkbox" id="attatched_toilet_Want" name="toilet">
+                                <label class="form-check-label" for="attatched_toilet_Want">
+                                    Toilet
+                                </label>
+                            </div>
+                            <div class="form-check mb-2">
+                                <input class="form-check-input" type="checkbox" id="shed_Want" name="shed">
+                                <label class="form-check-label" for="shed_Want">
+                                    Shed
+                                </label>
+                            </div>
+                            <div class="form-check mb-2">
+                                <input class="form-check-input" type="checkbox" id="parking_Want" name="parking">
+                                <label class="form-check-label" for="parking_Want">
+                                    Parking
+                                </label>
+                            </div>
                         </div>
-                        <div class="form-check mb-2">
-                            <input class="form-check-input" type="checkbox"  id="electricity_Want" name="electricity">
-                            <label class="form-check-label" for="electricity_Want">
-                                Electricity
-                            </label>
-                        </div>
-                        <div class="form-check mb-2">
-                            <input class="form-check-input" type="checkbox" id="p_Want" name="p_protection">
-                            <label class="form-check-label" for="p_Want">
-                                Periphery Protection
-                            </label>
-                        </div>
-                        <div class="form-check mb-2">
-                            <input class="form-check-input" type="checkbox" id="lift_Want" name="lift">
-                            <label class="form-check-label" for="lift_Want">
-                                Lift
-                            </label>
-                        </div>
-                        <div class="form-check mb-2">
-                            <input class="form-check-input" type="checkbox" id="gen_Want" name="generator">
-                            <label class="form-check-label" for="gen_Want">
-                                Generator
-                            </label>
-                        </div>
-                        <div class="form-check mb-2">
-                            <input class="form-check-input" type="checkbox" id="attatched_toilet_Want" name="toilet">
-                            <label class="form-check-label" for="attatched_toilet_Want">
-                                Toilet
-                            </label>
-                        </div>
-                        <div class="form-check mb-2">
-                            <input class="form-check-input" type="checkbox"  id="shed_Want" name="shed">
-                            <label class="form-check-label" for="shed_Want">
-                                Shed
-                            </label>
-                        </div>
-                        <div class="form-check mb-2">
-                            <input class="form-check-input" type="checkbox" id="parking_Want" name="parking">
-                            <label class="form-check-label" for="parking_Want">
-                                Parking
-                            </label>
-                        </div>
-                    </div>
 
                     </div>
                     <button class="btn btn-primary w-25 mx-auto" type="submit">Submit</button>

@@ -15,15 +15,17 @@ class CreatePicnicSpotsTable extends Migration
     {
         Schema::create('picnic__spots', function (Blueprint $table) {
             $table->id();
-            $table->string('user_id');
+            $table->bigInteger('user_id');
             $table->string('post_type');
             $table->string('title');
-            $table->string('date');
-            $table->string('phone');
+            $table->string('c_name');
+            $table->date('date');
+            $table->bigInteger('phone');
             $table->string('description')->nullable();
             $table->string('land_area');
             $table->string('address');
-            $table->string('price');
+            $table->bigInteger('price');
+            $table->string('per_price');
             $table->string('electricity')->nullable();
             $table->string('gas')->nullable();
             $table->string('water')->nullable();
@@ -44,7 +46,6 @@ class CreatePicnicSpotsTable extends Migration
             $table->string('video')->nullable();
             $table->integer('active')->default(1);
             $table->bigInteger('table_api')->default(19);
-            $table->SoftDeletes();
             $table->timestamps();
         });
     }

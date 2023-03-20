@@ -15,13 +15,14 @@ class CreateParkingSpotsTable extends Migration
     {
         Schema::create('parking__spots', function (Blueprint $table) {
             $table->id();
-            $table->string('user_id');
+            $table->bigInteger('user_id');
             $table->string('post_type');
             $table->string('title');
-            $table->string('date');
-            $table->string('phone');
+            $table->date('date');
+            $table->bigInteger('phone');
             $table->string('address');
-            $table->string('price');
+            $table->bigInteger('price');
+            $table->string('per_price');
             $table->string('floor_level');
             $table->string('floor_height');
             $table->string('description')->nullable();

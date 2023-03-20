@@ -15,15 +15,17 @@ class CreatePlayGroundsTable extends Migration
     {
         Schema::create('play_grounds', function (Blueprint $table) {
             $table->id();
-            $table->string('user_id');
+            $table->bigInteger('user_id');
             $table->string('post_type');
             $table->string('title');
-            $table->string('date');
-            $table->string('phone');
+            $table->string('c_name');
+            $table->date('date');
+            $table->bigInteger('phone');
             $table->string('description')->nullable();
             $table->string('address');
             $table->string('area');
-            $table->string('price');
+            $table->bigInteger('price');
+            $table->string('per_price');
             $table->string('shed')->nullable();
             $table->string('toilet')->nullable();
             $table->string('change_room')->nullable();
@@ -41,7 +43,6 @@ class CreatePlayGroundsTable extends Migration
             $table->string('video')->nullable();
             $table->integer('active')->default(1);
             $table->bigInteger('table_api')->default(17);
-            $table->SoftDeletes();
             $table->timestamps();
         });
     }

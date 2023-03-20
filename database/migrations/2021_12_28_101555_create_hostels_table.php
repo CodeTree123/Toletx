@@ -15,17 +15,19 @@ class CreateHostelsTable extends Migration
     {
         Schema::create('hostels', function (Blueprint $table) {
             $table->id();
-            $table->string('user_id');
+            $table->bigInteger('user_id');
             $table->string('post_type');
-            $table->string('date');
-            $table->string('phone');
-            $table->string('s_charge')->nullable();
+            $table->date('date');
+            $table->bigInteger('phone');
+            $table->bigInteger('s_charge');
+            $table->string('s_per_price');
             $table->string('description')->nullable();
             $table->string('hostel_name');
             $table->string('address');
             $table->string('room_size');
             $table->string('room_type');
-            $table->string('price');
+            $table->bigInteger('price');
+            $table->string('per_price');
             $table->string('wifi')->nullable();
             $table->string('attached_toilet')->nullable();
             $table->string('generator')->nullable();
