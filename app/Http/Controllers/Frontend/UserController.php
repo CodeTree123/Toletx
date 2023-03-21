@@ -42,22 +42,13 @@ class UserController extends Controller
     function index()
     {
         $marketing = marketing::where('e_date', '<=', Carbon::today())->get();
-        // dd($marketing);
         return view('frontend.layouts.service_item', compact('marketing'));
     }
     function registration()
     {
         return view('frontend.layouts.registration');
     }
-    function header()
-    {
 
-        return view('frontend.include.header');
-    }
-    function footer()
-    {
-        return view('frontend.include.footer');
-    }
     function faq()
     {
         return view('frontend.layouts.faq');

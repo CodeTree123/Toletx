@@ -49,6 +49,23 @@
                 <!-- Service Items Start -->
                 <div class="col-lg-7 col-md-7 center-service-item">
                     @yield('content')
+                    @if ($message = Session::get('success'))
+                    <div class="alert alert-success alert-block" id="hello">
+                        <button type="button" class="close" data-dismiss="alert">×</button>
+                        <strong>{{ $message }}</strong>
+                    </div>
+                    @endif
+
+                    @if (count($errors) > 0)
+                    <div class="alert alert-danger">
+                        <strong>Whoops!</strong> There were some problems with your input.
+                        <ul>
+                            @foreach ($errors->all() as $error)
+                            <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                    @endif
                 </div>
                 <!-- Service Items End -->
                 <div class="col-lg-5 col-md-5 " style="height:fit-content;">
@@ -122,9 +139,5 @@
     <!-- Section End -->
     @include('frontend.include.footer')
 </body>
-
-<script>
-
-</script>
 
 </html>

@@ -99,7 +99,7 @@
                     </div>
                 </form>
             </div>
-            @if(Auth::user()) 
+            @if(Auth::user())
             <!-- <div class="col-lg-1  col-md-1 col-sm-1 col-2 dropdown ">
                 <button class="btn bell px-lg-0 px-md-0 px-sm-0 px-3" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="Dropstart">
                     <i class="far fa-bell notification-icon "></i>
@@ -263,7 +263,7 @@
             @else
             <!-- Button trigger modal -->
             <div class="col-md-2 col-2">
-                <button type="button" id="post_your_ad" class="btn btn-primary btn-toggole-modal"> 
+                <button type="button" id="post_your_ad" class="btn btn-primary btn-toggole-modal">
                     <!-- <i class="fa-solid fa-plus"></i> -->
                     Post
                 </button>

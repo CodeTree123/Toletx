@@ -612,7 +612,15 @@ class ApiController extends BaseController
 
     public function api_list_user($id)
     {
-        return User::find($id);
+        $success = User::find($id);
+        if($success)
+        {
+            return $this->sendResponse($success, 'User information.');
+        }
+        else{
+            return $this->sendError('User not found.');
+        }
+
     }
 
     public function api_user_service_list($id)

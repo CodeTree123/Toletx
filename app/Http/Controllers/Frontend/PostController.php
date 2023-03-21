@@ -262,10 +262,10 @@ class PostController extends Controller
         $list = User::findOrFail($id);
         return view('frontend.user.user_edit', compact('list'));
     }
-    //ghat
-    function post_ghat_rented(Request $request)
-    {
 
+    //room post
+    function post_room_rented(Request $request)
+    {
         $filename = '';
         $filename1 = '';
         $filename2 = '';
@@ -276,295 +276,72 @@ class PostController extends Controller
         // store photo
         if ($request->hasFile('photo')) {
             $file = $request->file('photo');
-            $destinationPath = 'public/uploads/ghats/';
-            $filename =  "ghat-1-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
+            $destinationPath = 'public/uploads/rooms/';
+            $filename =  "room-1-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
             $file->move($destinationPath, $filename);
         }
 
         if ($request->hasFile('photo1')) {
             $file = $request->file('photo1');
-            $destinationPath = 'public/uploads/ghats/';
-            $filename1 =  "ghat-2-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
+            $destinationPath = 'public/uploads/rooms/';
+            $filename1 =  "room-2-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
             $file->move($destinationPath, $filename1);
         }
         if ($request->hasFile('photo2')) {
             $file = $request->file('photo2');
-            $destinationPath = 'public/uploads/ghats/';
-            $filename2 =  "ghat-3-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
+            $destinationPath = 'public/uploads/rooms/';
+            $filename2 =  "room-3-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
             $file->move($destinationPath, $filename2);
         }
         if ($request->hasFile('photo3')) {
             $file = $request->file('photo3');
-            $destinationPath = 'public/uploads/ghats/';
-            $filename3 =  "ghat-4-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
+            $destinationPath = 'public/uploads/rooms/';
+            $filename3 =  "room-4-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
             $file->move($destinationPath, $filename3);
         }
         if ($request->hasFile('photo4')) {
             $file = $request->file('photo4');
-            $destinationPath = 'public/uploads/ghats/';
-            $filename4 =  "ghat-5-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
+            $destinationPath = 'public/uploads/rooms/';
+            $filename4 =  "room-5-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
             $file->move($destinationPath, $filename4);
         }
         if ($request->hasFile('photo5')) {
             $file = $request->file('photo5');
-            $destinationPath = 'public/uploads/ghats/';
-            $filename5 =  "ghat-6-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
+            $destinationPath = 'public/uploads/rooms/';
+            $filename5 =  "room-6-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
             $file->move($destinationPath, $filename5);
         }
         if ($request->hasFile('photo6')) {
             $file = $request->file('photo6');
-            $destinationPath = 'public/uploads/ghats/';
-            $filename6 =  "ghat-7-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
+            $destinationPath = 'public/uploads/rooms/';
+            $filename6 =  "room-7-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
             $file->move($destinationPath, $filename6);
         }
-
-        Ghat::create([
+        Room::create([
             'user_id' => $request->user_id,
             'post_type' => $request->post_type,
             'title' => $request->title,
-            'date' => $request->date,
-            'phone' => $request->phone,
-            'price' => $request->price,
-            'description' => $request->description,
-            'y_price' => $request->y_price,
-            'address' => $request->address,
-            'toilet' => $request->toilet,
-            'parking' => $request->parking,
-            'photo' => $filename,
-            'photo1' => $filename1,
-            'photo2' => $filename2,
-            'photo3' => $filename3,
-            'photo4' => $filename4,
-            'photo5' => $filename5,
-            'photo6' => $filename6,
-            'video' => $request->video,
-            'active' => 1,
-            'created_at'   => Carbon::now()
-        ]);
-
-        return back()->with('success', 'Ghat information have been successfully Added.');
-    }
-    function post_ghat_wanted(Request $request)
-    {
-
-
-        $ghat = Ghat::create([
-            'user_id' => $request->user_id,
-            'post_type' => $request->post_type,
-            'title' => $request->title,
-            'date' => $request->date,
-            'phone' => $request->phone,
-            'price' => $request->price,
-            'description' => $request->description,
-            'y_price' => $request->y_price,
-            'address' => $request->address,
-            'toilet' => $request->toilet,
-            'parking' => $request->parking,
-            'active' => 1,
-            'created_at'   => Carbon::now()
-        ]);
-
-        return back()->with('success', 'Ghat information have been successfully Added.');
-    }
-    //end ghat
-
-    //picnic
-    function post_picnic_rented(Request $request)
-    {
-
-        $filename = '';
-        $filename1 = '';
-        $filename2 = '';
-        $filename3 = '';
-        $filename4 = '';
-        $filename5 = '';
-        $filename6 = '';
-        // store photo
-        if ($request->hasFile('photo')) {
-            $file = $request->file('photo');
-            $destinationPath = 'public/uploads/picnics/';
-            $filename =  "picnic-1-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
-            $file->move($destinationPath, $filename);
-        }
-
-        if ($request->hasFile('photo1')) {
-            $file = $request->file('photo1');
-            $destinationPath = 'public/uploads/picnics/';
-            $filename1 =  "picnic-2-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
-            $file->move($destinationPath, $filename1);
-        }
-        if ($request->hasFile('photo2')) {
-            $file = $request->file('photo2');
-            $destinationPath = 'public/uploads/picnics/';
-            $filename2 =  "picnic-3-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
-            $file->move($destinationPath, $filename2);
-        }
-        if ($request->hasFile('photo3')) {
-            $file = $request->file('photo3');
-            $destinationPath = 'public/uploads/picnics/';
-            $filename3 =  "picnic-4-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
-            $file->move($destinationPath, $filename3);
-        }
-        if ($request->hasFile('photo4')) {
-            $file = $request->file('photo4');
-            $destinationPath = 'public/uploads/picnics/';
-            $filename4 =  "picnic-5-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
-            $file->move($destinationPath, $filename4);
-        }
-        if ($request->hasFile('photo5')) {
-            $file = $request->file('photo5');
-            $destinationPath = 'public/uploads/picnics/';
-            $filename5 =  "picnic-6-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
-            $file->move($destinationPath, $filename5);
-        }
-        if ($request->hasFile('photo6')) {
-            $file = $request->file('photo6');
-            $destinationPath = 'public/uploads/picnics/';
-            $filename6 =  "picnic-7-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
-            $file->move($destinationPath, $filename6);
-        }
-
-        Picnic_Spot::create([
-            'user_id' => $request->user_id,
-            'post_type' => $request->post_type,
-            'title' => $request->title,
-            'date' => $request->date,
-            'phone' => $request->phone,
-            'address' => $request->address,
-            'description' => $request->description,
-            'land_area' => $request->land_area,
-            'price' => $request->price,
-            'generator' => $request->generator,
-            'electricity' => $request->electricity,
-            'gas' => $request->gas,
-            'water' => $request->water,
-            'shed' => $request->shed,
-            'dining' => $request->dining,
-            'toilet' => $request->toilet,
-            'lift' => $request->lift,
-            'parking' => $request->parking,
-            'change_room' => $request->change_room,
-            'photo' => $filename,
-            'photo1' => $filename1,
-            'photo2' => $filename2,
-            'photo3' => $filename3,
-            'photo4' => $filename4,
-            'photo5' => $filename5,
-            'photo6' => $filename6,
-            'video' => $request->video,
-            'active' => 1,
-            'created_at'   => Carbon::now()
-        ]);
-
-        return back()->with('success', 'Picnic information have been successfully Added.');
-    }
-    function post_picnic_wanted(Request $request)
-    {
-
-        $picnic = Picnic_Spot::create([
-            'user_id' => $request->user_id,
-            'post_type' => $request->post_type,
-            'title' => $request->title,
-            'date' => $request->date,
-            'phone' => $request->phone,
-            'address' => $request->address,
-            'description' => $request->description,
-            'land_area' => $request->land_area,
-            'generator' => $request->generator,
-            'price' => $request->price,
-            'electricity' => $request->electricity,
-            'gas' => $request->gas,
-            'water' => $request->water,
-            'shed' => $request->shed,
-            'dining' => $request->dining,
-            'toilet' => $request->toilet,
-            'lift' => $request->lift,
-            'parking' => $request->parking,
-            'change_room' => $request->change_room,
-            'active' => 1,
-            'created_at'   => Carbon::now()
-        ]);
-
-        return back()->with('success', 'Picnic information have been successfully Added.');
-    }
-    //end picnic
-    function post_hotel_rented(Request $request)
-    {
-
-        $filename = '';
-        $filename1 = '';
-        $filename2 = '';
-        $filename3 = '';
-        $filename4 = '';
-        $filename5 = '';
-        $filename6 = '';
-        // store photo
-        if ($request->hasFile('photo')) {
-            $file = $request->file('photo');
-            $destinationPath = 'public/uploads/hotels/';
-            $filename =  "hotel-1-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
-            $file->move($destinationPath, $filename);
-        }
-
-        if ($request->hasFile('photo1')) {
-            $file = $request->file('photo1');
-            $destinationPath = 'public/uploads/hotels/';
-            $filename1 =  "hotel-2-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
-            $file->move($destinationPath, $filename1);
-        }
-        if ($request->hasFile('photo2')) {
-            $file = $request->file('photo2');
-            $destinationPath = 'public/uploads/hotels/';
-            $filename2 =  "hotel-3-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
-            $file->move($destinationPath, $filename2);
-        }
-        if ($request->hasFile('photo3')) {
-            $file = $request->file('photo3');
-            $destinationPath = 'public/uploads/hotels/';
-            $filename3 =  "hotel-4-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
-            $file->move($destinationPath, $filename3);
-        }
-        if ($request->hasFile('photo4')) {
-            $file = $request->file('photo4');
-            $destinationPath = 'public/uploads/hotels/';
-            $filename4 =  "hotel-5-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
-            $file->move($destinationPath, $filename4);
-        }
-        if ($request->hasFile('photo5')) {
-            $file = $request->file('photo5');
-            $destinationPath = 'public/uploads/hotels/';
-            $filename5 =  "hotel-6-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
-            $file->move($destinationPath, $filename5);
-        }
-        if ($request->hasFile('photo6')) {
-            $file = $request->file('photo6');
-            $destinationPath = 'public/uploads/hotels/';
-            $filename6 =  "hotel-7-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
-            $file->move($destinationPath, $filename6);
-        }
-        Hotel::create([
-            'user_id' => $request->user_id,
-            'post_type' => $request->post_type,
             'date' => $request->date,
             'phone' => $request->phone,
             's_charge' => $request->s_charge,
             'description' => $request->description,
-            'hotel_name' => $request->hotel_name,
-            'location' => $request->location,
-            'room_type' => $request->room_type,
-            'bathroom' => $request->bathroom,
-            'wifi' => $request->wifi,
-            'lift' => $request->lift,
-            'hot_water' => $request->hot_water,
-            'generator' => $request->generator,
-            'parking' => $request->parking,
-            'ac' => $request->ac,
-            'laundry' => $request->laundry,
+            'address' => $request->address,
+            'room_size' => $request->room_size,
             'price' => $request->price,
-            'gym' => $request->gym,
-            'sports' => $request->sports,
-            'dining' => $request->dining,
-            'fire_exit' => $request->fire_exit,
+            'guest_count' => $request->guest_count,
+            'wifi' => $request->wifi,
+            'attached_toilet' => $request->attached_toilet,
+            'varanda' => $request->varanda,
+            'gas' => $request->gas,
+            'water' => $request->water,
+            'electricity' => $request->electricity,
+            'lift' => $request->lift,
+            'furnished' => $request->furnished,
+            'hot_water' => $request->hot_water,
+            'ac' => $request->ac,
+            'cable_tv' => $request->cable_tv,
+            'parking' => $request->parking,
+            'generator' => $request->generator,
             'photo' => $filename,
             'photo1' => $filename1,
             'photo2' => $filename2,
@@ -577,40 +354,186 @@ class PostController extends Controller
             'created_at'   => Carbon::now()
         ]);
 
-        return back()->with('success', 'Hotel information have been successfully Added.');
+        return back()->with('success', 'Room information have been successfully Added.');
     }
-
-    function post_hotel_wanted(Request $request)
+    function post_room_wanted(Request $request)
     {
-        $hotel = Hotel::create([
+        Room::create([
             'user_id' => $request->user_id,
             'post_type' => $request->post_type,
+            'title' => $request->title,
             'date' => $request->date,
             'phone' => $request->phone,
             's_charge' => $request->s_charge,
             'description' => $request->description,
-            'hotel_name' => $request->hotel_name,
-            'location' => $request->location,
-            'hot_water' => $request->hot_water,
-            'generator' => $request->generator,
-            'room_type' => $request->room_type,
-            'bathroom' => $request->bathroom,
-            'wifi' => $request->wifi,
-            'lift' => $request->lift,
-            'parking' => $request->parking,
-            'ac' => $request->ac,
-            'laundry' => $request->laundry,
+            'address' => $request->address,
+            'room_size' => $request->room_size,
             'price' => $request->price,
-            'gym' => $request->gym,
-            'sports' => $request->sports,
-            'dining' => $request->dining,
-            'fire_exit' => $request->fire_exit,
+            'guest_count' => $request->guest_count,
+            'wifi' => $request->wifi,
+            'attached_toilet' => $request->attached_toilet,
+            'varanda' => $request->varanda,
+            'gas' => $request->gas,
+            'water' => $request->water,
+            'electricity' => $request->electricity,
+            'lift' => $request->lift,
+            'furnished' => $request->furnished,
+            'hot_water' => $request->hot_water,
+            'ac' => $request->ac,
+            'cable_tv' => $request->cable_tv,
+            'parking' => $request->parking,
+            'generator' => $request->generator,
             'active' => 1,
             'created_at'   => Carbon::now()
         ]);
 
-        return back()->with('success', 'Hotel information have been successfully Added.');
+        return back()->with('success', 'Room information have been successfully Added.');
     }
+    //end room post
+
+    //Flat post
+    function post_flat_rented(Request $request)
+    {
+
+        $filename = '';
+        $filename1 = '';
+        $filename2 = '';
+        $filename3 = '';
+        $filename4 = '';
+        $filename5 = '';
+        $filename6 = '';
+        // store photo
+        if ($request->hasFile('photo')) {
+            $file = $request->file('photo');
+            $destinationPath = 'public/uploads/flats/';
+            $filename =  "flat-1-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
+            $file->move($destinationPath, $filename);
+        }
+
+        if ($request->hasFile('photo1')) {
+            $file = $request->file('photo1');
+            $destinationPath = 'public/uploads/flats/';
+            $filename1 =  "flat-2-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
+            $file->move($destinationPath, $filename1);
+        }
+        if ($request->hasFile('photo2')) {
+            $file = $request->file('photo2');
+            $destinationPath = 'public/uploads/flats/';
+            $filename2 =  "flat-3-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
+            $file->move($destinationPath, $filename2);
+        }
+        if ($request->hasFile('photo3')) {
+            $file = $request->file('photo3');
+            $destinationPath = 'public/uploads/flats/';
+            $filename3 =  "flat-4-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
+            $file->move($destinationPath, $filename3);
+        }
+        if ($request->hasFile('photo4')) {
+            $file = $request->file('photo4');
+            $destinationPath = 'public/uploads/flats/';
+            $filename4 =  "flat-5-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
+            $file->move($destinationPath, $filename4);
+        }
+        if ($request->hasFile('photo5')) {
+            $file = $request->file('photo5');
+            $destinationPath = 'public/uploads/flats/';
+            $filename5 =  "flat-6-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
+            $file->move($destinationPath, $filename5);
+        }
+        if ($request->hasFile('photo6')) {
+            $file = $request->file('photo6');
+            $destinationPath = 'public/uploads/flats/';
+            $filename6 =  "flat-7-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
+            $file->move($destinationPath, $filename6);
+        }
+
+        Flat::create([
+            'user_id' => $request->user_id,
+            'post_type' => $request->post_type,
+            'title' => $request->title,
+            'date' => $request->date,
+            'phone' => $request->phone,
+            's_charge' => $request->s_charge,
+            's_per_charge' => $request->s_per_charge,
+            'price' => $request->price,
+            'per_price' => $request->per_price,
+            'description' => $request->description,
+            'address' => $request->address,
+            'flat_size' => $request->flat_size,
+            'floor_level' => $request->floor_level,
+            'bedrooms' => $request->bedrooms,
+            'fire_exit' => $request->fire_exit,
+            'wifi' => $request->wifi,
+            'attached_toilet' => $request->attached_toilet,
+            'kitchen' => $request->kitchen,
+            'drawing' => $request->drawing,
+            'varanda' => $request->varanda,
+            'dining' => $request->dining,
+            'lift' => $request->lift,
+            'furnished' => $request->furnished,
+            'generator' => $request->generator,
+            'hot_water' => $request->hot_water,
+            'ac' => $request->ac,
+            'cable_tv' => $request->cable_tv,
+            'gas' => $request->gas,
+            'water' => $request->water,
+            'electricity' => $request->electricity,
+            'parking' => $request->parking,
+            'photo' => $filename,
+            'photo1' => $filename1,
+            'photo2' => $filename2,
+            'photo3' => $filename3,
+            'photo4' => $filename4,
+            'photo5' => $filename5,
+            'photo6' => $filename6,
+            'video' => $request->video,
+            'active' => 1,
+            'created_at'   => Carbon::now()
+        ]);
+
+        return back()->with('success', 'Flat information have been successfully Added.');
+    }
+    function post_flat_wanted(Request $request)
+    {
+        Flat::create([
+            'user_id' => $request->user_id,
+            'post_type' => $request->post_type,
+            'title' => $request->title,
+            'date' => $request->date,
+            'phone' => $request->phone,
+            's_charge' => $request->s_charge,
+            's_per_charge' => $request->s_per_charge,
+            'price' => $request->price,
+            'per_price' => $request->per_price,
+            'description' => $request->description,
+            'address' => $request->address,
+            'flat_size' => $request->flat_size,
+            'floor_level' => $request->floor_level,
+            'bedrooms' => $request->bedrooms,
+            'fire_exit' => $request->fire_exit,
+            'wifi' => $request->wifi,
+            'attached_toilet' => $request->attached_toilet,
+            'kitchen' => $request->kitchen,
+            'drawing' => $request->drawing,
+            'varanda' => $request->varanda,
+            'dining' => $request->dining,
+            'lift' => $request->lift,
+            'furnished' => $request->furnished,
+            'generator' => $request->generator,
+            'hot_water' => $request->hot_water,
+            'ac' => $request->ac,
+            'cable_tv' => $request->cable_tv,
+            'gas' => $request->gas,
+            'water' => $request->water,
+            'electricity' => $request->electricity,
+            'parking' => $request->parking,
+            'active' => 1,
+            'created_at' => Carbon::now()
+        ]);
+        return back()->with('success', 'Flat information have been successfully Added.');
+    }
+    //end flat post
+
     //building
     function post_building_rented(Request $request)
     {
@@ -735,144 +658,8 @@ class PostController extends Controller
         return back()->with('success', 'Building Wanted post successfully Added.');
     }
     //end building
-    function post_flat_rented(Request $request)
-    {
 
-        $filename = '';
-        $filename1 = '';
-        $filename2 = '';
-        $filename3 = '';
-        $filename4 = '';
-        $filename5 = '';
-        $filename6 = '';
-        // store photo
-        if ($request->hasFile('photo')) {
-            $file = $request->file('photo');
-            $destinationPath = 'public/uploads/flats/';
-            $filename =  "flat-1-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
-            $file->move($destinationPath, $filename);
-        }
-
-        if ($request->hasFile('photo1')) {
-            $file = $request->file('photo1');
-            $destinationPath = 'public/uploads/flats/';
-            $filename1 =  "flat-2-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
-            $file->move($destinationPath, $filename1);
-        }
-        if ($request->hasFile('photo2')) {
-            $file = $request->file('photo2');
-            $destinationPath = 'public/uploads/flats/';
-            $filename2 =  "flat-3-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
-            $file->move($destinationPath, $filename2);
-        }
-        if ($request->hasFile('photo3')) {
-            $file = $request->file('photo3');
-            $destinationPath = 'public/uploads/flats/';
-            $filename3 =  "flat-4-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
-            $file->move($destinationPath, $filename3);
-        }
-        if ($request->hasFile('photo4')) {
-            $file = $request->file('photo4');
-            $destinationPath = 'public/uploads/flats/';
-            $filename4 =  "flat-5-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
-            $file->move($destinationPath, $filename4);
-        }
-        if ($request->hasFile('photo5')) {
-            $file = $request->file('photo5');
-            $destinationPath = 'public/uploads/flats/';
-            $filename5 =  "flat-6-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
-            $file->move($destinationPath, $filename5);
-        }
-        if ($request->hasFile('photo6')) {
-            $file = $request->file('photo6');
-            $destinationPath = 'public/uploads/flats/';
-            $filename6 =  "flat-7-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
-            $file->move($destinationPath, $filename6);
-        }
-
-        Flat::create([
-            'user_id' => $request->user_id,
-            'post_type' => $request->post_type,
-            'title' => $request->title,
-            'date' => $request->date,
-            'phone' => $request->phone,
-            's_charge' => $request->s_charge,
-            'description' => $request->description,
-            'address' => $request->address,
-            'flat_size' => $request->flat_size,
-            'floor_level' => $request->floor_level,
-            'bedrooms' => $request->bedrooms,
-            'fire_exit' => $request->fire_exit,
-            'description' => $request->description,
-            'generator' => $request->generator,
-            'drawing' => $request->drawing,
-            'dining' => $request->dining,
-            'varanda' => $request->varanda,
-            'attached_toilet' => $request->attached_toilet,
-            'ac' => $request->ac,
-            'hot_water' => $request->hot_water,
-            'cable_tv' => $request->cable_tv,
-            'kitchen' => $request->kitchen,
-            'wifi' => $request->wifi,
-            'lift' => $request->lift,
-            'furnished' => $request->furnished,
-            'parking' => $request->parking,
-            'gas' => $request->gas,
-            'water' => $request->water,
-            'electricity' => $request->electricity,
-            'price' => $request->price,
-            'photo' => $filename,
-            'photo1' => $filename1,
-            'photo2' => $filename2,
-            'photo3' => $filename3,
-            'photo4' => $filename4,
-            'photo5' => $filename5,
-            'photo6' => $filename6,
-            'video' => $request->video,
-            'active' => 1,
-            'created_at'   => Carbon::now()
-        ]);
-
-        return back()->with('success', 'Flat information have been successfully Added.');
-    }
-    function post_flat_wanted(Request $request)
-    {
-        $flat = Flat::create([
-            'user_id' => $request->user_id,
-            'post_type' => $request->post_type,
-            'title' => $request->title,
-            'date' => $request->date,
-            'phone' => $request->phone,
-            's_charge' => $request->s_charge,
-            'description' => $request->description,
-            'address' => $request->address,
-            'flat_size' => $request->flat_size,
-            'floor_level' => $request->floor_level,
-            'bedrooms' => $request->bedrooms,
-            'fire_exit' => $request->fire_exit,
-            'description' => $request->description,
-            'generator' => $request->generator,
-            'drawing' => $request->drawing,
-            'dining' => $request->dining,
-            'varanda' => $request->varanda,
-            'attached_toilet' => $request->attached_toilet,
-            'ac' => $request->ac,
-            'hot_water' => $request->hot_water,
-            'cable_tv' => $request->cable_tv,
-            'kitchen' => $request->kitchen,
-            'wifi' => $request->wifi,
-            'lift' => $request->lift,
-            'furnished' => $request->furnished,
-            'parking' => $request->parking,
-            'gas' => $request->gas,
-            'water' => $request->water,
-            'electricity' => $request->electricity,
-            'price' => $request->price,
-            'active' => 1,
-            'created_at' => Carbon::now()
-        ]);
-        return back()->with('success', 'Flat information have been successfully Added.');
-    }
+    // garage
 
     function post_parking_spot_rented(Request $request)
     {
@@ -975,8 +762,14 @@ class PostController extends Controller
         ]);
         return back()->with('success', 'Garage information have been successfully Added.');
     }
-    function post_room_rented(Request $request)
+
+    //end garage
+
+    // hotel
+
+    function post_hotel_rented(Request $request)
     {
+
         $filename = '';
         $filename1 = '';
         $filename2 = '';
@@ -987,72 +780,70 @@ class PostController extends Controller
         // store photo
         if ($request->hasFile('photo')) {
             $file = $request->file('photo');
-            $destinationPath = 'public/uploads/rooms/';
-            $filename =  "room-1-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
+            $destinationPath = 'public/uploads/hotels/';
+            $filename =  "hotel-1-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
             $file->move($destinationPath, $filename);
         }
 
         if ($request->hasFile('photo1')) {
             $file = $request->file('photo1');
-            $destinationPath = 'public/uploads/rooms/';
-            $filename1 =  "room-2-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
+            $destinationPath = 'public/uploads/hotels/';
+            $filename1 =  "hotel-2-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
             $file->move($destinationPath, $filename1);
         }
         if ($request->hasFile('photo2')) {
             $file = $request->file('photo2');
-            $destinationPath = 'public/uploads/rooms/';
-            $filename2 =  "room-3-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
+            $destinationPath = 'public/uploads/hotels/';
+            $filename2 =  "hotel-3-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
             $file->move($destinationPath, $filename2);
         }
         if ($request->hasFile('photo3')) {
             $file = $request->file('photo3');
-            $destinationPath = 'public/uploads/rooms/';
-            $filename3 =  "room-4-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
+            $destinationPath = 'public/uploads/hotels/';
+            $filename3 =  "hotel-4-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
             $file->move($destinationPath, $filename3);
         }
         if ($request->hasFile('photo4')) {
             $file = $request->file('photo4');
-            $destinationPath = 'public/uploads/rooms/';
-            $filename4 =  "room-5-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
+            $destinationPath = 'public/uploads/hotels/';
+            $filename4 =  "hotel-5-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
             $file->move($destinationPath, $filename4);
         }
         if ($request->hasFile('photo5')) {
             $file = $request->file('photo5');
-            $destinationPath = 'public/uploads/rooms/';
-            $filename5 =  "room-6-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
+            $destinationPath = 'public/uploads/hotels/';
+            $filename5 =  "hotel-6-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
             $file->move($destinationPath, $filename5);
         }
         if ($request->hasFile('photo6')) {
             $file = $request->file('photo6');
-            $destinationPath = 'public/uploads/rooms/';
-            $filename6 =  "room-7-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
+            $destinationPath = 'public/uploads/hotels/';
+            $filename6 =  "hotel-7-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
             $file->move($destinationPath, $filename6);
         }
-        Room::create([
+        Hotel::create([
             'user_id' => $request->user_id,
             'post_type' => $request->post_type,
-            'title' => $request->title,
             'date' => $request->date,
             'phone' => $request->phone,
-            'description' => $request->description,
-            'address' => $request->address,
-            'price' => $request->price,
             's_charge' => $request->s_charge,
-            'room_size' => $request->room_size,
-            'furnished' => $request->furnished,
-            'electricity' => $request->electricity,
-            'gas' => $request->gas,
-            'water' => $request->water,
-            'attached_toilet' => $request->attached_toilet,
-            'hot_water' => $request->hot_water,
-            'varanda' => $request->varanda,
-            'generator' => $request->generator,
-            'guest_count' => $request->guest_count,
-            'ac' => $request->ac,
+            'description' => $request->description,
+            'hotel_name' => $request->hotel_name,
+            'location' => $request->location,
+            'room_type' => $request->room_type,
+            'bathroom' => $request->bathroom,
             'wifi' => $request->wifi,
-            'cable_tv' => $request->cable_tv,
             'lift' => $request->lift,
+            'hot_water' => $request->hot_water,
+            'generator' => $request->generator,
             'parking' => $request->parking,
+            'ac' => $request->ac,
+            'laundry' => $request->laundry,
+            'price' => $request->price,
+            'gym' => $request->gym,
+            'sports' => $request->sports,
+            'dining' => $request->dining,
+            'fire_exit' => $request->fire_exit,
             'photo' => $filename,
             'photo1' => $filename1,
             'photo2' => $filename2,
@@ -1065,41 +856,44 @@ class PostController extends Controller
             'created_at'   => Carbon::now()
         ]);
 
-        return back()->with('success', 'Room information have been successfully Added.');
+        return back()->with('success', 'Hotel information have been successfully Added.');
     }
-    function post_room_wanted(Request $request)
+
+    function post_hotel_wanted(Request $request)
     {
-        $parking = Room::create([
+        $hotel = Hotel::create([
             'user_id' => $request->user_id,
             'post_type' => $request->post_type,
-            'title' => $request->title,
             'date' => $request->date,
             'phone' => $request->phone,
-            'description' => $request->description,
-            'address' => $request->address,
-            'price' => $request->price,
             's_charge' => $request->s_charge,
-            'room_size' => $request->room_size,
-            'furnished' => $request->furnished,
-            'electricity' => $request->electricity,
-            'gas' => $request->gas,
-            'water' => $request->water,
-            'attached_toilet' => $request->attached_toilet,
+            'description' => $request->description,
+            'hotel_name' => $request->hotel_name,
+            'location' => $request->location,
             'hot_water' => $request->hot_water,
             'generator' => $request->generator,
-            'ac' => $request->ac,
+            'room_type' => $request->room_type,
+            'bathroom' => $request->bathroom,
             'wifi' => $request->wifi,
-            'cable_tv' => $request->cable_tv,
             'lift' => $request->lift,
             'parking' => $request->parking,
+            'ac' => $request->ac,
+            'laundry' => $request->laundry,
+            'price' => $request->price,
+            'gym' => $request->gym,
+            'sports' => $request->sports,
+            'dining' => $request->dining,
+            'fire_exit' => $request->fire_exit,
             'active' => 1,
             'created_at'   => Carbon::now()
         ]);
 
-        return back()->with('success', 'Room information have been successfully Added.');
+        return back()->with('success', 'Hotel information have been successfully Added.');
     }
 
+    //end hotel
 
+    // hostel
 
     function post_hostel_rented(Request $request)
     {
@@ -1228,468 +1022,11 @@ class PostController extends Controller
         ]);
         return back()->with('success', 'Hostel Wanted post successfully Added.');
     }
-    function post_office_rented(Request $request)
-    {
 
-        $filename = '';
-        $filename1 = '';
-        $filename2 = '';
-        $filename3 = '';
-        $filename4 = '';
-        $filename5 = '';
-        $filename6 = '';
-        // store photo
-        if ($request->hasFile('photo')) {
-            $file = $request->file('photo');
-            $destinationPath = 'public/uploads/offices/';
-            $filename =  "office-1-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
-            $file->move($destinationPath, $filename);
-        }
+    //end hostel
 
-        if ($request->hasFile('photo1')) {
-            $file = $request->file('photo1');
-            $destinationPath = 'public/uploads/offices/';
-            $filename1 =  "office-2-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
-            $file->move($destinationPath, $filename1);
-        }
-        if ($request->hasFile('photo2')) {
-            $file = $request->file('photo2');
-            $destinationPath = 'public/uploads/offices/';
-            $filename2 =  "office-3-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
-            $file->move($destinationPath, $filename2);
-        }
-        if ($request->hasFile('photo3')) {
-            $file = $request->file('photo3');
-            $destinationPath = 'public/uploads/offices/';
-            $filename3 =  "office-4-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
-            $file->move($destinationPath, $filename3);
-        }
-        if ($request->hasFile('photo4')) {
-            $file = $request->file('photo4');
-            $destinationPath = 'public/uploads/offices/';
-            $filename4 =  "office-5-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
-            $file->move($destinationPath, $filename4);
-        }
-        if ($request->hasFile('photo5')) {
-            $file = $request->file('photo5');
-            $destinationPath = 'public/uploads/offices/';
-            $filename5 =  "office-6-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
-            $file->move($destinationPath, $filename5);
-        }
-        if ($request->hasFile('photo6')) {
-            $file = $request->file('photo6');
-            $destinationPath = 'public/uploads/offices/';
-            $filename6 =  "office-7-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
-            $file->move($destinationPath, $filename6);
-        }
+    //resort
 
-        Office::create([
-            'user_id' => $request->user_id,
-            'post_type' => $request->post_type,
-            'title' => $request->title,
-            'date' => $request->date,
-            'phone' => $request->phone,
-            'description' => $request->description,
-            's_charge' => $request->s_charge,
-            'address' => $request->address,
-            'floor_level' => $request->floor_level,
-            'floor_size' => $request->floor_size,
-            'road_width' => $request->road_width,
-            'interior_condition' => $request->interior_condition,
-            'price' => $request->price,
-            'fire_safety' => $request->fire_safety,
-            'lift' => $request->lift,
-            'ac' => $request->ac,
-            'parking' => $request->parking,
-            'generator' => $request->generator,
-            'electricity' => $request->electricity,
-            'gas' => $request->gas,
-            'water' => $request->water,
-            'photo' => $filename,
-            'photo1' => $filename1,
-            'photo2' => $filename2,
-            'photo3' => $filename3,
-            'photo4' => $filename4,
-            'photo5' => $filename5,
-            'photo6' => $filename6,
-            'video' => $request->video,
-            'active' => 1,
-            'created_at'   => Carbon::now()
-        ]);
-
-
-        return back()->with('success', 'office information have been successfully Added.');
-    }
-    function post_office_wanted(Request $request)
-    {
-        $office = Office::create([
-            'user_id' => $request->user_id,
-            'post_type' => $request->post_type,
-            'title' => $request->title,
-            'date' => $request->date,
-            'phone' => $request->phone,
-            'description' => $request->description,
-            'address' => $request->address,
-            'floor_level' => $request->floor_level,
-            'floor_size' => $request->floor_size,
-            'road_width' => $request->road_width,
-            's_charge' => $request->s_charge,
-            'generator' => $request->generator,
-            'interior_condition' => $request->interior_condition,
-            'fire_safety' => $request->fire_safety,
-            'lift' => $request->lift,
-            'parking' => $request->parking,
-            'electricity' => $request->electricity,
-            'gas' => $request->gas,
-            'water' => $request->water,
-            'price' => $request->price,
-            'active' => 1,
-            'created_at'   => Carbon::now()
-        ]);
-
-        return back()->with('success', 'office information have been successfully Added.');
-    }
-
-    function post_land_rented(Request $request)
-    {
-
-        $filename = '';
-        $filename1 = '';
-        $filename2 = '';
-        $filename3 = '';
-        $filename4 = '';
-        $filename5 = '';
-        $filename6 = '';
-        // store photo
-        if ($request->hasFile('photo')) {
-            $file = $request->file('photo');
-            $destinationPath = 'public/uploads/lands/';
-            $filename =  "land-1-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
-            $file->move($destinationPath, $filename);
-        }
-
-        if ($request->hasFile('photo1')) {
-            $file = $request->file('photo1');
-            $destinationPath = 'public/uploads/lands/';
-            $filename1 =  "land-2-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
-            $file->move($destinationPath, $filename1);
-        }
-        if ($request->hasFile('photo2')) {
-            $file = $request->file('photo2');
-            $destinationPath = 'public/uploads/lands/';
-            $filename2 =  "land-3-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
-            $file->move($destinationPath, $filename2);
-        }
-        if ($request->hasFile('photo3')) {
-            $file = $request->file('photo3');
-            $destinationPath = 'public/uploads/lands/';
-            $filename3 =  "land-4-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
-            $file->move($destinationPath, $filename3);
-        }
-        if ($request->hasFile('photo4')) {
-            $file = $request->file('photo4');
-            $destinationPath = 'public/uploads/lands/';
-            $filename4 =  "land-5-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
-            $file->move($destinationPath, $filename4);
-        }
-        if ($request->hasFile('photo5')) {
-            $file = $request->file('photo5');
-            $destinationPath = 'public/uploads/lands/';
-            $filename5 =  "land-6-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
-            $file->move($destinationPath, $filename5);
-        }
-        if ($request->hasFile('photo6')) {
-            $file = $request->file('photo6');
-            $destinationPath = 'public/uploads/lands/';
-            $filename6 =  "land-7-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
-            $file->move($destinationPath, $filename6);
-        }
-
-        Land::create([
-            'user_id' => $request->user_id,
-            'post_type' => $request->post_type,
-            'title' => $request->title,
-            'date' => $request->date,
-            'phone' => $request->phone,
-            'description' => $request->description,
-            'address' => $request->address,
-            'land_area' => $request->land_area,
-            'land_height' => $request->land_height,
-            'electricity' => $request->electricity,
-            'gas' => $request->gas,
-            'water' => $request->water,
-            'y_price' => $request->y_price,
-            'drainage_system' => $request->drainage_system,
-            'parking' => $request->parking,
-            'road_width' => $request->road_width,
-            'price' => $request->price,
-            'photo' => $filename,
-            'photo1' => $filename1,
-            'photo2' => $filename2,
-            'photo3' => $filename3,
-            'photo4' => $filename4,
-            'photo5' => $filename5,
-            'photo6' => $filename6,
-            'video' => $request->video,
-            'active' => 1,
-            'created_at'   => Carbon::now()
-        ]);
-
-        return back()->with('success', 'Land information have been successfully Added.');
-    }
-    function post_land_wanted(Request $request)
-    {
-        $land = Land::create([
-            'user_id' => $request->user_id,
-            'post_type' => $request->post_type,
-            'title' => $request->title,
-            'date' => $request->date,
-            'phone' => $request->phone,
-            'description' => $request->description,
-            'address' => $request->address,
-            'land_area' => $request->land_area,
-            'land_height' => $request->land_height,
-            'electricity' => $request->electricity,
-            'gas' => $request->gas,
-            'y_price' => $request->y_price,
-            'water' => $request->water,
-            'drainage_system' => $request->drainage_system,
-            'parking' => $request->parking,
-            'road_width' => $request->road_width,
-            'price' => $request->price,
-            'active' => 1,
-            'created_at'   => Carbon::now()
-        ]);
-
-        return back()->with('success', 'Land information have been successfully Added.');
-    }
-    function post_exibution_center_rented(Request $request)
-    {
-        $filename = '';
-        $filename1 = '';
-        $filename2 = '';
-        $filename3 = '';
-        $filename4 = '';
-        $filename5 = '';
-        $filename6 = '';
-        // store photo
-        if ($request->hasFile('photo')) {
-            $file = $request->file('photo');
-            $destinationPath = 'public/uploads/exhibutions/';
-            $filename =  "exhibution-1-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
-            $file->move($destinationPath, $filename);
-        }
-
-        if ($request->hasFile('photo1')) {
-            $file = $request->file('photo1');
-            $destinationPath = 'public/uploads/exhibutions/';
-            $filename1 =  "exhibution-2-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
-            $file->move($destinationPath, $filename1);
-        }
-        if ($request->hasFile('photo2')) {
-            $file = $request->file('photo2');
-            $destinationPath = 'public/uploads/exhibutions/';
-            $filename2 =  "exhibution-3-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
-            $file->move($destinationPath, $filename2);
-        }
-        if ($request->hasFile('photo3')) {
-            $file = $request->file('photo3');
-            $destinationPath = 'public/uploads/exhibutions/';
-            $filename3 =  "exhibution-4-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
-            $file->move($destinationPath, $filename3);
-        }
-        if ($request->hasFile('photo4')) {
-            $file = $request->file('photo4');
-            $destinationPath = 'public/uploads/exhibutions/';
-            $filename4 =  "exhibution-5-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
-            $file->move($destinationPath, $filename4);
-        }
-        if ($request->hasFile('photo5')) {
-            $file = $request->file('photo5');
-            $destinationPath = 'public/uploads/exhibutions/';
-            $filename5 =  "exhibution-6-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
-            $file->move($destinationPath, $filename5);
-        }
-        if ($request->hasFile('photo6')) {
-            $file = $request->file('photo6');
-            $destinationPath = 'public/uploads/exhibutions/';
-            $filename6 =  "exhibution-7-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
-            $file->move($destinationPath, $filename6);
-        }
-
-        Exibution_Center::create([
-            'user_id' => $request->user_id,
-            'post_type' => $request->post_type,
-            'title' => $request->title,
-            'date' => $request->date,
-            'phone' => $request->phone,
-            'description' => $request->description,
-            'address' => $request->address,
-            'interior_condition' => $request->interior_condition,
-            'room_size' => $request->room_size,
-            'room_type' => $request->room_type,
-            'road_width' => $request->road_width,
-            'generator' => $request->generator,
-            'floor_level' => $request->floor_level,
-            'toilet' => $request->toilet,
-            'lift' => $request->lift,
-            'fire_exit' => $request->fire_exit,
-            'parking' => $request->parking,
-            'price' => $request->price,
-            'photo' => $filename,
-            'photo1' => $filename1,
-            'photo2' => $filename2,
-            'photo3' => $filename3,
-            'photo4' => $filename4,
-            'photo5' => $filename5,
-            'photo6' => $filename6,
-            'video' => $request->video,
-            'active' => 1,
-            'created_at'   => Carbon::now()
-        ]);
-
-
-        return back()->with('success', 'exibution_center information have been successfully Added.');
-    }
-
-    function post_exibution_center_wanted(Request $request)
-    {
-        $exibution_center = Exibution_Center::create([
-            'user_id' => $request->user_id,
-            'post_type' => $request->post_type,
-            'title' => $request->title,
-            'date' => $request->date,
-            'phone' => $request->phone,
-            'description' => $request->description,
-            'address' => $request->address,
-            'generator' => $request->generator,
-            'interior_condition' => $request->interior_condition,
-            'room_size' => $request->room_size,
-            'room_type' => $request->room_type,
-            'road_width' => $request->road_width,
-            'floor_level' => $request->floor_level,
-            'toilet' => $request->toilet,
-            'lift' => $request->lift,
-            'fire_exit' => $request->fire_exit,
-            'parking' => $request->parking,
-            'price' => $request->price,
-            'active' => 1,
-            'created_at'   => Carbon::now()
-        ]);
-
-        return back()->with('success', 'exibution_center information have been successfully Added.');
-    }
-    function post_playground_rented(Request $request)
-    {
-        $filename = '';
-        $filename1 = '';
-        $filename2 = '';
-        $filename3 = '';
-        $filename4 = '';
-        $filename5 = '';
-        $filename6 = '';
-        // store photo
-        if ($request->hasFile('photo')) {
-            $file = $request->file('photo');
-            $destinationPath = 'public/uploads/playgrounds/';
-            $filename =  "playground-1-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
-            $file->move($destinationPath, $filename);
-        }
-
-        if ($request->hasFile('photo1')) {
-            $file = $request->file('photo1');
-            $destinationPath = 'public/uploads/playgrounds/';
-            $filename1 =  "playground-2-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
-            $file->move($destinationPath, $filename1);
-        }
-        if ($request->hasFile('photo2')) {
-            $file = $request->file('photo2');
-            $destinationPath = 'public/uploads/playgrounds/';
-            $filename2 =  "playground-3-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
-            $file->move($destinationPath, $filename2);
-        }
-        if ($request->hasFile('photo3')) {
-            $file = $request->file('photo3');
-            $destinationPath = 'public/uploads/playgrounds/';
-            $filename3 =  "playground-4-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
-            $file->move($destinationPath, $filename3);
-        }
-        if ($request->hasFile('photo4')) {
-            $file = $request->file('photo4');
-            $destinationPath = 'public/uploads/playgrounds/';
-            $filename4 =  "playground-5-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
-            $file->move($destinationPath, $filename4);
-        }
-        if ($request->hasFile('photo5')) {
-            $file = $request->file('photo5');
-            $destinationPath = 'public/uploads/playgrounds/';
-            $filename5 =  "playground-6-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
-            $file->move($destinationPath, $filename5);
-        }
-        if ($request->hasFile('photo6')) {
-            $file = $request->file('photo6');
-            $destinationPath = 'public/uploads/playgrounds/';
-            $filename6 =  "playground-7-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
-            $file->move($destinationPath, $filename6);
-        }
-
-        Play_ground::create([
-            'user_id' => $request->user_id,
-            'post_type' => $request->post_type,
-            'title' => $request->title,
-            'date' => $request->date,
-            'phone' => $request->phone,
-            'area' => $request->area,
-            'description' => $request->description,
-            'address' => $request->address,
-            'shed' => $request->shed,
-            'toilet' => $request->toilet,
-            'change_room' => $request->change_room,
-            'generator' => $request->generator,
-            'gym' => $request->gym,
-            'parking' => $request->parking,
-            'sports' => $request->sports,
-            'price' => $request->price,
-            'photo' => $filename,
-            'photo1' => $filename1,
-            'photo2' => $filename2,
-            'photo3' => $filename3,
-            'photo4' => $filename4,
-            'photo5' => $filename5,
-            'photo6' => $filename6,
-            'video' => $request->video,
-            'active' => 1,
-            'created_at'   => Carbon::now()
-        ]);
-
-        return back()->with('success', 'Camp Site information have been successfully Added.');
-    }
-
-    function post_playground_wanted(Request $request)
-    {
-        $playground = Play_ground::create([
-            'user_id' => $request->user_id,
-            'post_type' => $request->post_type,
-            'title' => $request->title,
-            'date' => $request->date,
-            'phone' => $request->phone,
-            'area' => $request->area,
-            'description' => $request->description,
-            'address' => $request->address,
-            'shed' => $request->shed,
-            'toilet' => $request->toilet,
-            'generator' => $request->generator,
-            'change_room' => $request->change_room,
-            'gym' => $request->gym,
-            'parking' => $request->parking,
-            'sports' => $request->sports,
-            'price' => $request->price,
-            'active' => 1,
-            'created_at'   => Carbon::now()
-        ]);
-
-        return back()->with('success', 'Camp Site information have been successfully Added.');
-    }
     function post_restuarant_rented(Request $request)
     {
 
@@ -1815,120 +1152,13 @@ class PostController extends Controller
 
         return back()->with('success', 'Resort information have been successfully Added.');
     }
-    function post_rooftop_rented(Request $request)
-    {
-        $filename = '';
-        $filename1 = '';
-        $filename2 = '';
-        $filename3 = '';
-        $filename4 = '';
-        $filename5 = '';
-        $filename6 = '';
-        // store photo
-        if ($request->hasFile('photo')) {
-            $file = $request->file('photo');
-            $destinationPath = 'public/uploads/rooftops/';
-            $filename =  "rooftop-1-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
-            $file->move($destinationPath, $filename);
-        }
 
-        if ($request->hasFile('photo1')) {
-            $file = $request->file('photo1');
-            $destinationPath = 'public/uploads/rooftops/';
-            $filename1 =  "rooftop-2-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
-            $file->move($destinationPath, $filename1);
-        }
-        if ($request->hasFile('photo2')) {
-            $file = $request->file('photo2');
-            $destinationPath = 'public/uploads/rooftops/';
-            $filename2 =  "rooftop-3-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
-            $file->move($destinationPath, $filename2);
-        }
-        if ($request->hasFile('photo3')) {
-            $file = $request->file('photo3');
-            $destinationPath = 'public/uploads/rooftops/';
-            $filename3 =  "rooftop-4-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
-            $file->move($destinationPath, $filename3);
-        }
-        if ($request->hasFile('photo4')) {
-            $file = $request->file('photo4');
-            $destinationPath = 'public/uploads/rooftops/';
-            $filename4 =  "rooftop-5-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
-            $file->move($destinationPath, $filename4);
-        }
-        if ($request->hasFile('photo5')) {
-            $file = $request->file('photo5');
-            $destinationPath = 'public/uploads/rooftops/';
-            $filename5 =  "rooftop-6-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
-            $file->move($destinationPath, $filename5);
-        }
-        if ($request->hasFile('photo6')) {
-            $file = $request->file('photo6');
-            $destinationPath = 'public/uploads/rooftops/';
-            $filename6 =  "rooftop-7-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
-            $file->move($destinationPath, $filename6);
-        }
+    //end resort
 
-        Rooftop::create([
-            'user_id' => $request->user_id,
-            'post_type' => $request->post_type,
-            'title' => $request->title,
-            'date' => $request->date,
-            'phone' => $request->phone,
-            'description' => $request->description,
-            'address' => $request->address,
-            'floor_area' => $request->floor_area,
-            'generator' => $request->generator,
-            'toilet' => $request->toilet,
-            'shed' => $request->shed,
-            'p_protection' => $request->p_protection,
-            'lift' => $request->lift,
-            'water' => $request->water,
-            'electricity' => $request->electricity,
-            'parking' => $request->parking,
-            'price' => $request->price,
-            'photo' => $filename,
-            'photo1' => $filename1,
-            'photo2' => $filename2,
-            'photo3' => $filename3,
-            'photo4' => $filename4,
-            'photo5' => $filename5,
-            'photo6' => $filename6,
-            'video' => $request->video,
-            'active' => 1,
-            'created_at'   => Carbon::now()
-        ]);
 
-        return back()->with('success', 'Rooftop information have been successfully Added.');
-    }
+    // office
 
-    function post_rooftop_wanted(Request $request)
-    {
-        $rooftop = Rooftop::create([
-            'user_id' => $request->user_id,
-            'post_type' => $request->post_type,
-            'title' => $request->title,
-            'date' => $request->date,
-            'phone' => $request->phone,
-            'description' => $request->description,
-            'generator' => $request->generator,
-            'address' => $request->address,
-            'floor_area' => $request->floor_area,
-            'toilet' => $request->toilet,
-            'shed' => $request->shed,
-            'p_protection' => $request->p_protection,
-            'lift' => $request->lift,
-            'water' => $request->water,
-            'electricity' => $request->electricity,
-            'parking' => $request->parking,
-            'price' => $request->price,
-            'active' => 1,
-            'created_at'   => Carbon::now()
-        ]);
-
-        return back()->with('success', 'Rooftop information have been successfully Added.');
-    }
-    function post_bilboard_rented(Request $request)
+    function post_office_rented(Request $request)
     {
 
         $filename = '';
@@ -1941,396 +1171,191 @@ class PostController extends Controller
         // store photo
         if ($request->hasFile('photo')) {
             $file = $request->file('photo');
-            $destinationPath = 'public/uploads/bilboards/';
-            $filename =  "bilboard-1-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
+            $destinationPath = 'public/uploads/offices/';
+            $filename =  "office-1-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
             $file->move($destinationPath, $filename);
         }
 
         if ($request->hasFile('photo1')) {
             $file = $request->file('photo1');
-            $destinationPath = 'public/uploads/bilboards/';
-            $filename1 =  "bilboard-2-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
+            $destinationPath = 'public/uploads/offices/';
+            $filename1 =  "office-2-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
             $file->move($destinationPath, $filename1);
         }
         if ($request->hasFile('photo2')) {
             $file = $request->file('photo2');
-            $destinationPath = 'public/uploads/bilboards/';
-            $filename2 =  "bilboard-3-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
+            $destinationPath = 'public/uploads/offices/';
+            $filename2 =  "office-3-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
             $file->move($destinationPath, $filename2);
         }
         if ($request->hasFile('photo3')) {
             $file = $request->file('photo3');
-            $destinationPath = 'public/uploads/bilboards/';
-            $filename3 =  "bilboard-4-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
+            $destinationPath = 'public/uploads/offices/';
+            $filename3 =  "office-4-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
             $file->move($destinationPath, $filename3);
         }
         if ($request->hasFile('photo4')) {
             $file = $request->file('photo4');
-            $destinationPath = 'public/uploads/bilboards/';
-            $filename4 =  "bilboard-5-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
+            $destinationPath = 'public/uploads/offices/';
+            $filename4 =  "office-5-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
             $file->move($destinationPath, $filename4);
         }
         if ($request->hasFile('photo5')) {
             $file = $request->file('photo5');
-            $destinationPath = 'public/uploads/bilboards/';
-            $filename5 =  "bilboard-6-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
+            $destinationPath = 'public/uploads/offices/';
+            $filename5 =  "office-6-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
             $file->move($destinationPath, $filename5);
         }
         if ($request->hasFile('photo6')) {
             $file = $request->file('photo6');
-            $destinationPath = 'public/uploads/bilboards/';
-            $filename6 =  "bilboard-7-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
+            $destinationPath = 'public/uploads/offices/';
+            $filename6 =  "office-7-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
             $file->move($destinationPath, $filename6);
         }
 
-        Bilboard::create([
+        Office::create([
             'user_id' => $request->user_id,
             'post_type' => $request->post_type,
             'title' => $request->title,
             'date' => $request->date,
             'phone' => $request->phone,
             'description' => $request->description,
-            'type' => $request->type,
-            'address' => $request->address,
-            'size' => $request->size,
-            'hieght' => $request->hieght,
-            'electricity' => $request->electricity,
-            'price' => $request->price,
-            'photo' => $filename,
-            'photo1' => $filename1,
-            'photo2' => $filename2,
-            'photo3' => $filename3,
-            'photo4' => $filename4,
-            'photo5' => $filename5,
-            'photo6' => $filename6,
-            'video' => $request->video,
-            'active' => 1,
-            'created_at'   => Carbon::now()
-        ]);
-
-        return back()->with('success', 'Billboard rented Post successfully Added.');
-    }
-    public function post_bilboard_wanted(Request $request)
-    {
-
-        $bilboard = Bilboard::create([
-            'user_id' => $request->user_id,
-            'post_type' => $request->post_type,
-            'title' => $request->title,
-            'date' => $request->date,
-            'phone' => $request->phone,
-            'description' => $request->description,
-            'type' => $request->type,
-            'address' => $request->address,
-            'size' => $request->size,
-            'hieght' => $request->hieght,
-            'electricity' => $request->electricity,
-            'price' => $request->price,
-            'active' => 1,
-            'created_at'   => Carbon::now()
-        ]);
-        return back()->with('success', 'Billboard Wanted Post successfully Added.');
-    }
-    function post_swimmingpool_rented(Request $request)
-    {
-
-        $filename = '';
-        $filename1 = '';
-        $filename2 = '';
-        $filename3 = '';
-        $filename4 = '';
-        $filename5 = '';
-        $filename6 = '';
-        // store photo
-        if ($request->hasFile('photo')) {
-            $file = $request->file('photo');
-            $destinationPath = 'public/uploads/swimmingpools/';
-            $filename =  "swimmingpool-1-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
-            $file->move($destinationPath, $filename);
-        }
-
-        if ($request->hasFile('photo1')) {
-            $file = $request->file('photo1');
-            $destinationPath = 'public/uploads/swimmingpools/';
-            $filename1 =  "swimmingpool-2-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
-            $file->move($destinationPath, $filename1);
-        }
-        if ($request->hasFile('photo2')) {
-            $file = $request->file('photo2');
-            $destinationPath = 'public/uploads/swimmingpools/';
-            $filename2 =  "swimmingpool-3-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
-            $file->move($destinationPath, $filename2);
-        }
-        if ($request->hasFile('photo3')) {
-            $file = $request->file('photo3');
-            $destinationPath = 'public/uploads/swimmingpools/';
-            $filename3 =  "swimmingpool-4-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
-            $file->move($destinationPath, $filename3);
-        }
-        if ($request->hasFile('photo4')) {
-            $file = $request->file('photo4');
-            $destinationPath = 'public/uploads/swimmingpools/';
-            $filename4 =  "swimmingpool-5-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
-            $file->move($destinationPath, $filename4);
-        }
-        if ($request->hasFile('photo5')) {
-            $file = $request->file('photo5');
-            $destinationPath = 'public/uploads/swimmingpools/';
-            $filename5 =  "swimmingpool-6-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
-            $file->move($destinationPath, $filename5);
-        }
-        if ($request->hasFile('photo6')) {
-            $file = $request->file('photo6');
-            $destinationPath = 'public/uploads/swimmingpools/';
-            $filename6 =  "swimmingpool-7-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
-            $file->move($destinationPath, $filename6);
-        }
-
-        Swimming_Pool::create([
-            'user_id' => $request->user_id,
-            'post_type' => $request->post_type,
-            'title' => $request->title,
-            'date' => $request->date,
-            'phone' => $request->phone,
-            'description' => $request->description,
-            'type' => $request->type,
-            'address' => $request->address,
-            'size' => $request->size,
-            'toilet' => $request->toilet,
-            'wifi' => $request->wifi,
-            'shed' => $request->shed,
-            'laundry' => $request->laundry,
-            'change_room' => $request->change_room,
-            'generator' => $request->generator,
-            'parking' => $request->parking,
-            'laundry' => $request->laundry,
-            'price' => $request->price,
-            'photo' => $filename,
-            'photo1' => $filename1,
-            'photo2' => $filename2,
-            'photo3' => $filename3,
-            'photo4' => $filename4,
-            'photo5' => $filename5,
-            'photo6' => $filename6,
-            'video' => $request->video,
-            'active' => 1,
-            'created_at'   => Carbon::now()
-        ]);
-
-
-        return back()->with('success', 'swimmingpool Rented successfully Added.');
-    }
-    public function post_swimmingpool_wanted(Request $request)
-    {
-
-        $swimmingpool = Swimming_Pool::create([
-            'user_id' => $request->user_id,
-            'post_type' => $request->post_type,
-            'title' => $request->title,
-            'date' => $request->date,
-            'phone' => $request->phone,
-            'description' => $request->description,
-            'type' => $request->type,
-            'address' => $request->address,
-            'size' => $request->size,
-            'toilet' => $request->toilet,
-            'wifi' => $request->wifi,
-            'shed' => $request->shed,
-            'generator' => $request->generator,
-            'laundry' => $request->laundry,
-            'change_room' => $request->change_room,
-            'parking' => $request->parking,
-            'laundry' => $request->laundry,
-            'price' => $request->price,
-            'active' => 1,
-            'created_at'   => Carbon::now()
-        ]);
-        return back()->with('success', 'swimmingpool Wanted Post successfully Added.');
-    }
-    function post_pond_rented(Request $request)
-    {
-
-        $filename = '';
-        $filename1 = '';
-        $filename2 = '';
-        $filename3 = '';
-        $filename4 = '';
-        $filename5 = '';
-        $filename6 = '';
-        // store photo
-        if ($request->hasFile('photo')) {
-            $file = $request->file('photo');
-            $destinationPath = 'public/uploads/ponds/';
-            $filename =  "pond-1-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
-            $file->move($destinationPath, $filename);
-        }
-
-        if ($request->hasFile('photo1')) {
-            $file = $request->file('photo1');
-            $destinationPath = 'public/uploads/ponds/';
-            $filename1 =  "pond-2-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
-            $file->move($destinationPath, $filename1);
-        }
-        if ($request->hasFile('photo2')) {
-            $file = $request->file('photo2');
-            $destinationPath = 'public/uploads/ponds/';
-            $filename2 =  "pond-3-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
-            $file->move($destinationPath, $filename2);
-        }
-        if ($request->hasFile('photo3')) {
-            $file = $request->file('photo3');
-            $destinationPath = 'public/uploads/ponds/';
-            $filename3 =  "pond-4-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
-            $file->move($destinationPath, $filename3);
-        }
-        if ($request->hasFile('photo4')) {
-            $file = $request->file('photo4');
-            $destinationPath = 'public/uploads/ponds/';
-            $filename4 =  "pond-5-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
-            $file->move($destinationPath, $filename4);
-        }
-        if ($request->hasFile('photo5')) {
-            $file = $request->file('photo5');
-            $destinationPath = 'public/uploads/ponds/';
-            $filename5 =  "pond-6-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
-            $file->move($destinationPath, $filename5);
-        }
-        if ($request->hasFile('photo6')) {
-            $file = $request->file('photo6');
-            $destinationPath = 'public/uploads/ponds/';
-            $filename6 =  "pond-7-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
-            $file->move($destinationPath, $filename6);
-        }
-
-
-        Pond::create([
-            'user_id' => $request->user_id,
-            'post_type' => $request->post_type,
-            'title' => $request->title,
-            'date' => $request->date,
-            'phone' => $request->phone,
-            'description' => $request->description,
-            'address' => $request->address,
-            'pond_area' => $request->pond_area,
-            'water_level' => $request->water_level,
-            'road_width' => $request->road_width,
-            'y_price' => $request->y_price,
-            'price' => $request->price,
-            'photo' => $filename,
-            'photo1' => $filename1,
-            'photo2' => $filename2,
-            'photo3' => $filename3,
-            'photo4' => $filename4,
-            'photo5' => $filename5,
-            'photo6' => $filename6,
-            'video' => $request->video,
-            'active' => 1,
-            'created_at'   => Carbon::now()
-        ]);
-
-
-        return back()->with('success', 'Pond information have been successfully Added.');
-    }
-
-    function post_pond_wanted(Request $request)
-    {
-
-        $pond = Pond::create([
-            'user_id' => $request->user_id,
-            'post_type' => $request->post_type,
-            'title' => $request->title,
-            'date' => $request->date,
-            'phone' => $request->phone,
-            'description' => $request->description,
-            'address' => $request->address,
-            'pond_area' => $request->pond_area,
-            'water_level' => $request->water_level,
-            'road_width' => $request->road_width,
-            'y_price' => $request->y_price,
-            'price' => $request->price,
-            'active' => 1,
-            'created_at'   => Carbon::now()
-        ]);
-
-        return back()->with('success', 'Pond information have been successfully Added.');
-    }
-    function post_warehouse_rented(Request $request)
-    {
-
-        $filename = '';
-        $filename1 = '';
-        $filename2 = '';
-        $filename3 = '';
-        $filename4 = '';
-        $filename5 = '';
-        $filename6 = '';
-        // store photo
-        if ($request->hasFile('photo')) {
-            $file = $request->file('photo');
-            $destinationPath = 'public/uploads/warehouses/';
-            $filename =  "warehouse-1-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
-            $file->move($destinationPath, $filename);
-        }
-
-        if ($request->hasFile('photo1')) {
-            $file = $request->file('photo1');
-            $destinationPath = 'public/uploads/warehouses/';
-            $filename1 =  "warehouse-2-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
-            $file->move($destinationPath, $filename1);
-        }
-        if ($request->hasFile('photo2')) {
-            $file = $request->file('photo2');
-            $destinationPath = 'public/uploads/warehouses/';
-            $filename2 =  "warehouse-3-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
-            $file->move($destinationPath, $filename2);
-        }
-        if ($request->hasFile('photo3')) {
-            $file = $request->file('photo3');
-            $destinationPath = 'public/uploads/warehouses/';
-            $filename3 =  "warehouse-4-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
-            $file->move($destinationPath, $filename3);
-        }
-        if ($request->hasFile('photo4')) {
-            $file = $request->file('photo4');
-            $destinationPath = 'public/uploads/warehouses/';
-            $filename4 =  "warehouse-5-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
-            $file->move($destinationPath, $filename4);
-        }
-        if ($request->hasFile('photo5')) {
-            $file = $request->file('photo5');
-            $destinationPath = 'public/uploads/warehouses/';
-            $filename5 =  "warehouse-6-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
-            $file->move($destinationPath, $filename5);
-        }
-        if ($request->hasFile('photo6')) {
-            $file = $request->file('photo6');
-            $destinationPath = 'public/uploads/warehouses/';
-            $filename6 =  "warehouse-7-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
-            $file->move($destinationPath, $filename6);
-        }
-
-        Warehouse::create([
-            'user_id' => $request->user_id,
-            'post_type' => $request->post_type,
-            'title' => $request->title,
-            'date' => $request->date,
-            'phone' => $request->phone,
-            'electricity' => $request->electricity,
-            'gas' => $request->gas,
-            'water' => $request->water,
-            'description' => $request->description,
-            'ac' => $request->ac,
-            'type' => $request->type,
-            'generator' => $request->generator,
+            's_charge' => $request->s_charge,
             'address' => $request->address,
             'floor_level' => $request->floor_level,
             'floor_size' => $request->floor_size,
             'road_width' => $request->road_width,
-            'building_condition' => $request->building_condition,
+            'interior_condition' => $request->interior_condition,
+            'price' => $request->price,
             'fire_safety' => $request->fire_safety,
             'lift' => $request->lift,
-            'drainage_system' => $request->drainage_system,
+            'ac' => $request->ac,
             'parking' => $request->parking,
+            'generator' => $request->generator,
+            'electricity' => $request->electricity,
+            'gas' => $request->gas,
+            'water' => $request->water,
+            'photo' => $filename,
+            'photo1' => $filename1,
+            'photo2' => $filename2,
+            'photo3' => $filename3,
+            'photo4' => $filename4,
+            'photo5' => $filename5,
+            'photo6' => $filename6,
+            'video' => $request->video,
+            'active' => 1,
+            'created_at'   => Carbon::now()
+        ]);
+
+
+        return back()->with('success', 'office information have been successfully Added.');
+    }
+    function post_office_wanted(Request $request)
+    {
+        $office = Office::create([
+            'user_id' => $request->user_id,
+            'post_type' => $request->post_type,
+            'title' => $request->title,
+            'date' => $request->date,
+            'phone' => $request->phone,
+            'description' => $request->description,
+            'address' => $request->address,
+            'floor_level' => $request->floor_level,
+            'floor_size' => $request->floor_size,
+            'road_width' => $request->road_width,
+            's_charge' => $request->s_charge,
+            'generator' => $request->generator,
+            'interior_condition' => $request->interior_condition,
+            'fire_safety' => $request->fire_safety,
+            'lift' => $request->lift,
+            'parking' => $request->parking,
+            'electricity' => $request->electricity,
+            'gas' => $request->gas,
+            'water' => $request->water,
+            'price' => $request->price,
+            'active' => 1,
+            'created_at'   => Carbon::now()
+        ]);
+
+        return back()->with('success', 'office information have been successfully Added.');
+    }
+
+    //end office
+
+    // shop
+
+    function post_shop_rented(Request $request)
+    {
+
+        $filename = '';
+        $filename1 = '';
+        $filename2 = '';
+        $filename3 = '';
+        $filename4 = '';
+        $filename5 = '';
+        $filename6 = '';
+        // store photo
+        if ($request->hasFile('photo')) {
+            $file = $request->file('photo');
+            $destinationPath = 'public/uploads/shops/';
+            $filename =  "shop-1-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
+            $file->move($destinationPath, $filename);
+        }
+
+        if ($request->hasFile('photo1')) {
+            $file = $request->file('photo1');
+            $destinationPath = 'public/uploads/shops/';
+            $filename1 =  "shop-2-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
+            $file->move($destinationPath, $filename1);
+        }
+        if ($request->hasFile('photo2')) {
+            $file = $request->file('photo2');
+            $destinationPath = 'public/uploads/shops/';
+            $filename2 =  "shop-3-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
+            $file->move($destinationPath, $filename2);
+        }
+        if ($request->hasFile('photo3')) {
+            $file = $request->file('photo3');
+            $destinationPath = 'public/uploads/shops/';
+            $filename3 =  "shop-4-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
+            $file->move($destinationPath, $filename3);
+        }
+        if ($request->hasFile('photo4')) {
+            $file = $request->file('photo4');
+            $destinationPath = 'public/uploads/shops/';
+            $filename4 =  "shop-5-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
+            $file->move($destinationPath, $filename4);
+        }
+        if ($request->hasFile('photo5')) {
+            $file = $request->file('photo5');
+            $destinationPath = 'public/uploads/shops/';
+            $filename5 =  "shop-6-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
+            $file->move($destinationPath, $filename5);
+        }
+        if ($request->hasFile('photo6')) {
+            $file = $request->file('photo6');
+            $destinationPath = 'public/uploads/shops/';
+            $filename6 =  "shop-7-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
+            $file->move($destinationPath, $filename6);
+        }
+        Shop::create([
+            'user_id' => $request->user_id,
+            'post_type' => $request->post_type,
+            'title' => $request->title,
+            'date' => $request->date,
+            'phone' => $request->phone,
+            'description' => $request->description,
+            'address' => $request->address,
+            'floor_level' => $request->floor_level,
+            'floor_size' => $request->floor_size,
+            'road_width' => $request->road_width,
+            'fire_safety' => $request->fire_safety,
+            'generator' => $request->generator,
+            'lift' => $request->lift,
+            'parking' => $request->parking,
+            'electricity' => $request->electricity,
+            'gas' => $request->gas,
+            'water' => $request->water,
             'price' => $request->price,
             'photo' => $filename,
             'photo1' => $filename1,
@@ -2344,40 +1369,173 @@ class PostController extends Controller
             'created_at'   => Carbon::now()
         ]);
 
-        return back()->with('success', 'warehouse Rent Post successfully Added.');
+        return back()->with('success', 'Shop information have been successfully Added.');
     }
-    function post_warehouse_wanted(Request $request)
+    function post_shop_wanted(Request $request)
     {
 
-        $warehouse = Warehouse::create([
+        $shop = Shop::create([
+
             'user_id' => $request->user_id,
             'post_type' => $request->post_type,
             'title' => $request->title,
             'date' => $request->date,
             'phone' => $request->phone,
-            'electricity' => $request->electricity,
-            'gas' => $request->gas,
-            'water' => $request->water,
             'description' => $request->description,
-            'type' => $request->type,
-            'ac' => $request->ac,
-            'generator' => $request->generator,
             'address' => $request->address,
             'floor_level' => $request->floor_level,
             'floor_size' => $request->floor_size,
+            'generator' => $request->generator,
             'road_width' => $request->road_width,
-            'building_condition' => $request->building_condition,
             'fire_safety' => $request->fire_safety,
             'lift' => $request->lift,
-            'drainage_system' => $request->drainage_system,
             'parking' => $request->parking,
+            'electricity' => $request->electricity,
+            'gas' => $request->gas,
+            'water' => $request->water,
             'price' => $request->price,
             'active' => 1,
             'created_at'   => Carbon::now()
         ]);
 
-        return back()->with('success', 'warehouse Wanted Post successfully Added.');
+
+        return back()->with('success', 'Shop information have been successfully Added.');
     }
+
+    //end shop
+
+    // community hall
+
+    function post_community_rented(Request $request)
+    {
+        $filename = '';
+        $filename1 = '';
+        $filename2 = '';
+        $filename3 = '';
+        $filename4 = '';
+        $filename5 = '';
+        $filename6 = '';
+        // store photo
+        if ($request->hasFile('photo')) {
+            $file = $request->file('photo');
+            $destinationPath = 'public/uploads/communities/';
+            $filename =  "community-1-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
+            $file->move($destinationPath, $filename);
+        }
+
+        if ($request->hasFile('photo1')) {
+            $file = $request->file('photo1');
+            $destinationPath = 'public/uploads/communities/';
+            $filename1 =  "community-2-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
+            $file->move($destinationPath, $filename1);
+        }
+        if ($request->hasFile('photo2')) {
+            $file = $request->file('photo2');
+            $destinationPath = 'public/uploads/communities/';
+            $filename2 =  "community-3-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
+            $file->move($destinationPath, $filename2);
+        }
+        if ($request->hasFile('photo3')) {
+            $file = $request->file('photo3');
+            $destinationPath = 'public/uploads/communities/';
+            $filename3 =  "community-4-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
+            $file->move($destinationPath, $filename3);
+        }
+        if ($request->hasFile('photo4')) {
+            $file = $request->file('photo4');
+            $destinationPath = 'public/uploads/communities/';
+            $filename4 =  "community-5-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
+            $file->move($destinationPath, $filename4);
+        }
+        if ($request->hasFile('photo5')) {
+            $file = $request->file('photo5');
+            $destinationPath = 'public/uploads/communities/';
+            $filename5 =  "community-6-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
+            $file->move($destinationPath, $filename5);
+        }
+        if ($request->hasFile('photo6')) {
+            $file = $request->file('photo6');
+            $destinationPath = 'public/uploads/communities/';
+            $filename6 =  "community-7-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
+            $file->move($destinationPath, $filename6);
+        }
+        Community_Center::create([
+            'user_id' => $request->user_id,
+            'post_type' => $request->post_type,
+            'title' => $request->title,
+            'date' => $request->date,
+            'phone' => $request->phone,
+            'description' => $request->description,
+            'address' => $request->address,
+            'floor_level' => $request->floor_level,
+            'floor_size' => $request->floor_size,
+            'road_width' => $request->road_width,
+            'generator' => $request->generator,
+            'seat' => $request->seat,
+            'interior_condition' => $request->interior_condition,
+            'fire_safety' => $request->fire_safety,
+            'lift' => $request->lift,
+            'wifi' => $request->wifi,
+            'parking' => $request->parking,
+            'gas' => $request->gas,
+            'water' => $request->water,
+            'electricity' => $request->electricity,
+            'ac' => $request->ac,
+            'price' => $request->price,
+            's_charge' => $request->s_charge,
+            'photo' => $filename,
+            'photo1' => $filename1,
+            'photo2' => $filename2,
+            'photo3' => $filename3,
+            'photo4' => $filename4,
+            'photo5' => $filename5,
+            'photo6' => $filename6,
+            'video' => $request->video,
+            'active' => 1,
+            'created_at'   => Carbon::now()
+        ]);
+
+        return back()->with('success', 'Community Center information have been successfully Added.');
+    }
+
+    function post_community_wanted(Request $request)
+    {
+
+        $community = Community_Center::create([
+            'user_id' => $request->user_id,
+            'post_type' => $request->post_type,
+            'title' => $request->title,
+            'date' => $request->date,
+            'phone' => $request->phone,
+            'description' => $request->description,
+            'address' => $request->address,
+            'floor_level' => $request->floor_level,
+            'floor_size' => $request->floor_size,
+            'road_width' => $request->road_width,
+            'seat' => $request->seat,
+            'interior_condition' => $request->interior_condition,
+            'fire_safety' => $request->fire_safety,
+            'generator' => $request->generator,
+            'lift' => $request->lift,
+            'wifi' => $request->wifi,
+            'parking' => $request->parking,
+            'gas' => $request->gas,
+            'water' => $request->water,
+            'electricity' => $request->electricity,
+            'ac' => $request->ac,
+            'price' => $request->price,
+            's_charge' => $request->s_charge,
+            'active' => 1,
+            'created_at'   => Carbon::now()
+        ]);
+
+        return back()->with('success', 'Community Center information have been successfully Added.');
+    }
+
+    // end community hall
+
+    // factory
+
     function post_factory_rented(Request $request)
     {
 
@@ -2502,7 +1660,11 @@ class PostController extends Controller
         return back()->with('success', 'Factory information have been successfully Added.');
     }
 
-    function post_shop_rented(Request $request)
+    // end factory
+
+    // warehouse
+
+    function post_warehouse_rented(Request $request)
     {
 
         $filename = '';
@@ -2515,65 +1677,70 @@ class PostController extends Controller
         // store photo
         if ($request->hasFile('photo')) {
             $file = $request->file('photo');
-            $destinationPath = 'public/uploads/shops/';
-            $filename =  "shop-1-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
+            $destinationPath = 'public/uploads/warehouses/';
+            $filename =  "warehouse-1-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
             $file->move($destinationPath, $filename);
         }
 
         if ($request->hasFile('photo1')) {
             $file = $request->file('photo1');
-            $destinationPath = 'public/uploads/shops/';
-            $filename1 =  "shop-2-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
+            $destinationPath = 'public/uploads/warehouses/';
+            $filename1 =  "warehouse-2-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
             $file->move($destinationPath, $filename1);
         }
         if ($request->hasFile('photo2')) {
             $file = $request->file('photo2');
-            $destinationPath = 'public/uploads/shops/';
-            $filename2 =  "shop-3-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
+            $destinationPath = 'public/uploads/warehouses/';
+            $filename2 =  "warehouse-3-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
             $file->move($destinationPath, $filename2);
         }
         if ($request->hasFile('photo3')) {
             $file = $request->file('photo3');
-            $destinationPath = 'public/uploads/shops/';
-            $filename3 =  "shop-4-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
+            $destinationPath = 'public/uploads/warehouses/';
+            $filename3 =  "warehouse-4-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
             $file->move($destinationPath, $filename3);
         }
         if ($request->hasFile('photo4')) {
             $file = $request->file('photo4');
-            $destinationPath = 'public/uploads/shops/';
-            $filename4 =  "shop-5-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
+            $destinationPath = 'public/uploads/warehouses/';
+            $filename4 =  "warehouse-5-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
             $file->move($destinationPath, $filename4);
         }
         if ($request->hasFile('photo5')) {
             $file = $request->file('photo5');
-            $destinationPath = 'public/uploads/shops/';
-            $filename5 =  "shop-6-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
+            $destinationPath = 'public/uploads/warehouses/';
+            $filename5 =  "warehouse-6-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
             $file->move($destinationPath, $filename5);
         }
         if ($request->hasFile('photo6')) {
             $file = $request->file('photo6');
-            $destinationPath = 'public/uploads/shops/';
-            $filename6 =  "shop-7-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
+            $destinationPath = 'public/uploads/warehouses/';
+            $filename6 =  "warehouse-7-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
             $file->move($destinationPath, $filename6);
         }
-        Shop::create([
+
+        Warehouse::create([
             'user_id' => $request->user_id,
             'post_type' => $request->post_type,
             'title' => $request->title,
             'date' => $request->date,
             'phone' => $request->phone,
+            'electricity' => $request->electricity,
+            'gas' => $request->gas,
+            'water' => $request->water,
             'description' => $request->description,
+            'ac' => $request->ac,
+            'type' => $request->type,
+            'generator' => $request->generator,
             'address' => $request->address,
             'floor_level' => $request->floor_level,
             'floor_size' => $request->floor_size,
             'road_width' => $request->road_width,
+            'building_condition' => $request->building_condition,
             'fire_safety' => $request->fire_safety,
-            'generator' => $request->generator,
             'lift' => $request->lift,
+            'drainage_system' => $request->drainage_system,
             'parking' => $request->parking,
-            'electricity' => $request->electricity,
-            'gas' => $request->gas,
-            'water' => $request->water,
             'price' => $request->price,
             'photo' => $filename,
             'photo1' => $filename1,
@@ -2587,13 +1754,101 @@ class PostController extends Controller
             'created_at'   => Carbon::now()
         ]);
 
-        return back()->with('success', 'Shop information have been successfully Added.');
+        return back()->with('success', 'warehouse Rent Post successfully Added.');
     }
-    function post_shop_wanted(Request $request)
+    function post_warehouse_wanted(Request $request)
     {
 
-        $shop = Shop::create([
+        $warehouse = Warehouse::create([
+            'user_id' => $request->user_id,
+            'post_type' => $request->post_type,
+            'title' => $request->title,
+            'date' => $request->date,
+            'phone' => $request->phone,
+            'electricity' => $request->electricity,
+            'gas' => $request->gas,
+            'water' => $request->water,
+            'description' => $request->description,
+            'type' => $request->type,
+            'ac' => $request->ac,
+            'generator' => $request->generator,
+            'address' => $request->address,
+            'floor_level' => $request->floor_level,
+            'floor_size' => $request->floor_size,
+            'road_width' => $request->road_width,
+            'building_condition' => $request->building_condition,
+            'fire_safety' => $request->fire_safety,
+            'lift' => $request->lift,
+            'drainage_system' => $request->drainage_system,
+            'parking' => $request->parking,
+            'price' => $request->price,
+            'active' => 1,
+            'created_at'   => Carbon::now()
+        ]);
 
+        return back()->with('success', 'warehouse Wanted Post successfully Added.');
+    }
+
+    // end warehouse
+
+    //  land
+
+    function post_land_rented(Request $request)
+    {
+
+        $filename = '';
+        $filename1 = '';
+        $filename2 = '';
+        $filename3 = '';
+        $filename4 = '';
+        $filename5 = '';
+        $filename6 = '';
+        // store photo
+        if ($request->hasFile('photo')) {
+            $file = $request->file('photo');
+            $destinationPath = 'public/uploads/lands/';
+            $filename =  "land-1-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
+            $file->move($destinationPath, $filename);
+        }
+
+        if ($request->hasFile('photo1')) {
+            $file = $request->file('photo1');
+            $destinationPath = 'public/uploads/lands/';
+            $filename1 =  "land-2-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
+            $file->move($destinationPath, $filename1);
+        }
+        if ($request->hasFile('photo2')) {
+            $file = $request->file('photo2');
+            $destinationPath = 'public/uploads/lands/';
+            $filename2 =  "land-3-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
+            $file->move($destinationPath, $filename2);
+        }
+        if ($request->hasFile('photo3')) {
+            $file = $request->file('photo3');
+            $destinationPath = 'public/uploads/lands/';
+            $filename3 =  "land-4-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
+            $file->move($destinationPath, $filename3);
+        }
+        if ($request->hasFile('photo4')) {
+            $file = $request->file('photo4');
+            $destinationPath = 'public/uploads/lands/';
+            $filename4 =  "land-5-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
+            $file->move($destinationPath, $filename4);
+        }
+        if ($request->hasFile('photo5')) {
+            $file = $request->file('photo5');
+            $destinationPath = 'public/uploads/lands/';
+            $filename5 =  "land-6-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
+            $file->move($destinationPath, $filename5);
+        }
+        if ($request->hasFile('photo6')) {
+            $file = $request->file('photo6');
+            $destinationPath = 'public/uploads/lands/';
+            $filename6 =  "land-7-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
+            $file->move($destinationPath, $filename6);
+        }
+
+        Land::create([
             'user_id' => $request->user_id,
             'post_type' => $request->post_type,
             'title' => $request->title,
@@ -2601,24 +1856,521 @@ class PostController extends Controller
             'phone' => $request->phone,
             'description' => $request->description,
             'address' => $request->address,
-            'floor_level' => $request->floor_level,
-            'floor_size' => $request->floor_size,
-            'generator' => $request->generator,
-            'road_width' => $request->road_width,
-            'fire_safety' => $request->fire_safety,
-            'lift' => $request->lift,
-            'parking' => $request->parking,
+            'land_area' => $request->land_area,
+            'land_height' => $request->land_height,
             'electricity' => $request->electricity,
             'gas' => $request->gas,
             'water' => $request->water,
+            'y_price' => $request->y_price,
+            'drainage_system' => $request->drainage_system,
+            'parking' => $request->parking,
+            'road_width' => $request->road_width,
+            'price' => $request->price,
+            'photo' => $filename,
+            'photo1' => $filename1,
+            'photo2' => $filename2,
+            'photo3' => $filename3,
+            'photo4' => $filename4,
+            'photo5' => $filename5,
+            'photo6' => $filename6,
+            'video' => $request->video,
+            'active' => 1,
+            'created_at'   => Carbon::now()
+        ]);
+
+        return back()->with('success', 'Land information have been successfully Added.');
+    }
+    function post_land_wanted(Request $request)
+    {
+        $land = Land::create([
+            'user_id' => $request->user_id,
+            'post_type' => $request->post_type,
+            'title' => $request->title,
+            'date' => $request->date,
+            'phone' => $request->phone,
+            'description' => $request->description,
+            'address' => $request->address,
+            'land_area' => $request->land_area,
+            'land_height' => $request->land_height,
+            'electricity' => $request->electricity,
+            'gas' => $request->gas,
+            'y_price' => $request->y_price,
+            'water' => $request->water,
+            'drainage_system' => $request->drainage_system,
+            'parking' => $request->parking,
+            'road_width' => $request->road_width,
             'price' => $request->price,
             'active' => 1,
             'created_at'   => Carbon::now()
         ]);
 
-
-        return back()->with('success', 'Shop information have been successfully Added.');
+        return back()->with('success', 'Land information have been successfully Added.');
     }
+
+    // end land
+
+    //  pond
+
+    function post_pond_rented(Request $request)
+    {
+
+        $filename = '';
+        $filename1 = '';
+        $filename2 = '';
+        $filename3 = '';
+        $filename4 = '';
+        $filename5 = '';
+        $filename6 = '';
+        // store photo
+        if ($request->hasFile('photo')) {
+            $file = $request->file('photo');
+            $destinationPath = 'public/uploads/ponds/';
+            $filename =  "pond-1-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
+            $file->move($destinationPath, $filename);
+        }
+
+        if ($request->hasFile('photo1')) {
+            $file = $request->file('photo1');
+            $destinationPath = 'public/uploads/ponds/';
+            $filename1 =  "pond-2-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
+            $file->move($destinationPath, $filename1);
+        }
+        if ($request->hasFile('photo2')) {
+            $file = $request->file('photo2');
+            $destinationPath = 'public/uploads/ponds/';
+            $filename2 =  "pond-3-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
+            $file->move($destinationPath, $filename2);
+        }
+        if ($request->hasFile('photo3')) {
+            $file = $request->file('photo3');
+            $destinationPath = 'public/uploads/ponds/';
+            $filename3 =  "pond-4-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
+            $file->move($destinationPath, $filename3);
+        }
+        if ($request->hasFile('photo4')) {
+            $file = $request->file('photo4');
+            $destinationPath = 'public/uploads/ponds/';
+            $filename4 =  "pond-5-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
+            $file->move($destinationPath, $filename4);
+        }
+        if ($request->hasFile('photo5')) {
+            $file = $request->file('photo5');
+            $destinationPath = 'public/uploads/ponds/';
+            $filename5 =  "pond-6-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
+            $file->move($destinationPath, $filename5);
+        }
+        if ($request->hasFile('photo6')) {
+            $file = $request->file('photo6');
+            $destinationPath = 'public/uploads/ponds/';
+            $filename6 =  "pond-7-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
+            $file->move($destinationPath, $filename6);
+        }
+
+
+        Pond::create([
+            'user_id' => $request->user_id,
+            'post_type' => $request->post_type,
+            'title' => $request->title,
+            'date' => $request->date,
+            'phone' => $request->phone,
+            'description' => $request->description,
+            'address' => $request->address,
+            'pond_area' => $request->pond_area,
+            'water_level' => $request->water_level,
+            'road_width' => $request->road_width,
+            'y_price' => $request->y_price,
+            'price' => $request->price,
+            'photo' => $filename,
+            'photo1' => $filename1,
+            'photo2' => $filename2,
+            'photo3' => $filename3,
+            'photo4' => $filename4,
+            'photo5' => $filename5,
+            'photo6' => $filename6,
+            'video' => $request->video,
+            'active' => 1,
+            'created_at'   => Carbon::now()
+        ]);
+
+
+        return back()->with('success', 'Pond information have been successfully Added.');
+    }
+
+    function post_pond_wanted(Request $request)
+    {
+
+        $pond = Pond::create([
+            'user_id' => $request->user_id,
+            'post_type' => $request->post_type,
+            'title' => $request->title,
+            'date' => $request->date,
+            'phone' => $request->phone,
+            'description' => $request->description,
+            'address' => $request->address,
+            'pond_area' => $request->pond_area,
+            'water_level' => $request->water_level,
+            'road_width' => $request->road_width,
+            'y_price' => $request->y_price,
+            'price' => $request->price,
+            'active' => 1,
+            'created_at'   => Carbon::now()
+        ]);
+
+        return back()->with('success', 'Pond information have been successfully Added.');
+    }
+
+
+    // end pond
+
+    //ghat
+
+
+    function post_ghat_rented(Request $request)
+    {
+
+        $filename = '';
+        $filename1 = '';
+        $filename2 = '';
+        $filename3 = '';
+        $filename4 = '';
+        $filename5 = '';
+        $filename6 = '';
+        // store photo
+        if ($request->hasFile('photo')) {
+            $file = $request->file('photo');
+            $destinationPath = 'public/uploads/ghats/';
+            $filename =  "ghat-1-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
+            $file->move($destinationPath, $filename);
+        }
+
+        if ($request->hasFile('photo1')) {
+            $file = $request->file('photo1');
+            $destinationPath = 'public/uploads/ghats/';
+            $filename1 =  "ghat-2-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
+            $file->move($destinationPath, $filename1);
+        }
+        if ($request->hasFile('photo2')) {
+            $file = $request->file('photo2');
+            $destinationPath = 'public/uploads/ghats/';
+            $filename2 =  "ghat-3-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
+            $file->move($destinationPath, $filename2);
+        }
+        if ($request->hasFile('photo3')) {
+            $file = $request->file('photo3');
+            $destinationPath = 'public/uploads/ghats/';
+            $filename3 =  "ghat-4-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
+            $file->move($destinationPath, $filename3);
+        }
+        if ($request->hasFile('photo4')) {
+            $file = $request->file('photo4');
+            $destinationPath = 'public/uploads/ghats/';
+            $filename4 =  "ghat-5-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
+            $file->move($destinationPath, $filename4);
+        }
+        if ($request->hasFile('photo5')) {
+            $file = $request->file('photo5');
+            $destinationPath = 'public/uploads/ghats/';
+            $filename5 =  "ghat-6-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
+            $file->move($destinationPath, $filename5);
+        }
+        if ($request->hasFile('photo6')) {
+            $file = $request->file('photo6');
+            $destinationPath = 'public/uploads/ghats/';
+            $filename6 =  "ghat-7-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
+            $file->move($destinationPath, $filename6);
+        }
+
+        Ghat::create([
+            'user_id' => $request->user_id,
+            'post_type' => $request->post_type,
+            'title' => $request->title,
+            'date' => $request->date,
+            'phone' => $request->phone,
+            'price' => $request->price,
+            'description' => $request->description,
+            'y_price' => $request->y_price,
+            'address' => $request->address,
+            'toilet' => $request->toilet,
+            'parking' => $request->parking,
+            'photo' => $filename,
+            'photo1' => $filename1,
+            'photo2' => $filename2,
+            'photo3' => $filename3,
+            'photo4' => $filename4,
+            'photo5' => $filename5,
+            'photo6' => $filename6,
+            'video' => $request->video,
+            'active' => 1,
+            'created_at'   => Carbon::now()
+        ]);
+
+        return back()->with('success', 'Ghat information have been successfully Added.');
+    }
+
+    function post_ghat_wanted(Request $request)
+    {
+        $ghat = Ghat::create([
+            'user_id' => $request->user_id,
+            'post_type' => $request->post_type,
+            'title' => $request->title,
+            'date' => $request->date,
+            'phone' => $request->phone,
+            'price' => $request->price,
+            'description' => $request->description,
+            'y_price' => $request->y_price,
+            'address' => $request->address,
+            'toilet' => $request->toilet,
+            'parking' => $request->parking,
+            'active' => 1,
+            'created_at'   => Carbon::now()
+        ]);
+
+        return back()->with('success', 'Ghat information have been successfully Added.');
+    }
+
+    //end ghat
+
+    // swimming pool
+
+    function post_swimmingpool_rented(Request $request)
+    {
+
+        $filename = '';
+        $filename1 = '';
+        $filename2 = '';
+        $filename3 = '';
+        $filename4 = '';
+        $filename5 = '';
+        $filename6 = '';
+        // store photo
+        if ($request->hasFile('photo')) {
+            $file = $request->file('photo');
+            $destinationPath = 'public/uploads/swimmingpools/';
+            $filename =  "swimmingpool-1-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
+            $file->move($destinationPath, $filename);
+        }
+
+        if ($request->hasFile('photo1')) {
+            $file = $request->file('photo1');
+            $destinationPath = 'public/uploads/swimmingpools/';
+            $filename1 =  "swimmingpool-2-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
+            $file->move($destinationPath, $filename1);
+        }
+        if ($request->hasFile('photo2')) {
+            $file = $request->file('photo2');
+            $destinationPath = 'public/uploads/swimmingpools/';
+            $filename2 =  "swimmingpool-3-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
+            $file->move($destinationPath, $filename2);
+        }
+        if ($request->hasFile('photo3')) {
+            $file = $request->file('photo3');
+            $destinationPath = 'public/uploads/swimmingpools/';
+            $filename3 =  "swimmingpool-4-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
+            $file->move($destinationPath, $filename3);
+        }
+        if ($request->hasFile('photo4')) {
+            $file = $request->file('photo4');
+            $destinationPath = 'public/uploads/swimmingpools/';
+            $filename4 =  "swimmingpool-5-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
+            $file->move($destinationPath, $filename4);
+        }
+        if ($request->hasFile('photo5')) {
+            $file = $request->file('photo5');
+            $destinationPath = 'public/uploads/swimmingpools/';
+            $filename5 =  "swimmingpool-6-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
+            $file->move($destinationPath, $filename5);
+        }
+        if ($request->hasFile('photo6')) {
+            $file = $request->file('photo6');
+            $destinationPath = 'public/uploads/swimmingpools/';
+            $filename6 =  "swimmingpool-7-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
+            $file->move($destinationPath, $filename6);
+        }
+
+        Swimming_Pool::create([
+            'user_id' => $request->user_id,
+            'post_type' => $request->post_type,
+            'title' => $request->title,
+            'date' => $request->date,
+            'phone' => $request->phone,
+            'description' => $request->description,
+            'type' => $request->type,
+            'address' => $request->address,
+            'size' => $request->size,
+            'toilet' => $request->toilet,
+            'wifi' => $request->wifi,
+            'shed' => $request->shed,
+            'laundry' => $request->laundry,
+            'change_room' => $request->change_room,
+            'generator' => $request->generator,
+            'parking' => $request->parking,
+            'laundry' => $request->laundry,
+            'price' => $request->price,
+            'photo' => $filename,
+            'photo1' => $filename1,
+            'photo2' => $filename2,
+            'photo3' => $filename3,
+            'photo4' => $filename4,
+            'photo5' => $filename5,
+            'photo6' => $filename6,
+            'video' => $request->video,
+            'active' => 1,
+            'created_at'   => Carbon::now()
+        ]);
+
+
+        return back()->with('success', 'swimmingpool Rented successfully Added.');
+    }
+    public function post_swimmingpool_wanted(Request $request)
+    {
+
+        $swimmingpool = Swimming_Pool::create([
+            'user_id' => $request->user_id,
+            'post_type' => $request->post_type,
+            'title' => $request->title,
+            'date' => $request->date,
+            'phone' => $request->phone,
+            'description' => $request->description,
+            'type' => $request->type,
+            'address' => $request->address,
+            'size' => $request->size,
+            'toilet' => $request->toilet,
+            'wifi' => $request->wifi,
+            'shed' => $request->shed,
+            'generator' => $request->generator,
+            'laundry' => $request->laundry,
+            'change_room' => $request->change_room,
+            'parking' => $request->parking,
+            'laundry' => $request->laundry,
+            'price' => $request->price,
+            'active' => 1,
+            'created_at'   => Carbon::now()
+        ]);
+        return back()->with('success', 'swimmingpool Wanted Post successfully Added.');
+    }
+
+
+    //end swimming pool
+
+    // camp site
+
+    function post_playground_rented(Request $request)
+    {
+        $filename = '';
+        $filename1 = '';
+        $filename2 = '';
+        $filename3 = '';
+        $filename4 = '';
+        $filename5 = '';
+        $filename6 = '';
+        // store photo
+        if ($request->hasFile('photo')) {
+            $file = $request->file('photo');
+            $destinationPath = 'public/uploads/playgrounds/';
+            $filename =  "playground-1-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
+            $file->move($destinationPath, $filename);
+        }
+
+        if ($request->hasFile('photo1')) {
+            $file = $request->file('photo1');
+            $destinationPath = 'public/uploads/playgrounds/';
+            $filename1 =  "playground-2-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
+            $file->move($destinationPath, $filename1);
+        }
+        if ($request->hasFile('photo2')) {
+            $file = $request->file('photo2');
+            $destinationPath = 'public/uploads/playgrounds/';
+            $filename2 =  "playground-3-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
+            $file->move($destinationPath, $filename2);
+        }
+        if ($request->hasFile('photo3')) {
+            $file = $request->file('photo3');
+            $destinationPath = 'public/uploads/playgrounds/';
+            $filename3 =  "playground-4-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
+            $file->move($destinationPath, $filename3);
+        }
+        if ($request->hasFile('photo4')) {
+            $file = $request->file('photo4');
+            $destinationPath = 'public/uploads/playgrounds/';
+            $filename4 =  "playground-5-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
+            $file->move($destinationPath, $filename4);
+        }
+        if ($request->hasFile('photo5')) {
+            $file = $request->file('photo5');
+            $destinationPath = 'public/uploads/playgrounds/';
+            $filename5 =  "playground-6-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
+            $file->move($destinationPath, $filename5);
+        }
+        if ($request->hasFile('photo6')) {
+            $file = $request->file('photo6');
+            $destinationPath = 'public/uploads/playgrounds/';
+            $filename6 =  "playground-7-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
+            $file->move($destinationPath, $filename6);
+        }
+
+        Play_ground::create([
+            'user_id' => $request->user_id,
+            'post_type' => $request->post_type,
+            'title' => $request->title,
+            'date' => $request->date,
+            'phone' => $request->phone,
+            'area' => $request->area,
+            'description' => $request->description,
+            'address' => $request->address,
+            'shed' => $request->shed,
+            'toilet' => $request->toilet,
+            'change_room' => $request->change_room,
+            'generator' => $request->generator,
+            'gym' => $request->gym,
+            'parking' => $request->parking,
+            'sports' => $request->sports,
+            'price' => $request->price,
+            'photo' => $filename,
+            'photo1' => $filename1,
+            'photo2' => $filename2,
+            'photo3' => $filename3,
+            'photo4' => $filename4,
+            'photo5' => $filename5,
+            'photo6' => $filename6,
+            'video' => $request->video,
+            'active' => 1,
+            'created_at'   => Carbon::now()
+        ]);
+
+        return back()->with('success', 'Camp Site information have been successfully Added.');
+    }
+
+    function post_playground_wanted(Request $request)
+    {
+        $playground = Play_ground::create([
+            'user_id' => $request->user_id,
+            'post_type' => $request->post_type,
+            'title' => $request->title,
+            'date' => $request->date,
+            'phone' => $request->phone,
+            'area' => $request->area,
+            'description' => $request->description,
+            'address' => $request->address,
+            'shed' => $request->shed,
+            'toilet' => $request->toilet,
+            'generator' => $request->generator,
+            'change_room' => $request->change_room,
+            'gym' => $request->gym,
+            'parking' => $request->parking,
+            'sports' => $request->sports,
+            'price' => $request->price,
+            'active' => 1,
+            'created_at'   => Carbon::now()
+        ]);
+
+        return back()->with('success', 'Camp Site information have been successfully Added.');
+    }
+
+    //end camp site
+
+
+    //shooting spot
+
     function post_shooting_rented(Request $request)
     {
 
@@ -2742,7 +2494,14 @@ class PostController extends Controller
 
         return back()->with('success', 'Shooting Spot information have been successfully Added.');
     }
-    function post_community_rented(Request $request)
+
+
+    //end shooting spot
+
+
+    //picnic
+
+    function post_picnic_rented(Request $request)
     {
 
         $filename = '';
@@ -2755,71 +2514,68 @@ class PostController extends Controller
         // store photo
         if ($request->hasFile('photo')) {
             $file = $request->file('photo');
-            $destinationPath = 'public/uploads/communities/';
-            $filename =  "community-1-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
+            $destinationPath = 'public/uploads/picnics/';
+            $filename =  "picnic-1-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
             $file->move($destinationPath, $filename);
         }
 
         if ($request->hasFile('photo1')) {
             $file = $request->file('photo1');
-            $destinationPath = 'public/uploads/communities/';
-            $filename1 =  "community-2-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
+            $destinationPath = 'public/uploads/picnics/';
+            $filename1 =  "picnic-2-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
             $file->move($destinationPath, $filename1);
         }
         if ($request->hasFile('photo2')) {
             $file = $request->file('photo2');
-            $destinationPath = 'public/uploads/communities/';
-            $filename2 =  "community-3-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
+            $destinationPath = 'public/uploads/picnics/';
+            $filename2 =  "picnic-3-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
             $file->move($destinationPath, $filename2);
         }
         if ($request->hasFile('photo3')) {
             $file = $request->file('photo3');
-            $destinationPath = 'public/uploads/communities/';
-            $filename3 =  "community-4-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
+            $destinationPath = 'public/uploads/picnics/';
+            $filename3 =  "picnic-4-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
             $file->move($destinationPath, $filename3);
         }
         if ($request->hasFile('photo4')) {
             $file = $request->file('photo4');
-            $destinationPath = 'public/uploads/communities/';
-            $filename4 =  "community-5-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
+            $destinationPath = 'public/uploads/picnics/';
+            $filename4 =  "picnic-5-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
             $file->move($destinationPath, $filename4);
         }
         if ($request->hasFile('photo5')) {
             $file = $request->file('photo5');
-            $destinationPath = 'public/uploads/communities/';
-            $filename5 =  "community-6-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
+            $destinationPath = 'public/uploads/picnics/';
+            $filename5 =  "picnic-6-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
             $file->move($destinationPath, $filename5);
         }
         if ($request->hasFile('photo6')) {
             $file = $request->file('photo6');
-            $destinationPath = 'public/uploads/communities/';
-            $filename6 =  "community-7-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
+            $destinationPath = 'public/uploads/picnics/';
+            $filename6 =  "picnic-7-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
             $file->move($destinationPath, $filename6);
         }
-        Community_Center::create([
+
+        Picnic_Spot::create([
             'user_id' => $request->user_id,
             'post_type' => $request->post_type,
             'title' => $request->title,
             'date' => $request->date,
             'phone' => $request->phone,
-            'description' => $request->description,
             'address' => $request->address,
-            'floor_level' => $request->floor_level,
-            'floor_size' => $request->floor_size,
-            'road_width' => $request->road_width,
+            'description' => $request->description,
+            'land_area' => $request->land_area,
+            'price' => $request->price,
             'generator' => $request->generator,
-            'seat' => $request->seat,
-            'interior_condition' => $request->interior_condition,
-            'fire_safety' => $request->fire_safety,
-            'lift' => $request->lift,
-            'wifi' => $request->wifi,
-            'parking' => $request->parking,
+            'electricity' => $request->electricity,
             'gas' => $request->gas,
             'water' => $request->water,
-            'electricity' => $request->electricity,
-            'ac' => $request->ac,
-            'price' => $request->price,
-            's_charge' => $request->s_charge,
+            'shed' => $request->shed,
+            'dining' => $request->dining,
+            'toilet' => $request->toilet,
+            'lift' => $request->lift,
+            'parking' => $request->parking,
+            'change_room' => $request->change_room,
             'photo' => $filename,
             'photo1' => $filename1,
             'photo2' => $filename2,
@@ -2832,13 +2588,99 @@ class PostController extends Controller
             'created_at'   => Carbon::now()
         ]);
 
-        return back()->with('success', 'Community Center information have been successfully Added.');
+        return back()->with('success', 'Picnic information have been successfully Added.');
     }
 
-    function post_community_wanted(Request $request)
+    function post_picnic_wanted(Request $request)
     {
 
-        $community = Community_Center::create([
+        $picnic = Picnic_Spot::create([
+            'user_id' => $request->user_id,
+            'post_type' => $request->post_type,
+            'title' => $request->title,
+            'date' => $request->date,
+            'phone' => $request->phone,
+            'address' => $request->address,
+            'description' => $request->description,
+            'land_area' => $request->land_area,
+            'generator' => $request->generator,
+            'price' => $request->price,
+            'electricity' => $request->electricity,
+            'gas' => $request->gas,
+            'water' => $request->water,
+            'shed' => $request->shed,
+            'dining' => $request->dining,
+            'toilet' => $request->toilet,
+            'lift' => $request->lift,
+            'parking' => $request->parking,
+            'change_room' => $request->change_room,
+            'active' => 1,
+            'created_at'   => Carbon::now()
+        ]);
+
+        return back()->with('success', 'Picnic information have been successfully Added.');
+    }
+
+    //end picnic
+
+
+    //exhibition
+
+    function post_exibution_center_rented(Request $request)
+    {
+        $filename = '';
+        $filename1 = '';
+        $filename2 = '';
+        $filename3 = '';
+        $filename4 = '';
+        $filename5 = '';
+        $filename6 = '';
+        // store photo
+        if ($request->hasFile('photo')) {
+            $file = $request->file('photo');
+            $destinationPath = 'public/uploads/exhibutions/';
+            $filename =  "exhibution-1-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
+            $file->move($destinationPath, $filename);
+        }
+
+        if ($request->hasFile('photo1')) {
+            $file = $request->file('photo1');
+            $destinationPath = 'public/uploads/exhibutions/';
+            $filename1 =  "exhibution-2-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
+            $file->move($destinationPath, $filename1);
+        }
+        if ($request->hasFile('photo2')) {
+            $file = $request->file('photo2');
+            $destinationPath = 'public/uploads/exhibutions/';
+            $filename2 =  "exhibution-3-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
+            $file->move($destinationPath, $filename2);
+        }
+        if ($request->hasFile('photo3')) {
+            $file = $request->file('photo3');
+            $destinationPath = 'public/uploads/exhibutions/';
+            $filename3 =  "exhibution-4-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
+            $file->move($destinationPath, $filename3);
+        }
+        if ($request->hasFile('photo4')) {
+            $file = $request->file('photo4');
+            $destinationPath = 'public/uploads/exhibutions/';
+            $filename4 =  "exhibution-5-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
+            $file->move($destinationPath, $filename4);
+        }
+        if ($request->hasFile('photo5')) {
+            $file = $request->file('photo5');
+            $destinationPath = 'public/uploads/exhibutions/';
+            $filename5 =  "exhibution-6-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
+            $file->move($destinationPath, $filename5);
+        }
+        if ($request->hasFile('photo6')) {
+            $file = $request->file('photo6');
+            $destinationPath = 'public/uploads/exhibutions/';
+            $filename6 =  "exhibution-7-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
+            $file->move($destinationPath, $filename6);
+        }
+
+        Exibution_Center::create([
             'user_id' => $request->user_id,
             'post_type' => $request->post_type,
             'title' => $request->title,
@@ -2846,28 +2688,291 @@ class PostController extends Controller
             'phone' => $request->phone,
             'description' => $request->description,
             'address' => $request->address,
-            'floor_level' => $request->floor_level,
-            'floor_size' => $request->floor_size,
-            'road_width' => $request->road_width,
-            'seat' => $request->seat,
             'interior_condition' => $request->interior_condition,
-            'fire_safety' => $request->fire_safety,
+            'room_size' => $request->room_size,
+            'room_type' => $request->room_type,
+            'road_width' => $request->road_width,
             'generator' => $request->generator,
+            'floor_level' => $request->floor_level,
+            'toilet' => $request->toilet,
             'lift' => $request->lift,
-            'wifi' => $request->wifi,
+            'fire_exit' => $request->fire_exit,
             'parking' => $request->parking,
-            'gas' => $request->gas,
-            'water' => $request->water,
-            'electricity' => $request->electricity,
-            'ac' => $request->ac,
             'price' => $request->price,
-            's_charge' => $request->s_charge,
+            'photo' => $filename,
+            'photo1' => $filename1,
+            'photo2' => $filename2,
+            'photo3' => $filename3,
+            'photo4' => $filename4,
+            'photo5' => $filename5,
+            'photo6' => $filename6,
+            'video' => $request->video,
             'active' => 1,
             'created_at'   => Carbon::now()
         ]);
 
-        return back()->with('success', 'Community Center information have been successfully Added.');
+
+        return back()->with('success', 'exibution_center information have been successfully Added.');
     }
+
+    function post_exibution_center_wanted(Request $request)
+    {
+        $exibution_center = Exibution_Center::create([
+            'user_id' => $request->user_id,
+            'post_type' => $request->post_type,
+            'title' => $request->title,
+            'date' => $request->date,
+            'phone' => $request->phone,
+            'description' => $request->description,
+            'address' => $request->address,
+            'generator' => $request->generator,
+            'interior_condition' => $request->interior_condition,
+            'room_size' => $request->room_size,
+            'room_type' => $request->room_type,
+            'road_width' => $request->road_width,
+            'floor_level' => $request->floor_level,
+            'toilet' => $request->toilet,
+            'lift' => $request->lift,
+            'fire_exit' => $request->fire_exit,
+            'parking' => $request->parking,
+            'price' => $request->price,
+            'active' => 1,
+            'created_at'   => Carbon::now()
+        ]);
+
+        return back()->with('success', 'exibution_center information have been successfully Added.');
+    }
+
+    //end exhibution
+
+
+    // rooftop
+
+    function post_rooftop_rented(Request $request)
+    {
+        $filename = '';
+        $filename1 = '';
+        $filename2 = '';
+        $filename3 = '';
+        $filename4 = '';
+        $filename5 = '';
+        $filename6 = '';
+        // store photo
+        if ($request->hasFile('photo')) {
+            $file = $request->file('photo');
+            $destinationPath = 'public/uploads/rooftops/';
+            $filename =  "rooftop-1-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
+            $file->move($destinationPath, $filename);
+        }
+
+        if ($request->hasFile('photo1')) {
+            $file = $request->file('photo1');
+            $destinationPath = 'public/uploads/rooftops/';
+            $filename1 =  "rooftop-2-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
+            $file->move($destinationPath, $filename1);
+        }
+        if ($request->hasFile('photo2')) {
+            $file = $request->file('photo2');
+            $destinationPath = 'public/uploads/rooftops/';
+            $filename2 =  "rooftop-3-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
+            $file->move($destinationPath, $filename2);
+        }
+        if ($request->hasFile('photo3')) {
+            $file = $request->file('photo3');
+            $destinationPath = 'public/uploads/rooftops/';
+            $filename3 =  "rooftop-4-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
+            $file->move($destinationPath, $filename3);
+        }
+        if ($request->hasFile('photo4')) {
+            $file = $request->file('photo4');
+            $destinationPath = 'public/uploads/rooftops/';
+            $filename4 =  "rooftop-5-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
+            $file->move($destinationPath, $filename4);
+        }
+        if ($request->hasFile('photo5')) {
+            $file = $request->file('photo5');
+            $destinationPath = 'public/uploads/rooftops/';
+            $filename5 =  "rooftop-6-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
+            $file->move($destinationPath, $filename5);
+        }
+        if ($request->hasFile('photo6')) {
+            $file = $request->file('photo6');
+            $destinationPath = 'public/uploads/rooftops/';
+            $filename6 =  "rooftop-7-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
+            $file->move($destinationPath, $filename6);
+        }
+
+        Rooftop::create([
+            'user_id' => $request->user_id,
+            'post_type' => $request->post_type,
+            'title' => $request->title,
+            'date' => $request->date,
+            'phone' => $request->phone,
+            'description' => $request->description,
+            'address' => $request->address,
+            'floor_area' => $request->floor_area,
+            'generator' => $request->generator,
+            'toilet' => $request->toilet,
+            'shed' => $request->shed,
+            'p_protection' => $request->p_protection,
+            'lift' => $request->lift,
+            'water' => $request->water,
+            'electricity' => $request->electricity,
+            'parking' => $request->parking,
+            'price' => $request->price,
+            'photo' => $filename,
+            'photo1' => $filename1,
+            'photo2' => $filename2,
+            'photo3' => $filename3,
+            'photo4' => $filename4,
+            'photo5' => $filename5,
+            'photo6' => $filename6,
+            'video' => $request->video,
+            'active' => 1,
+            'created_at'   => Carbon::now()
+        ]);
+
+        return back()->with('success', 'Rooftop information have been successfully Added.');
+    }
+
+    function post_rooftop_wanted(Request $request)
+    {
+        $rooftop = Rooftop::create([
+            'user_id' => $request->user_id,
+            'post_type' => $request->post_type,
+            'title' => $request->title,
+            'date' => $request->date,
+            'phone' => $request->phone,
+            'description' => $request->description,
+            'generator' => $request->generator,
+            'address' => $request->address,
+            'floor_area' => $request->floor_area,
+            'toilet' => $request->toilet,
+            'shed' => $request->shed,
+            'p_protection' => $request->p_protection,
+            'lift' => $request->lift,
+            'water' => $request->water,
+            'electricity' => $request->electricity,
+            'parking' => $request->parking,
+            'price' => $request->price,
+            'active' => 1,
+            'created_at'   => Carbon::now()
+        ]);
+
+        return back()->with('success', 'Rooftop information have been successfully Added.');
+    }
+
+    //end rooftop
+
+
+    // billboard
+
+    function post_bilboard_rented(Request $request)
+    {
+
+        $filename = '';
+        $filename1 = '';
+        $filename2 = '';
+        $filename3 = '';
+        $filename4 = '';
+        $filename5 = '';
+        $filename6 = '';
+        // store photo
+        if ($request->hasFile('photo')) {
+            $file = $request->file('photo');
+            $destinationPath = 'public/uploads/bilboards/';
+            $filename =  "bilboard-1-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
+            $file->move($destinationPath, $filename);
+        }
+
+        if ($request->hasFile('photo1')) {
+            $file = $request->file('photo1');
+            $destinationPath = 'public/uploads/bilboards/';
+            $filename1 =  "bilboard-2-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
+            $file->move($destinationPath, $filename1);
+        }
+        if ($request->hasFile('photo2')) {
+            $file = $request->file('photo2');
+            $destinationPath = 'public/uploads/bilboards/';
+            $filename2 =  "bilboard-3-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
+            $file->move($destinationPath, $filename2);
+        }
+        if ($request->hasFile('photo3')) {
+            $file = $request->file('photo3');
+            $destinationPath = 'public/uploads/bilboards/';
+            $filename3 =  "bilboard-4-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
+            $file->move($destinationPath, $filename3);
+        }
+        if ($request->hasFile('photo4')) {
+            $file = $request->file('photo4');
+            $destinationPath = 'public/uploads/bilboards/';
+            $filename4 =  "bilboard-5-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
+            $file->move($destinationPath, $filename4);
+        }
+        if ($request->hasFile('photo5')) {
+            $file = $request->file('photo5');
+            $destinationPath = 'public/uploads/bilboards/';
+            $filename5 =  "bilboard-6-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
+            $file->move($destinationPath, $filename5);
+        }
+        if ($request->hasFile('photo6')) {
+            $file = $request->file('photo6');
+            $destinationPath = 'public/uploads/bilboards/';
+            $filename6 =  "bilboard-7-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
+            $file->move($destinationPath, $filename6);
+        }
+
+        Bilboard::create([
+            'user_id' => $request->user_id,
+            'post_type' => $request->post_type,
+            'title' => $request->title,
+            'date' => $request->date,
+            'phone' => $request->phone,
+            'description' => $request->description,
+            'type' => $request->type,
+            'address' => $request->address,
+            'size' => $request->size,
+            'hieght' => $request->hieght,
+            'electricity' => $request->electricity,
+            'price' => $request->price,
+            'photo' => $filename,
+            'photo1' => $filename1,
+            'photo2' => $filename2,
+            'photo3' => $filename3,
+            'photo4' => $filename4,
+            'photo5' => $filename5,
+            'photo6' => $filename6,
+            'video' => $request->video,
+            'active' => 1,
+            'created_at'   => Carbon::now()
+        ]);
+
+        return back()->with('success', 'Billboard rented Post successfully Added.');
+    }
+    public function post_bilboard_wanted(Request $request)
+    {
+
+        $bilboard = Bilboard::create([
+            'user_id' => $request->user_id,
+            'post_type' => $request->post_type,
+            'title' => $request->title,
+            'date' => $request->date,
+            'phone' => $request->phone,
+            'description' => $request->description,
+            'type' => $request->type,
+            'address' => $request->address,
+            'size' => $request->size,
+            'hieght' => $request->hieght,
+            'electricity' => $request->electricity,
+            'price' => $request->price,
+            'active' => 1,
+            'created_at'   => Carbon::now()
+        ]);
+        return back()->with('success', 'Billboard Wanted Post successfully Added.');
+    }
+
+    //end billboard
+
 
 
     //post delete method
@@ -3013,7 +3118,7 @@ class PostController extends Controller
             'company_address' => 'required',
         ]);
         if ($validator->fails()) {
-            return back()->withErrors($validator->errors())->withInput()->with('error', 'Fillup the form Correctly.');
+            return back()->withErrors($validator->errors())->withInput()->with('error', 'Fill up the form Correctly.');
         } else {
             forms::create([
                 'name' => $request->name,
@@ -3023,7 +3128,7 @@ class PostController extends Controller
                 'massage' => $request->massage,
                 'company_address' => $request->company_address,
             ]);
-            return redirect()->back()->with('success', 'Form Submited. Authority Will contact with you.');
+            return redirect()->back()->with('success', 'Form Submitted. Authority Will contact with you.');
         }
     }
 }

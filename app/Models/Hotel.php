@@ -10,7 +10,7 @@ class Hotel extends Model
 
 {
     use HasFactory;
-    use SoftDeletes;
+    // use SoftDeletes;
     protected $guarded = [];
     
     function user()
