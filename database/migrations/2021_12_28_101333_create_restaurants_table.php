@@ -51,7 +51,6 @@ class CreateRestaurantsTable extends Migration
             $table->string('video')->nullable();
             $table->integer('active')->default(1);
             $table->bigInteger('table_api')->default(7);
-            $table->SoftDeletes();
             $table->timestamps();
         });
     }

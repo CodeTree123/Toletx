@@ -21,11 +21,11 @@ class CreateParkingSpotsTable extends Migration
             $table->date('date');
             $table->bigInteger('phone');
             $table->string('address');
+            $table->string('description')->nullable();
             $table->bigInteger('price');
             $table->string('per_price');
             $table->string('floor_level');
             $table->string('floor_height');
-            $table->string('description')->nullable();
             $table->string('vehicle_type');
             $table->string('photo')->nullable();
             $table->string('photo1')->nullable();
@@ -37,7 +37,6 @@ class CreateParkingSpotsTable extends Migration
             $table->string('video')->nullable();
             $table->integer('active')->default(1);
             $table->bigInteger('table_api')->default(4);
-            $table->SoftDeletes();
             $table->timestamps();
         });
     }

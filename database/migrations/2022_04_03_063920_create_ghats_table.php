@@ -20,10 +20,10 @@ class CreateGhatsTable extends Migration
             $table->string('title');
             $table->date('date');
             $table->bigInteger('phone');
-            $table->string('description')->nullable();
-            $table->string('address');
             $table->bigInteger('price');
             $table->string('per_price');
+            $table->string('description')->nullable();
+            $table->string('address');
             $table->string('toilet')->nullable();
             $table->string('parking')->nullable();
             $table->string('photo')->nullable();

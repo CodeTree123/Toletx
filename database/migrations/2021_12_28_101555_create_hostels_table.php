@@ -52,7 +52,6 @@ class CreateHostelsTable extends Migration
             $table->string('video')->nullable();
             $table->integer('active')->default(1);
             $table->bigInteger('table_api')->default(6);
-            $table->SoftDeletes();
             $table->timestamps();
         });
     }
