@@ -9,13 +9,8 @@
             </ol>
         </nav>
     </div>
-    <div class="col-sm-12 col-md-12 mb-3">
-        <select id="choose_post_type" class="form-select w-50 mx-auto">
-            <option value="">Choose Post Type...</option>
-            <option value="Rent">Rent</option>
-            <option value="Want">Want</option>
-        </select>
-    </div>
+    @include('frontend.include.selector_section')
+
     <div class="col-12" id="Rent" style="display: none;">
         <form method="POST" action="{{ route('post_building_rented') }}" enctype="multipart/form-data">
             @csrf
@@ -125,7 +120,7 @@
                 <div class=" col-lg-4 co-md-4 col-sm-12 col-12 mb-3">
                     <label for="floor_rented" class="form-label me-2 fw-bold">Building Type</label>
                     <select id="floor_rented" class="form-select" name="t_build" required>
-                        <option value="">Choose...</option>
+                        <option selected hidden>Choose...</option>
                         <option value="rcc">R.C.C</option>
                         <option value="Tin Shed">Tin Shed</option>
                         <option value="Steal Shed">Steal Shed</option>
@@ -137,7 +132,7 @@
                 <div class=" col-lg-4 co-md-4 col-sm-12 col-12 mb-3">
                     <label for="floor_rented" class="form-label me-2 fw-bold">No. of Floors</label>
                     <select id="floor_rented" class="form-select" name="floor" required>
-                        <option value="">Choose...</option>
+                        <option selected hidden>Choose...</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>
@@ -340,7 +335,7 @@
                 <div class=" col-lg-4 co-md-4 col-sm-12 col-12 mb-3">
                     <label for="floor_wanted" class="form-label me-2 fw-bold">Building Type</label>
                     <select id="floor_wanted" class="form-select" name="t_build" required>
-                        <option value="">Choose...</option>
+                        <option selected hidden>Choose...</option>
                         <option value="rcc">R.C.C</option>
                         <option value="Tin Shed">Tin Shed</option>
                         <option value="Steal Shed">Steal Shed</option>
@@ -352,7 +347,7 @@
                 <div class=" col-lg-4 co-md-4 col-sm-12 col-12 mb-3">
                     <label for="floor_wanted" class="form-label me-2 fw-bold">No. of Floors</label>
                     <select id="floor_wanted" class="form-select" name="floor" required>
-                        <option value="">Choose...</option>
+                        <option selected hidden>Choose...</option>
                         <option value="1">1</option>
                         <option value="2">2</option>
                         <option value="3">3</option>

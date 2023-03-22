@@ -30,13 +30,8 @@
                 <li class="breadcrumb-item active" aria-current="page">Add Shop</li>
             </ol>
         </nav>
-        <div class="col-sm-12 col-md-12 mb-3">
-            <select id="choose_post_type" class="form-select w-50 mx-auto">
-                <option value="">Choose Post Type...</option>
-                <option value="Rent">Rent</option>
-                <option value="Want">Want</option>
-            </select>
-        </div>
+        @include('frontend.include.selector_section')
+
         <div class="col-12" id="Rent" style="display: none;">
             <form method="POST" action="{{ route('post_shop_rented') }}" enctype="multipart/form-data">
                 @csrf
@@ -62,7 +57,7 @@
                     <div class=" col-lg-4 co-md-4 col-sm-12 col-12 mb-3">
                         <label for="phone_Rent" class="form-label me-2 fw-bold">Mobile</label>
                         {{--<select id="phone_Rent" class="form-select" name="phone" required>
-                            <option value="">Choose number</option>
+                            <option selected hidden>Choose number</option>
                             @foreach($lists as $list)
                             <option value="{{$list->phone}}">{{$list->phone}}</option>
                         @endforeach
@@ -81,7 +76,7 @@
                     <div class="col-lg-4 co-md-4 col-sm-12 col-12 mb-3">
                         <label for="floor_Rent" class="form-label me-2 fw-bold">Floor Level</label>
                         <select id="floor_Rent" class="form-select" name="floor_level" required>
-                            <option value="">Choose...</option>
+                            <option selected hidden>Choose...</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
@@ -233,7 +228,7 @@
                     <div class=" col-lg-4 co-md-4 col-sm-12 col-12 mb-3">
                         <label for="phone_Want" class="form-label me-2 fw-bold">Mobile</label>
                         {{--<select id="phone_Want" class="form-select" name="phone" required>
-                            <option value="">Choose number</option>
+                            <option selected hidden>Choose number</option>
                             @foreach($lists as $list)
                             <option value="{{$list->phone}}">{{$list->phone}}</option>
                         @endforeach
@@ -252,7 +247,7 @@
                     <div class="col-lg-4 co-md-4 col-sm-12 col-12 mb-3">
                         <label for="floor_Want" class="form-label me-2 fw-bold">Floor Level</label>
                         <select id="floor_Want" class="form-select" name="floor_level" required>
-                            <option value="">Choose...</option>
+                            <option selected hidden>Choose...</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>

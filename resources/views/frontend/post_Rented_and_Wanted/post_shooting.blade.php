@@ -30,13 +30,8 @@
                 <li class="breadcrumb-item active" aria-current="page">Add Shooting Spot</li>
             </ol>
         </nav>
-        <div class="col-sm-12 col-md-12 mb-3">
-            <select id="choose_post_type" class="form-select w-50 mx-auto">
-                <option value="">Choose Post Type...</option>
-                <option value="Rent">Rent</option>
-                <option value="Want">Want</option>
-            </select>
-        </div>
+        @include('frontend.include.selector_section')
+
         <div class="col-12" id="Rent" style="display: none;">
             <form method="POST" action="{{ route('post_shooting_rented') }}" enctype="multipart/form-data">
                 @csrf
@@ -53,7 +48,7 @@
                 <div class="row">
                     <div class=" col-12 mb-3 ">
                         <label for="post_title_Rent" class="form-label me-2 fw-bold">Post Title</label>
-                        <input name="" type="text" value="" class="form-control" id="post_title_Rent" placeholder="Enter Post Title">
+                        <input name="" type="text" class="form-control" id="post_title_Rent" placeholder="Enter Post Title">
                     </div>
                     <div class="col-lg-4 co-md-4 col-sm-12 col-12 mb-3">
                         <label for="title_Rent" class="form-label me-2 fw-bold">Shooting Spot Name</label>
@@ -238,7 +233,7 @@
                 <div class="row">
                     <div class=" col-12 mb-3 ">
                         <label for="post_title_Want" class="form-label me-2 fw-bold">Post Title</label>
-                        <input name="" type="text" value="" class="form-control" id="post_title_Want" placeholder="Enter Post Title">
+                        <input name="" type="text" class="form-control" id="post_title_Want" placeholder="Enter Post Title">
                     </div>
                     <div class="col-lg-4 co-md-4 col-sm-12 col-12 mb-3">
                         <label for="title_Want" class="form-label me-2 fw-bold">Shooting Spot Name</label>

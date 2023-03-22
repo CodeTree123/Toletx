@@ -8,13 +8,8 @@
                 <li class="breadcrumb-item active" aria-current="page">Add Billboard</li>
             </ol>
         </nav>
-        <div class="col-sm-12 col-md-12 mb-3">
-            <select id="choose_post_type" class="form-select w-50 mx-auto">
-                <option value="">Choose Post Type...</option>
-                <option value="Rent">Rent</option>
-                <option value="Want">Want</option>
-            </select>
-        </div>
+        @include('frontend.include.selector_section')
+        
         <div class="col-12" id="Rent" style="display: none;">
             <form action="{{route('post_bilboard_rented')}}" method="POST" enctype="multipart/form-data">
                 @csrf

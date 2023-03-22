@@ -30,13 +30,8 @@
                 <li class="breadcrumb-item active" aria-current="page">Add Exhibition Center</li>
             </ol>
         </nav>
-        <div class="col-sm-12 col-md-12 mb-3">
-            <select id="choose_post_type" onchange="val()" class="form-select w-50 mx-auto">
-                <option value="">Choose Post Type...</option>
-                <option value="Rent">Rent</option>
-                <option value="Want">Want</option>
-            </select>
-        </div>
+        @include('frontend.include.selector_section')
+
         <div class="col-12" id="Rent" style="display: none;">
             <form method="POST" action="{{ route('post_exibution_center_rented') }}" enctype="multipart/form-data">
                 @csrf
@@ -80,7 +75,7 @@
                     <div class="col-lg-4 co-md-4 col-sm-12 col-12 mb-3">
                         <label for="interior_rented" class="form-label me-2 fw-bold">Interior Condition</label>
                         <select id="interior_rented" class="form-select" name="interior_condition" required>
-                            <option value="">Choose Interior Condition</option>
+                            <option selected hidden>Choose Interior Condition</option>
                             <option value="good">good</option>
                             <option value="moderate">moderate</option>
                             <option value="best">best</option>
@@ -89,7 +84,7 @@
                     <div class="col-lg-4 co-md-4 col-sm-12 col-12 mb-3">
                         <label for="floor_rented" class="form-label me-2 fw-bold">Floor Levels</label>
                         <select id="floor_rented" class="form-select" name="floor_level" required>
-                            <option value="">Choose Floor Levels</option>
+                            <option selected hidden>Choose Floor Levels</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
@@ -251,7 +246,7 @@
                     <div class="col-lg-4 co-md-4 col-sm-12 col-12 mb-3">
                         <label for="interior_wanted" class="form-label me-2 fw-bold">Interior Condition</label>
                         <select id="interior_wanted" class="form-select" name="interior_condition" required>
-                            <option value="">Choose Interior Condition</option>
+                            <option selected hidden>Choose Interior Condition</option>
                             <option value="good">good</option>
                             <option value="moderate">moderate</option>
                             <option value="best">best</option>
@@ -260,7 +255,7 @@
                     <div class="col-lg-4 co-md-4 col-sm-12 col-12 mb-3">
                         <label for="floor_wanted" class="form-label me-2 fw-bold">Floor Levels</label>
                         <select id="floor_wanted" class="form-select" name="floor_level" required>
-                            <option value="">Choose Floor Levels</option>
+                            <option selected hidden>Choose Floor Levels</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>

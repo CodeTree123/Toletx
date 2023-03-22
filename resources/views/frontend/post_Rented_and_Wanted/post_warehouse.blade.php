@@ -30,13 +30,8 @@
                 <li class="breadcrumb-item active" aria-current="page">Add Warehouse</li>
             </ol>
         </nav>
-        <div class="col-sm-12 col-md-12 mb-3">
-            <select id="choose_post_type" class="form-select w-50 mx-auto">
-                <option value="">Choose Post Type...</option>
-                <option value="Rent">Rent</option>
-                <option value="Want">Want</option>
-            </select>
-        </div>
+        @include('frontend.include.selector_section')
+
         <div class="col-12" id="Rent" style="display: none;">
             <form method="POST" action="{{ route('post_warehouse_rented') }}" enctype="multipart/form-data">
                 @csrf
@@ -91,7 +86,7 @@
                     <div class="col-lg-4 co-md-4 col-sm-12 col-12 mb-3">
                         <label for="floor_Rent" class="form-label me-2 fw-bold">Floor Level</label>
                         <select id="floor_Rent" class="form-select" name="floor_level" required>
-                            <option value="">Choose...</option>
+                            <option selected hidden>Choose...</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
@@ -113,7 +108,7 @@
                     <div class="col-lg-4 co-md-4 col-sm-12 col-12 mb-3">
                         <label for="building_Rent" class="form-label me-2 fw-bold">Building Condition</label>
                         <select id="building_Rent" class="form-select" name="building_condition" required>
-                            <option value="">Choose...</option>
+                            <option selected hidden>Choose...</option>
                             <option value="good">good</option>
                             <option value="moderate">moderate</option>
                             <option value="best">best</option>
@@ -415,39 +410,4 @@
 
     </div>
 </div>
-<!-- js -->
-
-<script>
-    function val() {
-        var choose = document.getElementById('choose_post_type').value;
-        var Rent = document.getElementById('Rent');
-        var Want = document.getElementById('Want');
-        var post = document.getElementById('post_rent');
-        var post2 = document.getElementById('post_want');
-        if (choose == "Want") {
-            Want.style.display = "flex";
-            Rent.style.display = "none";
-
-            post2.value = choose;
-
-        } else if (choose == "Rent") {
-            Rent.style.display = "flex";
-            Want.style.display = "none";
-
-            post.value = choose;
-        } else {
-            Rent.style.display = "none";
-            Want.style.display = "none";
-            post.value = choose;
-
-        }
-
-        // console.log(choose);
-    }
-</script>
-<script>
-    $(document).ready(function() {
-        $("#hello").slideDown(300).delay(1000).slideUp(300);
-    });
-</script>
 @endsection
