@@ -21,12 +21,13 @@ class CreateBilboardsTable extends Migration
             $table->date('date');
             $table->bigInteger('phone');
             $table->bigInteger('price');
-            $table->string('per');
+            $table->string('per_price');
             $table->string('size');
             $table->string('height');
             $table->string('type');
             $table->string('description')->nullable();
             $table->string('address');
+            $table->string('electricity')->nullable();
             $table->string('photo')->nullable();
             $table->string('photo1')->nullable();
             $table->string('photo2')->nullable();
@@ -34,7 +35,6 @@ class CreateBilboardsTable extends Migration
             $table->string('photo4')->nullable();
             $table->string('photo5')->nullable();
             $table->string('photo6')->nullable();
-            $table->string('electricity')->nullable();
             $table->string('video')->nullable();
             $table->integer('active')->default(1);
             $table->bigInteger('table_api')->default(22);
