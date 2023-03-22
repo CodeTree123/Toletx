@@ -26,7 +26,7 @@
             </ol>
         </nav>
         <div class="col-sm-12 col-md-12 mb-3">
-            <select id="choose_post_type" onchange="val()" class="form-select w-50 mx-auto">
+            <select id="choose_post_type" class="form-select w-50 mx-auto">
                 <option value="">Choose Post Type...</option>
                 <option value="Rent">Rent</option>
                 <option value="Want">Want</option>
@@ -64,14 +64,37 @@
                     <div class="col-lg-4 co-md-4 col-sm-12 col-12 mb-3 ">
                         <label for="Area_Rent" class="form-label me-2 fw-bold">Rooftop Area</label>
                         <input name="floor_area" type="text" class="form-control" id="Area_Rent" placeholder="Enter Roof Area" required>
+
                     </div>
                     <div class="col-lg-4 co-md-4 col-sm-12 col-12 mb-3 ">
-                        <label for="price_Rent" class="form-label me-2 fw-bold">Rent Per Month</label>
-                        <input name="price" type="number" class="form-control" id="price_Rent" placeholder="Enter Rent" required>
+                        <label for="price_Rent" class="form-label me-2 fw-bold">Rent</label>
+                        <div class="row">
+                            <div class="col-4 pe-0">
+                                <div class="input-group mb-3">
+                                    <input name="price" type="number" class="form-control" id="price_Rent" placeholder="Enter Rent" required>
+                                </div>
+                            </div>
+                            <div class="col-1">
+                                <span class="text-light fs-3">/</span>
+                            </div>
+                            <div class="col-7 ps-0">
+                                <div class="input-group mb-3">
+                                    <select class="form-select form-select-md mb-3" aria-label=".form-select-lg example" name="per_price">
+                                        <option selected hidden>Choose Rent Type</option>
+                                        <option value="hour">Hour</option>
+                                        <option value="day"> Day</option>
+                                        <option value="night"> Only Night</option>
+                                        <option value="week"> Week</option>
+                                        <option value="month"> Month</option>
+                                        <option value="year"> Year</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="col-12 mb-3 ">
                         <label for="address_Rent" class="form-label me-2 fw-bold">Address</label>
-                        <input name="address" type="text" class="form-control" id="roof_search_autocomplete" placeholder="Enter Address" required>
+                        <input name="address" type="text" class="form-control" placeholder="Enter Address" required>
                     </div>
 
                     <div class="col-12 mb-3 ">
@@ -217,7 +240,7 @@
                         <div class="row">
                             <div class="col-4 pe-0">
                                 <div class="input-group mb-3">
-                                    <input name="price" type="number" id="price_Rent" class="form-control" placeholder="Enter Price" required aria-label="Text input with dropdown button">
+                                    <input name="price" type="number" id="price_Rent" class="form-control" placeholder="Enter Rent" required aria-label="Text input with dropdown button">
                                 </div>
                             </div>
                             <div class="col-1">
@@ -227,18 +250,12 @@
                                 <div class="input-group mb-3">
                                     <select class="form-select form-select-md mb-3" aria-label=".form-select-lg example">
                                         <option selected hidden>Choose Rent Type</option>
-                                        <option value="hour">Hour</>
-                                        </option>
-                                        <option value="day"> Day</>
-                                        </option>
-                                        <option value="night"> Only Night</>
-                                        </option>
-                                        <option value="week"> Week</>
-                                        </option>
-                                        <option value="month"> Month</>
-                                        </option>
-                                        <option value="year"> Year</>
-                                        </option>
+                                        <option value="hour">Hour </option>
+                                        <option value="day"> Day </option>
+                                        <option value="night"> Only Night </option>
+                                        <option value="week"> Week </option>
+                                        <option value="month"> Month </option>
+                                        <option value="year"> Year </option>
                                     </select>
                                 </div>
                             </div>
@@ -247,7 +264,7 @@
                     <!-- <input name="price" type="number" class="form-control" id="price_Want" placeholder="Enter Rent" required> -->
                     <div class="col-12 mb-3 ">
                         <label for="address_Want" class="form-label me-2 fw-bold">Address</label>
-                        <input name="address" type="text" class="form-control" id="roof_search_autocomplete" placeholder="Enter Address" required>
+                        <input name="address" type="text" class="form-control" placeholder="Enter Address" required>
                     </div>
 
                     <div class="col-12 mb-3 ">
@@ -316,38 +333,4 @@
     </div>
 </div>
 <!-- js -->
-
-<script>
-    function val() {
-        var choose = document.getElementById('choose_post_type').value;
-        var Rent = document.getElementById('Rent');
-        var Want = document.getElementById('Want');
-        var post = document.getElementById('post_rent');
-        var post2 = document.getElementById('post_want');
-        if (choose == "Want") {
-            Want.style.display = "flex";
-            Rent.style.display = "none";
-
-            post2.value = choose;
-
-        } else if (choose == "Rent") {
-            Rent.style.display = "flex";
-            Want.style.display = "none";
-
-            post.value = choose;
-        } else {
-            Rent.style.display = "none";
-            Want.style.display = "none";
-            post.value = choose;
-
-        }
-
-        // console.log(choose);
-    }
-</script>
-<script>
-    $(document).ready(function() {
-        $("#hello").slideDown(300).delay(1000).slideUp(300);
-    });
-</script>
 @endsection

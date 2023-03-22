@@ -52,8 +52,8 @@
                 <input class="form-control" type="hidden" id="post_rent" name="post_type">
                 <div class="row">
                     <div class=" col-12 mb-3 ">
-                        <label for="" class="form-label me-2 fw-bold">Post Title</label>
-                        <input name="" type="text" value="" class="form-control" id="" placeholder="Enter Post Title">
+                        <label for="post_title_Rent" class="form-label me-2 fw-bold">Post Title</label>
+                        <input name="" type="text" value="" class="form-control" id="post_title_Rent" placeholder="Enter Post Title">
                     </div>
 
                     <div class="col-lg-4 co-md-4 col-sm-12 col-12 mb-3 ">
@@ -62,7 +62,7 @@
                     </div>
                     <div class=" col-lg-4 co-md-4 col-sm-12 col-12 mb-3">
                         <label for="date_Rent" class="form-label me-2 fw-bold">Date</label>
-                        <input name="date" type="date" class="form-control" id="date_Rent" onfocus="this.showPicker()" required>
+                        <input name="date" type="date" class="form-control" id="date_Rent" min="{{\Carbon\Carbon::today()->format('Y-m-d')}}" onfocus="this.showPicker()" required>
                     </div>
                     <div class=" col-lg-4 co-md-4 col-sm-12 col-12 mb-3">
                         <label for="phone_Rent" class="form-label me-2 fw-bold">Mobile</label>
@@ -70,22 +70,42 @@
                             <option value="">Choose number</option>
                             @foreach($lists as $list)
                             <option value="{{$list->phone}}">{{$list->phone}}</option>
-                            @endforeach
+                        @endforeach
                         </select>--}}
                         <input name="phone" type="number" class="form-control" id="phone_Rent" placeholder="Enter " value="{{$list->phone}}" readonly>
                     </div>
 
                     <div class="col-lg-4 co-md-4 col-sm-12 col-12 mb-3 ">
-                        <label for="price_Rent" class="form-label me-2 fw-bold">Rent Per Day</label>
-                        <input name="price" type="number" class="form-control" id="price_Rent" placeholder="Enter Price" required>
+                        <label for="price_Rent" class="form-label me-2 fw-bold">Rent</label>
+                        <div class="row">
+                            <div class="col-4 pe-0">
+                                <div class="input-group mb-3">
+                                    <input name="price" type="number" class="form-control" id="price_Rent" placeholder="Enter Rent" required>
+                                </div>
+                            </div>
+                            <div class="col-1">
+                                <span class="text-light fs-3">/</span>
+                            </div>
+                            <div class="col-7 ps-0">
+                                <div class="input-group mb-3">
+                                    <select class="form-select form-select-md mb-3" aria-label=".form-select-lg example" name="per_price">
+                                        <option selected hidden>Choose Rent Type</option>
+                                        <option value="hour">Hour</option>
+                                        <option value="day shift"> Day Shift</option>
+                                        <option value="night shift"> Night Shift</option>
+                                        <option value="full day"> Full Day</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="col-lg-4 co-md-4 col-sm-12 col-12 mb-3 ">
-                        <label for="area_Rent" class="form-label me-2 fw-bold">Land Area</label>
-                        <input name="land_area" type="number" class="form-control" id="area_Rent" placeholder="Enter Land Area" required>
+                        <label for="area_Rent" class="form-label me-2 fw-bold">Picnic Spot Area</label>
+                        <input name="land_area" type="text" class="form-control" id="area_Rent" placeholder="Enter Picnic Spot Area" required>
                     </div>
                     <div class="col-12 mb-3 ">
                         <label for="address_Rent" class="form-label me-2 fw-bold">Address</label>
-                        <input name="address" type="text" class="form-control" id="garage_search_autocomplete" placeholder="Enter Address" required>
+                        <input name="address" type="text" class="form-control" placeholder="Enter Address" required>
                     </div>
                     <div class="col-12 mb-3 ">
                         <label for="description_Rent" class="form-label me-2 fw-bold">Description</label>
@@ -218,17 +238,17 @@
                 <input class="form-control" type="hidden" id="post_want" name="post_type">
                 <div class="row">
                     <div class=" col-12 mb-3 ">
-                        <label for="" class="form-label me-2 fw-bold">Post Title</label>
-                        <input name="" type="text" value="" class="form-control" id="" placeholder="Enter Post Title">
+                        <label for="post_title_Want" class="form-label me-2 fw-bold">Post Title</label>
+                        <input name="" type="text" value="" class="form-control" id="post_title_Want" placeholder="Enter Post Title">
                     </div>
 
                     <div class="col-lg-4 co-md-4 col-sm-12 col-12 mb-3 ">
-                        <label for="title_Want" class="form-label me-2 fw-bold">Picnic Spot Name For Rent</label>
+                        <label for="title_Want" class="form-label me-2 fw-bold">Picnic Spot Name</label>
                         <input name="title" type="text" class="form-control" id="title_Want" placeholder="Enter Picnic Spot Name" required>
                     </div>
                     <div class=" col-lg-4 co-md-4 col-sm-12 col-12 mb-3">
                         <label for="date_Want" class="form-label me-2 fw-bold">Date</label>
-                        <input name="date" type="date" class="form-control" id="date_Want" onfocus="this.showPicker()" required>
+                        <input name="date" type="date" class="form-control" id="date_Want" min="{{\Carbon\Carbon::today()->format('Y-m-d')}}" onfocus="this.showPicker()" required>
                     </div>
                     <div class=" col-lg-4 co-md-4 col-sm-12 col-12 mb-3">
                         <label for="phone_Want" class="form-label me-2 fw-bold">Mobile</label>
@@ -236,22 +256,42 @@
                             <option value="">Choose number</option>
                             @foreach($lists as $list)
                             <option value="{{$list->phone}}">{{$list->phone}}</option>
-                            @endforeach
+                        @endforeach
                         </select>--}}
                         <input name="phone" type="number" class="form-control" id="phone_Want" placeholder="Enter " value="{{$list->phone}}" readonly>
                     </div>
 
                     <div class="col-lg-4 co-md-4 col-sm-12 col-12 mb-3 ">
-                        <label for="price_Want" class="form-label me-2 fw-bold">Rent Per Day</label>
-                        <input name="price" type="number" class="form-control" id="price_Want" placeholder="Enter Price" required>
+                        <label for="price_Want" class="form-label me-2 fw-bold">Rent</label>
+                        <div class="row">
+                            <div class="col-4 pe-0">
+                                <div class="input-group mb-3">
+                                    <input name="price" type="number" class="form-control" id="price_Want" placeholder="Enter Rent" required>
+                                </div>
+                            </div>
+                            <div class="col-1">
+                                <span class="text-light fs-3">/</span>
+                            </div>
+                            <div class="col-7 ps-0">
+                                <div class="input-group mb-3">
+                                    <select class="form-select form-select-md mb-3" aria-label=".form-select-lg example" name="per_price">
+                                        <option selected hidden>Choose Rent Type</option>
+                                        <option value="hour">Hour</option>
+                                        <option value="day shift"> Day Shift</option>
+                                        <option value="night shift"> Night Shift</option>
+                                        <option value="full day"> Full Day</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="col-lg-4 co-md-4 col-sm-12 col-12 mb-3 ">
-                        <label for="area_Want" class="form-label me-2 fw-bold">Land Area</label>
-                        <input name="land_area" type="number" class="form-control" id="area_Want" placeholder="Enter Land Area" required>
+                        <label for="area_Want" class="form-label me-2 fw-bold">Picnic Spot Area</label>
+                        <input name="land_area" type="text" class="form-control" id="area_Want" placeholder="Enter Picnic Spot Area" required>
                     </div>
                     <div class="col-12 mb-3 ">
                         <label for="address_Want" class="form-label me-2 fw-bold">Address</label>
-                        <input name="address" type="text" class="form-control" id="garage_search_autocomplete" placeholder="Enter Address" required>
+                        <input name="address" type="text" class="form-control" placeholder="Enter Address" required>
                     </div>
                     <div class="col-12 mb-3 ">
                         <label for="description_Want" class="form-label me-2 fw-bold">Description</label>

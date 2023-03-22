@@ -29,7 +29,7 @@
                     </div>
                     <div class=" col-lg-4 co-md-4 col-sm-12 col-12 mb-3">
                         <label for="date_Rent" class="form-label me-2 fw-bold">Date</label>
-                        <input name="date" type="date" class="form-control" id="date_Rent" onfocus="this.showPicker()" required>
+                        <input name="date" type="date" class="form-control" id="date_Rent" min="{{\Carbon\Carbon::today()->format('Y-m-d')}}" onfocus="this.showPicker()" required>
                     </div>
                     <div class=" col-lg-4 co-md-4 col-sm-12 col-12 mb-3">
                         <label for="phone_Rent" class="form-label me-2 fw-bold">Mobile</label>
@@ -53,7 +53,7 @@
                     </div>
                     <div class="col-12 mb-3 ">
                         <label for="address_Rent" class="form-label me-2 fw-bold">Address</label>
-                        <input name="address" type="text" class="form-control" id="billboard_search_autocomplete" placeholder="Enter Address" required>
+                        <input name="address" type="text" class="form-control" placeholder="Enter Address" required>
                     </div>
                     <div class="col-12 mb-3 ">
                         <label for="description_Rent" class="form-label me-2 fw-bold">Description</label>
@@ -121,7 +121,7 @@
                     </div>
                     <div class=" col-lg-4 co-md-4 col-sm-12 col-12 mb-3">
                         <label for="date_Want" class="form-label me-2 fw-bold">Date</label>
-                        <input name="date" type="date" class="form-control" id="date_Want" onfocus="this.showPicker()" required>
+                        <input name="date" type="date" class="form-control" id="date_Want" min="{{\Carbon\Carbon::today()->format('Y-m-d')}}" onfocus="this.showPicker()" required>
                     </div>
                     <div class=" col-lg-4 co-md-4 col-sm-12 col-12 mb-3">
                         <label for="phone_Want" class="form-label me-2 fw-bold">Mobile</label>
@@ -145,7 +145,7 @@
                     </div>
                     <div class="col-12 mb-3 ">
                         <label for="address_Want" class="form-label me-2 fw-bold">Address</label>
-                        <input name="address" type="text" class="form-control" id="billboard_search_autocomplete" placeholder="Enter Address" required>
+                        <input name="address" type="text" class="form-control" placeholder="Enter Address" required>
                     </div>
                     <div class="col-12 mb-3 ">
                         <label for="description_Want" class="form-label me-2 fw-bold">Description</label>
