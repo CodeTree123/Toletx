@@ -9,7 +9,7 @@
             </ol>
         </nav>
         <div class="col-sm-12 col-md-12 mb-3">
-            <select id="choose_post_type" onchange="val()" class="form-select w-50 mx-auto">
+            <select id="choose_post_type" class="form-select w-50 mx-auto">
                 <option value="">Choose Post Type...</option>
                 <option value="Rent">Rent</option>
                 <option value="Want">Want</option>
@@ -36,7 +36,7 @@
                         <input name="phone" type="number" class="form-control" id="phone_Rent" placeholder="Enter Phone" value="{{$list->phone}}" required readonly>
                     </div>
                     <div class="col-lg-4 co-md-4 col-sm-12 col-12 mb-3 ">
-                        <label for="price_Rent" class="form-label me-2 fw-bold"> Rent Per Month</label>
+                        <label for="price_Rent" class="form-label me-2 fw-bold"> Rent</label>
                         <input name="price" type="number" class="form-control" id="price_Rent" placeholder="Enter Rent" required>
                     </div>
                     <div class="col-lg-4 co-md-4 col-sm-12 col-12 mb-3 ">

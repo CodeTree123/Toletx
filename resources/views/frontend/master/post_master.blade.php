@@ -129,7 +129,7 @@
     </script>
     <script>
         const copyBtns = document.querySelectorAll('.copy-button');
-        console.log(copyBtns);
+        // console.log(copyBtns);
         copyBtns.forEach((copyBtn) => {
 
             copyBtn.addEventListener('click', () => {
@@ -143,7 +143,7 @@
             navigator.clipboard.writeText(text)
                 .then(() => {
                     console.log(`${text} was copied success`)
-                    console.log(copyBtn);
+                    // console.log(copyBtn);
 
                     copyBtn.classList.remove('btn-outline-dark');
                     copyBtn.classList.add('btn-primary');
@@ -162,7 +162,7 @@
                 })
         }
     </script>
-    <script>
+    <!-- <script>
         function val() {
             var choose = document.getElementById('choose_post_type').value;
             var rented = document.getElementById('rent');
@@ -186,10 +186,30 @@
             }
             // console.log(choose);
         }
-    </script>
+    </script> -->
     <script>
         $(document).ready(function() {
             $("#hello").slideDown(300).delay(1000).slideUp(300);
+
+            $('#choose_post_type').on('change', function() {
+                let choose = $(this).val();
+
+                if (choose == "Want") {
+                    $('#Want').css("display", "flex");
+                    $('#Rent').css("display", "none");
+                    $('#post_want').val(choose);
+
+                } else if (choose == "Rent") {
+                    $('#Rent').css("display", "flex");
+                    $('#Want').css("display", "none");
+
+                    $('#post_rent').val(choose);
+                } else {
+                    $('#Rent').css("display", "none");
+                    $('#Want').css("display", "none");
+                    // $('#post_rent').val(choose);
+                }
+            });
         });
     </script>
 </body>
