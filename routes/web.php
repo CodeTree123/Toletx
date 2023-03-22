@@ -129,13 +129,13 @@ Auth::routes(["verify" => true]);
     Route::get('/post/pond', [PostController::class, 'post_pond'])->name('post_pond');
 
     Route::get('/post/ghat', [PostController::class, 'post_ghat'])->name('post_ghat'); 
-    Route::get('/post/swimmingpool', [PostController::class, 'post_swimmingpool'])->name('post_swimmingpool');
+    Route::get('/post/swimming/pool', [PostController::class, 'post_swimmingpool'])->name('post_swimmingpool');
 
     Route::get('/post/camp/site', [PostController::class, 'post_playground'])->name('post_playground');
-    Route::get('/post/shooting', [PostController::class, 'post_shooting'])->name('post_shooting');
+    Route::get('/post/shooting/spot', [PostController::class, 'post_shooting'])->name('post_shooting');
 
     Route::get('/post/picnic', [PostController::class, 'post_picnic'])->name('post_picnic');
-    Route::get('/post/exhibition', [PostController::class, 'post_exhibution'])->name('post_exhibution');
+    Route::get('/post/exhibition/Hall', [PostController::class, 'post_exhibution'])->name('post_exhibution');
 
     Route::get('/post/rooftop', [PostController::class, 'post_rooftop'])->name('post_rooftop');
     Route::get('/post/billboard', [PostController::class, 'post_bilboard'])->name('post_bilboard');
@@ -188,8 +188,8 @@ Auth::routes(["verify" => true]);
     Route::post('/post/ghat/rented', [PostController::class, 'post_ghat_rented'])->name('post_ghat_rented');
     Route::post('/post/ghat/wanted', [PostController::class, 'post_ghat_wanted'])->name('post_ghat_wanted');
 
-    Route::post('/post/swimmingpool/rented', [PostController::class, 'post_swimmingpool_rented'])->name('post_swimmingpool_rented');
-    Route::post('/post/swimmingpool/wanted', [PostController::class, 'post_swimmingpool_wanted'])->name('post_swimmingpool_wanted');
+    Route::post('/post/swimming/pool/rented', [PostController::class, 'post_swimmingpool_rented'])->name('post_swimmingpool_rented');
+    Route::post('/post/swimming/pool/wanted', [PostController::class, 'post_swimmingpool_wanted'])->name('post_swimmingpool_wanted');
 
     Route::post('/post/camp/site/rented', [PostController::class, 'post_playground_rented'])->name('post_playground_rented');
     Route::post('/post/camp/site/wanted', [PostController::class, 'post_playground_wanted'])->name('post_playground_wanted');
@@ -206,7 +206,7 @@ Auth::routes(["verify" => true]);
     Route::post('/post/rooftop/rented', [PostController::class, 'post_rooftop_rented'])->name('post_rooftop_rented');
     Route::post('/post/rooftop/wanted', [PostController::class, 'post_rooftop_wanted'])->name('post_rooftop_wanted');
 
-    Route::post('/post/bilboard/rented', [PostController::class, 'post_bilboard_rented'])->name('post_bilboard_rented');
+    Route::post('/post/billboard/rented', [PostController::class, 'post_bilboard_rented'])->name('post_bilboard_rented');
     Route::post('/post/bilboard/wanted', [PostController::class, 'post_bilboard_wanted'])->name('post_bilboard_wanted');
 
 //end service post Route
@@ -234,12 +234,12 @@ Auth::routes(["verify" => true]);
     Route::get('/pond/edit/{id}', [DetailesController::class, 'user_pond_edit'])->name('user_pond_edit');
 
     Route::get('/ghat/edit/{id}', [DetailesController::class, 'user_ghat_edit'])->name('user_ghat_edit');
-    Route::get('/swimming/edit/{id}', [DetailesController::class, 'user_swimming_edit'])->name('user_swimming_edit');
+    Route::get('/swimming/pool/edit/{id}', [DetailesController::class, 'user_swimming_edit'])->name('user_swimming_edit');
 
     Route::get('/camp/site/edit/{id}', [DetailesController::class, 'user_playground_edit'])->name('user_playground_edit');
-    Route::get('/shooting/edit/{id}', [DetailesController::class, 'user_shooting_edit'])->name('user_shooting_edit');
+    Route::get('/shooting/spot/edit/{id}', [DetailesController::class, 'user_shooting_edit'])->name('user_shooting_edit');
 
-    Route::get('/picnic/edit/{id}', [DetailesController::class, 'user_picnic_edit'])->name('user_picnic_edit');
+    Route::get('/picnic/spot/edit/{id}', [DetailesController::class, 'user_picnic_edit'])->name('user_picnic_edit');
     Route::get('/exhibition/edit/{id}', [DetailesController::class, 'user_exhibution_edit'])->name('user_exhibution_edit');
 
     Route::get('/rooftop/edit/{id}', [DetailesController::class, 'user_rooftop_edit'])->name('user_rooftop_edit');
@@ -271,7 +271,7 @@ Auth::routes(["verify" => true]);
     Route::post('/pond/update/{id}', [UpdateController::class, 'pond_update'])->name('pond_update');
 
     Route::post('/ghat/update/{id}', [UpdateController::class, 'ghat_update'])->name('ghat_update');
-    Route::post('/swimmingpool/update/{id}', [UpdateController::class, 'swimmingpool_update'])->name('swimmingpool_update');
+    Route::post('/swimming/pool/update/{id}', [UpdateController::class, 'swimmingpool_update'])->name('swimmingpool_update');
 
     Route::post('/camp/site/update/{id}', [UpdateController::class, 'playground_update'])->name('playground_update');
     Route::post('/shooting/update/{id}', [UpdateController::class, 'shooting_update'])->name('shooting_update');
@@ -311,7 +311,7 @@ Auth::routes(["verify" => true]);
     Route::get('/pond/delete/{id}', [PostController::class, 'pond_delete'])->name('pond_delete');
 
     Route::get('/ghat/delete/{id}', [PostController::class, 'ghat_delete'])->name('ghat_delete');
-    Route::get('/swimmingpool/delete/{id}', [PostController::class, 'swimmingpool_delete'])->name('swimmingpool_delete');
+    Route::get('/swimming/pool/delete/{id}', [PostController::class, 'swimmingpool_delete'])->name('swimmingpool_delete');
 
     Route::get('/camp/site/delete/{id}', [PostController::class, 'playground_delete'])->name('playground_delete');
     Route::get('/shooting/delete/{id}', [PostController::class, 'shooting_delete'])->name('shooting_delete');
@@ -348,12 +348,12 @@ Auth::routes(["verify" => true]);
     Route::get('/pond/search', [SearchController::class, 'pond_search'])->name('pond_search');
 
     Route::get('/ghat/search', [SearchController::class, 'ghat_search'])->name('ghat_search');
-    Route::get('/swimmingpool/search', [SearchController::class, 'swimmingpool_search'])->name('swimmingpool_search');
+    Route::get('/swimming/pool/search', [SearchController::class, 'swimmingpool_search'])->name('swimmingpool_search');
 
     Route::get('/camp/site/search', [SearchController::class, 'playground_search'])->name('playground_search');
     Route::get('/shooting/spot/search', [SearchController::class, 'shootingspot_search'])->name('shootingspot_search');
 
-    Route::get('/picnic/search', [SearchController::class, 'picnic_search'])->name('picnic_search');
+    Route::get('/picnic/spot/search', [SearchController::class, 'picnic_search'])->name('picnic_search');
     Route::get('/exibution/search', [SearchController::class, 'exibution_search'])->name('exibution_search');
 
     Route::get('/rooftop/search', [SearchController::class, 'rooftop_search'])->name('rooftop_search');
@@ -371,7 +371,7 @@ Auth::routes(["verify" => true]);
     Route::get('/hotel/details/{id}', [DetailesController::class, 'hotel_details'])->name('hotel_details');
     Route::get('/hostel/details/{id}', [DetailesController::class, 'hostel_details'])->name('hostel_details');
 
-    Route::get('/restaurant/details/{id}', [DetailesController::class, 'restaurant_details'])->name('restaurant_details');
+    Route::get('/resort/details/{id}', [DetailesController::class, 'restaurant_details'])->name('restaurant_details');
     Route::get('/office/details/{id}', [DetailesController::class, 'office_details'])->name('office_details');
 
     Route::get('/shop/details/{id}', [DetailesController::class, 'shop_details'])->name('shop_details');
@@ -384,10 +384,10 @@ Auth::routes(["verify" => true]);
     Route::get('/pond/details/{id}', [DetailesController::class, 'pond_details'])->name('pond_details');
 
     Route::get('/ghat/details/{id}', [DetailesController::class, 'ghat_details'])->name('ghat_details');
-    Route::get('/swimmingpool/details/{id}', [DetailesController::class, 'swimmingpool_details'])->name('swimmingpool_details');
+    Route::get('/swimming/pool/details/{id}', [DetailesController::class, 'swimmingpool_details'])->name('swimmingpool_details');
 
     Route::get('/camp/site/details/{id}', [DetailesController::class, 'playground_details'])->name('playground_details');
-    Route::get('/shooting/details/{id}', [DetailesController::class, 'shooting_details'])->name('shooting_details');
+    Route::get('/shooting/spot/details/{id}', [DetailesController::class, 'shooting_details'])->name('shooting_details');
 
     Route::get('/picnic/details/{id}', [DetailesController::class, 'picnic_details'])->name('picnic_details');
     Route::get('/exibution/details/{id}', [DetailesController::class, 'exibution_details'])->name('exibution_details');
@@ -443,7 +443,7 @@ Route::group(['middleware' => 'admin'], function () {
     Route::get('/pool/list', [AdminController::class, 'pool_list'])->name('pool_list');
 
     Route::get('/camp/list', [AdminController::class, 'camp_list'])->name('camp_list');
-    Route::get('/shooting/list', [AdminController::class, 'shooting_list'])->name('shooting_list');
+    Route::get('/shooting/spot/list', [AdminController::class, 'shooting_list'])->name('shooting_list');
 
     Route::get('/picnic/list', [AdminController::class, 'picnic_list'])->name('picnic_list');
     Route::get('/exhibition/list', [AdminController::class, 'exhibition_list'])->name('exhibition_list');

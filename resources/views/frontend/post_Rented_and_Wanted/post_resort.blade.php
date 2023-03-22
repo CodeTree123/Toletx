@@ -285,7 +285,7 @@
                     </div>
                     <div class="col-lg-4 co-md-4 col-sm-12 col-12 mb-3 ">
                         <label for="resort_name_Want" class="form-label me-2 fw-bold">Resort Name</label>
-                        <input name="resort_name" type="text" class="form-control" id="resort_name_Want" placeholder="Enter Hotel name" required>
+                        <input name="resort_name" type="text" class="form-control" id="resort_name_Want" placeholder="Enter Resort name" required>
                     </div>
                     <div class=" col-lg-4 co-md-4 col-sm-12 col-12 mb-3">
                         <label for="date_Want" class="form-label me-2 fw-bold">Date</label>
