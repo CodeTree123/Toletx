@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="container  post_container">
-     
+
     <!-- Default Basic Forms Start -->
     @if ($message = Session::get('success'))
     <div class="alert alert-success alert-block" id="hello">
@@ -24,12 +24,12 @@
     @endif
 
     <div class="row shadow p-4 rounded mb-5 mt-2    ">
-    <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
-                    <ol class="breadcrumb bg-transparent">
-                        <li class="breadcrumb-item"><a href="{{route('index')}}">Home</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Add Exhibition Hall</li>
-                    </ol>
-                </nav>
+        <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
+            <ol class="breadcrumb bg-transparent">
+                <li class="breadcrumb-item"><a href="{{route('index')}}">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Add Exhibition Center</li>
+            </ol>
+        </nav>
         <div class="col-sm-12 col-md-12 mb-3">
             <select id="choose_post_type" onchange="val()" class="form-select w-50 mx-auto">
                 <option value="">Choose Post Type...</option>
@@ -37,7 +37,7 @@
                 <option value="Want">Want</option>
             </select>
         </div>
-        <div class="col-12" id="rent" style="display: none;">
+        <div class="col-12" id="Rent" style="display: none;">
             <form method="POST" action="{{ route('post_exibution_center_rented') }}" enctype="multipart/form-data">
                 @csrf
                 <div class="col-md-6">
@@ -50,26 +50,27 @@
                 </div>
                 <input class="form-control" type="hidden" id="post_rent" name="post_type">
                 <div class="row">
-                <div class=" col-12 mb-3 ">
-                            <label for="" class="form-label me-2 fw-bold">Post Title</label>
-                            <input name="" type="text" value="" class="form-control" id="" placeholder="Enter Post Title">
-                        </div>
+                    <div class=" col-12 mb-3 ">
+                        <label for="" class="form-label me-2 fw-bold">Post Title</label>
+                        <input name="" type="text" value="" class="form-control" id="" placeholder="Enter Post Title">
+                    </div>
                     <div class="col-lg-4 co-md-4 col-sm-12 col-12 mb-3">
-                        <label for="title_rented" class="form-label me-2 fw-bold">Exhibition Hall Name</label>
+                        <label for="title_rented" class="form-label me-2 fw-bold">Exhibition Center Name</label>
                         <input name="title" type="text" class="form-control" id="title_rented" placeholder="Enter Warehouse Name" required>
                     </div>
                     <div class=" col-lg-4 co-md-4 col-sm-12 col-12 mb-3">
                         <label for="date_rented" class="form-label me-2 fw-bold">Date</label>
-                        <input name="date" type="date" class="form-control" id="date_rented" onfocus="this.showPicker()" required>
+                        <input name="date" type="date" class="form-control" id="date_rented" min="{{\Carbon\Carbon::today()->format('Y-m-d')}}" onfocus="this.showPicker()" required>
                     </div>
                     <div class=" col-lg-4 co-md-4 col-sm-12 col-12 mb-3">
                         <label for="phone_rented" class="form-label me-2 fw-bold">Mobile</label>
-                        <select id="phone_rented" class="form-select" name="phone" required>
+                        {{--<select id="phone_rented" class="form-select" name="phone" required>
                             <option value="">Choose number</option>
                             @foreach($lists as $list)
                             <option value="{{$list->phone}}">{{$list->phone}}</option>
-                            @endforeach
-                        </select>
+                        @endforeach
+                        </select>--}}
+                        <input name="phone" type="number" class="form-control" id="phone_rented" placeholder="Enter " value="{{$list->phone}}" readonly>
                     </div>
 
                     <div class="col-lg-4 co-md-4 col-sm-12 col-12 mb-3">
@@ -79,16 +80,16 @@
                     <div class="col-lg-4 co-md-4 col-sm-12 col-12 mb-3">
                         <label for="interior_rented" class="form-label me-2 fw-bold">Interior Condition</label>
                         <select id="interior_rented" class="form-select" name="interior_condition" required>
-                           <option value="">Choose number</option>
+                            <option value="">Choose Interior Condition</option>
                             <option value="good">good</option>
                             <option value="moderate">moderate</option>
                             <option value="best">best</option>
                         </select>
                     </div>
                     <div class="col-lg-4 co-md-4 col-sm-12 col-12 mb-3">
-                        <label for="floor_rented" class="form-label me-2 fw-bold">Exhibition Hall Floor Level</label>
+                        <label for="floor_rented" class="form-label me-2 fw-bold">Floor Levels</label>
                         <select id="floor_rented" class="form-select" name="floor_level" required>
-                           <option value="">Choose number</option>
+                            <option value="">Choose Floor Levels</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
@@ -108,7 +109,7 @@
                         </select>
                     </div>
                     <div class="col-lg-4 co-md-4 col-sm-12 col-12 mb-3">
-                        <label for="Hall_rented" class="form-label me-2 fw-bold">Exhibition Hall Area</label>
+                        <label for="Hall_rented" class="form-label me-2 fw-bold">Exhibition Center Area</label>
                         <input name="room_size" type="text" class="form-control" id="Hall_rented" placeholder="Enter Exhibition Hall Area" required>
                     </div>
                     <div class="col-lg-4 co-md-4 col-sm-12 col-12 mb-3">
@@ -117,11 +118,11 @@
                     </div>
                     <div class="col-lg-4 co-md-4 col-sm-12 col-12 mb-3">
                         <label for="road_rented" class="form-label me-2 fw-bold">Road Width</label>
-                        <input name="road_width" type="number" class="form-control" id="road_rented" placeholder="Enter Road Width" required>
+                        <input name="road_width" type="text" class="form-control" id="road_rented" placeholder="Enter Road Width" required>
                     </div>
                     <div class="col-12 mb-3 ">
                         <label for="address_rented" class="form-label me-2 fw-bold">Address</label>
-                        <input name="address" type="text" class="form-control" id="exhibition_search_autocomplete" placeholder="Enter Address" required>
+                        <input name="address" type="text" class="form-control" placeholder="Enter Address" required>
                     </div>
                     <div class="col-12 mb-3 ">
                         <label for="description_rented" class="form-label me-2 fw-bold">Description</label>
@@ -206,7 +207,7 @@
                 </div>
             </form>
         </div>
-        <div class="col-12" id="want" style="display: none;">
+        <div class="col-12" id="Want" style="display: none;">
             <form method="POST" action="{{ route('post_exibution_center_wanted') }}">
                 @csrf
                 <div class="col-md-6">
@@ -220,26 +221,27 @@
                 </div>
                 <input class="form-control" type="hidden" id="post_want" name="post_type">
                 <div class="row">
-                <div class=" col-12 mb-3 ">
-                            <label for="" class="form-label me-2 fw-bold">Post Title</label>
-                            <input name="" type="text" value="" class="form-control" id="" placeholder="Enter Post Title">
-                        </div>
+                    <div class=" col-12 mb-3 ">
+                        <label for="" class="form-label me-2 fw-bold">Post Title</label>
+                        <input name="" type="text" value="" class="form-control" id="" placeholder="Enter Post Title">
+                    </div>
                     <div class="col-lg-4 co-md-4 col-sm-12 col-12 mb-3">
-                        <label for="title_wanted" class="form-label me-2 fw-bold">Exhibition Hall Name</label>
+                        <label for="title_wanted" class="form-label me-2 fw-bold">Exhibition Center Name</label>
                         <input name="title" type="text" class="form-control" id="title_wanted" placeholder="Enter Warehouse Name" required>
                     </div>
                     <div class=" col-lg-4 co-md-4 col-sm-12 col-12 mb-3">
                         <label for="date_wanted" class="form-label me-2 fw-bold">Date</label>
-                        <input name="date" type="date" class="form-control" id="date_wanted" onfocus="this.showPicker()" required>
+                        <input name="date" type="date" class="form-control" id="date_wanted" min="{{\Carbon\Carbon::today()->format('Y-m-d')}}" onfocus="this.showPicker()" required>
                     </div>
                     <div class=" col-lg-4 co-md-4 col-sm-12 col-12 mb-3">
                         <label for="phone_wanted" class="form-label me-2 fw-bold">Mobile</label>
-                        <select id="phone_wanted" class="form-select" name="phone" required>
+                        {{--<select id="phone_wanted" class="form-select" name="phone" required>
                             <option value="">Choose number</option>
                             @foreach($lists as $list)
                             <option value="{{$list->phone}}">{{$list->phone}}</option>
-                            @endforeach
-                        </select>
+                        @endforeach
+                        </select>--}}
+                        <input name="phone" type="number" class="form-control" id="phone_wanted" placeholder="Enter " value="{{$list->phone}}" readonly>
                     </div>
 
                     <div class="col-lg-4 co-md-4 col-sm-12 col-12 mb-3">
@@ -249,16 +251,16 @@
                     <div class="col-lg-4 co-md-4 col-sm-12 col-12 mb-3">
                         <label for="interior_wanted" class="form-label me-2 fw-bold">Interior Condition</label>
                         <select id="interior_wanted" class="form-select" name="interior_condition" required>
-                           <option value="">Choose number</option>
+                            <option value="">Choose Interior Condition</option>
                             <option value="good">good</option>
                             <option value="moderate">moderate</option>
                             <option value="best">best</option>
                         </select>
                     </div>
                     <div class="col-lg-4 co-md-4 col-sm-12 col-12 mb-3">
-                        <label for="floor_wanted" class="form-label me-2 fw-bold">Exhibition Hall Floor Level</label>
+                        <label for="floor_wanted" class="form-label me-2 fw-bold">Floor Levels</label>
                         <select id="floor_wanted" class="form-select" name="floor_level" required>
-                           <option value="">Choose number</option>
+                            <option value="">Choose Floor Levels</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
@@ -278,20 +280,20 @@
                         </select>
                     </div>
                     <div class="col-lg-4 co-md-4 col-sm-12 col-12 mb-3">
-                        <label for="Hall_wanted" class="form-label me-2 fw-bold">Exhibition Hall Area</label>
+                        <label for="Hall_wanted" class="form-label me-2 fw-bold">Exhibition Center Area</label>
                         <input name="room_size" type="text" class="form-control" id="Hall_wanted" placeholder="Enter Exhibition Hall Area" required>
                     </div>
                     <div class="col-lg-4 co-md-4 col-sm-12 col-12 mb-3">
-                        <label for="floor_size_wanted" class="form-label me-2 fw-bold">Exhibition Hall Height</label>
+                        <label for="floor_size_wanted" class="form-label me-2 fw-bold">Exhibition Center Height</label>
                         <input name="room_type" type="text" class="form-control" id="floor_size_wanted" placeholder="Enter Exhibition Hall Height" required>
                     </div>
                     <div class="col-lg-4 co-md-4 col-sm-12 col-12 mb-3">
                         <label for="road_wanted" class="form-label me-2 fw-bold">Road Width</label>
-                        <input name="road_width" type="number" class="form-control" id="road_wanted" placeholder="Enter Road Width" required>
+                        <input name="road_width" type="text" class="form-control" id="road_wanted" placeholder="Enter Road Width" required>
                     </div>
                     <div class="col-12 mb-3 ">
                         <label for="address_wanted" class="form-label me-2 fw-bold">Address</label>
-                        <input name="address" type="text" class="form-control" id="exhibition_search_autocomplete" placeholder="Enter Address" required>
+                        <input name="address" type="text" class="form-control" placeholder="Enter Address" required>
                     </div>
                     <div class="col-12 mb-3 ">
                         <label for="description_wanted" class="form-label me-2 fw-bold">Description</label>
@@ -300,37 +302,37 @@
                     <div class="col-12 mb-3 ">
                         <h2 class="fw-bold mb-3">Ameneties</h2>
                         <div class="row ms-5 ">
-                        <div class="form-check mb-2">
-                            <input class="form-check-input" type="checkbox" id="Toilet_wanted" name="toilet">
-                            <label class="form-check-label" for="Toilet_wanted">
-                                Toilet
-                            </label>
-                        </div>
-                        <div class="form-check mb-2">
-                            <input class="form-check-input" type="checkbox" id="Exit_wanted" name="fire_exit">
-                            <label class="form-check-label" for="Exit_wanted">
-                                Fire Exit
-                            </label>
-                        </div>
-                        <div class="form-check mb-2">
-                            <input class="form-check-input" type="checkbox" id="lift_wanted" name="lift">
-                            <label class="form-check-label" for="lift_wanted">
-                                Lift
-                            </label>
-                        </div>
-                        <div class="form-check mb-2">
+                            <div class="form-check mb-2">
+                                <input class="form-check-input" type="checkbox" id="Toilet_wanted" name="toilet">
+                                <label class="form-check-label" for="Toilet_wanted">
+                                    Toilet
+                                </label>
+                            </div>
+                            <div class="form-check mb-2">
+                                <input class="form-check-input" type="checkbox" id="Exit_wanted" name="fire_exit">
+                                <label class="form-check-label" for="Exit_wanted">
+                                    Fire Exit
+                                </label>
+                            </div>
+                            <div class="form-check mb-2">
+                                <input class="form-check-input" type="checkbox" id="lift_wanted" name="lift">
+                                <label class="form-check-label" for="lift_wanted">
+                                    Lift
+                                </label>
+                            </div>
+                            <div class="form-check mb-2">
                                 <input class="form-check-input" type="checkbox" id="gen_wanted" name="generator">
                                 <label class="form-check-label" for="gen_wanted">
                                     Generator
                                 </label>
                             </div>
-                        <div class="form-check mb-2">
-                            <input class="form-check-input" type="checkbox" id="parking_wanted" name="parking">
-                            <label class="form-check-label" for="parking_wanted">
-                                Parking
-                            </label>
+                            <div class="form-check mb-2">
+                                <input class="form-check-input" type="checkbox" id="parking_wanted" name="parking">
+                                <label class="form-check-label" for="parking_wanted">
+                                    Parking
+                                </label>
+                            </div>
                         </div>
-                    </div>
                     </div>
                     <button class="btn btn-primary w-25 mx-auto" type="submit">Submit</button>
                 </div>
@@ -339,39 +341,4 @@
 
     </div>
 </div>
-<!-- js -->
-
-<script>
-    function val() {
-        var choose = document.getElementById('choose_post_type').value;
-        var rented = document.getElementById('rent');
-        var wanted = document.getElementById('want');
-        var post = document.getElementById('post_rent');
-        var post2 = document.getElementById('post_want');
-        if (choose == "Want") {
-            wanted.style.display = "flex";
-            rented.style.display = "none";
-
-            post2.value = choose;
-
-        } else if (choose == "Rent") {
-            rented.style.display = "flex";
-            wanted.style.display = "none";
-
-            post.value = choose;
-        } else {
-            rented.style.display = "none";
-            wanted.style.display = "none";
-            post.value = choose;
-
-        }
-
-        // console.log(choose);
-    }
-</script>
-<script>
-    $(document).ready(function() {
-        $("#hello").slideDown(300).delay(1000).slideUp(300);
-    });
-</script>
 @endsection
