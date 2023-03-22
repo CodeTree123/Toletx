@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="container  post_container">
-     
+
     <!-- Default Basic Forms Start -->
     @if ($message = Session::get('success'))
     <div class="alert alert-success alert-block" id="hello">
@@ -24,14 +24,14 @@
     @endif
 
     <div class="row shadow p-4 rounded mb-5 mt-2    ">
-    <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
-                    <ol class="breadcrumb bg-transparent">
-                        <li class="breadcrumb-item"><a href="{{route('index')}}">Home</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Add Picnic Spot</li>
-                    </ol>
-                </nav>
+        <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
+            <ol class="breadcrumb bg-transparent">
+                <li class="breadcrumb-item"><a href="{{route('index')}}">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Add Picnic Spot</li>
+            </ol>
+        </nav>
         <div class="col-sm-12 col-md-12 mb-3">
-            <select id="choose_post_type" onchange="val()" class="form-select w-50 mx-auto">
+            <select id="choose_post_type" class="form-select w-50 mx-auto">
                 <option value="">Choose Post Type...</option>
                 <option value="Rent">Rent</option>
                 <option value="Want">Want</option>
@@ -51,10 +51,10 @@
                 </div>
                 <input class="form-control" type="hidden" id="post_rent" name="post_type">
                 <div class="row">
-                <div class=" col-12 mb-3 ">
-                            <label for="" class="form-label me-2 fw-bold">Post Title</label>
-                            <input name="" type="text" value="" class="form-control" id="" placeholder="Enter Post Title">
-                        </div>
+                    <div class=" col-12 mb-3 ">
+                        <label for="" class="form-label me-2 fw-bold">Post Title</label>
+                        <input name="" type="text" value="" class="form-control" id="" placeholder="Enter Post Title">
+                    </div>
 
                     <div class="col-lg-4 co-md-4 col-sm-12 col-12 mb-3 ">
                         <label for="title_Rent" class="form-label me-2 fw-bold">Picnic Spot Name </label>
@@ -66,12 +66,13 @@
                     </div>
                     <div class=" col-lg-4 co-md-4 col-sm-12 col-12 mb-3">
                         <label for="phone_Rent" class="form-label me-2 fw-bold">Mobile</label>
-                        <select id="phone_Rent" class="form-select" name="phone" required>
+                        {{--<select id="phone_Rent" class="form-select" name="phone" required>
                             <option value="">Choose number</option>
                             @foreach($lists as $list)
                             <option value="{{$list->phone}}">{{$list->phone}}</option>
                             @endforeach
-                        </select>
+                        </select>--}}
+                        <input name="phone" type="number" class="form-control" id="phone_Rent" placeholder="Enter " value="{{$list->phone}}" readonly>
                     </div>
 
                     <div class="col-lg-4 co-md-4 col-sm-12 col-12 mb-3 ">
@@ -216,10 +217,10 @@
                 </div>
                 <input class="form-control" type="hidden" id="post_want" name="post_type">
                 <div class="row">
-                <div class=" col-12 mb-3 ">
-                            <label for="" class="form-label me-2 fw-bold">Post Title</label>
-                            <input name="" type="text" value="" class="form-control" id="" placeholder="Enter Post Title">
-                        </div>
+                    <div class=" col-12 mb-3 ">
+                        <label for="" class="form-label me-2 fw-bold">Post Title</label>
+                        <input name="" type="text" value="" class="form-control" id="" placeholder="Enter Post Title">
+                    </div>
 
                     <div class="col-lg-4 co-md-4 col-sm-12 col-12 mb-3 ">
                         <label for="title_Want" class="form-label me-2 fw-bold">Picnic Spot Name For Rent</label>
@@ -231,12 +232,13 @@
                     </div>
                     <div class=" col-lg-4 co-md-4 col-sm-12 col-12 mb-3">
                         <label for="phone_Want" class="form-label me-2 fw-bold">Mobile</label>
-                        <select id="phone_Want" class="form-select" name="phone" required>
+                        {{--<select id="phone_Want" class="form-select" name="phone" required>
                             <option value="">Choose number</option>
                             @foreach($lists as $list)
                             <option value="{{$list->phone}}">{{$list->phone}}</option>
                             @endforeach
-                        </select>
+                        </select>--}}
+                        <input name="phone" type="number" class="form-control" id="phone_Want" placeholder="Enter " value="{{$list->phone}}" readonly>
                     </div>
 
                     <div class="col-lg-4 co-md-4 col-sm-12 col-12 mb-3 ">
@@ -328,39 +330,4 @@
 
     </div>
 </div>
-<!-- js -->
-
-<script>
-    function val() {
-        var choose = document.getElementById('choose_post_type').value;
-        var Rent = document.getElementById('Rent');
-        var Want = document.getElementById('Want');
-        var post = document.getElementById('post_rent');
-        var post2 = document.getElementById('post_want');
-        if (choose == "Want") {
-            Want.style.display = "flex";
-            Rent.style.display = "none";
-
-            post2.value = choose;
-
-        } else if (choose == "Rent") {
-            Rent.style.display = "flex";
-            Want.style.display = "none";
-
-            post.value = choose;
-        } else {
-            Rent.style.display = "none";
-            Want.style.display = "none";
-            post.value = choose;
-
-        }
-
-        // console.log(choose);
-    }
-</script>
-<script>
-    $(document).ready(function() {
-        $("#hello").slideDown(300).delay(1000).slideUp(300);
-    });
-</script>
 @endsection

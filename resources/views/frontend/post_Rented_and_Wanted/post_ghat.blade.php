@@ -3,7 +3,7 @@
 @section('content')
 
 <div class="container  post_container">
-     
+
     <!-- Default Basic Forms Start -->
     @if ($message = Session::get('success'))
     <div class="alert alert-success alert-block" id="hello">
@@ -24,20 +24,20 @@
     @endif
 
     <div class="row shadow p-4 rounded mb-5 mt-2    ">
-    <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
-                    <ol class="breadcrumb bg-transparent">
-                        <li class="breadcrumb-item"><a href="{{route('index')}}">Home</a></li>
-                        <li class="breadcrumb-item active" aria-current="page">Add Ghat</li>
-                    </ol>
-                </nav>
+        <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
+            <ol class="breadcrumb bg-transparent">
+                <li class="breadcrumb-item"><a href="{{route('index')}}">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Add Ghat</li>
+            </ol>
+        </nav>
         <div class="col-sm-12 col-md-12 mb-3">
-            <select id="choose_post_type" onchange="val()" class="form-select w-50 mx-auto">
+            <select id="choose_post_type" class="form-select w-50 mx-auto">
                 <option value="">Choose Post Type...</option>
                 <option value="Rent">Rent</option>
                 <option value="Want">Want</option>
             </select>
         </div>
-        <div class="col-12" id="rent" style="display: none;">
+        <div class="col-12" id="Rent" style="display: none;">
             <form method="POST" action="{{ route('post_ghat_rented') }}" enctype="multipart/form-data">
                 @csrf
                 <div class="col-md-6">
@@ -57,32 +57,51 @@
                     </div>
                     <div class=" col-lg-4 co-md-4 col-sm-12 col-12 mb-3">
                         <label for="date_rented" class="form-label me-2 fw-bold">Date</label>
-                        <input name="date" type="date" class="form-control" id="date_rented" onfocus="this.showPicker()" required>
+                        <input name="date" type="date" class="form-control" id="date_rented" min="{{\Carbon\Carbon::today()->format('Y-m-d')}}" onfocus="this.showPicker()" required>
                     </div>
                     <div class=" col-lg-4 co-md-4 col-sm-12 col-12 mb-3">
                         <label for="phone_rented" class="form-label me-2 fw-bold">Mobile</label>
-                        <select id="phone_rented" class="form-select" name="phone" required>
+                        {{--<select id="phone_rented" class="form-select" name="phone" required>
                             <option value="">Choose number</option>
                             @foreach($lists as $list)
                             <option value="{{$list->phone}}">{{$list->phone}}</option>
-                            @endforeach
-                        </select>
+                        @endforeach
+                        </select>--}}
+                        <input name="phone" type="number" class="form-control" id="phone_rented" placeholder="Enter " value="{{$list->phone}}" readonly>
                     </div>
 
                     <div class="col-lg-4 co-md-4 col-sm-12 col-12 mb-3 ">
-                        <label for="price_rented" class="form-label me-2 fw-bold">Rent Per Month</label>
-                        <input name="price" type="number" class="form-control" id="price_rented" placeholder="Enter Price" required>
-                    </div>
-                    <div class="col-lg-4 co-md-4 col-sm-12 col-12 mb-3 ">
-                        <label for="yprice_rented" class="form-label me-2 fw-bold">Rent Per Year</label>
-                        <input name="y_price" type="number" class="form-control" id="yprice_rented" placeholder="Enter Price" required>
+                        <label for="price_rented" class="form-label me-2 fw-bold">Rent</label>
+                        <div class="row">
+                            <div class="col-4 pe-0">
+                                <div class="input-group mb-3">
+                                    <input name="price" type="number" class="form-control" id="price_rented" placeholder="Enter Rent" required>
+                                </div>
+                            </div>
+                            <div class="col-1">
+                                <span class="text-light fs-3">/</span>
+                            </div>
+                            <div class="col-7 ps-0">
+                                <div class="input-group mb-3">
+                                    <select class="form-select form-select-md mb-3" aria-label=".form-select-lg example" name="per_price">
+                                        <option selected hidden>Choose Rent Type</option>
+                                        <option value="hour">Hour</option>
+                                        <option value="day"> Day</option>
+                                        <option value="night"> Only Night</option>
+                                        <option value="week"> Week</option>
+                                        <option value="month"> Month</option>
+                                        <option value="year"> Year</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="col-12 mb-3 ">
                         <label for="address_rented" class="form-label me-2 fw-bold">Address</label>
-                        <input name="address" type="text" class="form-control" id="ghat_search_autocomplete" placeholder="Enter Address" required>
+                        <input name="address" type="text" class="form-control" placeholder="Enter Address" required>
                     </div>
                     <div class="col-12 mb-3 ">
-                        <label for="description_rented" class="form-label me-2 fw-bold"> Ghat Used For</label>
+                        <label for="description_rented" class="form-label me-2 fw-bold"> Description</label>
                         <textarea name="description" type="text" class="form-control" id="description_rented" rows="3" placeholder="Enter Description"></textarea>
                     </div>
                     <div class="col-lg-4 co-md-4 col-sm-12 col-12 mb-3 ">
@@ -148,7 +167,7 @@
                 </div>
             </form>
         </div>
-        <div class="col-12" id="want" style="display: none;">
+        <div class="col-12" id="Want" style="display: none;">
             <form method="POST" action="{{ route('post_ghat_wanted') }}">
                 @csrf
                 <div class="col-md-6">
@@ -168,32 +187,51 @@
                     </div>
                     <div class=" col-lg-4 co-md-4 col-sm-12 col-12 mb-3">
                         <label for="date_wanted" class="form-label me-2 fw-bold">Date</label>
-                        <input name="date" type="date" class="form-control" id="date_wanted" onfocus="this.showPicker()" required>
+                        <input name="date" type="date" class="form-control" id="date_wanted" min="{{\Carbon\Carbon::today()->format('Y-m-d')}}" onfocus="this.showPicker()" required>
                     </div>
                     <div class=" col-lg-4 co-md-4 col-sm-12 col-12 mb-3">
                         <label for="phone_wanted" class="form-label me-2 fw-bold">Mobile</label>
-                        <select id="phone_wanted" class="form-select" name="phone" required>
+                        {{--<select id="phone_wanted" class="form-select" name="phone" required>
                             <option value="">Choose number</option>
                             @foreach($lists as $list)
                             <option value="{{$list->phone}}">{{$list->phone}}</option>
-                            @endforeach
-                        </select>
+                        @endforeach
+                        </select>--}}
+                        <input name="phone" type="number" class="form-control" id="phone_wanted" placeholder="Enter " value="{{$list->phone}}" readonly>
                     </div>
 
                     <div class="col-lg-4 co-md-4 col-sm-12 col-12 mb-3 ">
-                        <label for="price_wanted" class="form-label me-2 fw-bold">Rent Per Month</label>
-                        <input name="price" type="number" class="form-control" id="price_wanted" placeholder="Enter Price" >
-                    </div>
-                    <div class="col-lg-4 co-md-4 col-sm-12 col-12 mb-3 ">
-                        <label for="yprice_wanted" class="form-label me-2 fw-bold">Rent Per Year</label>
-                        <input name="y_price" type="number" class="form-control" id="yprice_wanted" placeholder="Enter Price" >
+                        <label for="price_wanted" class="form-label me-2 fw-bold">Rent</label>
+                        <div class="row">
+                            <div class="col-4 pe-0">
+                                <div class="input-group mb-3">
+                                    <input name="price" type="number" class="form-control" id="price_wanted" placeholder="Enter Rent">
+                                </div>
+                            </div>
+                            <div class="col-1">
+                                <span class="text-light fs-3">/</span>
+                            </div>
+                            <div class="col-7 ps-0">
+                                <div class="input-group mb-3">
+                                    <select class="form-select form-select-md mb-3" aria-label=".form-select-lg example" name="per_price">
+                                        <option selected hidden>Choose Rent Type</option>
+                                        <option value="hour">Hour</option>
+                                        <option value="day"> Day</option>
+                                        <option value="night"> Only Night</option>
+                                        <option value="week"> Week</option>
+                                        <option value="month"> Month</option>
+                                        <option value="year"> Year</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                     <div class="col-12 mb-3 ">
                         <label for="address_wanted" class="form-label me-2 fw-bold">Address</label>
-                        <input name="address" type="text" class="form-control" id="ghat_search_autocomplete" placeholder="Enter Address" required>
+                        <input name="address" type="text" class="form-control" placeholder="Enter Address" required>
                     </div>
                     <div class="col-12 mb-3 ">
-                        <label for="description_wanted" class="form-label me-2 fw-bold"> Ghat Used For</label>
+                        <label for="description_wanted" class="form-label me-2 fw-bold"> Description</label>
                         <textarea name="description" type="text" class="form-control" id="description_wanted" rows="3" placeholder="Enter Description"></textarea>
                     </div>
                     <div class="col-12 mb-3 ">
@@ -220,39 +258,4 @@
 
     </div>
 </div>
-<!-- js -->
-
-<script>
-    function val() {
-        var choose = document.getElementById('choose_post_type').value;
-        var rented = document.getElementById('rent');
-        var wanted = document.getElementById('want');
-        var post = document.getElementById('post_rent');
-        var post2 = document.getElementById('post_want');
-        if (choose == "Want") {
-            wanted.style.display = "flex";
-            rented.style.display = "none";
-
-            post2.value = choose;
-
-        } else if (choose == "Rent") {
-            rented.style.display = "flex";
-            wanted.style.display = "none";
-
-            post.value = choose;
-        } else {
-            rented.style.display = "none";
-            wanted.style.display = "none";
-            post.value = choose;
-
-        }
-
-        // console.log(choose);
-    }
-</script>
-<script>
-    $(document).ready(function() {
-        $("#hello").slideDown(300).delay(1000).slideUp(300);
-    });
-</script>
 @endsection
