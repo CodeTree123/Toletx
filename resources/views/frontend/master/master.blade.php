@@ -57,7 +57,7 @@
         <div class="container center-container">
             <div class="row row1 ">
                 <!-- Service Items Start -->
-                <div class="col-lg-7 col-md-7 center-service-item">
+                <div class="col-lg-8 col-md-8 center-service-item">
                     @yield('content')
                     @if ($message = Session::get('success'))
                     <div class="alert alert-success alert-block" id="hello">
@@ -78,7 +78,7 @@
                     @endif
                 </div>
                 <!-- Service Items End -->
-                <div class="col-lg-5 col-md-5 " style="height:fit-content;">
+                <div class="col-lg-4 col-md-4 " style="height:fit-content;">
                     <div class="login-form shadow py-3 ">
                         @if(Auth::user())
 
