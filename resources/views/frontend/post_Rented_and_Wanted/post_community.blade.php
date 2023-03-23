@@ -383,56 +383,56 @@
                     </div>
                     <div class="col-12 mb-3 ">
                         <h2 class="fw-bold mb-3">Amenities</h2>
-                        <div class="row ms-5 ">
-                            <div class="form-check mb-2">
+                        <div class="row ms-3 ps-2">
+                            <div class="col-2 form-check mb-2">
                                 <input class="form-check-input" type="checkbox" id="elect_wanted" name="electricity">
                                 <label class="form-check-label" for="elect_wanted">
                                     Electricity
                                 </label>
                             </div>
-                            <div class="form-check mb-2">
+                            <div class="col-2 form-check mb-2">
                                 <input class="form-check-input" type="checkbox" id="gas_wanted" name="gas">
                                 <label class="form-check-label" for="gas_wanted">
                                     Gas
                                 </label>
                             </div>
-                            <div class="form-check mb-2">
+                            <div class="col-2 form-check mb-2">
                                 <input class="form-check-input" type="checkbox" id="water_wanted" name="water">
                                 <label class="form-check-label" for="water_wanted">
                                     Water
                                 </label>
                             </div>
-                            <div class="form-check mb-2">
+                            <div class="col-2 form-check mb-2">
                                 <input class="form-check-input" type="checkbox" id="wifi_wanted" name="wifi">
                                 <label class="form-check-label" for="wifi_wanted">
                                     wifi
                                 </label>
                             </div>
-                            <div class="form-check mb-2">
+                            <div class="col-2 form-check mb-2">
                                 <input class="form-check-input" type="checkbox" id="ac_wanted" name="ac">
                                 <label class="form-check-label" for="ac_wanted">
                                     A.C
                                 </label>
                             </div>
-                            <div class="form-check mb-2">
+                            <div class="col-2 form-check mb-2">
                                 <input class="form-check-input" type="checkbox" id="lift_wanted" name="lift">
                                 <label class="form-check-label" for="lift_wanted">
                                     Lift
                                 </label>
                             </div>
-                            <div class="form-check mb-2">
+                            <div class="col-2 form-check mb-2">
                                 <input class="form-check-input" type="checkbox" id="gen_wanted" name="generator">
                                 <label class="form-check-label" for="gen_wanted">
                                     Generator
                                 </label>
                             </div>
-                            <div class="form-check mb-2">
+                            <div class="col-2 form-check mb-2">
                                 <input class="form-check-input" type="checkbox" id="fire_safety_wanted" name="fire_safety">
                                 <label class="form-check-label" for="fire_safety_wanted">
                                     Fire Exit
                                 </label>
                             </div>
-                            <div class="form-check mb-2">
+                            <div class="col-2 form-check mb-2">
                                 <input class="form-check-input" type="checkbox" id="parking_wanted" name="parking">
                                 <label class="form-check-label" for="parking_wanted">
                                     Parking

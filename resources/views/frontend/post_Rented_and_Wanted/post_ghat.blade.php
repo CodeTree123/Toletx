@@ -199,14 +199,14 @@
                     </div>
                     <div class="col-12 mb-3 ">
                         <h2 class="fw-bold mb-3">Amenities</h2>
-                        <div class="row ms-5 ">
-                            <div class="form-check mb-2">
+                        <div class="row ms-3 ps-2">
+                            <div class="col-2 form-check mb-2">
                                 <input class="form-check-input" type="checkbox" id="toilet_wanted" name="toilet">
                                 <label class="form-check-label" for="toilet_wanted">
                                     Toilet
                                 </label>
                             </div>
-                            <div class="form-check mb-2">
+                            <div class="col-2 form-check mb-2">
                                 <input class="form-check-input" type="checkbox" id="parking_wanted" name="parking">
                                 <label class="form-check-label" for="parking_wanted">
                                     Parking

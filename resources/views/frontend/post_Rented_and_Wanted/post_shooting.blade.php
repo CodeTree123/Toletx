@@ -264,63 +264,63 @@
                     </div>
                     <div class="col-12 mb-3 ">
                         <h2 class="fw-bold mb-3">Ameneties</h2>
-                        <div class="row ms-5">
+                        <div class="row ms-3 ps-2">
 
-                            <div class=" form-check mb-2">
+                            <div class="col-2 form-check mb-2">
                                 <input class="form-check-input" type="checkbox" id="elect_Want" name="electricity">
                                 <label class="form-check-label" for="elect_Want">
                                     Electricity
                                 </label>
                             </div>
-                            <div class=" form-check mb-2">
+                            <div class="col-2 form-check mb-2">
                                 <input class="form-check-input" type="checkbox" id="gas_Want" name="gas">
                                 <label class="form-check-label" for="gas_Want">
                                     Gas
                                 </label>
                             </div>
-                            <div class=" form-check mb-2">
+                            <div class="col-2 form-check mb-2">
                                 <input class="form-check-input" type="checkbox" id="water_Want" name="water">
                                 <label class="form-check-label" for="water_Want">
                                     Water
                                 </label>
                             </div>
-                            <div class=" form-check mb-2">
+                            <div class="col-2 form-check mb-2">
                                 <input class="form-check-input" type="checkbox" id="shed_Want" name="shed">
                                 <label class="form-check-label" for="shed_Want">
                                     Shed
                                 </label>
                             </div>
-                            <div class=" form-check mb-2">
+                            <div class="col-2 form-check mb-2">
                                 <input class="form-check-input" type="checkbox" id="generator_Want" name="generator">
                                 <label class="form-check-label" for="generator_Want">
                                     Genarator
                                 </label>
                             </div>
-                            <div class=" form-check mb-2">
+                            <div class="col-2 form-check mb-2">
                                 <input class="form-check-input" type="checkbox" id="change_room_Want" name="change_room">
                                 <label class="form-check-label" for="change_room_Want">
                                     Changing Room
                                 </label>
                             </div>
-                            <div class=" form-check mb-2">
+                            <div class="col-2 form-check mb-2">
                                 <input class="form-check-input" type="checkbox" id="Toilet_Want" name="toilet">
                                 <label class="form-check-label" for="Toilet_Want">
                                     Toilet
                                 </label>
                             </div>
-                            <div class=" form-check mb-2">
+                            <div class="col-2 form-check mb-2">
                                 <input class="form-check-input" type="checkbox" id="sports_Want" name="dining">
                                 <label class="form-check-label" for="sports_Want">
                                     Dining Failities
                                 </label>
                             </div>
-                            <div class=" form-check mb-2">
+                            <div class="col-2 form-check mb-2">
                                 <input class="form-check-input" type="checkbox" id="lift_Want" name="lift">
                                 <label class="form-check-label" for="lift_Want">
                                     Lift
                                 </label>
                             </div>
-                            <div class=" form-check mb-2">
+                            <div class="col-2 form-check mb-2">
                                 <input class="form-check-input" type="checkbox" id="parking_Want" name="parking">
                                 <label class="form-check-label" for="parking_Want">
                                     Parking
