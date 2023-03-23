@@ -3,26 +3,6 @@
 @section('content')
 
 <div class="container  post_container">
-
-    <!-- Default Basic Forms Start -->
-    @if ($message = Session::get('success'))
-    <div class="alert alert-success alert-block" id="hello">
-        <button type="button" class="close" data-dismiss="alert">×</button>
-        <strong>{{ $message }}</strong>
-    </div>
-    @endif
-
-    @if (count($errors) > 0)
-    <div class="alert alert-danger" id="hello">
-        <strong>Whoops!</strong> There were some problems with your input.
-        <ul>
-            @foreach ($errors->all() as $error)
-            <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-    @endif
-
     <div class="row shadow p-4 rounded mb-5 mt-2  ">
         <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
             <ol class="breadcrumb bg-transparent">
@@ -36,16 +16,8 @@
             <form method="POST" action="{{ route('post_hostel_rented') }}" enctype="multipart/form-data">
                 @csrf
                 <div class="col-md-6">
-                    <input id="user_id" type="hidden" class="form-control @error('user_id') is-invalid @enderror" name="user_id" value="{{ Auth::user()->id }}" required autocomplete="user_id" autofocus>
-
-                    @error('user_id')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                    @enderror
+                    <input id="user_id" type="hidden" class="form-control" name="user_id" value="{{ Auth::user()->id }}" required autocomplete="user_id" autofocus>
                 </div>
-
-
                 <input class="form-control" type="hidden" id="post_rent" name="post_type">
                 <div class="row">
                     <div class="col-12 mb-3 ">
@@ -110,7 +82,7 @@
                             </div>
                             <div class="col-7 ps-0">
                                 <div class="input-group mb-3">
-                                    <select class="form-select form-select-md mb-3" aria-label=".form-select-lg example" name="s_per_charge">
+                                    <select class="form-select form-select-md mb-3" aria-label=".form-select-lg example" id="s_per_price_rented" name="s_per_price">
                                         <option selected hidden>Choose Service Type</option>
                                         <option value="hour">Hour</option>
                                         <option value="day"> Day</option>
@@ -145,7 +117,7 @@
                     </div>
                     <div class="col-12 mb-3 ">
                         <label for="address_rented" class="form-label me-2 fw-bold">Address</label>
-                        <input name="address" type="text" class="form-control" placeholder="Enter Address" required>
+                        <input name="address" type="text" class="form-control" placeholder    ="Enter Address" required>
                     </div>
                     <div class="col-12 mb-3 ">
                         <label for="description_rented" class="form-label me-2 fw-bold">Description</label>
@@ -168,7 +140,7 @@
                         <div class="form-check ms-5 mb-2">
                             <input class="form-check-input" type="checkbox" id="hot_water_rented" name="hot_water">
                             <label class="form-check-label" for="hot_water_rented">
-                                Gyeser
+                                Geyser
                             </label>
                         </div>
                         <div class="form-check ms-5 mb-2">
@@ -292,16 +264,8 @@
             <form action="{{route('post_hostel_wanted')}}" method="POST">
                 @csrf
                 <div class="col-md-6">
-                    <input id="user_id" type="hidden" class="form-control @error('user_id') is-invalid @enderror" name="user_id" value="{{ Auth::user()->id }}" required autocomplete="user_id" autofocus>
-
-                    @error('user_id')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                    @enderror
+                    <input id="user_id" type="hidden" class="form-control" name="user_id" value="{{ Auth::user()->id }}" required autocomplete="user_id" autofocus>
                 </div>
-
-
                 <input class="form-control" type="hidden" id="post_want" name="post_type">
                 <div class="row">
                     <div class="col-12 mb-3 ">
@@ -340,7 +304,7 @@
                             </div>
                             <div class="col-7 ps-0">
                                 <div class="input-group mb-3">
-                                    <select class="form-select form-select-md mb-3" aria-label=".form-select-lg example" name="per_price">
+                                    <select class="form-select form-select-md mb-3" aria-label=".form-select-lg example" id="per_price_wanted" name="per_price">
                                         <option selected hidden>Choose Rent Type</option>
                                         <option value="hour">Hour</option>
                                         <option value="day"> Day</option>
@@ -366,7 +330,7 @@
                             </div>
                             <div class="col-7 ps-0">
                                 <div class="input-group mb-3">
-                                    <select class="form-select form-select-md mb-3" aria-label=".form-select-lg example" name="s_per_charge">
+                                    <select class="form-select form-select-md mb-3" aria-label=".form-select-lg example" id="s_per_price_wanted" name="s_per_price">
                                         <option selected hidden>Choose Service Type</option>
                                         <option value="hour">Hour</option>
                                         <option value="day"> Day</option>
@@ -423,7 +387,7 @@
                             <div class="form-check mb-2">
                                 <input class="form-check-input" type="checkbox" id="hot_water_wanted" name="hot_water">
                                 <label class="form-check-label" for="hot_water_wanted">
-                                    Gyeser
+                                    Geyser
                                 </label>
                             </div>
                             <div class="form-check mb-2">

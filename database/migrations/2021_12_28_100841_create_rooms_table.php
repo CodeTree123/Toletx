@@ -21,10 +21,12 @@ class CreateRoomsTable extends Migration
             $table->date('date');
             $table->bigInteger('phone');
             $table->bigInteger('s_charge');
+            $table->bigInteger('s_per_charge');
             $table->string('description')->nullable();
             $table->string('address');
             $table->string('room_size');
             $table->bigInteger('price');
+            $table->bigInteger('per_price');
             $table->unsignedBigInteger('guest_count')->nullable();
             $table->string('wifi')->nullable();
             $table->string('attached_toilet')->nullable();

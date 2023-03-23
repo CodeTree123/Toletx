@@ -420,14 +420,14 @@ $warehouses = Warehouse::all(); ?>
                 @if($list->post_type == 'Want')
 
                 <div class="card shadow mb-2 ml-3 mr-4 slick-slider-card" style="width: 10rem">
-                    @if ($list->user->photo == null )
+                    @if ($list->user->image == null )
                     @if($list->user->gender == 'Male' )
                     <img src="{{asset('public/man-dummy.png') }}" class="card-img-top" alt="...">
                     @else
                     <img src="{{asset('public/dummy-female.jpg') }}" class="card-img-top" alt="...">
                     @endif
                     @else
-                    <img src="{{asset('public/uploads/registers') }}/{{($list->user->photo)}}" class="card-img-top" alt="...">
+                    <img src="{{asset('public/uploads/registers') }}/{{($list->user->image)}}" class="card-img-top" alt="...">
                     </a>
                     @endif
                     <div class="card-body main-slider-body main-slider-body">
@@ -446,14 +446,14 @@ $warehouses = Warehouse::all(); ?>
                 @if($list->post_type == 'Want')
 
                 <div class="card shadow mb-2 ml-3 mr-4 slick-slider-card" style="width: 10rem">
-                    @if ($list->user->photo == null )
+                    @if ($list->user->image == null )
                     @if($list->user->gender == 'Male' )
                     <img src="{{asset('public/man-dummy.png') }}" class="card-img-top" alt="...">
                     @else
                     <img src="{{asset('public/dummy-female.jpg') }}" class="card-img-top" alt="...">
                     @endif
                     @else
-                    <img src="{{asset('public/uploads/registers') }}/{{($list->user->photo)}}" class="card-img-top" alt="...">
+                    <img src="{{asset('public/uploads/registers') }}/{{($list->user->image)}}" class="card-img-top" alt="...">
                     </a>
                     @endif
                     <div class="card-body main-slider-body main-slider-body">
@@ -472,14 +472,14 @@ $warehouses = Warehouse::all(); ?>
                 @if($list->post_type == 'Want')
 
                 <div class="card shadow mb-2 ml-3 mr-4 slick-slider-card" style="width: 10rem">
-                    @if ($list->user->photo == null )
+                    @if ($list->user->image == null )
                     @if($list->user->gender == 'Male' )
                     <img src="{{asset('public/man-dummy.png') }}" class="card-img-top" alt="...">
                     @else
                     <img src="{{asset('public/dummy-female.jpg') }}" class="card-img-top" alt="...">
                     @endif
                     @else
-                    <img src="{{asset('public/uploads/registers') }}/{{($list->user->photo)}}" class="card-img-top" alt="...">
+                    <img src="{{asset('public/uploads/registers') }}/{{($list->user->image)}}" class="card-img-top" alt="...">
                     </a>
                     @endif
                     <div class="card-body main-slider-body main-slider-body">
@@ -498,14 +498,14 @@ $warehouses = Warehouse::all(); ?>
                 @if($list->post_type == 'Want')
 
                 <div class="card shadow mb-2 ml-3 mr-4 slick-slider-card" style="width: 10rem">
-                    @if ($list->user->photo == null )
+                    @if ($list->user->image == null )
                     @if($list->user->gender == 'Male' )
                     <img src="{{asset('public/man-dummy.png') }}" class="card-img-top" alt="...">
                     @else
                     <img src="{{asset('public/dummy-female.jpg') }}" class="card-img-top" alt="...">
                     @endif
                     @else
-                    <img src="{{asset('public/uploads/registers') }}/{{($list->user->photo)}}" class="card-img-top" alt="...">
+                    <img src="{{asset('public/uploads/registers') }}/{{($list->user->image)}}" class="card-img-top" alt="...">
                     </a>
                     @endif
                     <div class="card-body main-slider-body main-slider-body">
@@ -524,14 +524,14 @@ $warehouses = Warehouse::all(); ?>
                 @if($list->post_type == 'Want')
 
                 <div class="card shadow mb-2 ml-3 mr-4 slick-slider-card" style="width: 10rem">
-                    @if ($list->user->photo == null )
+                    @if ($list->user->image == null )
                     @if($list->user->gender == 'Male' )
                     <img src="{{asset('public/man-dummy.png') }}" class="card-img-top" alt="...">
                     @else
                     <img src="{{asset('public/dummy-female.jpg') }}" class="card-img-top" alt="...">
                     @endif
                     @else
-                    <img src="{{asset('public/uploads/registers') }}/{{($list->user->photo)}}" class="card-img-top" alt="...">
+                    <img src="{{asset('public/uploads/registers') }}/{{($list->user->image)}}" class="card-img-top" alt="...">
                     </a>
                     @endif
                     <div class="card-body main-slider-body main-slider-body">
@@ -550,14 +550,14 @@ $warehouses = Warehouse::all(); ?>
                 @if($list->post_type == 'Want')
 
                 <div class="card shadow mb-2 ml-3 mr-4 slick-slider-card" style="width: 10rem">
-                    @if ($list->user->photo == null )
+                    @if ($list->user->image == null )
                     @if($list->user->gender == 'Male' )
                     <img src="{{asset('public/man-dummy.png') }}" class="card-img-top" alt="...">
                     @else
                     <img src="{{asset('public/dummy-female.jpg') }}" class="card-img-top" alt="...">
                     @endif
                     @else
-                    <img src="{{asset('public/uploads/registers') }}/{{($list->user->photo)}}" class="card-img-top" alt="...">
+                    <img src="{{asset('public/uploads/registers') }}/{{($list->user->image)}}" class="card-img-top" alt="...">
                     </a>
                     @endif
                     <div class="card-body main-slider-body main-slider-body">
@@ -576,14 +576,14 @@ $warehouses = Warehouse::all(); ?>
                 @if($list->post_type == 'Want')
 
                 <div class="card shadow mb-2 ml-3 mr-4 slick-slider-card" style="width: 10rem">
-                    @if ($list->user->photo == null )
+                    @if ($list->user->image == null )
                     @if($list->user->gender == 'Male' )
                     <img src="{{asset('public/man-dummy.png') }}" class="card-img-top" alt="...">
                     @else
                     <img src="{{asset('public/dummy-female.jpg') }}" class="card-img-top" alt="...">
                     @endif
                     @else
-                    <img src="{{asset('public/uploads/registers') }}/{{($list->user->photo)}}" class="card-img-top" alt="...">
+                    <img src="{{asset('public/uploads/registers') }}/{{($list->user->image)}}" class="card-img-top" alt="...">
                     </a>
                     @endif
                     <div class="card-body main-slider-body main-slider-body">
@@ -602,14 +602,14 @@ $warehouses = Warehouse::all(); ?>
                 @if($list->post_type == 'Want')
 
                 <div class="card shadow mb-2 ml-3 mr-4 slick-slider-card" style="width: 10rem">
-                    @if ($list->user->photo == null )
+                    @if ($list->user->image == null )
                     @if($list->user->gender == 'Male' )
                     <img src="{{asset('public/man-dummy.png') }}" class="card-img-top" alt="...">
                     @else
                     <img src="{{asset('public/dummy-female.jpg') }}" class="card-img-top" alt="...">
                     @endif
                     @else
-                    <img src="{{asset('public/uploads/registers') }}/{{($list->user->photo)}}" class="card-img-top" alt="...">
+                    <img src="{{asset('public/uploads/registers') }}/{{($list->user->image)}}" class="card-img-top" alt="...">
                     </a>
                     @endif
                     <div class="card-body main-slider-body main-slider-body">
@@ -628,14 +628,14 @@ $warehouses = Warehouse::all(); ?>
                 @if($list->post_type == 'Want')
 
                 <div class="card shadow mb-2 ml-3 mr-4 slick-slider-card" style="width: 10rem">
-                    @if ($list->user->photo == null )
+                    @if ($list->user->image == null )
                     @if($list->user->gender == 'Male' )
                     <img src="{{asset('public/man-dummy.png') }}" class="card-img-top" alt="...">
                     @else
                     <img src="{{asset('public/dummy-female.jpg') }}" class="card-img-top" alt="...">
                     @endif
                     @else
-                    <img src="{{asset('public/uploads/registers') }}/{{($list->user->photo)}}" class="card-img-top" alt="...">
+                    <img src="{{asset('public/uploads/registers') }}/{{($list->user->image)}}" class="card-img-top" alt="...">
                     </a>
                     @endif
                     <div class="card-body main-slider-body main-slider-body">
@@ -654,14 +654,14 @@ $warehouses = Warehouse::all(); ?>
                 @if($list->post_type == 'Want')
 
                 <div class="card shadow mb-2 ml-3 mr-4 slick-slider-card" style="width: 10rem">
-                    @if ($list->user->photo == null )
+                    @if ($list->user->image == null )
                     @if($list->user->gender == 'Male' )
                     <img src="{{asset('public/man-dummy.png') }}" class="card-img-top" alt="...">
                     @else
                     <img src="{{asset('public/dummy-female.jpg') }}" class="card-img-top" alt="...">
                     @endif
                     @else
-                    <img src="{{asset('public/uploads/registers') }}/{{($list->user->photo)}}" class="card-img-top" alt="...">
+                    <img src="{{asset('public/uploads/registers') }}/{{($list->user->image)}}" class="card-img-top" alt="...">
                     </a>
                     @endif
                     <div class="card-body main-slider-body main-slider-body">
@@ -680,14 +680,14 @@ $warehouses = Warehouse::all(); ?>
                 @if($list->post_type == 'Want')
 
                 <div class="card shadow mb-2 ml-3 mr-4 slick-slider-card" style="width: 10rem">
-                    @if ($list->user->photo == null )
+                    @if ($list->user->image == null )
                     @if($list->user->gender == 'Male' )
                     <img src="{{asset('public/man-dummy.png') }}" class="card-img-top" alt="...">
                     @else
                     <img src="{{asset('public/dummy-female.jpg') }}" class="card-img-top" alt="...">
                     @endif
                     @else
-                    <img src="{{asset('public/uploads/registers') }}/{{($list->user->photo)}}" class="card-img-top" alt="...">
+                    <img src="{{asset('public/uploads/registers') }}/{{($list->user->image)}}" class="card-img-top" alt="...">
                     </a>
                     @endif
                     <div class="card-body main-slider-body main-slider-body">
@@ -706,14 +706,14 @@ $warehouses = Warehouse::all(); ?>
                 @if($list->post_type == 'Want')
 
                 <div class="card shadow mb-2 ml-3 mr-4 slick-slider-card" style="width: 10rem">
-                    @if ($list->user->photo == null )
+                    @if ($list->user->image == null )
                     @if($list->user->gender == 'Male' )
                     <img src="{{asset('public/man-dummy.png') }}" class="card-img-top" alt="...">
                     @else
                     <img src="{{asset('public/dummy-female.jpg') }}" class="card-img-top" alt="...">
                     @endif
                     @else
-                    <img src="{{asset('public/uploads/registers') }}/{{($list->user->photo)}}" class="card-img-top" alt="...">
+                    <img src="{{asset('public/uploads/registers') }}/{{($list->user->image)}}" class="card-img-top" alt="...">
                     </a>
                     @endif
                     <div class="card-body main-slider-body main-slider-body">
@@ -732,14 +732,14 @@ $warehouses = Warehouse::all(); ?>
                 @if($list->post_type == 'Want')
 
                 <div class="card shadow mb-2 ml-3 mr-4 slick-slider-card" style="width: 10rem">
-                    @if ($list->user->photo == null )
+                    @if ($list->user->image == null )
                     @if($list->user->gender == 'Male' )
                     <img src="{{asset('public/man-dummy.png') }}" class="card-img-top" alt="...">
                     @else
                     <img src="{{asset('public/dummy-female.jpg') }}" class="card-img-top" alt="...">
                     @endif
                     @else
-                    <img src="{{asset('public/uploads/registers') }}/{{($list->user->photo)}}" class="card-img-top" alt="...">
+                    <img src="{{asset('public/uploads/registers') }}/{{($list->user->image)}}" class="card-img-top" alt="...">
                     </a>
                     @endif
                     <div class="card-body main-slider-body main-slider-body">
@@ -758,14 +758,14 @@ $warehouses = Warehouse::all(); ?>
                 @if($list->post_type == 'Want')
 
                 <div class="card shadow mb-2 ml-3 mr-4 slick-slider-card" style="width: 10rem">
-                    @if ($list->user->photo == null )
+                    @if ($list->user->image == null )
                     @if($list->user->gender == 'Male' )
                     <img src="{{asset('public/man-dummy.png') }}" class="card-img-top" alt="...">
                     @else
                     <img src="{{asset('public/dummy-female.jpg') }}" class="card-img-top" alt="...">
                     @endif
                     @else
-                    <img src="{{asset('public/uploads/registers') }}/{{($list->user->photo)}}" class="card-img-top" alt="...">
+                    <img src="{{asset('public/uploads/registers') }}/{{($list->user->image)}}" class="card-img-top" alt="...">
                     </a>
                     @endif
                     <div class="card-body main-slider-body main-slider-body">
@@ -784,14 +784,14 @@ $warehouses = Warehouse::all(); ?>
                 @if($list->post_type == 'Want')
 
                 <div class="card shadow mb-2 ml-3 mr-4 slick-slider-card" style="width: 10rem">
-                    @if ($list->user->photo == null )
+                    @if ($list->user->image == null )
                     @if($list->user->gender == 'Male' )
                     <img src="{{asset('public/man-dummy.png') }}" class="card-img-top" alt="...">
                     @else
                     <img src="{{asset('public/dummy-female.jpg') }}" class="card-img-top" alt="...">
                     @endif
                     @else
-                    <img src="{{asset('public/uploads/registers') }}/{{($list->user->photo)}}" class="card-img-top" alt="...">
+                    <img src="{{asset('public/uploads/registers') }}/{{($list->user->image)}}" class="card-img-top" alt="...">
                     </a>
                     @endif
                     <div class="card-body main-slider-body main-slider-body">
@@ -810,14 +810,14 @@ $warehouses = Warehouse::all(); ?>
                 @if($list->post_type == 'Want')
 
                 <div class="card shadow mb-2 ml-3 mr-4 slick-slider-card" style="width: 10rem">
-                    @if ($list->user->photo == null )
+                    @if ($list->user->image == null )
                     @if($list->user->gender == 'Male' )
                     <img src="{{asset('public/man-dummy.png') }}" class="card-img-top" alt="...">
                     @else
                     <img src="{{asset('public/dummy-female.jpg') }}" class="card-img-top" alt="...">
                     @endif
                     @else
-                    <img src="{{asset('public/uploads/registers') }}/{{($list->user->photo)}}" class="card-img-top" alt="...">
+                    <img src="{{asset('public/uploads/registers') }}/{{($list->user->image)}}" class="card-img-top" alt="...">
                     </a>
                     @endif
                     <div class="card-body main-slider-body main-slider-body">
@@ -836,14 +836,14 @@ $warehouses = Warehouse::all(); ?>
                 @if($list->post_type == 'Want')
 
                 <div class="card shadow mb-2 ml-3 mr-4 slick-slider-card" style="width: 10rem">
-                    @if ($list->user->photo == null )
+                    @if ($list->user->image == null )
                     @if($list->user->gender == 'Male' )
                     <img src="{{asset('public/man-dummy.png') }}" class="card-img-top" alt="...">
                     @else
                     <img src="{{asset('public/dummy-female.jpg') }}" class="card-img-top" alt="...">
                     @endif
                     @else
-                    <img src="{{asset('public/uploads/registers') }}/{{($list->user->photo)}}" class="card-img-top" alt="...">
+                    <img src="{{asset('public/uploads/registers') }}/{{($list->user->image)}}" class="card-img-top" alt="...">
                     </a>
                     @endif
                     <div class="card-body main-slider-body main-slider-body">
@@ -862,14 +862,14 @@ $warehouses = Warehouse::all(); ?>
                 @if($list->post_type == 'Want')
 
                 <div class="card shadow mb-2 ml-3 mr-4 slick-slider-card" style="width: 10rem">
-                    @if ($list->user->photo == null )
+                    @if ($list->user->image == null )
                     @if($list->user->gender == 'Male' )
                     <img src="{{asset('public/man-dummy.png') }}" class="card-img-top" alt="...">
                     @else
                     <img src="{{asset('public/dummy-female.jpg') }}" class="card-img-top" alt="...">
                     @endif
                     @else
-                    <img src="{{asset('public/uploads/registers') }}/{{($list->user->photo)}}" class="card-img-top" alt="...">
+                    <img src="{{asset('public/uploads/registers') }}/{{($list->user->image)}}" class="card-img-top" alt="...">
                     </a>
                     @endif
                     <div class="card-body main-slider-body main-slider-body">
@@ -888,14 +888,14 @@ $warehouses = Warehouse::all(); ?>
                 @if($list->post_type == 'Want')
 
                 <div class="card shadow mb-2 ml-3 mr-4 slick-slider-card" style="width: 10rem">
-                    @if ($list->user->photo == null )
+                    @if ($list->user->image == null )
                     @if($list->user->gender == 'Male' )
                     <img src="{{asset('public/man-dummy.png') }}" class="card-img-top" alt="...">
                     @else
                     <img src="{{asset('public/dummy-female.jpg') }}" class="card-img-top" alt="...">
                     @endif
                     @else
-                    <img src="{{asset('public/uploads/registers') }}/{{($list->user->photo)}}" class="card-img-top" alt="...">
+                    <img src="{{asset('public/uploads/registers') }}/{{($list->user->image)}}" class="card-img-top" alt="...">
                     </a>
                     @endif
                     <div class="card-body main-slider-body main-slider-body">
@@ -914,14 +914,14 @@ $warehouses = Warehouse::all(); ?>
                 @if($list->post_type == 'Want')
 
                 <div class="card shadow mb-2 ml-3 mr-4 slick-slider-card" style="width: 10rem">
-                    @if ($list->user->photo == null )
+                    @if ($list->user->image == null )
                     @if($list->user->gender == 'Male' )
                     <img src="{{asset('public/man-dummy.png') }}" class="card-img-top" alt="...">
                     @else
                     <img src="{{asset('public/dummy-female.jpg') }}" class="card-img-top" alt="...">
                     @endif
                     @else
-                    <img src="{{asset('public/uploads/registers') }}/{{($list->user->photo)}}" class="card-img-top" alt="...">
+                    <img src="{{asset('public/uploads/registers') }}/{{($list->user->image)}}" class="card-img-top" alt="...">
                     </a>
                     @endif
                     <div class="card-body main-slider-body main-slider-body">
@@ -940,14 +940,14 @@ $warehouses = Warehouse::all(); ?>
                 @if($list->post_type == 'Want')
 
                 <div class="card shadow mb-2 ml-3 mr-4 slick-slider-card" style="width: 10rem">
-                    @if ($list->user->photo == null )
+                    @if ($list->user->image == null )
                     @if($list->user->gender == 'Male' )
                     <img src="{{asset('public/man-dummy.png') }}" class="card-img-top" alt="...">
                     @else
                     <img src="{{asset('public/dummy-female.jpg') }}" class="card-img-top" alt="...">
                     @endif
                     @else
-                    <img src="{{asset('public/uploads/registers') }}/{{($list->user->photo)}}" class="card-img-top" alt="...">
+                    <img src="{{asset('public/uploads/registers') }}/{{($list->user->image)}}" class="card-img-top" alt="...">
                     </a>
                     @endif
                     <div class="card-body main-slider-body main-slider-body">
@@ -966,14 +966,14 @@ $warehouses = Warehouse::all(); ?>
                 @if($list->post_type == 'Want')
 
                 <div class="card shadow mb-2 ml-3 mr-4 slick-slider-card" style="width: 10rem">
-                    @if ($list->user->photo == null )
+                    @if ($list->user->image == null )
                     @if($list->user->gender == 'Male' )
                     <img src="{{asset('public/man-dummy.png') }}" class="card-img-top" alt="...">
                     @else
                     <img src="{{asset('public/dummy-female.jpg') }}" class="card-img-top" alt="...">
                     @endif
                     @else
-                    <img src="{{asset('public/uploads/registers') }}/{{($list->user->photo)}}" class="card-img-top" alt="...">
+                    <img src="{{asset('public/uploads/registers') }}/{{($list->user->image)}}" class="card-img-top" alt="...">
                     </a>
                     @endif
                     <div class="card-body main-slider-body main-slider-body">

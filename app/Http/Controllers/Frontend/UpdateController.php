@@ -2495,7 +2495,6 @@ class UpdateController extends Controller
             'date' => $request->date,
             'phone' => $request->phone,
             'price' => $request->price,
-            'per_price' => $request->per_price,
             'size' => $request->size,
             'height' => $request->height,
             'type' => $request->type,

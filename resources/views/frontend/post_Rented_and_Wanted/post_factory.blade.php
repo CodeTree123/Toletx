@@ -3,26 +3,6 @@
 @section('content')
 
 <div class="container  post_container">
-
-    <!-- Default Basic Forms Start -->
-    @if ($message = Session::get('success'))
-    <div class="alert alert-success alert-block" id="hello">
-        <button type="button" class="close" data-dismiss="alert">×</button>
-        <strong>{{ $message }}</strong>
-    </div>
-    @endif
-
-    @if (count($errors) > 0)
-    <div class="alert alert-danger" id="hello">
-        <strong>Whoops!</strong> There were some problems with your input.
-        <ul>
-            @foreach ($errors->all() as $error)
-            <li>{{ $error }}</li>
-            @endforeach
-        </ul>
-    </div>
-    @endif
-
     <div class="row shadow p-4 rounded mb-5 mt-2    ">
         <nav style="--bs-breadcrumb-divider: url(&#34;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='8' height='8'%3E%3Cpath d='M2.5 0L1 1.5 3.5 4 1 6.5 2.5 8l4-4-4-4z' fill='%236c757d'/%3E%3C/svg%3E&#34;);" aria-label="breadcrumb">
             <ol class="breadcrumb bg-transparent">
@@ -36,13 +16,7 @@
             <form method="POST" action="{{ route('post_factory_rented') }}" enctype="multipart/form-data">
                 @csrf
                 <div class="col-md-6">
-                    <input id="user_id" type="hidden" class="form-control @error('user_id') is-invalid @enderror" name="user_id" value="{{ Auth::user()->id }}" required autocomplete="user_id" autofocus>
-
-                    @error('user_id')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                    @enderror
+                    <input id="user_id" type="hidden" class="form-control" name="user_id" value="{{ Auth::user()->id }}" required autocomplete="user_id" autofocus>
                 </div>
                 <input class="form-control" type="hidden" id="post_rent" name="post_type">
                 <div class="row">
@@ -366,42 +340,6 @@
                 </div>
             </form>
         </div>
-
     </div>
 </div>
-<!-- js -->
-
-<script>
-    function val() {
-        var choose = document.getElementById('choose_post_type').value;
-        var rented = document.getElementById('rent');
-        var wanted = document.getElementById('want');
-        var post = document.getElementById('post_rent');
-        var post2 = document.getElementById('post_want');
-        if (choose == "Want") {
-            wanted.style.display = "flex";
-            rented.style.display = "none";
-
-            post2.value = choose;
-
-        } else if (choose == "Rent") {
-            rented.style.display = "flex";
-            wanted.style.display = "none";
-
-            post.value = choose;
-        } else {
-            rented.style.display = "none";
-            wanted.style.display = "none";
-            post.value = choose;
-
-        }
-
-        // console.log(choose);
-    }
-</script>
-<script>
-    $(document).ready(function() {
-        $("#hello").slideDown(300).delay(1000).slideUp(300);
-    });
-</script>
 @endsection

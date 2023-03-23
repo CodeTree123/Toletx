@@ -9,9 +9,9 @@
             </ol>
         </nav>
         @include('frontend.include.selector_section')
-        
+
         <div class="col-12" id="Rent" style="display: none;">
-            <form action="{{route('post_bilboard_rented')}}" method="POST" enctype="multipart/form-data">
+            <form action="{{route('post_billboard_rented')}}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="col-md-6">
                     <input id="user_id" type="hidden" class="form-control @error('user_id') is-invalid @enderror" name="user_id" value="{{ Auth::user()->id }}" required autocomplete="user_id" autofocus>
@@ -31,7 +31,7 @@
                         <input name="phone" type="number" class="form-control" id="phone_Rent" placeholder="Enter Phone" value="{{$list->phone}}" required readonly>
                     </div>
                     <div class="col-lg-4 co-md-4 col-sm-12 col-12 mb-3 ">
-                        <label for="price_Rent" class="form-label me-2 fw-bold"> Rent</label>
+                        <label for="price_Rent" class="form-label me-2 fw-bold"> Rent Per Month</label>
                         <input name="price" type="number" class="form-control" id="price_Rent" placeholder="Enter Rent" required>
                     </div>
                     <div class="col-lg-4 co-md-4 col-sm-12 col-12 mb-3 ">
@@ -40,7 +40,7 @@
                     </div>
                     <div class="col-lg-4 co-md-4 col-sm-12 col-12 mb-3 ">
                         <label for="height_Rent" class="form-label me-2 fw-bold">Billboard Height</label>
-                        <input name="hieght" type="text" class="form-control" id="height_Rent" placeholder="Enter Billboard Height" required>
+                        <input name="height" type="text" class="form-control" id="height_Rent" placeholder="Enter Billboard Height" required>
                     </div>
                     <div class=" col-lg-4 co-md-4 col-sm-12 col-12 mb-3">
                         <label for="type_Rent" class="form-label me-2 fw-bold">Billboard Type</label>
@@ -103,7 +103,7 @@
             </form>
         </div>
         <div class="col-12" id="Want" style="display: none;">
-            <form action="{{route('post_bilboard_wanted')}}" method="POST">
+            <form action="{{route('post_billboard_wanted')}}" method="POST">
                 @csrf
                 <div class="col-md-6">
                     <input id="user_id" type="hidden" class="form-control @error('user_id') is-invalid @enderror" name="user_id" value="{{ Auth::user()->id }}" required autocomplete="user_id" autofocus>
@@ -132,7 +132,7 @@
                     </div>
                     <div class="col-lg-4 co-md-4 col-sm-12 col-12 mb-3 ">
                         <label for="height_Want" class="form-label me-2 fw-bold">Billboard Height</label>
-                        <input name="hieght" type="text" class="form-control" id="height_Want" placeholder="Enter Billboard Height" required>
+                        <input name="height" type="text" class="form-control" id="height_Want" placeholder="Enter Billboard Height" required>
                     </div>
                     <div class=" col-lg-4 co-md-4 col-sm-12 col-12 mb-3">
                         <label for="type_Want" class="form-label me-2 fw-bold">Billboard Type</label>

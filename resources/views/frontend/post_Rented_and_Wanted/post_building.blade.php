@@ -15,12 +15,7 @@
         <form method="POST" action="{{ route('post_building_rented') }}" enctype="multipart/form-data">
             @csrf
             <div class="col-md-6">
-                <input id="user_id" type="hidden" class="form-control @error('user_id') is-invalid @enderror" name="user_id" value="{{ Auth::user()->id }}" required autocomplete="user_id" autofocus>
-                @error('user_id')
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
-                @enderror
+                <input id="user_id" type="hidden" class="form-control" name="user_id" value="{{ Auth::user()->id }}" required autocomplete="user_id" autofocus>
             </div>
             <input class="form-control" type="hidden" id="post_rent" name="post_type">
             <div class="row">
@@ -161,14 +156,14 @@
                 </div>
                 <div class="col-12 mb-3 ">
                     <label for="address_rented" class="form-label me-2 fw-bold">Address</label>
-                    <input name="address" type="text" class="form-control" id="building_search_autocomplete" placeholder="Enter Address" required>
+                    <input name="address" type="text" class="form-control" placeholder="Enter Address" required>
                 </div>
                 <div class="col-12 mb-3 ">
                     <label for="description_rented" class="form-label me-2 fw-bold">Description</label>
                     <textarea name="description" type="text" class="form-control" id="description_rented" rows="3" placeholder="Enter Description"></textarea>
                 </div>
                 <div class="col-lg-4 co-md-4 col-sm-12 col-12 mb-3 ">
-                    <h2 class="fw-bold mb-3">Ameneties</h2>
+                    <h2 class="fw-bold mb-3">Amenities</h2>
                     <div class="form-check ms-5 mb-2">
                         <input class="form-check-input" type="checkbox" id="electricity_rented" name="electricity">
                         <label class="form-check-label" for="electricity_rented">
@@ -255,12 +250,7 @@
         <form method="POST" action="{{ route('post_building_wanted') }}" enctype="multipart/form-data">
             @csrf
             <div class="col-md-6">
-                <input id="user_id" type="hidden" class="form-control @error('user_id') is-invalid @enderror" name="user_id" value="{{ Auth::user()->id }}" required autocomplete="user_id" autofocus>
-                @error('user_id')
-                <span class="invalid-feedback" role="alert">
-                    <strong>{{ $message }}</strong>
-                </span>
-                @enderror
+                <input id="user_id" type="hidden" class="form-control" name="user_id" value="{{ Auth::user()->id }}" required autocomplete="user_id" autofocus>
             </div>
             <input class="form-control" type="hidden" id="post_want" name="post_type">
             <div class="row">
@@ -274,7 +264,7 @@
                 </div>
                 <div class=" col-lg-4 co-md-4 col-sm-12 col-12 mb-3">
                     <label for="phone_wanted" class="form-label me-2 fw-bold">Mobile</label>
-                    <input name="phone" type="number" class="form-control" id="phone_wanted" value="{{$list->phone}}" readonly>
+                    <input name="phone" type="number" class="form-control" id="phone_wanted" value="{{$list->phone}}" readonly <input name="price" type="number" class="form-control" id="price_wanted" placeholder="Enter Rent" required>
                 </div>
                 <div class="col-lg-4 co-md-4 col-sm-12 col-12 mb-3 ">
                     <label for="price_wanted" class="form-label me-2 fw-bold">Rent</label>
@@ -376,14 +366,14 @@
                 </div>
                 <div class="col-12 mb-3 ">
                     <label for="address_wanted" class="form-label me-2 fw-bold">Address</label>
-                    <input name="address" type="text" class="form-control" id="building_search_autocomplete" placeholder="Enter Address" required>
+                    <input name="address" type="text" class="form-control" placeholder="Enter Address" required>
                 </div>
                 <div class="col-12 mb-3 ">
                     <label for="description_wanted" class="form-label me-2 fw-bold">Description</label>
                     <textarea name="description" type="text" class="form-control" id="description_wanted" rows="3" placeholder="Enter Description"></textarea>
                 </div>
                 <div class="col-12 mb-3 ">
-                    <h2 class="fw-bold mb-3">Ameneties</h2>
+                    <h2 class="fw-bold mb-3">Amenities</h2>
                     <div class="row ms-5 ">
                         <div class="form-check mb-2">
                             <input class="form-check-input" type="checkbox" id="electricity_wanted" name="electricity">
@@ -434,34 +424,4 @@
         </form>
     </div>
 </div>
-</div>
-<!-- js -->
-<script>
-    function val() {
-        var choose = document.getElementById('choose_post_type').value;
-        var rented = document.getElementById('rent');
-        var wanted = document.getElementById('want');
-        var post = document.getElementById('post_rent');
-        var post2 = document.getElementById('post_want');
-        if (choose == "Want") {
-            wanted.style.display = "flex";
-            rented.style.display = "none";
-            post2.value = choose;
-        } else if (choose == "Rent") {
-            rented.style.display = "flex";
-            wanted.style.display = "none";
-            post.value = choose;
-        } else {
-            rented.style.display = "none";
-            wanted.style.display = "none";
-            post.value = choose;
-        }
-        // console.log(choose);
-    }
-</script>
-<script>
-    $(document).ready(function() {
-        $("#hello").slideDown(300).delay(1000).slideUp(300);
-    });
-</script>
 @endsection

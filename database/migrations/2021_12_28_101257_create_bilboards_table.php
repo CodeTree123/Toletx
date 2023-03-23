@@ -21,7 +21,6 @@ class CreateBilboardsTable extends Migration
             $table->date('date');
             $table->bigInteger('phone');
             $table->bigInteger('price');
-            $table->string('per_price');
             $table->string('size');
             $table->string('height');
             $table->string('type');

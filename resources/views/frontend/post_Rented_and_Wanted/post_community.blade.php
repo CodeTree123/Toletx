@@ -14,13 +14,7 @@
             <form method="POST" action="{{ route('post_community_rented') }}" enctype="multipart/form-data">
                 @csrf
                 <div class="col-md-6">
-                    <input id="user_id" type="hidden" class="form-control @error('user_id') is-invalid @enderror" name="user_id" value="{{ Auth::user()->id }}" required autocomplete="user_id" autofocus>
-
-                    @error('user_id')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                    @enderror
+                    <input id="user_id" type="hidden" class="form-control" name="user_id" value="{{ Auth::user()->id }}" required autocomplete="user_id" autofocus>
                 </div>
                 <input class="form-control" type="hidden" id="post_rent" name="post_type">
                 <div class="row">
@@ -30,7 +24,7 @@
                     </div>
                     <div class="col-lg-4 co-md-4 col-sm-12 col-12 mb-3 ">
                         <label for="community_name_rented" class="form-label me-2 fw-bold">Community Hall Name</label>
-                        <input name="" type="text" class="form-control" id="community_name_rented" placeholder="Enter Community Hall Name" required>
+                        <input name="c_name" type="text" class="form-control" id="community_name_rented" placeholder="Enter Community Hall Name" required>
                     </div>
                     <div class=" col-lg-4 co-md-4 col-sm-12 col-12 mb-3">
                         <label for="date_rented" class="form-label me-2 fw-bold">Date</label>
@@ -60,7 +54,7 @@
                             </div>
                             <div class="col-7 ps-0">
                                 <div class="input-group mb-3">
-                                    <select class="form-select form-select-md mb-3" aria-label=".form-select-lg example" name="per_price">
+                                    <select class="form-select form-select-md mb-3" aria-label=".form-select-lg example" id="per_price_rented" name="per_price">
                                         <option selected hidden>Choose Rent Type</option>
                                         <option value="hour">Hour</option>
                                         <option value="day shift"> Day Shift</option>
@@ -84,7 +78,7 @@
                             </div>
                             <div class="col-7 ps-0">
                                 <div class="input-group mb-3">
-                                    <select class="form-select form-select-md mb-3" aria-label=".form-select-lg example" name="s_per_charge">
+                                    <select class="form-select form-select-md mb-3" aria-label=".form-select-lg example" id="s_per_price_rented" name="s_per_price">
                                         <option selected hidden>Choose Service Type</option>
                                         <option value="hour">Hour</option>
                                         <option value="day shift"> Day Shift</option>
@@ -258,13 +252,9 @@
             <form method="POST" action="{{ route('post_community_wanted') }}">
                 @csrf
                 <div class="col-md-6">
-                    <input id="user_id" type="hidden" class="form-control @error('user_id') is-invalid @enderror" name="user_id" value="{{ Auth::user()->id }}" required autocomplete="user_id" autofocus>
+                    <input id="user_id" type="hidden" class="form-control" name="user_id" value="{{ Auth::user()->id }}" required autocomplete="user_id" autofocus>
 
-                    @error('user_id')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                    @enderror
+
                 </div>
                 <input class="form-control" type="hidden" id="post_want" name="post_type">
                 <div class="row">
@@ -274,7 +264,7 @@
                     </div>
                     <div class="col-lg-4 co-md-4 col-sm-12 col-12 mb-3 ">
                         <label for="community_name_wanted" class="form-label me-2 fw-bold">Community Hall Name</label>
-                        <input name="" type="text" class="form-control" id="community_name_wanted" placeholder="Enter Community Hall Name" required>
+                        <input name="c_name" type="text" class="form-control" id="community_name_wanted" placeholder="Enter Community Hall Name" required>
                     </div>
                     <div class=" col-lg-4 co-md-4 col-sm-12 col-12 mb-3">
                         <label for="date_wanted" class="form-label me-2 fw-bold">Date</label>
@@ -304,7 +294,7 @@
                             </div>
                             <div class="col-7 ps-0">
                                 <div class="input-group mb-3">
-                                    <select class="form-select form-select-md mb-3" aria-label=".form-select-lg example" name="per_price">
+                                    <select class="form-select form-select-md mb-3" aria-label=".form-select-lg example"id="per_price_wanted" name="per_price">
                                         <option selected hidden>Choose Rent Type</option>
                                         <option value="hour">Hour</option>
                                         <option value="day shift"> Day Shift</option>
@@ -328,7 +318,7 @@
                             </div>
                             <div class="col-7 ps-0">
                                 <div class="input-group mb-3">
-                                    <select class="form-select form-select-md mb-3" aria-label=".form-select-lg example" name="s_per_charge">
+                                    <select class="form-select form-select-md mb-3" aria-label=".form-select-lg example" id="s_per_price_wanted"  name="s_per_price">
                                         <option selected hidden>Choose Service Type</option>
                                         <option value="hour">Hour</option>
                                         <option value="day shift"> Day Shift</option>

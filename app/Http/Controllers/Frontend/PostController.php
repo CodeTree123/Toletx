@@ -324,10 +324,12 @@ class PostController extends Controller
             'date' => $request->date,
             'phone' => $request->phone,
             's_charge' => $request->s_charge,
+            's_per_charge' => $request->s_per_charge,
             'description' => $request->description,
             'address' => $request->address,
             'room_size' => $request->room_size,
             'price' => $request->price,
+            'per_price' => $request->per_price,
             'guest_count' => $request->guest_count,
             'wifi' => $request->wifi,
             'attached_toilet' => $request->attached_toilet,
@@ -365,10 +367,12 @@ class PostController extends Controller
             'date' => $request->date,
             'phone' => $request->phone,
             's_charge' => $request->s_charge,
+            's_per_charge' => $request->s_per_charge,
             'description' => $request->description,
             'address' => $request->address,
             'room_size' => $request->room_size,
             'price' => $request->price,
+            'per_price' => $request->per_price,
             'guest_count' => $request->guest_count,
             'wifi' => $request->wifi,
             'attached_toilet' => $request->attached_toilet,
@@ -588,7 +592,6 @@ class PostController extends Controller
             $filename6 =  "building-7-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
             $file->move($destinationPath, $filename6);
         }
-
         Building::create([
             'user_id' => $request->user_id,
             'post_type' => $request->post_type,
@@ -629,6 +632,8 @@ class PostController extends Controller
     }
     function post_building_wanted(Request $request)
     {
+// dd($request->all());
+
         Building::create([
             'user_id' => $request->user_id,
             'post_type' => $request->post_type,
@@ -1484,6 +1489,7 @@ class PostController extends Controller
             $filename6 =  "community-7-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
             $file->move($destinationPath, $filename6);
         }
+        
         Community_Center::create([
             'user_id' => $request->user_id,
             'post_type' => $request->post_type,
@@ -1653,7 +1659,7 @@ class PostController extends Controller
             'photo6' => $filename6,
             'video' => $request->video,
             'active' => 1,
-            'created_at'   => Carbon::now()
+            'created_at' => Carbon::now()
         ]);
 
         return back()->with('success', 'Factory information have been successfully Added.');
@@ -1944,7 +1950,7 @@ class PostController extends Controller
 
     function post_pond_rented(Request $request)
     {
-
+        // dd($request->all());
         $filename = '';
         $filename1 = '';
         $filename2 = '';
@@ -2916,7 +2922,7 @@ class PostController extends Controller
 
     // billboard
 
-    function post_bilboard_rented(Request $request)
+    function post_billboard_rented(Request $request)
     {
 
         $filename = '';
@@ -2930,20 +2936,20 @@ class PostController extends Controller
         if ($request->hasFile('photo')) {
             $file = $request->file('photo');
             $destinationPath = 'public/uploads/bilboards/';
-            $filename =  "bilboard-1-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
+            $filename =  "bilboards-1-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
             $file->move($destinationPath, $filename);
         }
 
         if ($request->hasFile('photo1')) {
             $file = $request->file('photo1');
             $destinationPath = 'public/uploads/bilboards/';
-            $filename1 =  "bilboard-2-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
+            $filename1 =  "bilboards-2-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
             $file->move($destinationPath, $filename1);
         }
         if ($request->hasFile('photo2')) {
             $file = $request->file('photo2');
             $destinationPath = 'public/uploads/bilboards/';
-            $filename2 =  "bilboard-3-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
+            $filename2 =  "bilboards-3-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
             $file->move($destinationPath, $filename2);
         }
         if ($request->hasFile('photo3')) {
@@ -2970,7 +2976,7 @@ class PostController extends Controller
             $filename6 =  "bilboard-7-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
             $file->move($destinationPath, $filename6);
         }
-
+// dd($request->all());
         Bilboard::create([
             'user_id' => $request->user_id,
             'post_type' => $request->post_type,
@@ -2978,7 +2984,6 @@ class PostController extends Controller
             'date' => $request->date,
             'phone' => $request->phone,
             'price' => $request->price,
-            'per_price' => $request->per_price,
             'size' => $request->size,
             'height' => $request->height,
             'type' => $request->type,
@@ -2999,8 +3004,9 @@ class PostController extends Controller
 
         return back()->with('success', 'Billboard rented Post successfully Added.');
     }
-    public function post_bilboard_wanted(Request $request)
+    public function post_billboard_wanted(Request $request)
     {
+// dd($request->all());
 
         Bilboard::create([
             'user_id' => $request->user_id,
@@ -3009,7 +3015,6 @@ class PostController extends Controller
             'date' => $request->date,
             'phone' => $request->phone,
             'price' => $request->price,
-            'per_price' => $request->per_price,
             'size' => $request->size,
             'height' => $request->height,
             'type' => $request->type,
