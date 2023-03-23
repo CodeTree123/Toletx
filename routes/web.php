@@ -207,7 +207,7 @@ Auth::routes(["verify" => true]);
     Route::post('/post/rooftop/wanted', [PostController::class, 'post_rooftop_wanted'])->name('post_rooftop_wanted');
 
     Route::post('/post/billboard/rented', [PostController::class, 'post_billboard_rented'])->name('post_billboard_rented');
-    Route::post('/post/bilboard/wanted', [PostController::class, 'post_billboard_wanted'])->name('post_billboard_wanted');
+    Route::post('/post/billboard/wanted', [PostController::class, 'post_billboard_wanted'])->name('post_billboard_wanted');
 
 //end service post Route
 

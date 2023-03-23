@@ -115,7 +115,7 @@ class SearchController extends Controller
                 'dining','lift','furnished','generator','hot_water','ac','cable_tv','gas','water','electricity','parking'
                 ])->get();
 
-        // Return the search view with the resluts compacted
+        // Return the search view with the results compacted
 
         return view('frontend.search.custom_flat_search', compact('array','marketing'));
     }
