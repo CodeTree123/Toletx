@@ -36,6 +36,16 @@
         // Render blocking JS:
         if (localStorage.theme) document.documentElement.setAttribute("data-theme", localStorage.theme);
     </script>
+    <script>
+        $(document).ready(function() {
+            // $('.test').hide();
+
+            $('#choose_post_type').on('change', function() {
+                let choose = $(this).val();
+                $('.search_form_sec').removeClass("d-none");
+            });
+        });
+    </script>
 
     <title>ToletX</title>
 </head>
