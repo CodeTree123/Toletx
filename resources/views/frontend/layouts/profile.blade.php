@@ -67,17 +67,17 @@
                                         @foreach($rooms as $room)
                                         <tr>
                                             <td>
-                                            <a href="{{ url('/room/details') }}/{{ $room->id }}"> 
+                                                <a href="{{ url('/room/details') }}/{{ $room->id }}">
                                                     {{$room->title}}
                                                 </a>
                                             </td>
                                             @if($room->post_type == 'Rent')
-                                            <td>Rent</td>
+                                            <td>Rent (Room)</td>
                                             @else
-                                            <td>Want</td>
+                                            <td>Want (Room)</td>
                                             @endif
                                             <td>{{ \Carbon\Carbon::parse($room->created_at)->format('d/m/Y')}}</td>
-                                            <td> 
+                                            <td>
                                                 <a href="{{route('user_room_edit',$room->id)}}">
                                                     <i class="fa-solid fa-pen-to-square"></i>
                                                 </a>
@@ -90,14 +90,14 @@
                                         @foreach($bilboards as $bilboard)
                                         <tr>
                                             <td>
-                                                <a href="{{ url('/bilboard/details') }}/{{ $bilboard->id }}"> 
+                                                <a href="{{ url('/bilboard/details') }}/{{ $bilboard->id }}">
                                                     {{$bilboard->title}}
                                                 </a>
                                             </td>
                                             @if($bilboard->post_type == 'Rent')
-                                            <td>Rent</td>
+                                            <td>Rent (Billboard)</td>
                                             @else
-                                            <td>Want</td>
+                                            <td>Want (Billboard)</td>
                                             @endif
                                             <td>{{ \Carbon\Carbon::parse($bilboard->created_at)->format('d/m/Y')}}</td>
                                             <td>
@@ -113,18 +113,18 @@
                                         @foreach($communities as $community)
                                         <tr>
                                             <td>
-                                            <a href="{{ url('/community/details') }}/{{ $community->id }}"> 
+                                                <a href="{{ url('/community/details') }}/{{ $community->id }}">
                                                     {{$community->title}}
                                                 </a>
                                             </td>
                                             @if($community->post_type == 'Rent')
-                                            <td>Rent</td>
+                                            <td>Rent (Community)</td>
                                             @else
-                                            <td>Want</td>
+                                            <td>Want (Community)</td>
                                             @endif
                                             <td>{{ \Carbon\Carbon::parse($community->created_at)->format('d/m/Y')}}</td>
                                             <td>
-                                                
+
                                                 <a href="{{ route('user_community_edit',$community->id)}}">
                                                     <i class="fa-solid fa-pen-to-square"></i>
                                                 </a>
@@ -137,14 +137,14 @@
                                         @foreach($picnics as $picnic)
                                         <tr>
                                             <td>
-                                                <a href="{{ url('/picnic/details') }}/{{ $picnic->id }}"> 
+                                                <a href="{{ url('/picnic/details') }}/{{ $picnic->id }}">
                                                     {{$picnic->title}}
                                                 </a>
                                             </td>
                                             @if($picnic->post_type == 'Rent')
-                                            <td>Rent</td>
+                                            <td>Rent (Picnic Spot)</td>
                                             @else
-                                            <td>Want</td>
+                                            <td>Want (Picnic Spot)</td>
                                             @endif
                                             <td>{{ \Carbon\Carbon::parse($picnic->created_at)->format('d/m/Y')}}</td>
                                             <td>
@@ -160,17 +160,17 @@
                                         @foreach($ghats as $ghat)
                                         <tr>
                                             <td>
-                                                 <a href="{{ url('/ghat/details') }}/{{ $ghat->id }}" > 
+                                                <a href="{{ url('/ghat/details') }}/{{ $ghat->id }}">
                                                     {{$ghat->title}}
                                                 </a>
                                             </td>
                                             @if($ghat->post_type == 'Rent')
-                                            <td>Rent</td>
+                                            <td>Rent (Ghat)</td>
                                             @else
-                                            <td>Want</td>
+                                            <td>Want (Ghat)</td>
                                             @endif
                                             <td>{{ \Carbon\Carbon::parse($ghat->created_at)->format('d/m/Y')}}</td>
-                                            <td> 
+                                            <td>
                                                 <a href="{{ route('user_ghat_edit',$ghat->id)  }}">
                                                     <i class="fa-solid fa-pen-to-square"></i>
                                                 </a>
@@ -183,14 +183,14 @@
                                         @foreach($swimmings as $swimming)
                                         <tr>
                                             <td>
-                                                <a href="{{ url('/swimming/details') }}/{{ $swimming->id }}"> 
+                                                <a href="{{ url('/swimming/details') }}/{{ $swimming->id }}">
                                                     {{$swimming->title}}
                                                 </a>
                                             </td>
                                             @if($swimming->post_type == 'Rent')
-                                            <td>Rent</td>
+                                            <td>Rent (Swimming pool)</td>
                                             @else
-                                            <td>Want</td>
+                                            <td>Want (Swimming pool)</td>
                                             @endif
                                             <td>{{ \Carbon\Carbon::parse($swimming->created_at)->format('d/m/Y')}}</td>
                                             <td>
@@ -206,14 +206,14 @@
                                         @foreach($exibutions as $exibution)
                                         <tr>
                                             <td>
-                                                <a href="{{ url('/exibution/details') }}/{{ $exibution->id }}"> 
+                                                <a href="{{ url('/exibution/details') }}/{{ $exibution->id }}">
                                                     {{$exibution->title}}
                                                 </a>
                                             </td>
                                             @if($exibution->post_type == 'Rent')
-                                            <td>Rent</td>
+                                            <td>Rent (Exhibition center)</td>
                                             @else
-                                            <td>Want</td>
+                                            <td>Want (Exhibition center)</td>
                                             @endif
                                             <td>{{ \Carbon\Carbon::parse($exibution->created_at)->format('d/m/Y')}}</td>
                                             <td>
@@ -229,14 +229,14 @@
                                         @foreach($factories as $factory)
                                         <tr>
                                             <td>
-                                                <a href="{{ url('/factory/details') }}/{{ $factory->id }}"> 
+                                                <a href="{{ url('/factory/details') }}/{{ $factory->id }}">
                                                     {{$factory->title}}
                                                 </a>
                                             </td>
                                             @if($factory->post_type == 'Rent')
-                                            <td>Rent</td>
+                                            <td>Rent (Factory)</td>
                                             @else
-                                            <td>Want</td>
+                                            <td>Want (Factory)</td>
                                             @endif
                                             <td>{{ \Carbon\Carbon::parse($factory->created_at)->format('d/m/Y')}}</td>
                                             <td>
@@ -253,13 +253,13 @@
                                         <tr>
                                             <td>
                                                 <a href="{{ url('/flat/details') }}/{{ $flat->id }}">
-                                                    {{$flat->title}} 
+                                                    {{$flat->title}}
                                                 </a>
                                             </td>
                                             @if($flat->post_type == 'Rent')
-                                            <td>Rent</td>
+                                            <td>Rent (Flat)</td>
                                             @else
-                                            <td>Want</td>
+                                            <td>Want (Flat)</td>
                                             @endif
                                             <td>{{ \Carbon\Carbon::parse($flat->created_at)->format('d/m/Y')}}</td>
                                             <td>
@@ -275,14 +275,14 @@
                                         @foreach($hostels as $hostel)
                                         <tr>
                                             <td>
-                                                <a href="{{ url('/hostel/details') }}/{{ $hostel->id }}"> 
+                                                <a href="{{ url('/hostel/details') }}/{{ $hostel->id }}">
                                                     {{$hostel->hostel_name}}
                                                 </a>
                                             </td>
                                             @if($hostel->post_type == 'Rent')
-                                            <td>Rent</td>
+                                            <td>Rent (Hostel)</td>
                                             @else
-                                            <td>Want</td>
+                                            <td>Want (Hostel)</td>
                                             @endif
                                             <td>{{ \Carbon\Carbon::parse($hostel->created_at)->format('d/m/Y')}}</td>
                                             <td>
@@ -299,13 +299,13 @@
                                         <tr>
                                             <td>
                                                 <a href="{{ url('/hotel/details') }}/{{ $hotel->id }}">
-                                                    {{$hotel->hotel_name}} 
+                                                    {{$hotel->hotel_name}}
                                                 </a>
                                             </td>
                                             @if($hotel->post_type == 'Rent')
-                                            <td>Rent</td>
+                                            <td>Rent (Hotel)</td>
                                             @else
-                                            <td>Want</td>
+                                            <td>Want (Hotel)</td>
                                             @endif
                                             <td>{{ \Carbon\Carbon::parse($hotel->created_at)->format('d/m/Y')}}</td>
                                             <td>
@@ -321,15 +321,14 @@
                                         @foreach($offices as $office)
                                         <tr>
                                             <td>
-                                                
-                                            <a href="{{ url('/office/details') }}/{{ $office->id }}"> 
+                                                <a href="{{ url('/office/details') }}/{{ $office->id }}">
                                                     {{$office->title}}
                                                 </a>
                                             </td>
                                             @if($office->post_type == 'Rent')
-                                            <td>Rent</td>
+                                            <td>Rent (Office)</td>
                                             @else
-                                            <td>Want</td>
+                                            <td>Want (Office)</td>
                                             @endif
                                             <td>{{ \Carbon\Carbon::parse($office->created_at)->format('d/m/Y')}}</td>
                                             <td>
@@ -346,13 +345,13 @@
                                         <tr>
                                             <td>
                                                 <a href="{{ url('/playground/details') }}/{{ $playground->id }}">
-                                                    {{$playground->title}} 
+                                                    {{$playground->title}}
                                                 </a>
                                             </td>
                                             @if($playground->post_type == 'Rent')
-                                            <td>Rent</td>
+                                            <td>Rent (Camp Site)</td>
                                             @else
-                                            <td>Want</td>
+                                            <td>Want (Camp Site)</td>
                                             @endif
                                             <td>{{ \Carbon\Carbon::parse($playground->created_at)->format('d/m/Y')}}</td>
                                             <td>
@@ -369,13 +368,13 @@
                                         <tr>
                                             <td>
                                                 <a href="{{ url('/pond/details') }}/{{ $pond->id }}">
-                                                    {{$pond->title}} 
+                                                    {{$pond->title}}
                                                 </a>
                                             </td>
                                             @if($pond->post_type == 'Rent')
-                                            <td>Rent</td>
+                                            <td>Rent (Pond)</td>
                                             @else
-                                            <td>Want</td>
+                                            <td>Want (Pond)</td>
                                             @endif
                                             <td>{{ \Carbon\Carbon::parse($pond->created_at)->format('d/m/Y')}}</td>
                                             <td>
@@ -392,17 +391,16 @@
                                         <tr>
                                             <td>
                                                 <a href="{{ url('/restaurant/details/') }}/{{ $retaurant->id }}">
-                                                    {{$retaurant->resort_name}} 
-                                                </a> 
+                                                    {{$retaurant->post_title}}
+                                                </a>
                                             </td>
                                             @if($retaurant->post_type == 'Rent')
-                                            <td>Rent</td>
+                                            <td>Rent (Resort)</td>
                                             @else
-                                            <td>Want</td>
+                                            <td>Want (Resort)</td>
                                             @endif
                                             <td>{{ \Carbon\Carbon::parse($retaurant->created_at)->format('d/m/Y')}}</td>
                                             <td>
-                                                
                                                 <a href="{{ route('user_resort_edit',$retaurant->id)}}">
                                                     <i class="fa-solid fa-pen-to-square"></i>
                                                 </a>
@@ -415,15 +413,14 @@
                                         @foreach($rooftops as $rooftop)
                                         <tr>
                                             <td>
-                                                
                                                 <a href="{{ url('/rooftop/details') }}/{{ $rooftop->id }}">
-                                                {{$rooftop->title}} 
+                                                    {{$rooftop->title}}
                                                 </a>
                                             </td>
                                             @if($rooftop->post_type == 'Rent')
-                                            <td>Rent</td>
+                                            <td>Rent (Rooftop)</td>
                                             @else
-                                            <td>Want</td>
+                                            <td>Want (Rooftop)</td>
                                             @endif
                                             <td>{{ \Carbon\Carbon::parse($rooftop->created_at)->format('d/m/Y')}}</td>
                                             <td>
@@ -440,13 +437,13 @@
                                         <tr>
                                             <td>
                                                 <a href="{{ url('/shooting/details') }}/{{ $shooting->id }}">
-                                                    {{$shooting->title}} 
+                                                    {{$shooting->title}}
                                                 </a>
                                             </td>
                                             @if($shooting->post_type == 'Rent')
-                                            <td>Rent</td>
+                                            <td>Rent (Shooting Spot)</td>
                                             @else
-                                            <td>Want</td>
+                                            <td>Want (Shooting Spot)</td>
                                             @endif
                                             <td>{{ \Carbon\Carbon::parse($shooting->created_at)->format('d/m/Y')}}</td>
                                             <td>
@@ -462,18 +459,17 @@
                                         @foreach($shops as $shop)
                                         <tr>
                                             <td>
-                                            <a href="{{ url('/shop/details') }}/{{ $shop->id }}"> 
+                                                <a href="{{ url('/shop/details') }}/{{ $shop->id }}">
                                                     {{$shop->title}}
                                                 </a>
                                             </td>
                                             @if($shop->post_type == 'Rent')
-                                            <td>Rent</td>
+                                            <td>Rent (Shop)</td>
                                             @else
-                                            <td>Want</td>
+                                            <td>Want (Shop)</td>
                                             @endif
                                             <td>{{ \Carbon\Carbon::parse($shop->created_at)->format('d/m/Y')}}</td>
                                             <td>
-                                               
                                                 <a href="{{ route('user_shop_edit',$shop->id)  }}">
                                                     <i class="fa-solid fa-pen-to-square"></i>
                                                 </a>
@@ -487,13 +483,13 @@
                                         <tr>
                                             <td>
                                                 <a href="{{ url('/land/details') }}/{{ $land->id }}">
-                                                    {{$land->title}} 
+                                                    {{$land->title}}
                                                 </a>
                                             </td>
                                             @if($land->post_type == 'Rent')
-                                            <td>Rent</td>
+                                            <td>Rent (Land)</td>
                                             @else
-                                            <td>Want</td>
+                                            <td>Want (Land)</td>
                                             @endif
                                             <td>{{ \Carbon\Carbon::parse($land->created_at)->format('d/m/Y')}}</td>
                                             <td>
@@ -510,13 +506,13 @@
                                         <tr>
                                             <td>
                                                 <a href="{{ url('/warehouse/details') }}/{{ $warehouse->id }}">
-                                                    {{$warehouse->title}} 
+                                                    {{$warehouse->title}}
                                                 </a>
                                             </td>
                                             @if($warehouse->post_type == 'Rent')
-                                            <td>Rent</td>
+                                            <td>Rent (Warehouse)</td>
                                             @else
-                                            <td>Want</td>
+                                            <td>Want (Warehouse)</td>
                                             @endif
                                             <td>{{ \Carbon\Carbon::parse($warehouse->created_at)->format('d/m/Y')}}</td>
                                             <td>
@@ -533,13 +529,13 @@
                                         <tr>
                                             <td>
                                                 <a href="{{ url('/parking/details') }}/{{ $parking->id }}">
-                                                    {{$parking->title}} 
+                                                    {{$parking->title}}
                                                 </a>
                                             </td>
                                             @if($parking->post_type == 'Rent')
-                                            <td>Rent</td>
+                                            <td>Rent (Garage)</td>
                                             @else
-                                            <td>Want</td>
+                                            <td>Want (Garage)</td>
                                             @endif
                                             <td>{{ \Carbon\Carbon::parse($parking->created_at)->format('d/m/Y')}}</td>
                                             <td>
@@ -556,13 +552,13 @@
                                         <tr>
                                             <td>
                                                 <a href="{{ url('/building/details') }}/{{ $building->id }}">
-                                                    {{$building->building_name}} 
+                                                    {{$building->building_name}}
                                                 </a>
                                             </td>
                                             @if($building->post_type == 'Rent')
-                                            <td>Rent</td>
+                                            <td>Rent (Building)</td>
                                             @else
-                                            <td>Want</td>
+                                            <td>Want (Building)</td>
                                             @endif
                                             <td>{{ \Carbon\Carbon::parse($building->created_at)->format('d/m/Y')}}</td>
                                             <td>
@@ -583,9 +579,7 @@
                 </div>
             </div>
         </div>
-
     </div>
-
 </header>
 <!-- Header End -->
 

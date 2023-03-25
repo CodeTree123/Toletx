@@ -34,7 +34,8 @@ class SearchController extends Controller
 {
     function room_search(Request $request)
     {
-         $marketing = marketing::where('e_date', '<=', Carbon::today())->get();
+        // dd($request->all());
+        $marketing = marketing::where('e_date', '<=', Carbon::today())->get();
 
         // dd($request->all());
         // Get the search value from the request
@@ -60,12 +61,13 @@ class SearchController extends Controller
         }
 
 
-        $array = QueryBuilder::for(Room::class)
+        $array = QueryBuilder::for(Room::where('post_type', $request->user_searched_type))
             ->allowedFilters([
-                'address', 'date','price','room_size','guest_count','wifi','attached_toilet','varanda','gas','water','electricity','lift','furnished','hot_water','ac','cable_tv','parking','generator'])->get();
+                'address', 'date', 'price', 'room_size', 'guest_count', 'wifi', 'attached_toilet', 'varanda', 'gas', 'water', 'electricity', 'lift', 'furnished', 'hot_water', 'ac', 'cable_tv', 'parking', 'generator'
+            ])->get();
 
 
-        // Return the search view with the resluts compacted
+        // Return the search view with the results compacted
 
 
         if (($min_price) && ($max_price)) {
@@ -86,286 +88,286 @@ class SearchController extends Controller
             $array->where('room_size', '<=', $max_size);
         }
 
-        // Return the search view with the resluts compacted
+        // Return the search view with the results compacted
 
-        return view('frontend.search.custom_room_search', compact('array','marketing'));
+        return view('frontend.search.custom_room_search', compact('array', 'marketing'));
     }
 
-    function building_search()
+    function building_search(Request $request)
     {
-         $marketing = marketing::where('e_date', '<=', Carbon::today())->get();
+        $marketing = marketing::where('e_date', '<=', Carbon::today())->get();
         // Get the search value from the request
 
-        $array = QueryBuilder::for(Building::class)
+        $array = QueryBuilder::for(Building::where('post_type', $request->user_searched_type))
             ->allowedFilters(['address', 'date', 'price', 'building_size', 'gas', 'water', 'electricity', 'lift', 'generator', 'parking', 'fire_exit'])
             ->get();
 
-        // Return the search view with the resluts compacted
+        // Return the search view with the results compacted
 
-        return view('frontend.search.custom_building_search', compact('array','marketing'));
+        return view('frontend.search.custom_building_search', compact('array', 'marketing'));
     }
 
-    function flat_search()
+    function flat_search(Request $request)
     {
-         $marketing = marketing::where('e_date', '<=', Carbon::today())->get();
+        $marketing = marketing::where('e_date', '<=', Carbon::today())->get();
         // Get the search value from the request
-        $array = QueryBuilder::for(Flat::class)
+        $array = QueryBuilder::for(Flat::where('post_type', $request->user_searched_type))
             ->allowedFilters([
-                'address', 'date', 'price', 'flat_size', 'bedrooms','fire_exit','wifi','attached_toilet','kitchen','drawing','varanda',
-                'dining','lift','furnished','generator','hot_water','ac','cable_tv','gas','water','electricity','parking'
-                ])->get();
+                'address', 'date', 'price', 'flat_size', 'bedrooms', 'fire_exit', 'wifi', 'attached_toilet', 'kitchen', 'drawing', 'varanda',
+                'dining', 'lift', 'furnished', 'generator', 'hot_water', 'ac', 'cable_tv', 'gas', 'water', 'electricity', 'parking'
+            ])->get();
 
         // Return the search view with the results compacted
 
-        return view('frontend.search.custom_flat_search', compact('array','marketing'));
+        return view('frontend.search.custom_flat_search', compact('array', 'marketing'));
     }
 
 
 
-    function hotel_search()
+    function hotel_search(Request $request)
     {
-         $marketing = marketing::where('e_date', '<=', Carbon::today())->get();
+        $marketing = marketing::where('e_date', '<=', Carbon::today())->get();
         // Get the search value from the request
-        $array = QueryBuilder::for(Hotel::class)
+        $array = QueryBuilder::for(Hotel::where('post_type', $request->user_searched_type))
             ->allowedFilters([
-                'address','date','price','location','wifi','bathroom','lift','parking','ac','laundry','dining',
-                'fire_exit','generator','gym','sports'
+                'address', 'date', 'price', 'location', 'wifi', 'bathroom', 'lift', 'parking', 'ac', 'laundry', 'dining',
+                'fire_exit', 'generator', 'gym', 'sports'
             ])->get();
 
-        // Return the search view with the resluts compacted
+        // Return the search view with the results compacted
 
-        return view('frontend.search.custom_hotel_search', compact('array','marketing'));
+        return view('frontend.search.custom_hotel_search', compact('array', 'marketing'));
     }
-    function bilboard_search()
+    function bilboard_search(Request $request)
     {
-         $marketing = marketing::where('e_date', '<=', Carbon::today())->get();
+        $marketing = marketing::where('e_date', '<=', Carbon::today())->get();
         // Get the search value from the request
-        $array = QueryBuilder::for(Bilboard::class)
+        $array = QueryBuilder::for(Bilboard::where('post_type', $request->user_searched_type))
             ->allowedFilters(['address', 'date', 'price', 'electricity',  'size'])
             ->get();
 
-        // Return the search view with the resluts compacted
+        // Return the search view with the results compacted
 
-        return view('frontend.search.custom_bilboard_search', compact('array','marketing'));
+        return view('frontend.search.custom_bilboard_search', compact('array', 'marketing'));
     }
 
 
-    function exibution_search()
+    function exibution_search(Request $request)
     {
-         $marketing = marketing::where('e_date', '<=', Carbon::today())->get();
+        $marketing = marketing::where('e_date', '<=', Carbon::today())->get();
 
-        $array = QueryBuilder::for(Exibution_Center::class)
+        $array = QueryBuilder::for(Exibution_Center::where('post_type', $request->user_searched_type))
             ->allowedFilters([
-                'address', 'date', 'price', 'address','room_size','toilet','lift','fire_exit','generator','parking'
+                'address', 'date', 'price', 'address', 'room_size', 'toilet', 'lift', 'fire_exit', 'generator', 'parking'
             ])->get();
 
-        return view('frontend.search.custom_exibution_search', compact('array','marketing'));
+        return view('frontend.search.custom_exibution_search', compact('array', 'marketing'));
     }
 
-    function pond_search()
+    function pond_search(Request $request)
     {
-         $marketing = marketing::where('e_date', '<=', Carbon::today())->get();
+        $marketing = marketing::where('e_date', '<=', Carbon::today())->get();
 
-        $array = QueryBuilder::for(Pond::class)
+        $array = QueryBuilder::for(Pond::where('post_type', $request->user_searched_type))
             ->allowedFilters([
-                'address', 'date', 'price','drainage_system','price','y_price','pond_area'
+                'address', 'date', 'price', 'drainage_system', 'price', 'y_price', 'pond_area'
             ])->get();
 
-        return view('frontend.search.custom_pond_search', compact('array','marketing'));
+        return view('frontend.search.custom_pond_search', compact('array', 'marketing'));
     }
 
-    function warehouse_search()
+    function warehouse_search(Request $request)
     {
-         $marketing = marketing::where('e_date', '<=', Carbon::today())->get();
+        $marketing = marketing::where('e_date', '<=', Carbon::today())->get();
 
-        $array = QueryBuilder::for(Warehouse::class)
+        $array = QueryBuilder::for(Warehouse::where('post_type', $request->user_searched_type))
             ->allowedFilters([
-                'address', 'date', 'price', 'floor_size', 'fire_safety','generator','lift','parking','drainage_system','gas',
-                'water','electricity','ac'
+                'address', 'date', 'price', 'floor_size', 'fire_safety', 'generator', 'lift', 'parking', 'drainage_system', 'gas',
+                'water', 'electricity', 'ac'
             ])->get();
 
-        return view('frontend.search.custom_warehouse_search', compact('array','marketing'));
+        return view('frontend.search.custom_warehouse_search', compact('array', 'marketing'));
     }
 
-    function swimmingpool_search()
+    function swimmingpool_search(Request $request)
     {
-         $marketing = marketing::where('e_date', '<=', Carbon::today())->get();
+        $marketing = marketing::where('e_date', '<=', Carbon::today())->get();
 
-        $array = QueryBuilder::for(Swimming_Pool::class)
+        $array = QueryBuilder::for(Swimming_Pool::where('post_type', $request->user_searched_type))
             ->allowedFilters([
-                'address', 'date', 'price', 'size', 'wifi','shed','laundry','change_room','generator','toilet','parking'
+                'address', 'date', 'price', 'size', 'wifi', 'shed', 'laundry', 'change_room', 'generator', 'toilet', 'parking'
             ])->get();
 
-        return view('frontend.search.custom_swimmingpool_search', compact('array','marketing'));
+        return view('frontend.search.custom_swimmingpool_search', compact('array', 'marketing'));
     }
 
-    function shop_search()
+    function shop_search(Request $request)
     {
-         $marketing = marketing::where('e_date', '<=', Carbon::today())->get();
+        $marketing = marketing::where('e_date', '<=', Carbon::today())->get();
 
-        $array = QueryBuilder::for(Shop::class)
+        $array = QueryBuilder::for(Shop::where('post_type', $request->user_searched_type))
             ->allowedFilters([
-                'address', 'date', 'price', 'floor_size','fire_safety','lift','parking','electricity','generator','gas','water'
+                'address', 'date', 'price', 'floor_size', 'fire_safety', 'lift', 'parking', 'electricity', 'generator', 'gas', 'water'
             ])->get();
 
-        return view('frontend.search.custom_shop_search', compact('array','marketing'));
+        return view('frontend.search.custom_shop_search', compact('array', 'marketing'));
     }
 
-    function shootingspot_search()
+    function shootingspot_search(Request $request)
     {
-         $marketing = marketing::where('e_date', '<=', Carbon::today())->get();
+        $marketing = marketing::where('e_date', '<=', Carbon::today())->get();
 
-        $array = QueryBuilder::for(Shooting_Spot::class)
+        $array = QueryBuilder::for(Shooting_Spot::where('post_type', $request->user_searched_type))
             ->allowedFilters([
-                'address', 'date', 'price', 'floor_area','lift','parking','dining','electricity','toilet','shed','generator','gas',
-                'water','change_room'
+                'address', 'date', 'price', 'floor_area', 'lift', 'parking', 'dining', 'electricity', 'toilet', 'shed', 'generator', 'gas',
+                'water', 'change_room'
             ])->get();
 
-        return view('frontend.search.custom_shootingspot_search', compact('array','marketing'));
+        return view('frontend.search.custom_shootingspot_search', compact('array', 'marketing'));
     }
 
     function ghat_search(Request $request)
     {
-         $marketing = marketing::where('e_date', '<=', Carbon::today())->get();
+        $marketing = marketing::where('e_date', '<=', Carbon::today())->get();
 
         // Get the search value from the request
 
-        $array = QueryBuilder::for(Ghat::class)
+        $array = QueryBuilder::for(Ghat::where('post_type', $request->user_searched_type))
             ->allowedFilters([
-                'address', 'date', 'price', 'toilet','parking'
+                'address', 'date', 'price', 'toilet', 'parking'
             ])->get();
 
-        // Return the search view with the resluts compacted
+        // Return the search view with the results compacted
 
-        return view('frontend.search.custom_ghat_search', compact('array','marketing'));
+        return view('frontend.search.custom_ghat_search', compact('array', 'marketing'));
     }
 
     function picnic_search(Request $request)
     {
-         $marketing = marketing::where('e_date', '<=', Carbon::today())->get();
+        $marketing = marketing::where('e_date', '<=', Carbon::today())->get();
 
         // Get the search value from the request
 
-        $array = QueryBuilder::for(Picnic_Spot::class)
+        $array = QueryBuilder::for(Picnic_Spot::where('post_type', $request->user_searched_type))
             ->allowedFilters([
-                'address', 'date', 'price', 'land_area','electricity','gas','water','dining','shed','toilet','lift','parking',
-                'generator','change_room'
+                'address', 'date', 'price', 'land_area', 'electricity', 'gas', 'water', 'dining', 'shed', 'toilet', 'lift', 'parking',
+                'generator', 'change_room'
             ])->get();
 
-        // Return the search view with the resluts compacted
+        // Return the search view with the results compacted
 
-        return view('frontend.search.custom_picnic_search', compact('array','marketing'));
+        return view('frontend.search.custom_picnic_search', compact('array', 'marketing'));
     }
 
-    function rooftop_search()
+    function rooftop_search(Request $request)
     {
-         $marketing = marketing::where('e_date', '<=', Carbon::today())->get();
+        $marketing = marketing::where('e_date', '<=', Carbon::today())->get();
 
-        $array = QueryBuilder::for(Rooftop::class)
+        $array = QueryBuilder::for(Rooftop::where('post_type', $request->user_searched_type))
             ->allowedFilters([
-                'address', 'date', 'price', 'floor_area', 'toilet','p_protection','generator','lift','parking','water',
-                'electricity','shed'
+                'address', 'date', 'price', 'floor_area', 'toilet', 'p_protection', 'generator', 'lift', 'parking', 'water',
+                'electricity', 'shed'
             ])->get();
 
-        return view('frontend.search.custom_rooftop_search', compact('array','marketing'));
+        return view('frontend.search.custom_rooftop_search', compact('array', 'marketing'));
     }
 
-    function restaurant_search()
+    function restaurant_search(Request $request)
     {
-         $marketing = marketing::where('e_date', '<=', Carbon::today())->get();
-        $array = QueryBuilder::for(Restaurant::class)
+        $marketing = marketing::where('e_date', '<=', Carbon::today())->get();
+        $array = QueryBuilder::for(Restaurant::where('post_type', $request->user_searched_type))
             ->allowedFilters([
-                'address', 'date', 'price', 'wifi','attached_toilet','generator','lift','hot_water','laundry','ac','spa','parking','dining','gym','sports','swimmingpool'
+                'address', 'date', 'price', 'wifi', 'attached_toilet', 'generator', 'lift', 'hot_water', 'laundry', 'ac', 'spa', 'parking', 'dining', 'gym', 'sports', 'swimmingpool'
             ])->get();
 
-        return view('frontend.search.custom_restaurant_search', compact('array','marketing'));
+        return view('frontend.search.custom_restaurant_search', compact('array', 'marketing'));
     }
 
-    function playground_search()
+    function playground_search(Request $request)
     {
-         $marketing = marketing::where('e_date', '<=', Carbon::today())->get();
+        $marketing = marketing::where('e_date', '<=', Carbon::today())->get();
 
-        $array = QueryBuilder::for(Play_ground::class)
+        $array = QueryBuilder::for(Play_ground::where('post_type', $request->user_searched_type))
             ->allowedFilters([
-                'address', 'date', 'price', 'area','shed','toilet','change_room','parking','gym','generator','sports'
+                'address', 'date', 'price', 'area', 'shed', 'toilet', 'change_room', 'parking', 'gym', 'generator', 'sports'
             ])->get();
 
-        return view('frontend.search.custom_playground_search', compact('array','marketing'));
+        return view('frontend.search.custom_playground_search', compact('array', 'marketing'));
     }
 
-    function office_search()
+    function office_search(Request $request)
     {
-         $marketing = marketing::where('e_date', '<=', Carbon::today())->get();
-        $array = QueryBuilder::for(Office::class)
+        $marketing = marketing::where('e_date', '<=', Carbon::today())->get();
+        $array = QueryBuilder::for(Office::where('post_type', $request->user_searched_type))
             ->allowedFilters([
-                'address', 'date', 'price','floor_size', 'interior_condition','fire_safety','lift','ac','parking','generator',
-                'electricity','gas','water'
+                'address', 'date', 'price', 'floor_size', 'interior_condition', 'fire_safety', 'lift', 'ac', 'parking', 'generator',
+                'electricity', 'gas', 'water'
             ])->get();
 
-        return view('frontend.search.custom_office_search', compact('array','marketing'));
+        return view('frontend.search.custom_office_search', compact('array', 'marketing'));
     }
 
-    function land_search()
+    function land_search(Request $request)
     {
-         $marketing = marketing::where('e_date', '<=', Carbon::today())->get();
+        $marketing = marketing::where('e_date', '<=', Carbon::today())->get();
 
-        $array = QueryBuilder::for(Land::class)
+        $array = QueryBuilder::for(Land::where('post_type', $request->user_searched_type))
             ->allowedFilters([
-                'address', 'date', 'price', 'y_price', 'land_area','electricity','gas','water','drainage_system','parking'
+                'address', 'date', 'price', 'y_price', 'land_area', 'electricity', 'gas', 'water', 'drainage_system', 'parking'
             ])->get();
 
-        return view('frontend.search.custom_land_search', compact('array','marketing'));
+        return view('frontend.search.custom_land_search', compact('array', 'marketing'));
     }
 
-    function factory_search()
+    function factory_search(Request $request)
     {
-         $marketing = marketing::where('e_date', '<=', Carbon::today())->get();
+        $marketing = marketing::where('e_date', '<=', Carbon::today())->get();
 
-        $array = QueryBuilder::for(Factory::class)
+        $array = QueryBuilder::for(Factory::where('post_type', $request->user_searched_type))
             ->allowedFilters([
-                'address', 'date', 'price', 'floor_size','fire_safety','lift','parking','drainage_system','gas','water',
-                'generator','electricity','ac'
+                'address', 'date', 'price', 'floor_size', 'fire_safety', 'lift', 'parking', 'drainage_system', 'gas', 'water',
+                'generator', 'electricity', 'ac'
             ])->get();
 
-        return view('frontend.search.custom_factory_search', compact('array','marketing'));
+        return view('frontend.search.custom_factory_search', compact('array', 'marketing'));
     }
 
-    function community_search()
+    function community_search(Request $request)
     {
-         $marketing = marketing::where('e_date', '<=', Carbon::today())->get();
+        $marketing = marketing::where('e_date', '<=', Carbon::today())->get();
 
-        $array = QueryBuilder::for(Community_Center::class)
+        $array = QueryBuilder::for(Community_Center::where('post_type', $request->user_searched_type))
             ->allowedFilters([
-                'address', 'date', 'price', 'floor_size','interior_condition','fire_safety','generator','lift','parking','seat',
-                'wifi','gas','electricity','water','ac'
+                'address', 'date', 'price', 'floor_size', 'interior_condition', 'fire_safety', 'generator', 'lift', 'parking', 'seat',
+                'wifi', 'gas', 'electricity', 'water', 'ac'
             ])->get();
 
-        return view('frontend.search.custom_community_search', compact('array','marketing'));
+        return view('frontend.search.custom_community_search', compact('array', 'marketing'));
     }
 
     function hostel_search(Request $request)
     {
-         $marketing = marketing::where('e_date', '<=', Carbon::today())->get();
+        $marketing = marketing::where('e_date', '<=', Carbon::today())->get();
 
         // Get the search value from the request
 
-        $array = QueryBuilder::for(Hostel::class)
+        $array = QueryBuilder::for(Hostel::where('post_type', $request->user_searched_type))
             ->allowedFilters([
-                'address', 'date', 'price', 'title', 'room_size', 'wifi','attached_toilet','generator','lift','furnished',
-                'hot_water','laundry','ac','pool','parking','dining','gym','spa','sports',
+                'address', 'date', 'price', 'title', 'room_size', 'wifi', 'attached_toilet', 'generator', 'lift', 'furnished',
+                'hot_water', 'laundry', 'ac', 'pool', 'parking', 'dining', 'gym', 'spa', 'sports',
             ])->get();
 
-        // Return the search view with the resluts compacted
+        // Return the search view with the results compacted
 
-        return view('frontend.search.custom_hostel_search', compact('array','marketing'));
+        return view('frontend.search.custom_hostel_search', compact('array', 'marketing'));
     }
 
-    function parking_spot_search()
+    function parking_spot_search(Request $request)
     {
-         $marketing = marketing::where('e_date', '<=', Carbon::today())->get();
-        $array = QueryBuilder::for(Parking_Spot::class)
-            ->allowedFilters(['address','date','price','vehicle_type'])
+        $marketing = marketing::where('e_date', '<=', Carbon::today())->get();
+        $array = QueryBuilder::for(Parking_Spot::where('post_type', $request->user_searched_type))
+            ->allowedFilters(['address', 'date', 'price', 'vehicle_type'])
             ->get();
-        return view('frontend.search.custom_parking_search', compact('array','marketing'));
+        return view('frontend.search.custom_parking_search', compact('array', 'marketing'));
     }
 }

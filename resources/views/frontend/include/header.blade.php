@@ -104,20 +104,20 @@
                 <button class="btn bell px-lg-0 px-md-0 px-sm-0 px-3" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="Dropstart">
                     <i class="far fa-bell notification-icon "></i>
                 </button>
-                
+
             </div> -->
             <!-- Settings -->
             <div class="col-lg-1  col-md-1 col-sm-1 col-2 dropdown ps-0 ">
                 <button class="btn setting px-lg-0 px-md-0 px-sm-0 px-3" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                    @if (auth()->user()->image == null )
-                    @if(auth()->user()->gender == 'Male' )
-                    <img src="{{asset('public/man-dummy.png') }}" class="rounded-circle mx-auto img-img" alt="" srcset="" width="32" height="32">
-                    @else
-                    <img src="{{asset('public/dummy-female.jpg') }}" class="rounded-circle mx-auto img-img" alt="" srcset="" width="32" height="32">
-                    @endif
-                    @else
-                    <img src="{{asset('public/uploads/registers') }}/{{(Auth::user()->image)}}" class="rounded-circle mx-auto img-img" alt="" srcset="" width="32" height="32">
-                    @endif
+                @if (auth()->user()->image == null )
+                @if(auth()->user()->gender == 'Male' )
+                <img src="{{asset('public/man-dummy.png') }}" class="rounded-circle mx-auto img-img" alt="" srcset="" width="32" height="32">
+                @else
+                <img src="{{asset('public/dummy-female.jpg') }}" class="rounded-circle mx-auto img-img" alt="" srcset="" width="32" height="32">
+                @endif
+                @else
+                <img src="{{asset('public/uploads/registers') }}/{{(Auth::user()->image)}}" class="rounded-circle mx-auto img-img" alt="" srcset="" width="32" height="32">
+                @endif
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                     <li><a class="dropdown-item" href="{{route('profile')}}">Profile</a></li>
