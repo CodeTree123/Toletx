@@ -633,7 +633,7 @@ class ApiController extends BaseController
     {
         // Get the search value from the request
 
-        $success = QueryBuilder::for(Room::class)
+        $success = QueryBuilder::for(Room::where('post_type', $request->user_searched_type))
             ->allowedFilters([
                 'address', 'date', 'price', 'room_size', 'guest_count', 'wifi', 'attached_toilet', 'varanda', 'gas', 'water', 'electricity', 'lift', 'furnished', 'hot_water', 'ac', 'cable_tv', 'parking', 'generator'
             ])->get();
@@ -644,7 +644,7 @@ class ApiController extends BaseController
     {
         // Get the search value from the request
 
-        $success = QueryBuilder::for(Building::class)
+        $success = QueryBuilder::for(Building::where('post_type', $request->user_searched_type))
             ->allowedFilters(['address', 'date', 'price', 'building_size', 'gas', 'water', 'electricity', 'lift', 'generator', 'parking', 'fire_exit'])
             ->get();
 
@@ -656,7 +656,7 @@ class ApiController extends BaseController
     function flat_search(Request $request)
     {
         // Get the search value from the request
-        $success = QueryBuilder::for(Flat::class)
+        $success = QueryBuilder::for(Flat::where('post_type', $request->user_searched_type))
             ->allowedFilters([
                 'address', 'date', 'price', 'flat_size', 'bedrooms',
                 'fire_exit',
@@ -689,7 +689,7 @@ class ApiController extends BaseController
     function hotel_search(Request $request)
     {
         // Get the search value from the request
-        $success = QueryBuilder::for(Hotel::class)
+        $success = QueryBuilder::for(Hotel::where('post_type', $request->user_searched_type))
             ->allowedFilters([
                 'address', 'date', 'price', 'location',
                 'wifi',
@@ -713,7 +713,7 @@ class ApiController extends BaseController
     function bilboard_search(Request $request)
     {
         // Get the search value from the request
-        $success = QueryBuilder::for(Bilboard::class)
+        $success = QueryBuilder::for(Bilboard::where('post_type', $request->user_searched_type))
             ->allowedFilters(['address', 'date', 'price', 'electricity',  'size'])
             ->get();
 
@@ -723,10 +723,10 @@ class ApiController extends BaseController
     }
 
 
-    function exibution_search()
+    function exibution_search(Request $request)
     {
 
-        $success = QueryBuilder::for(Exibution_Center::class)
+        $success = QueryBuilder::for(Exibution_Center::where('post_type', $request->user_searched_type))
             ->allowedFilters([
                 'address', 'date', 'price', 'address',
                 'room_size',
@@ -741,10 +741,10 @@ class ApiController extends BaseController
         return $this->sendResponse($success, 'exibution center Search information get successfully.');
     }
 
-    function pond_search()
+    function pond_search(Request $request)
     {
 
-        $success = QueryBuilder::for(Pond::class)
+        $success = QueryBuilder::for(Pond::where('post_type', $request->user_searched_type))
             ->allowedFilters([
                 'address', 'date', 'price',
                 'drainage_system',
@@ -756,10 +756,10 @@ class ApiController extends BaseController
         return $this->sendResponse($success, 'pond Search information get successfully.');
     }
 
-    function warehouse_search()
+    function warehouse_search(Request $request)
     {
 
-        $success = QueryBuilder::for(Warehouse::class)
+        $success = QueryBuilder::for(Warehouse::where('post_type', $request->user_searched_type))
             ->allowedFilters([
                 'address', 'date', 'price', 'floor_size', 'fire_safety',
                 'generator',
@@ -776,10 +776,10 @@ class ApiController extends BaseController
         return $this->sendResponse($success, 'warehouse Search information get successfully.');
     }
 
-    function swimmingpool_search()
+    function swimmingpool_search(Request $request)
     {
 
-        $success = QueryBuilder::for(Swimming_Pool::class)
+        $success = QueryBuilder::for(Swimming_Pool::where('post_type', $request->user_searched_type))
             ->allowedFilters([
                 'address', 'date', 'price', 'size', 'wifi',
                 'shed',
@@ -794,10 +794,10 @@ class ApiController extends BaseController
         return $this->sendResponse($success, 'swimming pool Search information get successfully.');
     }
 
-    function shop_search()
+    function shop_search(Request $request)
     {
 
-        $success = QueryBuilder::for(Shop::class)
+        $success = QueryBuilder::for(Shop::where('post_type', $request->user_searched_type))
             ->allowedFilters([
                 'address', 'date', 'price', 'floor_size',
                 'fire_safety',
@@ -813,10 +813,10 @@ class ApiController extends BaseController
         return $this->sendResponse($success, 'shop Search information get successfully.');
     }
 
-    function shootingspot_search()
+    function shootingspot_search(Request $request)
     {
 
-        $success = QueryBuilder::for(Shooting_Spot::class)
+        $success = QueryBuilder::for(Shooting_Spot::where('post_type', $request->user_searched_type))
             ->allowedFilters([
                 'address', 'date', 'price', 'floor_area',
                 'lift',
@@ -839,7 +839,7 @@ class ApiController extends BaseController
     {
         // Get the search value from the request
 
-        $success = QueryBuilder::for(Ghat::class)
+        $success = QueryBuilder::for(Ghat::where('post_type', $request->user_searched_type))
             ->allowedFilters([
                 'address', 'date', 'price', 'toilet',
                 'parking'
@@ -855,7 +855,7 @@ class ApiController extends BaseController
     {
         // Get the search value from the request
 
-        $success = QueryBuilder::for(Picnic_Spot::class)
+        $success = QueryBuilder::for(Picnic_Spot::where('post_type', $request->user_searched_type))
             ->allowedFilters([
                 'address', 'date', 'price', 'land_area',
                 'electricity',
@@ -876,10 +876,10 @@ class ApiController extends BaseController
         return $this->sendResponse($success, 'picnic Search information get successfully.');
     }
 
-    function rooftop_search()
+    function rooftop_search(Request $request)
     {
 
-        $success = QueryBuilder::for(Rooftop::class)
+        $success = QueryBuilder::for(Rooftop::where('post_type', $request->user_searched_type))
             ->allowedFilters([
                 'address', 'date', 'price', 'floor_area', 'toilet',
                 'p_protection',
@@ -895,9 +895,9 @@ class ApiController extends BaseController
         return $this->sendResponse($success, 'rooftop Search information get successfully.');
     }
 
-    function restaurant_search()
+    function restaurant_search(Request $request)
     {
-        $success = QueryBuilder::for(Restaurant::class)
+        $success = QueryBuilder::for(Restaurant::where('post_type', $request->user_searched_type))
             ->allowedFilters([
                 'address', 'date', 'price', 'wifi',
                 'attached_toilet',
@@ -918,10 +918,10 @@ class ApiController extends BaseController
         return $this->sendResponse($success, 'restaurant Search information get successfully.');
     }
 
-    function playground_search()
+    function playground_search(Request $request)
     {
 
-        $success = QueryBuilder::for(Play_ground::class)
+        $success = QueryBuilder::for(Play_ground::where('post_type', $request->user_searched_type))
             ->allowedFilters([
                 'address', 'date', 'price', 'area',
                 'shed',
@@ -937,9 +937,9 @@ class ApiController extends BaseController
         return $this->sendResponse($success, 'playground Search information get successfully.');
     }
 
-    function office_search()
+    function office_search(Request $request)
     {
-        $success = QueryBuilder::for(Office::class)
+        $success = QueryBuilder::for(Office::where('post_type', $request->user_searched_type))
             ->allowedFilters([
                 'address', 'date', 'price', 'floor_size', 'interior_condition',
                 'fire_safety',
@@ -956,10 +956,10 @@ class ApiController extends BaseController
         return $this->sendResponse($success, 'office Search information get successfully.');
     }
 
-    function land_search()
+    function land_search(Request $request)
     {
 
-        $success = QueryBuilder::for(land::class)
+        $success = QueryBuilder::for(land::where('post_type', $request->user_searched_type))
             ->allowedFilters([
                 'address', 'date', 'price', 'y_price', 'land_area',
                 'electricity',
@@ -973,10 +973,10 @@ class ApiController extends BaseController
         return $this->sendResponse($success, 'land Search information get successfully.');
     }
 
-    function factory_search()
+    function factory_search(Request $request)
     {
 
-        $success = QueryBuilder::for(Factory::class)
+        $success = QueryBuilder::for(Factory::where('post_type', $request->user_searched_type))
             ->allowedFilters([
                 'address', 'date', 'price', 'floor_size',
                 'fire_safety',
@@ -994,10 +994,10 @@ class ApiController extends BaseController
         return $this->sendResponse($success, 'factory Search information get successfully.');
     }
 
-    function community_search()
+    function community_search(Request $request)
     {
 
-        $success = QueryBuilder::for(Community_Center::class)
+        $success = QueryBuilder::for(Community_Center::where('post_type', $request->user_searched_type))
             ->allowedFilters([
                 'address', 'date', 'price', 'floor_size',
                 'interior_condition',
@@ -1021,7 +1021,7 @@ class ApiController extends BaseController
     {
         // Get the search value from the request
 
-        $success = QueryBuilder::for(Hostel::class)
+        $success = QueryBuilder::for(Hostel::where('post_type', $request->user_searched_type))
             ->allowedFilters([
                 'address', 'date', 'price', 'title', 'room_size', 'wifi',
                 'attached_toilet',
@@ -1045,9 +1045,9 @@ class ApiController extends BaseController
         return $this->sendResponse($success, 'hostel Search information get successfully.');
     }
 
-    function parking_spot_search()
+    function parking_spot_search(Request $request)
     {
-        $success = QueryBuilder::for(Parking_Spot::class)
+        $success = QueryBuilder::for(Parking_Spot::where('post_type', $request->user_searched_type))
             ->allowedFilters(['vehicle_type',  'address', 'date', 'price',])
             ->get();
         return $this->sendResponse($success, 'parking spot Search information get successfully.');
@@ -2126,7 +2126,7 @@ class ApiController extends BaseController
         return $this->sendResponse($success, 'office post successfully.');
     }
 
-    //end office 
+    //end office
 
     // shop
 
@@ -6382,7 +6382,7 @@ class ApiController extends BaseController
     }
 
 
-    // user profile update 
+    // user profile update
 
     function user_update(Request $request, $id)
     {
@@ -6449,7 +6449,7 @@ class ApiController extends BaseController
         }
     }
 
-    // end user profile update 
+    // end user profile update
 
 
     public function update_password(Request $request, $id)
