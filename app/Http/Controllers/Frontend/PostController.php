@@ -643,7 +643,7 @@ class PostController extends Controller
             'price' => $request->price,
             'per_price' => $request->per_price,
             's_charge' => $request->s_charge,
-            's_per_charge' => $request->s_per_charge,
+            's_per_price' => $request->s_per_price,
             'building_size' => $request->building_size,
             'floor' => $request->floor,
             'floor_size' => $request->floor_size,
