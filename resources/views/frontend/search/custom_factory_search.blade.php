@@ -12,20 +12,13 @@
     @if($array->isNotEmpty())
     @foreach($array as $arrays)
     @if($arrays->post_type == 'Rent')
-    <div class="card ml-3 mr-4 slick-slider-card" style="width: 12rem">
+    <div class="card mx-2 slick-slider-card" style="width: 12rem">
       <img src="{{ asset('public/uploads/factories') }}/{{ $arrays->photo }}" class="card-img-top" alt="..." />
-      <div class="card-body main-slider-body main-slider-body">
-        <h5 class="card-title main-slider">{{ $arrays->price }}/Night</h5>
-        <p class="card-text main-slider">{{ $arrays->type }}</p>
-        <p class="card-text main-slider">{{ $arrays->address }}</p>
-        <span class=" main-slider">
-          <i class="fas fa-shower"></i>
-          <i class="fas fa-wifi"></i>
-          <i class="fas fa-smoking"></i>
-        </span>
-        <p class="mt-3 main-slider">
-          <i class="fas fa-border-all"></i>
-          <span>3600 sqft</span>
+      <div class="card-body main-slider-body main-slider-body text-center px-1">
+        <p class="card-text main-slider">{{ Str::limit($arrays->title,42) }}</p>
+        <h5 class="card-title main-slider text-capitalize mb-3">Factory Rent : {{ $arrays->price }} Tk</h5>
+        <p class=" main-slider">
+          <span>Available form: {{ Carbon\Carbon::parse($arrays->date)->format('d/m/Y') }}</span>
         </p>
 
         <a href="{{ url('/factory/details/') }}/{{ $arrays->id }}" class="btn btn-custom-color2 check-detail mt-2  ">Check Details</a>
@@ -34,7 +27,7 @@
       </div>
     </div>
     @else
-    <div class="card ml-3 mr-4 slick-slider-card" style="width: 12rem">
+    <div class="card mx-2 slick-slider-card" style="width: 12rem">
       @if (auth()->user()->image == null )
       @if(auth()->user()->gender == 'Male' )
       <img src="{{asset('public/man-dummy.png') }}" class="card-img-top" alt="...">
@@ -45,18 +38,11 @@
       <img src="{{asset('public/uploads/registers') }}/{{(Auth::user()->image)}}" class="card-img-top" alt="...">
       @endif
       <!-- <img src="{{ asset('public/uploads/rooms') }}/{{ $arrays->photo }}"  /> -->
-      <div class="card-body main-slider-body main-slider-body">
-        <h5 class="card-title main-slider">{{ $arrays->price }}/Night</h5>
-        <p class="card-text main-slider">{{ $arrays->title }}</p>
-        <p class="card-text main-slider">{{ $arrays->address }}</p>
-        <span class=" main-slider">
-          <i class="fas fa-shower"></i>
-          <i class="fas fa-wifi"></i>
-          <i class="fas fa-smoking"></i>
-        </span>
-        <p class="mt-3 main-slider">
-          <i class="fas fa-border-all"></i>
-          <span>{{ $arrays->room_size }}</span>
+      <div class="card-body main-slider-body main-slider-body text-center px-1">
+        <p class="card-text main-slider">{{ Str::limit($arrays->title,42) }}</p>
+        <h5 class="card-title main-slider text-capitalize mb-3">Factory Rent : {{ $arrays->price }} Tk</h5>
+        <p class=" main-slider">
+          <span>Available form: {{ Carbon\Carbon::parse($arrays->date)->format('d/m/Y') }}</span>
         </p>
         <a href="{{ url('/room/details') }}/{{ $arrays->id }}" class="btn btn btn-custom-color2 check-detail mt-2  ">Check Details</a>
       </div>

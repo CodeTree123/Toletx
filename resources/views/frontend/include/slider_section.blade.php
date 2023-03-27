@@ -52,18 +52,18 @@ $shops = Shop::all();
 $swimmingpools = Swimming_Pool::all();
 $warehouses = Warehouse::all(); ?>
 <div class="snippet-body">
-    <div class=" py-5"> 
+    <div class=" py-5">
         <div class="position-relative">
             <h2 class="slider_services d-inline position-absolute" style="top:-55px">Rent Post</h2>
             <div class="items rent_slider">
                 @foreach($rooms as $list)
                 @if($list->post_type == 'Rent')
-                <div class="card shadow mb-2 ml-3 mr-4 slick-slider-card" style="width: 10rem">
+                <div class="card shadow mb-2 ms-2 me-2 slick-slider-card" style="width: 10rem">
                     <img src="{{asset('public/uploads/rooms')}}/{{$list->photo}}" class="card-img-top" alt="..." />
 
-                    <div class="card-body main-slider-body main-slider-body">
-                        <p class="card-text main-slider">{{$list->title}}</p>
-                        <h5 class="card-title main-slider">Room Rent : {{$list->price}} Tk</h5>
+                    <div class="card-body main-slider-body main-slider-body text-center px-1">
+                        <p class="card-text main-slider">{{Str::limit($list->title,42)}}</p>
+                        <h5 class="card-title main-slider text-capitalize">Room Rent : {{$list->price}} Tk</h5>
                         <p class=" main-slider">
                             <span>Available From : {{ Carbon\Carbon::parse($list->date)->format('d/m/Y') }}</span>
                         </p>
@@ -75,11 +75,11 @@ $warehouses = Warehouse::all(); ?>
 
                 @foreach($bilboards as $list)
                 @if($list->post_type == 'Rent')
-                <div class="card shadow mb-2 ml-3 mr-4 slick-slider-card" style="width: 10rem">
+                <div class="card shadow mb-2 ms-2 me-2 slick-slider-card" style="width: 10rem">
                     <img src="{{asset('public/uploads/bilboards/')}}/{{$list->photo}}" class="card-img-top" alt="..." />
-                    <div class="card-body main-slider-body main-slider-body">
-                        <p class="card-text main-slider">{{$list->title}}</p>
-                        <h5 class="card-title main-slider">Billboard Rent : {{$list->price}} Tk</h5>
+                    <div class="card-body main-slider-body main-slider-body text-center px-1">
+                        <p class="card-text main-slider">{{Str::limit($list->title,42)}}</p>
+                        <h5 class="card-title main-slider text-capitalize">Billboard Rent : {{$list->price}} Tk</h5>
                         <p class=" main-slider">
                             <span>Available From : {{ Carbon\Carbon::parse($list->date)->format('d/m/Y') }}</span>
                         </p>
@@ -91,11 +91,11 @@ $warehouses = Warehouse::all(); ?>
 
                 @foreach($parkings as $list)
                 @if($list->post_type == 'Rent')
-                <div class="card shadow mb-2 ml-3 mr-4 slick-slider-card" style="width: 10rem">
+                <div class="card shadow mb-2 ms-2 me-2 slick-slider-card" style="width: 10rem">
                     <img src="{{asset('public/uploads/garages')}}/{{$list->photo}}" class="card-img-top" alt="..." />
-                    <div class="card-body main-slider-body main-slider-body">
-                        <p class="card-text main-slider">{{$list->title}}</p>
-                        <h5 class="card-title main-slider">Parking Rent : {{$list->price}} Tk</h5>
+                    <div class="card-body main-slider-body main-slider-body text-center px-1">
+                        <p class="card-text main-slider">{{Str::limit($list->title,42)}}</p>
+                        <h5 class="card-title main-slider text-capitalize">Parking Rent : {{$list->price}} Tk</h5>
                         <p class=" main-slider">
                             <span>Available From : {{ Carbon\Carbon::parse($list->date)->format('d/m/Y') }}</span>
                         </p>
@@ -107,11 +107,11 @@ $warehouses = Warehouse::all(); ?>
 
                 @foreach($communities as $list)
                 @if($list->post_type == 'Rent')
-                <div class="card shadow mb-2 ml-3 mr-4 slick-slider-card" style="width: 10rem">
+                <div class="card shadow mb-2 ms-2 me-2 slick-slider-card" style="width: 10rem">
                     <img src="{{asset('public/uploads/communities')}}/{{$list->photo}}" class="card-img-top" alt="..." />
-                    <div class="card-body main-slider-body main-slider-body">
-                        <p class="card-text main-slider">{{$list->title}}</p>
-                        <h5 class="card-title main-slider">Community Rent : {{$list->price}} Tk</h5>
+                    <div class="card-body main-slider-body main-slider-body text-center px-1">
+                        <p class="card-text main-slider">{{Str::limit($list->title,42)}}</p>
+                        <h5 class="card-title main-slider text-capitalize">Community Rent : {{$list->price}} Tk</h5>
                         <p class=" main-slider">
                             <span>Available From : {{ Carbon\Carbon::parse($list->date)->format('d/m/Y') }}</span>
                         </p>
@@ -123,11 +123,11 @@ $warehouses = Warehouse::all(); ?>
 
                 @foreach($exibutions as $list)
                 @if($list->post_type == 'Rent')
-                <div class="card shadow mb-2 ml-3 mr-4 slick-slider-card" style="width: 10rem">
+                <div class="card shadow mb-2 ms-2 me-2 slick-slider-card" style="width: 10rem">
                     <img src="{{asset('public/uploads/exhibutions')}}/{{$list->photo}}" class="card-img-top" alt="..." />
-                    <div class="card-body main-slider-body main-slider-body">
-                        <p class="card-text main-slider">{{$list->title}}</p>
-                        <h5 class="card-title main-slider">Exhibition Rent : {{$list->price}} Tk</h5>
+                    <div class="card-body main-slider-body main-slider-body text-center px-1">
+                        <p class="card-text main-slider">{{Str::limit($list->title,42)}}</p>
+                        <h5 class="card-title main-slider text-capitalize">Exhibition Rent : {{$list->price}} Tk</h5>
                         <p class=" main-slider">
                             <span>Available From : {{ Carbon\Carbon::parse($list->date)->format('d/m/Y') }}</span>
                         </p>
@@ -140,11 +140,11 @@ $warehouses = Warehouse::all(); ?>
 
                 @foreach($factories as $list)
                 @if($list->post_type == 'Rent')
-                <div class="card shadow mb-2 ml-3 mr-4 slick-slider-card" style="width: 10rem">
+                <div class="card shadow mb-2 ms-2 me-2 slick-slider-card" style="width: 10rem">
                     <img src="{{asset('public/uploads/factories')}}/{{$list->photo}}" class="card-img-top" alt="..." />
-                    <div class="card-body main-slider-body main-slider-body">
-                        <p class="card-text main-slider">{{$list->title}}</p>
-                        <h5 class="card-title main-slider">Factory Rent : {{$list->price}} Tk</h5>
+                    <div class="card-body main-slider-body main-slider-body text-center px-1">
+                        <p class="card-text main-slider">{{Str::limit($list->title,42)}}</p>
+                        <h5 class="card-title main-slider text-capitalize">Factory Rent : {{$list->price}} Tk</h5>
                         <p class=" main-slider">
                             <span>Available From : {{ Carbon\Carbon::parse($list->date)->format('d/m/Y') }}</span>
                         </p>
@@ -156,11 +156,11 @@ $warehouses = Warehouse::all(); ?>
 
                 @foreach($flats as $list)
                 @if($list->post_type == 'Rent')
-                <div class="card shadow mb-2 ml-3 mr-4 slick-slider-card" style="width: 10rem">
+                <div class="card shadow mb-2 ms-2 me-2 slick-slider-card" style="width: 10rem">
                     <img src="{{asset('public/uploads/flats')}}/{{$list->photo}}" class="card-img-top" alt="..." />
-                    <div class="card-body main-slider-body main-slider-body">
-                        <p class="card-text main-slider">{{$list->title}}</p>
-                        <h5 class="card-title main-slider">Flat Rent : {{$list->price}} Tk</h5>
+                    <div class="card-body main-slider-body main-slider-body text-center px-1">
+                        <p class="card-text main-slider">{{Str::limit($list->title,42)}}</p>
+                        <h5 class="card-title main-slider text-capitalize">Flat Rent : {{$list->price}} Tk</h5>
                         <p class=" main-slider">
                             <span>Available From : {{ Carbon\Carbon::parse($list->date)->format('d/m/Y') }}</span>
                         </p>
@@ -172,11 +172,11 @@ $warehouses = Warehouse::all(); ?>
 
                 @foreach($ghats as $list)
                 @if($list->post_type == 'Rent')
-                <div class="card shadow mb-2 ml-3 mr-4 slick-slider-card" style="width: 10rem">
+                <div class="card shadow mb-2 ms-2 me-2 slick-slider-card" style="width: 10rem">
                     <img src="{{asset('public/uploads/ghats')}}/{{$list->photo}}" class="card-img-top" alt="..." />
-                    <div class="card-body main-slider-body main-slider-body">
-                        <p class="card-text main-slider">{{$list->title}}</p>
-                        <h5 class="card-title main-slider">Ghat Rent : {{$list->price}} Tk</h5>
+                    <div class="card-body main-slider-body main-slider-body text-center px-1">
+                        <p class="card-text main-slider">{{Str::limit($list->title,42)}}</p>
+                        <h5 class="card-title main-slider text-capitalize">Ghat Rent : {{$list->price}} Tk</h5>
                         <p class=" main-slider">
                             <span>Available From : {{ Carbon\Carbon::parse($list->date)->format('d/m/Y') }}</span>
                         </p>
@@ -188,11 +188,11 @@ $warehouses = Warehouse::all(); ?>
 
                 @foreach($hostels as $list)
                 @if($list->post_type == 'Rent')
-                <div class="card shadow mb-2 ml-3 mr-4 slick-slider-card" style="width: 10rem">
+                <div class="card shadow mb-2 ms-2 me-2 slick-slider-card" style="width: 10rem">
                     <img src="{{asset('public/uploads/hostels')}}/{{$list->photo}}" class="card-img-top" alt="..." />
-                    <div class="card-body main-slider-body main-slider-body">
-                        <p class="card-text main-slider">{{$list->hostel_name}}</p>
-                        <h5 class="card-title main-slider">Hostel Rent : {{$list->price}} Tk</h5>
+                    <div class="card-body main-slider-body main-slider-body text-center px-1">
+                        <p class="card-text main-slider">{{Str::limit($list->hostel_name,42)}}</p>
+                        <h5 class="card-title main-slider text-capitalize">Hostel Rent : {{$list->price}} Tk</h5>
                         <p class=" main-slider">
                             <span>Available From : {{ Carbon\Carbon::parse($list->date)->format('d/m/Y') }}</span>
                         </p>
@@ -204,11 +204,11 @@ $warehouses = Warehouse::all(); ?>
 
                 @foreach($hotels as $list)
                 @if($list->post_type == 'Rent')
-                <div class="card shadow mb-2 ml-3 mr-4 slick-slider-card" style="width: 10rem">
+                <div class="card shadow mb-2 ms-2 me-2 slick-slider-card" style="width: 10rem">
                     <img src="{{asset('public/uploads/hotels')}}/{{$list->photo}}" class="card-img-top" alt="..." />
-                    <div class="card-body main-slider-body main-slider-body">
-                        <p class="card-text main-slider">{{$list->hotel_name}}</p>
-                        <h5 class="card-title main-slider">Hotel Rent : {{$list->price}} Tk</h5>
+                    <div class="card-body main-slider-body main-slider-body text-center px-1">
+                        <p class="card-text main-slider">{{Str::limit($list->hotel_name,42)}}</p>
+                        <h5 class="card-title main-slider text-capitalize">Hotel Rent : {{$list->price}} Tk</h5>
                         <p class=" main-slider">
                             <span>Available From : {{ Carbon\Carbon::parse($list->date)->format('d/m/Y') }}</span>
                         </p>
@@ -220,11 +220,11 @@ $warehouses = Warehouse::all(); ?>
 
                 @foreach($offices as $list)
                 @if($list->post_type == 'Rent')
-                <div class="card shadow mb-2 ml-3 mr-4 slick-slider-card" style="width: 10rem">
+                <div class="card shadow mb-2 ms-2 me-2 slick-slider-card" style="width: 10rem">
                     <img src="{{asset('public/uploads/offices')}}/{{$list->photo}}" class="card-img-top" alt="..." />
-                    <div class="card-body main-slider-body main-slider-body">
-                        <p class="card-text main-slider">{{$list->title}}</p>
-                        <h5 class="card-title main-slider">Office Rent : {{$list->price}} Tk</h5>
+                    <div class="card-body main-slider-body main-slider-body text-center px-1">
+                        <p class="card-text main-slider">{{Str::limit($list->title,42)}}</p>
+                        <h5 class="card-title main-slider text-capitalize">Office Rent : {{$list->price}} Tk</h5>
                         <p class=" main-slider">
                             <span>Available From : {{ Carbon\Carbon::parse($list->date)->format('d/m/Y') }}</span>
                         </p>
@@ -236,11 +236,11 @@ $warehouses = Warehouse::all(); ?>
 
                 @foreach($lands as $list)
                 @if($list->post_type == 'Rent')
-                <div class="card shadow mb-2 ml-3 mr-4 slick-slider-card" style="width: 10rem">
+                <div class="card shadow mb-2 ms-2 me-2 slick-slider-card" style="width: 10rem">
                     <img src="{{asset('public/uploads/lands')}}/{{$list->photo}}" class="card-img-top" alt="..." />
-                    <div class="card-body main-slider-body main-slider-body">
-                        <p class="card-text main-slider">{{$list->title}}</p>
-                        <h5 class="card-title main-slider">Land Rent : {{$list->price}} Tk</h5>
+                    <div class="card-body main-slider-body main-slider-body text-center px-1">
+                        <p class="card-text main-slider">{{Str::limit($list->title,42)}}</p>
+                        <h5 class="card-title main-slider text-capitalize">Land Rent : {{$list->price}} Tk</h5>
                         <p class=" main-slider">
                             <span>Available From : {{ Carbon\Carbon::parse($list->date)->format('d/m/Y') }}</span>
                         </p>
@@ -252,11 +252,11 @@ $warehouses = Warehouse::all(); ?>
 
                 @foreach($playgrounds as $list)
                 @if($list->post_type == 'Rent')
-                <div class="card shadow mb-2 ml-3 mr-4 slick-slider-card" style="width: 10rem">
+                <div class="card shadow mb-2 ms-2 me-2 slick-slider-card" style="width: 10rem">
                     <img src="{{asset('public/uploads/playgrounds')}}/{{$list->photo}}" class="card-img-top" alt="..." />
-                    <div class="card-body main-slider-body main-slider-body">
-                        <p class="card-text main-slider">{{$list->title}}</p>
-                        <h5 class="card-title main-slider">Camp Site Rent : {{$list->price}} Tk</h5>
+                    <div class="card-body main-slider-body main-slider-body text-center px-1">
+                        <p class="card-text main-slider">{{Str::limit($list->title,42)}}</p>
+                        <h5 class="card-title main-slider text-capitalize">Camp Site Rent : {{$list->price}} Tk</h5>
                         <p class=" main-slider">
                             <span>Available From : {{ Carbon\Carbon::parse($list->date)->format('d/m/Y') }}</span>
                         </p>
@@ -268,11 +268,11 @@ $warehouses = Warehouse::all(); ?>
 
                 @foreach($ponds as $list)
                 @if($list->post_type == 'Rent')
-                <div class="card shadow mb-2 ml-3 mr-4 slick-slider-card" style="width: 10rem">
+                <div class="card shadow mb-2 ms-2 me-2 slick-slider-card" style="width: 10rem">
                     <img src="{{asset('public/uploads/ponds')}}/{{$list->photo}}" class="card-img-top" alt="..." />
-                    <div class="card-body main-slider-body main-slider-body">
-                        <p class="card-text main-slider">{{$list->title}}</p>
-                        <h5 class="card-title main-slider">Pond Rent : {{$list->price}} Tk</h5>
+                    <div class="card-body main-slider-body main-slider-body text-center px-1">
+                        <p class="card-text main-slider">{{Str::limit($list->title,42)}}</p>
+                        <h5 class="card-title main-slider text-capitalize">Pond Rent : {{$list->price}} Tk</h5>
                         <p class=" main-slider">
                             <span>Available From : {{ Carbon\Carbon::parse($list->date)->format('d/m/Y') }}</span>
                         </p>
@@ -284,11 +284,11 @@ $warehouses = Warehouse::all(); ?>
 
                 @foreach($restaurants as $list)
                 @if($list->post_type == 'Rent')
-                <div class="card shadow mb-2 ml-3 mr-4 slick-slider-card" style="width: 10rem">
+                <div class="card shadow mb-2 ms-2 me-2 slick-slider-card" style="width: 10rem">
                     <img src="{{asset('public/uploads/resturents/'.$list->photo)}}" class="card-img-top" alt="..." />
-                    <div class="card-body main-slider-body main-slider-body">
-                        <p class="card-text main-slider">{{$list->resort_name}}</p>
-                        <h5 class="card-title main-slider">Resort Rent : {{$list->price}} Tk</h5>
+                    <div class="card-body main-slider-body main-slider-body text-center px-1">
+                        <p class="card-text main-slider">{{Str::limit($list->resort_name,42)}}</p>
+                        <h5 class="card-title main-slider text-capitalize">Resort Rent : {{$list->price}} Tk</h5>
                         <p class=" main-slider">
                             <span>Available From : {{ Carbon\Carbon::parse($list->date)->format('d/m/Y') }}</span>
                         </p>
@@ -300,11 +300,11 @@ $warehouses = Warehouse::all(); ?>
 
                 @foreach($rooftops as $list)
                 @if($list->post_type == 'Rent')
-                <div class="card shadow mb-2 ml-3 mr-4 slick-slider-card" style="width: 10rem">
+                <div class="card shadow mb-2 ms-2 me-2 slick-slider-card" style="width: 10rem">
                     <img src="{{asset('public/uploads/rooftops')}}/{{$list->photo}}" class="card-img-top" alt="..." />
-                    <div class="card-body main-slider-body main-slider-body">
-                        <p class="card-text main-slider">{{$list->title}}</p>
-                        <h5 class="card-title main-slider">Rooftop Rent : {{$list->price}} Tk</h5>
+                    <div class="card-body main-slider-body main-slider-body text-center px-1">
+                        <p class="card-text main-slider">{{Str::limit($list->title,42)}}</p>
+                        <h5 class="card-title main-slider text-capitalize">Rooftop Rent : {{$list->price}} Tk</h5>
                         <p class=" main-slider">
                             <span>Available From : {{ Carbon\Carbon::parse($list->date)->format('d/m/Y') }}</span>
                         </p>
@@ -316,11 +316,11 @@ $warehouses = Warehouse::all(); ?>
 
                 @foreach($shootings as $list)
                 @if($list->post_type == 'Rent')
-                <div class="card shadow mb-2 ml-3 mr-4 slick-slider-card" style="width: 10rem">
+                <div class="card shadow mb-2 ms-2 me-2 slick-slider-card" style="width: 10rem">
                     <img src="{{asset('public/uploads/shootings')}}/{{$list->photo}}" class="card-img-top" alt="..." />
-                    <div class="card-body main-slider-body main-slider-body">
-                        <p class="card-text main-slider">{{$list->title}}</p>
-                        <h5 class="card-title main-slider">Shooting Spot Rent : {{$list->price}} Tk</h5>
+                    <div class="card-body main-slider-body main-slider-body text-center px-1">
+                        <p class="card-text main-slider">{{Str::limit($list->title,42)}}</p>
+                        <h5 class="card-title main-slider text-capitalize">Shooting Spot Rent : {{$list->price}} Tk</h5>
                         <p class=" main-slider">
                             <span>Available From : {{ Carbon\Carbon::parse($list->date)->format('d/m/Y') }}</span>
                         </p>
@@ -332,11 +332,11 @@ $warehouses = Warehouse::all(); ?>
 
                 @foreach($shops as $list)
                 @if($list->post_type == 'Rent')
-                <div class="card shadow mb-2 ml-3 mr-4 slick-slider-card" style="width: 10rem">
+                <div class="card shadow mb-2 ms-2 me-2 slick-slider-card" style="width: 10rem">
                     <img src="{{asset('public/uploads/shops')}}/{{$list->photo}}" class="card-img-top" alt="..." />
-                    <div class="card-body main-slider-body main-slider-body">
-                        <p class="card-text main-slider">{{$list->title}}</p>
-                        <h5 class="card-title main-slider">Shop Rent : {{$list->price}} Tk</h5>
+                    <div class="card-body main-slider-body main-slider-body text-center px-1">
+                        <p class="card-text main-slider">{{Str::limit($list->title,42)}}</p>
+                        <h5 class="card-title main-slider text-capitalize">Shop Rent : {{$list->price}} Tk</h5>
                         <p class=" main-slider">
                             <span>Available From : {{ Carbon\Carbon::parse($list->date)->format('d/m/Y') }}</span>
                         </p>
@@ -348,11 +348,11 @@ $warehouses = Warehouse::all(); ?>
 
                 @foreach($swimmingpools as $list)
                 @if($list->post_type == 'Rent')
-                <div class="card shadow mb-2 ml-3 mr-4 slick-slider-card" style="width: 10rem">
+                <div class="card shadow mb-2 ms-2 me-2 slick-slider-card" style="width: 10rem">
                     <img src="{{asset('public/uploads/swimmingpools')}}/{{$list->photo}}" class="card-img-top" alt="..." />
-                    <div class="card-body main-slider-body main-slider-body">
-                        <p class="card-text main-slider">{{$list->title}}</p>
-                        <h5 class="card-title main-slider">pool Rent : {{$list->price}} Tk</h5>
+                    <div class="card-body main-slider-body main-slider-body text-center px-1">
+                        <p class="card-text main-slider">{{Str::limit($list->title,42)}}</p>
+                        <h5 class="card-title main-slider text-capitalize">pool Rent : {{$list->price}} Tk</h5>
                         <p class=" main-slider">
                             <span>Available From : {{ Carbon\Carbon::parse($list->date)->format('d/m/Y') }}</span>
                         </p>
@@ -364,11 +364,11 @@ $warehouses = Warehouse::all(); ?>
 
                 @foreach($warehouses as $list)
                 @if($list->post_type == 'Rent')
-                <div class="card shadow mb-2 ml-3 mr-4 slick-slider-card" style="width: 10rem">
+                <div class="card shadow mb-2 ms-2 me-2 slick-slider-card" style="width: 10rem">
                     <img src="{{asset('public/uploads/warehouses')}}/{{$list->photo}}" class="card-img-top" alt="..." />
-                    <div class="card-body main-slider-body main-slider-body">
-                        <p class="card-text main-slider">{{$list->title}}</p>
-                        <h5 class="card-title main-slider">Warehouse Rent : {{$list->price}} Tk</h5>
+                    <div class="card-body main-slider-body main-slider-body text-center px-1">
+                        <p class="card-text main-slider">{{Str::limit($list->title,42)}}</p>
+                        <h5 class="card-title main-slider text-capitalize">Warehouse Rent : {{$list->price}} Tk</h5>
                         <p class=" main-slider">
                             <span>Available From : {{ Carbon\Carbon::parse($list->date)->format('d/m/Y') }}</span>
                         </p>
@@ -380,11 +380,11 @@ $warehouses = Warehouse::all(); ?>
 
                 @foreach($picnics as $list)
                 @if($list->post_type == 'Rent')
-                <div class="card shadow mb-2 ml-3 mr-4 slick-slider-card" style="width: 10rem">
+                <div class="card shadow mb-2 ms-2 me-2 slick-slider-card" style="width: 10rem">
                     <img src="{{asset('public/uploads/picnics')}}/{{$list->photo}}" class="card-img-top" alt="..." />
-                    <div class="card-body main-slider-body main-slider-body">
-                        <p class="card-text main-slider">{{$list->title}}</p>
-                        <h5 class="card-title main-slider">Picnic spot Rent : {{$list->price}} Tk</h5>
+                    <div class="card-body main-slider-body main-slider-body text-center px-1">
+                        <p class="card-text main-slider">{{Str::limit($list->title,42)}}</p>
+                        <h5 class="card-title main-slider text-capitalize">Picnic spot Rent : {{$list->price}} Tk</h5>
                         <p class=" main-slider">
                             <span>Available From : {{ Carbon\Carbon::parse($list->date)->format('d/m/Y') }}</span>
                         </p>
@@ -396,11 +396,11 @@ $warehouses = Warehouse::all(); ?>
 
                 @foreach($buildings as $list)
                 @if($list->post_type == 'Rent')
-                <div class="card shadow mb-2 ml-3 mr-4 slick-slider-card" style="width: 10rem">
+                <div class="card shadow mb-2 ms-2 me-2 slick-slider-card" style="width: 10rem">
                     <img src="{{asset('public/uploads/buildings')}}/{{$list->photo}}" class="card-img-top" alt="..." />
-                    <div class="card-body main-slider-body main-slider-body">
-                        <p class="card-text main-slider">{{$list->building_name}}</p>
-                        <h5 class="card-title main-slider">Building Rent : {{$list->price}} Tk</h5>
+                    <div class="card-body main-slider-body main-slider-body text-center px-1">
+                        <p class="card-text main-slider">{{Str::limit($list->building_name,42)}}</p>
+                        <h5 class="card-title main-slider text-capitalize">Building Rent : {{$list->price}} Tk</h5>
                         <p class=" main-slider">
                             <span>Available From : {{ Carbon\Carbon::parse($list->date)->format('d/m/Y') }}</span>
                         </p>
@@ -412,14 +412,14 @@ $warehouses = Warehouse::all(); ?>
             </div>
         </div>
     </div>
-    <div class=" py-5">
+    <div class=" py-3">
         <div class="position-relative">
-        <h2 class="slider_services d-inline position-absolute" style="top:-55px"> Want Post </h2>
+            <h2 class="slider_services d-inline position-absolute" style="top:-55px"> Want Post </h2>
             <div class="items want_slider">
                 @foreach($rooms as $list)
                 @if($list->post_type == 'Want')
 
-                <div class="card shadow mb-2 ml-3 mr-4 slick-slider-card" style="width: 10rem">
+                <div class="card shadow mb-2 ms-2 me-2 slick-slider-card" style="width: 10rem">
                     @if ($list->user->image == null )
                     @if($list->user->gender == 'Male' )
                     <img src="{{asset('public/man-dummy.png') }}" class="card-img-top" alt="...">
@@ -430,9 +430,9 @@ $warehouses = Warehouse::all(); ?>
                     <img src="{{asset('public/uploads/registers') }}/{{($list->user->image)}}" class="card-img-top" alt="...">
                     </a>
                     @endif
-                    <div class="card-body main-slider-body main-slider-body">
-                        <p class="card-text main-slider">{{$list->title}}</p>
-                        <h5 class="card-title main-slider">Need Room : {{$list->price}} Tk</h5>
+                    <div class="card-body main-slider-body main-slider-body text-center px-1">
+                        <p class="card-text main-slider">{{Str::limit($list->title,42)}}</p>
+                        <h5 class="card-title main-slider text-capitalize">Need Room : {{$list->price}} Tk</h5>
                         <p class=" main-slider">
                             <span>Available From : {{ Carbon\Carbon::parse($list->date)->format('d/m/Y') }}</span>
                         </p>
@@ -445,7 +445,7 @@ $warehouses = Warehouse::all(); ?>
                 @foreach($bilboards as $list)
                 @if($list->post_type == 'Want')
 
-                <div class="card shadow mb-2 ml-3 mr-4 slick-slider-card" style="width: 10rem">
+                <div class="card shadow mb-2 ms-2 me-2 slick-slider-card" style="width: 10rem">
                     @if ($list->user->image == null )
                     @if($list->user->gender == 'Male' )
                     <img src="{{asset('public/man-dummy.png') }}" class="card-img-top" alt="...">
@@ -456,9 +456,9 @@ $warehouses = Warehouse::all(); ?>
                     <img src="{{asset('public/uploads/registers') }}/{{($list->user->image)}}" class="card-img-top" alt="...">
                     </a>
                     @endif
-                    <div class="card-body main-slider-body main-slider-body">
-                        <p class="card-text main-slider">{{$list->title}}</p>
-                        <h5 class="card-title main-slider">Need Billboard : {{$list->price}} Tk</h5>
+                    <div class="card-body main-slider-body main-slider-body text-center px-1">
+                        <p class="card-text main-slider">{{Str::limit($list->title,42)}}</p>
+                        <h5 class="card-title main-slider text-capitalize">Need Billboard : {{$list->price}} Tk</h5>
                         <p class=" main-slider">
                             <span>Available From : {{ Carbon\Carbon::parse($list->date)->format('d/m/Y') }}</span>
                         </p>
@@ -471,7 +471,7 @@ $warehouses = Warehouse::all(); ?>
                 @foreach($parkings as $list)
                 @if($list->post_type == 'Want')
 
-                <div class="card shadow mb-2 ml-3 mr-4 slick-slider-card" style="width: 10rem">
+                <div class="card shadow mb-2 ms-2 me-2 slick-slider-card" style="width: 10rem">
                     @if ($list->user->image == null )
                     @if($list->user->gender == 'Male' )
                     <img src="{{asset('public/man-dummy.png') }}" class="card-img-top" alt="...">
@@ -482,9 +482,9 @@ $warehouses = Warehouse::all(); ?>
                     <img src="{{asset('public/uploads/registers') }}/{{($list->user->image)}}" class="card-img-top" alt="...">
                     </a>
                     @endif
-                    <div class="card-body main-slider-body main-slider-body">
-                        <p class="card-text main-slider">{{$list->title}}</p>
-                        <h5 class="card-title main-slider">Need Parking : {{$list->price}} Tk</h5>
+                    <div class="card-body main-slider-body main-slider-body text-center px-1">
+                        <p class="card-text main-slider">{{Str::limit($list->title,42)}}</p>
+                        <h5 class="card-title main-slider text-capitalize">Need Parking : {{$list->price}} Tk</h5>
                         <p class=" main-slider">
                             <span>Available From : {{ Carbon\Carbon::parse($list->date)->format('d/m/Y') }}</span>
                         </p>
@@ -497,7 +497,7 @@ $warehouses = Warehouse::all(); ?>
                 @foreach($communities as $list)
                 @if($list->post_type == 'Want')
 
-                <div class="card shadow mb-2 ml-3 mr-4 slick-slider-card" style="width: 10rem">
+                <div class="card shadow mb-2 ms-2 me-2 slick-slider-card" style="width: 10rem">
                     @if ($list->user->image == null )
                     @if($list->user->gender == 'Male' )
                     <img src="{{asset('public/man-dummy.png') }}" class="card-img-top" alt="...">
@@ -508,9 +508,9 @@ $warehouses = Warehouse::all(); ?>
                     <img src="{{asset('public/uploads/registers') }}/{{($list->user->image)}}" class="card-img-top" alt="...">
                     </a>
                     @endif
-                    <div class="card-body main-slider-body main-slider-body">
-                        <p class="card-text main-slider">{{$list->title}}</p>
-                        <h5 class="card-title main-slider">Need Community : {{$list->price}} Tk</h5>
+                    <div class="card-body main-slider-body main-slider-body text-center px-1">
+                        <p class="card-text main-slider">{{Str::limit($list->title,42)}}</p>
+                        <h5 class="card-title main-slider text-capitalize">Need Community : {{$list->price}} Tk</h5>
                         <p class=" main-slider">
                             <span>Available From : {{ Carbon\Carbon::parse($list->date)->format('d/m/Y') }}</span>
                         </p>
@@ -523,7 +523,7 @@ $warehouses = Warehouse::all(); ?>
                 @foreach($exibutions as $list)
                 @if($list->post_type == 'Want')
 
-                <div class="card shadow mb-2 ml-3 mr-4 slick-slider-card" style="width: 10rem">
+                <div class="card shadow mb-2 ms-2 me-2 slick-slider-card" style="width: 10rem">
                     @if ($list->user->image == null )
                     @if($list->user->gender == 'Male' )
                     <img src="{{asset('public/man-dummy.png') }}" class="card-img-top" alt="...">
@@ -534,9 +534,9 @@ $warehouses = Warehouse::all(); ?>
                     <img src="{{asset('public/uploads/registers') }}/{{($list->user->image)}}" class="card-img-top" alt="...">
                     </a>
                     @endif
-                    <div class="card-body main-slider-body main-slider-body">
-                        <p class="card-text main-slider">{{$list->title}}</p>
-                        <h5 class="card-title main-slider">Need Exhibitio : {{$list->price}} Tk</h5>
+                    <div class="card-body main-slider-body main-slider-body text-center px-1">
+                        <p class="card-text main-slider">{{Str::limit($list->title,42)}}</p>
+                        <h5 class="card-title main-slider text-capitalize">Need Exhibitio : {{$list->price}} Tk</h5>
                         <p class=" main-slider">
                             <span>Available From : {{ Carbon\Carbon::parse($list->date)->format('d/m/Y') }}</span>
                         </p>
@@ -549,7 +549,7 @@ $warehouses = Warehouse::all(); ?>
                 @foreach($factories as $list)
                 @if($list->post_type == 'Want')
 
-                <div class="card shadow mb-2 ml-3 mr-4 slick-slider-card" style="width: 10rem">
+                <div class="card shadow mb-2 ms-2 me-2 slick-slider-card" style="width: 10rem">
                     @if ($list->user->image == null )
                     @if($list->user->gender == 'Male' )
                     <img src="{{asset('public/man-dummy.png') }}" class="card-img-top" alt="...">
@@ -560,9 +560,9 @@ $warehouses = Warehouse::all(); ?>
                     <img src="{{asset('public/uploads/registers') }}/{{($list->user->image)}}" class="card-img-top" alt="...">
                     </a>
                     @endif
-                    <div class="card-body main-slider-body main-slider-body">
-                        <p class="card-text main-slider">{{$list->title}}</p>
-                        <h5 class="card-title main-slider">Need Factory : {{$list->price}} Tk</h5>
+                    <div class="card-body main-slider-body main-slider-body text-center px-1">
+                        <p class="card-text main-slider">{{Str::limit($list->title,42)}}</p>
+                        <h5 class="card-title main-slider text-capitalize">Need Factory : {{$list->price}} Tk</h5>
                         <p class=" main-slider">
                             <span>Available From : {{ Carbon\Carbon::parse($list->date)->format('d/m/Y') }}</span>
                         </p>
@@ -575,7 +575,7 @@ $warehouses = Warehouse::all(); ?>
                 @foreach($flats as $list)
                 @if($list->post_type == 'Want')
 
-                <div class="card shadow mb-2 ml-3 mr-4 slick-slider-card" style="width: 10rem">
+                <div class="card shadow mb-2 ms-2 me-2 slick-slider-card" style="width: 10rem">
                     @if ($list->user->image == null )
                     @if($list->user->gender == 'Male' )
                     <img src="{{asset('public/man-dummy.png') }}" class="card-img-top" alt="...">
@@ -586,9 +586,9 @@ $warehouses = Warehouse::all(); ?>
                     <img src="{{asset('public/uploads/registers') }}/{{($list->user->image)}}" class="card-img-top" alt="...">
                     </a>
                     @endif
-                    <div class="card-body main-slider-body main-slider-body">
-                        <p class="card-text main-slider">{{$list->title}}</p>
-                        <h5 class="card-title main-slider">Need Flat : {{$list->price}} Tk</h5>
+                    <div class="card-body main-slider-body main-slider-body text-center px-1">
+                        <p class="card-text main-slider">{{Str::limit($list->title,42)}}</p>
+                        <h5 class="card-title main-slider text-capitalize">Need Flat : {{$list->price}} Tk</h5>
                         <p class=" main-slider">
                             <span>Available From : {{ Carbon\Carbon::parse($list->date)->format('d/m/Y') }}</span>
                         </p>
@@ -601,7 +601,7 @@ $warehouses = Warehouse::all(); ?>
                 @foreach($ghats as $list)
                 @if($list->post_type == 'Want')
 
-                <div class="card shadow mb-2 ml-3 mr-4 slick-slider-card" style="width: 10rem">
+                <div class="card shadow mb-2 ms-2 me-2 slick-slider-card" style="width: 10rem">
                     @if ($list->user->image == null )
                     @if($list->user->gender == 'Male' )
                     <img src="{{asset('public/man-dummy.png') }}" class="card-img-top" alt="...">
@@ -612,9 +612,9 @@ $warehouses = Warehouse::all(); ?>
                     <img src="{{asset('public/uploads/registers') }}/{{($list->user->image)}}" class="card-img-top" alt="...">
                     </a>
                     @endif
-                    <div class="card-body main-slider-body main-slider-body">
-                        <p class="card-text main-slider">{{$list->title}}</p>
-                        <h5 class="card-title main-slider">Need Ghat : {{$list->price}} Tk</h5>
+                    <div class="card-body main-slider-body main-slider-body text-center px-1">
+                        <p class="card-text main-slider">{{Str::limit($list->title,42)}}</p>
+                        <h5 class="card-title main-slider text-capitalize">Need Ghat : {{$list->price}} Tk</h5>
                         <p class=" main-slider">
                             <span>Available From : {{ Carbon\Carbon::parse($list->date)->format('d/m/Y') }}</span>
                         </p>
@@ -627,7 +627,7 @@ $warehouses = Warehouse::all(); ?>
                 @foreach($hostels as $list)
                 @if($list->post_type == 'Want')
 
-                <div class="card shadow mb-2 ml-3 mr-4 slick-slider-card" style="width: 10rem">
+                <div class="card shadow mb-2 ms-2 me-2 slick-slider-card" style="width: 10rem">
                     @if ($list->user->image == null )
                     @if($list->user->gender == 'Male' )
                     <img src="{{asset('public/man-dummy.png') }}" class="card-img-top" alt="...">
@@ -638,9 +638,9 @@ $warehouses = Warehouse::all(); ?>
                     <img src="{{asset('public/uploads/registers') }}/{{($list->user->image)}}" class="card-img-top" alt="...">
                     </a>
                     @endif
-                    <div class="card-body main-slider-body main-slider-body">
-                        <p class="card-text main-slider">{{$list->hostel_name}}</p>
-                        <h5 class="card-title main-slider">Need Hostel :{{$list->price}} Tk</h5>
+                    <div class="card-body main-slider-body main-slider-body text-center px-1">
+                        <p class="card-text main-slider">{{Str::limit($list->hostel_name,42)}}</p>
+                        <h5 class="card-title main-slider text-capitalize">Need Hostel :{{$list->price}} Tk</h5>
                         <p class=" main-slider">
                             <span>Available From : {{ Carbon\Carbon::parse($list->date)->format('d/m/Y') }}</span>
                         </p>
@@ -653,7 +653,7 @@ $warehouses = Warehouse::all(); ?>
                 @foreach($hotels as $list)
                 @if($list->post_type == 'Want')
 
-                <div class="card shadow mb-2 ml-3 mr-4 slick-slider-card" style="width: 10rem">
+                <div class="card shadow mb-2 ms-2 me-2 slick-slider-card" style="width: 10rem">
                     @if ($list->user->image == null )
                     @if($list->user->gender == 'Male' )
                     <img src="{{asset('public/man-dummy.png') }}" class="card-img-top" alt="...">
@@ -664,9 +664,9 @@ $warehouses = Warehouse::all(); ?>
                     <img src="{{asset('public/uploads/registers') }}/{{($list->user->image)}}" class="card-img-top" alt="...">
                     </a>
                     @endif
-                    <div class="card-body main-slider-body main-slider-body">
-                        <p class="card-text main-slider">{{$list->hotel_name}}</p>
-                        <h5 class="card-title main-slider">Need Hotel : {{$list->price}} Tk</h5>
+                    <div class="card-body main-slider-body main-slider-body text-center px-1">
+                        <p class="card-text main-slider">{{Str::limit($list->hotel_name,42)}}</p>
+                        <h5 class="card-title main-slider text-capitalize">Need Hotel : {{$list->price}} Tk</h5>
                         <p class=" main-slider">
                             <span>Available From : {{ Carbon\Carbon::parse($list->date)->format('d/m/Y') }}</span>
                         </p>
@@ -679,7 +679,7 @@ $warehouses = Warehouse::all(); ?>
                 @foreach($offices as $list)
                 @if($list->post_type == 'Want')
 
-                <div class="card shadow mb-2 ml-3 mr-4 slick-slider-card" style="width: 10rem">
+                <div class="card shadow mb-2 ms-2 me-2 slick-slider-card" style="width: 10rem">
                     @if ($list->user->image == null )
                     @if($list->user->gender == 'Male' )
                     <img src="{{asset('public/man-dummy.png') }}" class="card-img-top" alt="...">
@@ -690,9 +690,9 @@ $warehouses = Warehouse::all(); ?>
                     <img src="{{asset('public/uploads/registers') }}/{{($list->user->image)}}" class="card-img-top" alt="...">
                     </a>
                     @endif
-                    <div class="card-body main-slider-body main-slider-body">
-                        <p class="card-text main-slider">{{$list->title}}</p>
-                        <h5 class="card-title main-slider">Need Office :{{$list->price}} Tk</h5>
+                    <div class="card-body main-slider-body main-slider-body text-center px-1">
+                        <p class="card-text main-slider">{{Str::limit($list->title,42)}}</p>
+                        <h5 class="card-title main-slider text-capitalize">Need Office :{{$list->price}} Tk</h5>
                         <p class=" main-slider">
                             <span>Available From : {{ Carbon\Carbon::parse($list->date)->format('d/m/Y') }}</span>
                         </p>
@@ -705,7 +705,7 @@ $warehouses = Warehouse::all(); ?>
                 @foreach($lands as $list)
                 @if($list->post_type == 'Want')
 
-                <div class="card shadow mb-2 ml-3 mr-4 slick-slider-card" style="width: 10rem">
+                <div class="card shadow mb-2 ms-2 me-2 slick-slider-card" style="width: 10rem">
                     @if ($list->user->image == null )
                     @if($list->user->gender == 'Male' )
                     <img src="{{asset('public/man-dummy.png') }}" class="card-img-top" alt="...">
@@ -716,9 +716,9 @@ $warehouses = Warehouse::all(); ?>
                     <img src="{{asset('public/uploads/registers') }}/{{($list->user->image)}}" class="card-img-top" alt="...">
                     </a>
                     @endif
-                    <div class="card-body main-slider-body main-slider-body">
-                        <p class="card-text main-slider">{{$list->title}}</p>
-                        <h5 class="card-title main-slider">Need Land : {{$list->price}} Tk</h5>
+                    <div class="card-body main-slider-body main-slider-body text-center px-1">
+                        <p class="card-text main-slider">{{Str::limit($list->title,42)}}</p>
+                        <h5 class="card-title main-slider text-capitalize">Need Land : {{$list->price}} Tk</h5>
                         <p class=" main-slider">
                             <span>Available From : {{ Carbon\Carbon::parse($list->date)->format('d/m/Y') }}</span>
                         </p>
@@ -731,7 +731,7 @@ $warehouses = Warehouse::all(); ?>
                 @foreach($playgrounds as $list)
                 @if($list->post_type == 'Want')
 
-                <div class="card shadow mb-2 ml-3 mr-4 slick-slider-card" style="width: 10rem">
+                <div class="card shadow mb-2 ms-2 me-2 slick-slider-card" style="width: 10rem">
                     @if ($list->user->image == null )
                     @if($list->user->gender == 'Male' )
                     <img src="{{asset('public/man-dummy.png') }}" class="card-img-top" alt="...">
@@ -742,9 +742,9 @@ $warehouses = Warehouse::all(); ?>
                     <img src="{{asset('public/uploads/registers') }}/{{($list->user->image)}}" class="card-img-top" alt="...">
                     </a>
                     @endif
-                    <div class="card-body main-slider-body main-slider-body">
-                        <p class="card-text main-slider">{{$list->title}}</p>
-                        <h5 class="card-title main-slider">Need Camp Site : {{$list->price}} Tk</h5>
+                    <div class="card-body main-slider-body main-slider-body text-center px-1">
+                        <p class="card-text main-slider">{{Str::limit($list->title,42)}}</p>
+                        <h5 class="card-title main-slider text-capitalize">Need Camp Site : {{$list->price}} Tk</h5>
                         <p class=" main-slider">
                             <span>Available From : {{ Carbon\Carbon::parse($list->date)->format('d/m/Y') }}</span>
                         </p>
@@ -757,7 +757,7 @@ $warehouses = Warehouse::all(); ?>
                 @foreach($ponds as $list)
                 @if($list->post_type == 'Want')
 
-                <div class="card shadow mb-2 ml-3 mr-4 slick-slider-card" style="width: 10rem">
+                <div class="card shadow mb-2 ms-2 me-2 slick-slider-card" style="width: 10rem">
                     @if ($list->user->image == null )
                     @if($list->user->gender == 'Male' )
                     <img src="{{asset('public/man-dummy.png') }}" class="card-img-top" alt="...">
@@ -768,9 +768,9 @@ $warehouses = Warehouse::all(); ?>
                     <img src="{{asset('public/uploads/registers') }}/{{($list->user->image)}}" class="card-img-top" alt="...">
                     </a>
                     @endif
-                    <div class="card-body main-slider-body main-slider-body">
-                        <p class="card-text main-slider">{{$list->title}}</p>
-                        <h5 class="card-title main-slider">Need Pond : {{$list->price}} Tk</h5>
+                    <div class="card-body main-slider-body main-slider-body text-center px-1">
+                        <p class="card-text main-slider">{{Str::limit($list->title,42)}}</p>
+                        <h5 class="card-title main-slider text-capitalize">Need Pond : {{$list->price}} Tk</h5>
                         <p class=" main-slider">
                             <span>Available From : {{ Carbon\Carbon::parse($list->date)->format('d/m/Y') }}</span>
                         </p>
@@ -783,7 +783,7 @@ $warehouses = Warehouse::all(); ?>
                 @foreach($restaurants as $list)
                 @if($list->post_type == 'Want')
 
-                <div class="card shadow mb-2 ml-3 mr-4 slick-slider-card" style="width: 10rem">
+                <div class="card shadow mb-2 ms-2 me-2 slick-slider-card" style="width: 10rem">
                     @if ($list->user->image == null )
                     @if($list->user->gender == 'Male' )
                     <img src="{{asset('public/man-dummy.png') }}" class="card-img-top" alt="...">
@@ -794,9 +794,9 @@ $warehouses = Warehouse::all(); ?>
                     <img src="{{asset('public/uploads/registers') }}/{{($list->user->image)}}" class="card-img-top" alt="...">
                     </a>
                     @endif
-                    <div class="card-body main-slider-body main-slider-body">
-                        <p class="card-text main-slider">{{$list->resort_name}}</p>
-                        <h5 class="card-title main-slider">Need Resort :{{$list->price}} Tk</h5>
+                    <div class="card-body main-slider-body main-slider-body text-center px-1">
+                        <p class="card-text main-slider">{{Str::limit($list->resort_name,42)}}</p>
+                        <h5 class="card-title main-slider text-capitalize">Need Resort :{{$list->price}} Tk</h5>
                         <p class=" main-slider">
                             <span>Available From : {{ Carbon\Carbon::parse($list->date)->format('d/m/Y') }}</span>
                         </p>
@@ -809,7 +809,7 @@ $warehouses = Warehouse::all(); ?>
                 @foreach($rooftops as $list)
                 @if($list->post_type == 'Want')
 
-                <div class="card shadow mb-2 ml-3 mr-4 slick-slider-card" style="width: 10rem">
+                <div class="card shadow mb-2 ms-2 me-2 slick-slider-card" style="width: 10rem">
                     @if ($list->user->image == null )
                     @if($list->user->gender == 'Male' )
                     <img src="{{asset('public/man-dummy.png') }}" class="card-img-top" alt="...">
@@ -820,9 +820,9 @@ $warehouses = Warehouse::all(); ?>
                     <img src="{{asset('public/uploads/registers') }}/{{($list->user->image)}}" class="card-img-top" alt="...">
                     </a>
                     @endif
-                    <div class="card-body main-slider-body main-slider-body">
-                        <p class="card-text main-slider">{{$list->title}}</p>
-                        <h5 class="card-title main-slider">Need Rooftop : {{$list->price}} Tk</h5>
+                    <div class="card-body main-slider-body main-slider-body text-center px-1">
+                        <p class="card-text main-slider">{{Str::limit($list->title,42)}}</p>
+                        <h5 class="card-title main-slider text-capitalize">Need Rooftop : {{$list->price}} Tk</h5>
                         <p class=" main-slider">
                             <span>Available From : {{ Carbon\Carbon::parse($list->date)->format('d/m/Y') }}</span>
                         </p>
@@ -835,7 +835,7 @@ $warehouses = Warehouse::all(); ?>
                 @foreach($shootings as $list)
                 @if($list->post_type == 'Want')
 
-                <div class="card shadow mb-2 ml-3 mr-4 slick-slider-card" style="width: 10rem">
+                <div class="card shadow mb-2 ms-2 me-2 slick-slider-card" style="width: 10rem">
                     @if ($list->user->image == null )
                     @if($list->user->gender == 'Male' )
                     <img src="{{asset('public/man-dummy.png') }}" class="card-img-top" alt="...">
@@ -846,9 +846,9 @@ $warehouses = Warehouse::all(); ?>
                     <img src="{{asset('public/uploads/registers') }}/{{($list->user->image)}}" class="card-img-top" alt="...">
                     </a>
                     @endif
-                    <div class="card-body main-slider-body main-slider-body">
-                        <p class="card-text main-slider">{{$list->title}}</p>
-                        <h5 class="card-title main-slider">Need Shooting Spot : {{$list->price}} Tk</h5>
+                    <div class="card-body main-slider-body main-slider-body text-center px-1">
+                        <p class="card-text main-slider">{{Str::limit($list->title,42)}}</p>
+                        <h5 class="card-title main-slider text-capitalize">Need Shooting Spot : {{$list->price}} Tk</h5>
                         <p class=" main-slider">
                             <span>Available From : {{ Carbon\Carbon::parse($list->date)->format('d/m/Y') }}</span>
                         </p>
@@ -861,7 +861,7 @@ $warehouses = Warehouse::all(); ?>
                 @foreach($shops as $list)
                 @if($list->post_type == 'Want')
 
-                <div class="card shadow mb-2 ml-3 mr-4 slick-slider-card" style="width: 10rem">
+                <div class="card shadow mb-2 ms-2 me-2 slick-slider-card" style="width: 10rem">
                     @if ($list->user->image == null )
                     @if($list->user->gender == 'Male' )
                     <img src="{{asset('public/man-dummy.png') }}" class="card-img-top" alt="...">
@@ -872,9 +872,9 @@ $warehouses = Warehouse::all(); ?>
                     <img src="{{asset('public/uploads/registers') }}/{{($list->user->image)}}" class="card-img-top" alt="...">
                     </a>
                     @endif
-                    <div class="card-body main-slider-body main-slider-body">
-                        <p class="card-text main-slider">{{$list->title}}</p>
-                        <h5 class="card-title main-slider">Need Shop : {{$list->price}} Tk</h5>
+                    <div class="card-body main-slider-body main-slider-body text-center px-1">
+                        <p class="card-text main-slider">{{Str::limit($list->title,42)}}</p>
+                        <h5 class="card-title main-slider text-capitalize">Need Shop : {{$list->price}} Tk</h5>
                         <p class=" main-slider">
                             <span>Available From : {{ Carbon\Carbon::parse($list->date)->format('d/m/Y') }}</span>
                         </p>
@@ -887,7 +887,7 @@ $warehouses = Warehouse::all(); ?>
                 @foreach($swimmingpools as $list)
                 @if($list->post_type == 'Want')
 
-                <div class="card shadow mb-2 ml-3 mr-4 slick-slider-card" style="width: 10rem">
+                <div class="card shadow mb-2 ms-2 me-2 slick-slider-card" style="width: 10rem">
                     @if ($list->user->image == null )
                     @if($list->user->gender == 'Male' )
                     <img src="{{asset('public/man-dummy.png') }}" class="card-img-top" alt="...">
@@ -898,9 +898,9 @@ $warehouses = Warehouse::all(); ?>
                     <img src="{{asset('public/uploads/registers') }}/{{($list->user->image)}}" class="card-img-top" alt="...">
                     </a>
                     @endif
-                    <div class="card-body main-slider-body main-slider-body">
-                        <p class="card-text main-slider">{{$list->title}}</p>
-                        <h5 class="card-title main-slider">Need pool : {{$list->price}} Tk</h5>
+                    <div class="card-body main-slider-body main-slider-body text-center px-1">
+                        <p class="card-text main-slider">{{Str::limit($list->title,42)}}</p>
+                        <h5 class="card-title main-slider text-capitalize">Need pool : {{$list->price}} Tk</h5>
                         <p class=" main-slider">
                             <span>Available From : {{ Carbon\Carbon::parse($list->date)->format('d/m/Y') }}</span>
                         </p>
@@ -913,7 +913,7 @@ $warehouses = Warehouse::all(); ?>
                 @foreach($warehouses as $list)
                 @if($list->post_type == 'Want')
 
-                <div class="card shadow mb-2 ml-3 mr-4 slick-slider-card" style="width: 10rem">
+                <div class="card shadow mb-2 ms-2 me-2 slick-slider-card" style="width: 10rem">
                     @if ($list->user->image == null )
                     @if($list->user->gender == 'Male' )
                     <img src="{{asset('public/man-dummy.png') }}" class="card-img-top" alt="...">
@@ -924,9 +924,9 @@ $warehouses = Warehouse::all(); ?>
                     <img src="{{asset('public/uploads/registers') }}/{{($list->user->image)}}" class="card-img-top" alt="...">
                     </a>
                     @endif
-                    <div class="card-body main-slider-body main-slider-body">
-                        <p class="card-text main-slider">{{$list->title}}</p>
-                        <h5 class="card-title main-slider">Need Warehouse : {{$list->price}} Tk</h5>
+                    <div class="card-body main-slider-body main-slider-body text-center px-1">
+                        <p class="card-text main-slider">{{Str::limit($list->title,42)}}</p>
+                        <h5 class="card-title main-slider text-capitalize">Need Warehouse : {{$list->price}} Tk</h5>
                         <p class=" main-slider">
                             <span>Available From : {{ Carbon\Carbon::parse($list->date)->format('d/m/Y') }}</span>
                         </p>
@@ -939,7 +939,7 @@ $warehouses = Warehouse::all(); ?>
                 @foreach($picnics as $list)
                 @if($list->post_type == 'Want')
 
-                <div class="card shadow mb-2 ml-3 mr-4 slick-slider-card" style="width: 10rem">
+                <div class="card shadow mb-2 ms-2 me-2 slick-slider-card" style="width: 10rem">
                     @if ($list->user->image == null )
                     @if($list->user->gender == 'Male' )
                     <img src="{{asset('public/man-dummy.png') }}" class="card-img-top" alt="...">
@@ -950,9 +950,9 @@ $warehouses = Warehouse::all(); ?>
                     <img src="{{asset('public/uploads/registers') }}/{{($list->user->image)}}" class="card-img-top" alt="...">
                     </a>
                     @endif
-                    <div class="card-body main-slider-body main-slider-body">
-                        <p class="card-text main-slider">{{$list->title}}</p>
-                        <h5 class="card-title main-slider">Need Picnic spot : {{$list->price}} Tk</h5>
+                    <div class="card-body main-slider-body main-slider-body text-center px-1">
+                        <p class="card-text main-slider">{{Str::limit($list->title,42)}}</p>
+                        <h5 class="card-title main-slider text-capitalize">Need Picnic spot : {{$list->price}} Tk</h5>
                         <p class=" main-slider">
                             <span>Available From : {{ Carbon\Carbon::parse($list->date)->format('d/m/Y') }}</span>
                         </p>
@@ -965,7 +965,7 @@ $warehouses = Warehouse::all(); ?>
                 @foreach($buildings as $list)
                 @if($list->post_type == 'Want')
 
-                <div class="card shadow mb-2 ml-3 mr-4 slick-slider-card" style="width: 10rem">
+                <div class="card shadow mb-2 ms-2 me-2 slick-slider-card" style="width: 10rem">
                     @if ($list->user->image == null )
                     @if($list->user->gender == 'Male' )
                     <img src="{{asset('public/man-dummy.png') }}" class="card-img-top" alt="...">
@@ -976,9 +976,9 @@ $warehouses = Warehouse::all(); ?>
                     <img src="{{asset('public/uploads/registers') }}/{{($list->user->image)}}" class="card-img-top" alt="...">
                     </a>
                     @endif
-                    <div class="card-body main-slider-body main-slider-body">
-                        <p class="card-text main-slider">{{$list->building_name}}</p>
-                        <h5 class="card-title main-slider">Need Building : {{$list->price}} Tk</h5>
+                    <div class="card-body main-slider-body main-slider-body text-center px-1">
+                        <p class="card-text main-slider">{{Str::limit($list->building_name,42)}}</p>
+                        <h5 class="card-title main-slider text-capitalize">Need Building : {{$list->price}} Tk</h5>
                         <p class=" main-slider">
                             <span>Available From : {{ Carbon\Carbon::parse($list->date)->format('d/m/Y') }}</span>
                         </p>
@@ -998,7 +998,7 @@ $warehouses = Warehouse::all(); ?>
                 slidesToShow: 4,
                 slidesToScroll: 4,
                 autoplay: true,
-                autoplaySpeed: 2000, 
+                autoplaySpeed: 3000, 
                 pauseOnHover:true,
                 responsive: [
                 {
@@ -1029,7 +1029,7 @@ $warehouses = Warehouse::all(); ?>
     });
 </script>
 
-<script>
-     
-</script>
+    <script>
+
+    </script>
 </div>

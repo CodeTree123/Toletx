@@ -78,8 +78,8 @@
 
 .slick-prev
 {
-        left: 150px;
-        top: -40px;
+        left: 165px;
+        top: -36px;
 }
 [dir='rtl'] .slick-prev
 {
@@ -101,8 +101,8 @@
 
 .slick-next
 {
-        left: 200px;
-        top: -40px;
+    left: 210px;
+    top: -36px;
 }
 [dir='rtl'] .slick-next
 {
@@ -213,8 +213,8 @@
 }
 .slick-arrow{
     background-color: #ff00bf;
-    height: 40px;
-    width: 40px;
+    height: 35px;
+    width: 35px;
     border-radius: 20px;
 }
 .slick-prev:hover, .slick-prev:focus, .slick-next:hover, .slick-next:focus {
