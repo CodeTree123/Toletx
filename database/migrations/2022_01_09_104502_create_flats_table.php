@@ -21,7 +21,7 @@ class CreateFlatsTable extends Migration
             $table->date('date');
             $table->bigInteger('phone');
             $table->bigInteger('s_charge');
-            $table->string('s_per_charge');
+            $table->string('s_per_price');
             $table->bigInteger('price');
             $table->string('per_price');
             $table->string('description')->nullable();

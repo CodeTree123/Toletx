@@ -23,7 +23,7 @@ class CreateBuildingsTable extends Migration
             $table->bigInteger('price');
             $table->string('per_price');
             $table->bigInteger('s_charge');
-            $table->string('s_per_charge');
+            $table->string('s_per_price');
             $table->string('description')->nullable();
             $table->string('address');
             $table->string('building_size');

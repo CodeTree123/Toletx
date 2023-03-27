@@ -82,7 +82,7 @@
                         </div>
                         <div class="col-7 ps-0">
                             <div class="input-group mb-3">
-                                <select class="form-select form-select-md mb-3" aria-label=".form-select-lg example" name="s_per_charge">
+                                <select class="form-select form-select-md mb-3" aria-label=".form-select-lg example" name="s_per_price">
                                     <option selected hidden>Choose Service Type</option>
                                     <option value="hour">Hour</option>
                                     <option value="day"> Day</option>
@@ -305,7 +305,7 @@
                         </div>
                         <div class="col-7 ps-0">
                             <div class="input-group mb-3">
-                                <select class="form-select form-select-md mb-3" aria-label=".form-select-lg example" name="s_per_charge">
+                                <select class="form-select form-select-md mb-3" aria-label=".form-select-lg example" name="s_per_price">
                                     <option selected hidden>Choose Service Type</option>
                                     <option value="hour">Hour</option>
                                     <option value="day"> Day</option>
