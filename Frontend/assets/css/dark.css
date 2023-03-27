@@ -777,7 +777,8 @@ i.edit-img-icon {
 .post_container .shadow {
     box-shadow: 0 .5rem 1rem rgba(255, 255, 255, 0.15)!important;
  }
-.post_container label, .post_container h2{
+/* .post_container label, */
+.post_container h2{
     color: #ffffff ;
  }
 .btn-search-offcanvas{
@@ -2110,8 +2111,8 @@ embed {
 /* package style end */
 
 /* Post List */
-.post_list{
-    height: 100vh;
+.post_list {
+    height: 70vh;
     overflow-y: scroll;
 }
 .post_list_address{
