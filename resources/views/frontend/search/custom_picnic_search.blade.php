@@ -33,7 +33,7 @@
         </div>
         @else
         <div class="card ml-3 mr-4 slick-slider-card" style="width: 12rem">
-        @if (auth()->user()->image == null )
+            @if (auth()->user()->image == null )
             @if(auth()->user()->gender == 'Male' )
             <img src="{{asset('public/man-dummy.png') }}" class="card-img-top" alt="...">
             @else

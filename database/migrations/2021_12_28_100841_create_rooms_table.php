@@ -26,7 +26,7 @@ class CreateRoomsTable extends Migration
             $table->string('address');
             $table->string('room_size');
             $table->bigInteger('price');
-            $table->bigInteger('per_price');
+            $table->string('per_price');
             $table->unsignedBigInteger('guest_count')->nullable();
             $table->string('wifi')->nullable();
             $table->string('attached_toilet')->nullable();
