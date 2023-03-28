@@ -1825,6 +1825,7 @@ class ApiController extends BaseController
         $success = Hostel::create([
             'user_id' => $request->user_id,
             'post_type' => $request->post_type,
+            'title' => $request->title,
             'date' => $request->date,
             'phone' => $request->phone,
             's_charge' => $request->s_charge,
@@ -4166,6 +4167,7 @@ class ApiController extends BaseController
         $success = Hostel::find($id)->update([
             'post_type' => $hello->post_type,
             'user_id' => $hello->user_id,
+            'title' => $request->title,
             'date' => $request->date,
             'phone' => $request->phone,
             's_charge' => $request->s_charge,

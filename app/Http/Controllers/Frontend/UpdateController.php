@@ -707,6 +707,7 @@ class UpdateController extends Controller
         $hostel->update([
             'user_id' => $request->user_id,
             'post_type' => $request->post_type,
+            'title' => $request->title,
             'date' => $request->date,
             'phone' => $request->phone,
             's_charge' => $request->s_charge,

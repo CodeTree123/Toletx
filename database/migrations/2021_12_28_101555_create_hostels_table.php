@@ -17,6 +17,7 @@ class CreateHostelsTable extends Migration
             $table->id();
             $table->bigInteger('user_id');
             $table->string('post_type');
+            $table->string('title');
             $table->date('date');
             $table->bigInteger('phone');
             $table->bigInteger('s_charge');

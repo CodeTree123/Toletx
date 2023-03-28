@@ -11,8 +11,8 @@
                     @csrf
                     <div class="row">
                         <div class="col-12 mb-3 ">
-                            <label for="hostel_post_rented" class="form-label me-2 fw-bold">Post Title</label>
-                            <input name="" type="text" class="form-control" id="hostel_post_rented" placeholder="Enter Post Title" required>
+                            <label for="title_rented" class="form-label me-2 fw-bold">Post Title</label>
+                            <input name="title" value="{{$list->title}}" type="text" class="form-control" id="title_rented" placeholder="Enter Post Title" required>
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-12 col-12 mb-3">
                             <label for="hostel_name_rented" class="form-label me-2 fw-bold">Hostel Name</label>
@@ -338,8 +338,8 @@
                     @csrf
                     <div class="row">
                         <div class="col-12 mb-3 ">
-                            <label for="hostel_post_wanted" class="form-label me-2 fw-bold">Post Title</label>
-                            <input name="" type="text" class="form-control" id="hostel_post_wanted" placeholder="Enter Post Title" required>
+                            <label for="title_wanted" class="form-label me-2 fw-bold">Post Title</label>
+                            <input name="title" value="{{$list->title}}" value="{{$list->title}}" type="text" class="form-control" id="title_wanted" placeholder="Enter Post Title" required>
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-12 col-12 mb-3">
                             <label for="hostel_name_wanted" class="form-label me-2 fw-bold">Hostel Name</label>
