@@ -6,35 +6,15 @@
         <div class="min-height-200px">
             <!-- Default Basic Forms Start -->
             <div class="pd-20 card-box mb-30">
-                @if ($message = Session::get('success'))
-                <div class="alert alert-success alert-block" id="hello">
-                    <button type="button" class="close" data-dismiss="alert">×</button>
-                    <strong>{{ $message }}</strong>
-                </div>
-                @endif
-
-                @if (count($errors) > 0)
-                <div class="alert alert-danger">
-                    <strong>Whoops!</strong> There were some problems with your input.
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-                @endif
                 @if($list->post_type == 'Rent')
                 <form method="POST" action="{{ route('parking_spot_update',$list->id) }}" enctype="multipart/form-data">
                     @csrf
                     <div class="row">
-                    <div class=" col-12 mb-3 ">
+                        <div class=" col-12 mb-3 ">
                             <label for="" class="form-label me-2 fw-bold">Post Title</label>
-                            <input name="title" type="text" value="" class="form-control" id="" placeholder="Enter Post Title">
+                            <input name="title" type="text" value="{{$list->title}}" class="form-control" id="" placeholder="Enter Post Title">
                         </div>
-                        <div class=" col-lg-4 col-md-4 col-sm-12 col-12 mb-3">
-                            <label for="room_name_Rent" class="form-label me-2 fw-bold">Garage Name</label>
-                            <input name="title" value="{{$list->title}}" type="text" class="form-control" id="room_name_Rent" placeholder="Enter name">
-                        </div>
+
                         <div class=" col-lg-4 col-md-4 col-sm-12 col-12 mb-3">
                             <label for="date_Rent" class="form-label me-2 fw-bold">Date</label>
                             <input name="date" value="{{$list->date}}" type="date" class="form-control" id="date_Rent" onfocus="this.showPicker()">
@@ -45,37 +25,56 @@
                         </div>
 
                         <div class="col-lg-4 col-md-4 col-sm-12 col-12 mb-3 ">
-                            <label for="price_Rent" class="form-label me-2 fw-bold">Rent Per Month</label>
-                            <input name="price" value="{{$list->price}}" type="number" class="form-control" id="price_Rent" placeholder="Enter Price">
+                            <label for="price_Rent" class="form-label me-2 fw-bold">
+                                <label for="price_Want" class="form-label me-2 fw-bold">Rent</label>
+                                <div class="row">
+                                    <div class="col-4 pe-0">
+                                        <div class="input-group mb-3">
+                                            <input name="price" value="{{$list->price}}" type="number" class="form-control" id="price_Rent" placeholder="Enter Price">
+                                        </div>
+                                    </div>
+                                    <div class="col-1">
+                                        <span class="text-light fs-3">/</span>
+                                    </div>
+                                    <div class="col-7 ps-0">
+                                        <div class="input-group mb-3">
+                                            <select class="form-select form-select-md mb-3" aria-label=".form-select-lg example" name="per_price">
+                                                <option selected hidden>Choose Rent Type</option>
+                                                <option value="hour" {{$list->per_price == "hour" ? 'selected':''}}>Hour</option>
+                                                <option value="day" {{$list->per_price == "day" ? 'selected':''}}> Day</option>
+                                                <option value="night" {{$list->per_price == "night" ? 'selected':''}}> Only Night</option>
+                                                <option value="week" {{$list->per_price == "week" ? 'selected':''}}> Week</option>
+                                                <option value="month" {{$list->per_price == "month" ? 'selected':''}}> Month</option>
+                                                <option value="year" {{$list->per_price == "year" ? 'selected':''}}> Year</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
                         </div>
 
                         <div class=" col-lg-4 col-md-4 col-sm-12 col-12 mb-3">
                             <label for="level_Rent" class="form-label me-2 fw-bold">Floor Level</label>
                             <select id="level_Rent" class="form-select" name="floor_level" required>
-                                <option value="">Choose...</option>
-                                <option value="1" {{$list->floor_level == "1" ? 'selected':''}}>1</option>
-                                <option value="2" {{$list->floor_level == "2" ? 'selected':''}}>2</option>
-                                <option value="Under Ground" {{$list->floor_level == "Under Ground" ? 'selected':''}}>Under Ground</option>
+                                <option selected hidden>Choose number</option>
+                                <option value="Ground" {{$list->floor_level == "Ground" ? 'selected':''}}>Ground</option>
+                                <option value="lavel 1" {{$list->floor_level == "lavel 1" ? 'selected':''}}>lavel 1</option>
+                                <option value="lavel 2" {{$list->floor_level == "lavel 2" ? 'selected':''}}>lavel 2</option>
                             </select>
                         </div>
                         <div class=" col-lg-4 col-md-4 col-sm-12 col-12 mb-3">
                             <label for="floor_height_Rent" class="form-label me-2 fw-bold">Floor Hieght</label>
-                            <select id="" class="form-select" name="floor_height" required>
-                                <option value="">Choose...</option>
-                                <option value="13" {{$list->floor_height == "13" ? 'selected':''}}>13</option>
-                                <option value="14" {{$list->floor_height == "14" ? 'selected':''}}>14</option>
-                                <option value="17" {{$list->floor_height == "17" ? 'selected':''}}>17</option>
-                            </select>
+                            <input name="floor_height" type="text" class="form-control" value="{{$list->floor_height}}" id="floor_height_Rent" placeholder="Enter Floor Height" required>
                         </div>
 
                         <div class=" col-lg-4 col-md-4 col-sm-12 col-12 mb-3">
                             <label for="vehicle_type_Rent" class="form-label me-2 fw-bold">Vehicle type</label>
-                            <select id="vehicle_type_Rent" class="form-select" name="vehicle_type" required>
-                                <option value="">Choose...</option>
-                                <option value="Truck" {{$list->vehicle_type == "Truck" ? 'selected':''}}>ck</option>
+                            <select id="vehicle_type_Want" class="form-select" name="vehicle_type" required>
+                                <option selected hidden>Choose number</option>
+                                <option value="Truck" {{$list->vehicle_type == "Truck" ? 'selected':''}}>Truck</option>
                                 <option value="Motor bike" {{$list->vehicle_type == "Motor bike" ? 'selected':''}}>Motor bike</option>
                                 <option value="Pickup" {{$list->vehicle_type == "Pickup" ? 'selected':''}}>Pickup</option>
                                 <option value="Privet car" {{$list->vehicle_type == "Privet car" ? 'selected':''}}>Privet car</option>
+                                <option value="Everything" {{$list->vehicle_type == "Everything" ? 'selected':''}}>Everything</option>
                             </select>
                         </div>
                         <div class="col-12 mb-3 ">
@@ -99,14 +98,14 @@
                                 </div>
                                 @else
                                 <img src="{{asset('public/uploads/garages/'.$list->photo)}}" alt="" srcset="" class="update_section_image img-fluid">
-                                
+
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="input-group update_section_file_input">
                                         <input type="file" class="form-control" name="photo" id="photo_Rent" placeholder="asd" onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])">
                                     </div>
                                     <!-- <a href="{{route('image_delete',['Parking_Spot',$list->id,'garages','photo',$list->photo])}}" class="btn btn-primary update_section_file_input_dlt_btn ms-1 p-2"><i class="fa-solid fa-trash-can"></i></a> -->
                                 </div>
-                                
+
                                 @endif
 
                                 <label for="photo_Rent" class="d-block"> Main Image</label>
@@ -221,21 +220,18 @@
                         </div>
                     </div>
                     <div class="text-center">
-                    <button class="btn btn-primary   mx-auto my-2" type="submit">Update Rent Post</button>
+                        <button class="btn btn-primary   mx-auto my-2" type="submit">Update Rent Post</button>
                     </div>
                 </form>
                 @else
                 <form method="POST" action="{{ route('parking_spot_update',$list->id) }}" enctype="multipart/form-data">
                     @csrf
                     <div class="row">
-                    <div class=" col-12 mb-3 ">
+                        <div class=" col-12 mb-3 ">
                             <label for="" class="form-label me-2 fw-bold">Post Title</label>
-                            <input name="title" type="text" value="" class="form-control" id="" placeholder="Enter Post Title">
+                            <input name="title" type="text" value="{{$list->title}}" class="form-control" id="" placeholder="Enter Post Title">
                         </div>
-                        <div class=" col-lg-4 col-md-4 col-sm-12 col-12 mb-3">
-                            <label for="room_name_Rent" class="form-label me-2 fw-bold">Garage Name</label>
-                            <input name="title" value="{{$list->title}}" type="text" class="form-control" id="room_name_Rent" placeholder="Enter name">
-                        </div>
+
                         <div class=" col-lg-4 col-md-4 col-sm-12 col-12 mb-3">
                             <label for="date_Rent" class="form-label me-2 fw-bold">Date</label>
                             <input name="date" value="{{$list->date}}" type="date" class="form-control" id="date_Rent" onfocus="this.showPicker()">
@@ -246,37 +242,56 @@
                         </div>
 
                         <div class="col-lg-4 col-md-4 col-sm-12 col-12 mb-3 ">
-                            <label for="price_Rent" class="form-label me-2 fw-bold">Rent Per Month</label>
-                            <input name="price" value="{{$list->price}}" type="number" class="form-control" id="price_Rent" placeholder="Enter Price">
+                            <label for="price_Rent" class="form-label me-2 fw-bold">
+                                <label for="price_Want" class="form-label me-2 fw-bold">Rent</label>
+                                <div class="row">
+                                    <div class="col-4 pe-0">
+                                        <div class="input-group mb-3">
+                                            <input name="price" value="{{$list->price}}" type="number" class="form-control" id="price_Rent" placeholder="Enter Price">
+                                        </div>
+                                    </div>
+                                    <div class="col-1">
+                                        <span class="text-light fs-3">/</span>
+                                    </div>
+                                    <div class="col-7 ps-0">
+                                        <div class="input-group mb-3">
+                                            <select class="form-select form-select-md mb-3" aria-label=".form-select-lg example" name="per_price">
+                                                <option selected hidden>Choose Rent Type</option>
+                                                <option value="hour" {{$list->per_price == "hour" ? 'selected':''}}>Hour</option>
+                                                <option value="day" {{$list->per_price == "day" ? 'selected':''}}> Day</option>
+                                                <option value="night" {{$list->per_price == "night" ? 'selected':''}}> Only Night</option>
+                                                <option value="week" {{$list->per_price == "week" ? 'selected':''}}> Week</option>
+                                                <option value="month" {{$list->per_price == "month" ? 'selected':''}}> Month</option>
+                                                <option value="year" {{$list->per_price == "year" ? 'selected':''}}> Year</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
                         </div>
 
                         <div class=" col-lg-4 col-md-4 col-sm-12 col-12 mb-3">
                             <label for="level_Rent" class="form-label me-2 fw-bold">Floor Level</label>
                             <select id="level_Rent" class="form-select" name="floor_level" required>
-                                <option value="">Choose...</option>
-                                <option value="1" {{$list->floor_level ==="1" ? 'selected':''}}>1</option>
-                                <option value="2" {{$list->floor_level ==="2" ? 'selected':''}}>2</option>
-                                <option value="Under Ground" {{$list->floor_level == "Under Ground" ? 'selected':''}}>Under Ground</option>
+                                <option selected hidden>Choose number</option>
+                                <option value="Ground" {{$list->floor_level == "Ground" ? 'selected':''}}>Ground</option>
+                                <option value="lavel 1" {{$list->floor_level == "lavel 1" ? 'selected':''}}>lavel 1</option>
+                                <option value="lavel 2" {{$list->floor_level == "lavel 2" ? 'selected':''}}>lavel 2</option>
                             </select>
                         </div>
                         <div class=" col-lg-4 col-md-4 col-sm-12 col-12 mb-3">
                             <label for="floor_height_Rent" class="form-label me-2 fw-bold">Floor Hieght</label>
-                            <select id="" class="form-select" name="floor_height" required>
-                                <option value="">Choose...</option>
-                                <option value="13" {{$list->floor_height == 13 ? 'selected':''}}>13</option>
-                                <option value="14" {{$list->floor_height == 14 ? 'selected':''}}>14</option>
-                                <option value="17" {{$list->floor_height == 17 ? 'selected':''}}>17</option>
-                            </select>
+                            <input name="floor_height" type="text" class="form-control" value="{{$list->floor_height}}" id="floor_height_Rent" placeholder="Enter Floor Height" required>
                         </div>
 
                         <div class=" col-lg-4 col-md-4 col-sm-12 col-12 mb-3">
                             <label for="vehicle_type_Rent" class="form-label me-2 fw-bold">Vehicle type</label>
-                            <select id="vehicle_type_Rent" class="form-select" name="vehicle_type" required>
-                                <option value="">Choose...</option>
+                            <select id="vehicle_type_Want" class="form-select" name="vehicle_type" required>
+                                <option selected hidden>Choose number</option>
                                 <option value="Truck" {{$list->vehicle_type == "Truck" ? 'selected':''}}>Truck</option>
                                 <option value="Motor bike" {{$list->vehicle_type == "Motor bike" ? 'selected':''}}>Motor bike</option>
                                 <option value="Pickup" {{$list->vehicle_type == "Pickup" ? 'selected':''}}>Pickup</option>
                                 <option value="Privet car" {{$list->vehicle_type == "Privet car" ? 'selected':''}}>Privet car</option>
+                                <option value="Everything" {{$list->vehicle_type == "Everything" ? 'selected':''}}>Everything</option>
                             </select>
                         </div>
                         <div class="col-12 mb-3 ">
@@ -286,10 +301,6 @@
                         <div class="col-12 mb-3 ">
                             <label for="description_Rent" class="form-label me-2 fw-bold">Description</label>
                             <textarea name="description" type="text" class="form-control" id="description_Rent" rows="3" placeholder="Enter Description">{{$list->description}}</textarea>
-                        </div>
-                        <div class="col-12 mb-3 ">
-                            <label for="video_Rent" class="form-label me-2 fw-bold"> Youtube Link</label>
-                            <input type="text" class="form-control" name="video" value="{{$list->video}}" id="video_Rent" placeholder="  Youtube Link">
                         </div>
                         <button class="btn btn-primary  w-25 mx-auto" type="submit">Update Want Post</button>
                     </div>
@@ -305,4 +316,3 @@
     });
 </script>
 @endsection
-

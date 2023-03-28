@@ -6,36 +6,18 @@
         <div class="min-height-200px">
             <!-- Default Basic Forms Start -->
             <div class="pd-20 card-box mb-30">
-                @if ($message = Session::get('success'))
-                <div class="alert alert-success alert-block" id="hello">
-                    <button type="button" class="close" data-dismiss="alert">×</button>
-                    <strong>{{ $message }}</strong>
-                </div>
-                @endif
-
-                @if (count($errors) > 0)
-                <div class="alert alert-danger">
-                    <strong>Whoops!</strong> There were some problems with your input.
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-                @endif
                 @if($list->post_type == 'Rent')
                 <form method="POST" action="{{ route('playground_update',$list->id) }}" enctype="multipart/form-data">
                     @csrf
-
                     <div class="row">
                     <div class=" col-12 mb-3 ">
-                            <label for="" class="form-label me-2 fw-bold">Post Title</label>
-                            <input name="title" type="text" value="" class="form-control" id="" placeholder="Enter Post Title">
+                            <label for="title_Rent" class="form-label me-2 fw-bold">Post Title</label>
+                            <input name="title" value="{{$list->title}}" type="text"  class="form-control" id="title_Rent" placeholder="Enter Post Title">
                         </div>
-                        <div class="col-lg-4 col-md-4 col-sm-12 col-12 mb-3 ">
-                            <label for="title_Want" class="form-label me-2 fw-bold">Camp Site Name</label>
-                            <input name="title" value="{{$list->title}}" type="text" class="form-control" id="title_Rent" placeholder="Enter Camp Site Name">
-                        </div>
+                            <div class="col-lg-4 col-md-4 col-sm-12 col-12 mb-3">
+                                <label for="c_name_Rent" class="form-label me-2 fw-bold">Camp Site Name</label>
+                                <input name="c_name" value="{{$list->c_name}}" type="text" class="form-control" id="c_name_Rent" placeholder="Enter Camp Site Name">
+                            </div>
                         <div class=" col-lg-4 col-md-4 col-sm-12 col-12 mb-3">
                             <label for="date_Rent" class="form-label me-2 fw-bold">Date</label>
                             <input name="date" value="{{$list->date}}" type="date" class="form-control" id="date_Rent" onfocus="this.showPicker()">
@@ -46,12 +28,32 @@
                         </div>
 
                         <div class="col-lg-4 col-md-4 col-sm-12 col-12 mb-3 ">
-                            <label for="price_Rent" class="form-label me-2 fw-bold">Rent Per Month</label>
-                            <input name="price" value="{{$list->price}}" type="number" class="form-control" id="price_Rent" placeholder="Enter Price">
+                        <label for="price_Rent" class="form-label me-2 fw-bold">Rent Per Person</label>
+                        <div class="row">
+                            <div class="col-4 pe-0">
+                                <div class="input-group mb-3">
+                                    <input name="price" type="number" value="{{$list->price}}"class="form-control" id="price_Rent" placeholder="Enter Rent" required>
+                                </div>
+                            </div>
+                            <div class="col-1">
+                                <span class="text-light fs-3">/</span>
+                            </div>
+                            <div class="col-7 ps-0">
+                                <div class="input-group mb-3">
+                                    <select class="form-select form-select-md mb-3" aria-label=".form-select-lg example" id="per_price_Rent" name="per_price">
+                                        <option selected hidden>Choose Rent Type</option>
+                                        <option value="hour" {{$list->per_price == "hour" ? 'selected':''}}  >Hour</option>
+                                        <option value="day shift" {{$list->per_price == "day shift" ? 'selected':''}} > Day Shift</option>
+                                        <option value="night shift" {{$list->per_price == "night shift" ? 'selected':''}} > Night Shift</option>
+                                        <option value="full day" {{$list->per_price == "full day" ? 'selected':''}} > Full Day</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-12 col-12 mb-3 ">
                             <label for="area_Rent" class="form-label me-2 fw-bold">Camp area</label>
-                            <input name="area" value="{{$list->area}}" type="number" class="form-control" id="area_Rent" placeholder="Enter Camp area">
+                            <input name="area" value="{{$list->area}}" type="text" class="form-control" id="area_Rent" placeholder="Enter Camp area">
                         </div>
                         <div class="col-12 mb-3 ">
                             <label for="address_Rent" class="form-label me-2 fw-bold">Address</label>
@@ -62,7 +64,7 @@
                             <textarea name="description" type="text" class="form-control" id="description_Rent" rows="3" placeholder="Enter Description">{{$list->description}}</textarea>
                         </div>
                         <div class="col-lg-3 col-md-3 col-sm-12 col-12 mb-3  ">
-                            <h2 class="fw-bold mb-3">Ameneties</h2>
+                            <h2 class="fw-bold mb-3">Amenities</h2>
                             <div class="form-check ms-5 mb-2">
                                 <input class="form-check-input" type="checkbox" id="shed_Rent" name="shed" {{  ($list->shed == 'on' ? ' checked' : '') }}>
                                 <label class="form-check-label" for="shed_Rent">
@@ -253,12 +255,12 @@
                     <div class="row">
                         <div class="row">
                         <div class=" col-12 mb-3 ">
-                            <label for="" class="form-label me-2 fw-bold">Post Title</label>
-                            <input name="title" type="text" value="" class="form-control" id="" placeholder="Enter Post Title">
+                            <label for="title_Want" class="form-label me-2 fw-bold">Post Title</label>
+                            <input name="title" value="{{$list->title}}" type="text"  class="form-control" id="title_Want" placeholder="Enter Post Title">
                         </div>
                             <div class="col-lg-4 col-md-4 col-sm-12 col-12 mb-3">
-                                <label for="title_Want" class="form-label me-2 fw-bold">Camp Site Name</label>
-                                <input name="title" value="{{$list->title}}" type="text" class="form-control" id="title_Want" placeholder="Enter Camp Site Name">
+                                <label for="c_name_Want" class="form-label me-2 fw-bold">Camp Site Name</label>
+                                <input name="c_name" value="{{$list->c_name}}" type="text" class="form-control" id="c_name_Want" placeholder="Enter Camp Site Name">
                             </div>
                             <div class=" col-lg-4 col-md-4 col-sm-12 col-12 mb-3">
                                 <label for="date_Want" class="form-label me-2 fw-bold">Date</label>
@@ -270,12 +272,32 @@
                             </div>
 
                             <div class="col-lg-4 col-md-4 col-sm-12 col-12 mb-3 ">
-                                <label for="price_Want" class="form-label me-2 fw-bold">Rent Per Month</label>
-                                <input name="price" value="{{$list->price}}" type="number" class="form-control" id="price_Want" placeholder="Enter Price">
+                            <label for="price_Rent" class="form-label me-2 fw-bold">Rent Per Person</label>
+                        <div class="row">
+                            <div class="col-4 pe-0">
+                                <div class="input-group mb-3">
+                                    <input name="price" type="number" value="{{$list->price}}"class="form-control" id="price_Rent" placeholder="Enter Rent" required>
+                                </div>
+                            </div>
+                            <div class="col-1">
+                                <span class="text-light fs-3">/</span>
+                            </div>
+                            <div class="col-7 ps-0">
+                                <div class="input-group mb-3">
+                                    <select class="form-select form-select-md mb-3" aria-label=".form-select-lg example" id="per_price_Rent" name="per_price">
+                                        <option selected hidden>Choose Rent Type</option>
+                                        <option value="hour" {{$list->per_price == "hour" ? 'selected':''}}  >Hour</option>
+                                        <option value="day shift" {{$list->per_price == "day shift" ? 'selected':''}} > Day Shift</option>
+                                        <option value="night shift" {{$list->per_price == "night shift" ? 'selected':''}} > Night Shift</option>
+                                        <option value="full day" {{$list->per_price == "full day" ? 'selected':''}} > Full Day</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
                             </div>
                             <div class="col-lg-4 col-md-4 col-sm-12 col-12 mb-3 ">
                                 <label for="area_Want" class="form-label me-2 fw-bold">Camp area</label>
-                                <input name="area" value="{{$list->area}}" type="number" class="form-control" id="area_Want" placeholder="Enter Camp area">
+                                <input name="area" value="{{$list->area}}" type="text" class="form-control" id="area_Want" placeholder="Enter Camp area">
                             </div>
                             <div class="col-12 mb-3 ">
                                 <label for="address_Want" class="form-label me-2 fw-bold">Address</label>
@@ -286,7 +308,7 @@
                                 <textarea name="description" type="text" class="form-control" id="description_Want" rows="3" placeholder="Enter Description">{{$list->description}}</textarea>
                             </div>
                             <div class="col-12 mb-3 ">
-                                <h2 class="fw-bold mb-3">Ameneties</h2>
+                                <h2 class="fw-bold mb-3">Amenities</h2>
                                 <div class="row ms-5 ">
                                     <div class="col-lg-2 col-md-2 col-sm-6 col-12 form-check mb-2">
                                         <input class="form-check-input" type="checkbox" id="shed_Want" name="shed" {{  ($list->shed == 'on' ? ' checked' : '') }}>

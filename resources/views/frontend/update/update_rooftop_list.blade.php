@@ -6,35 +6,17 @@
         <div class="min-height-200px">
             <!-- Default Basic Forms Start -->
             <div class="pd-20 card-box mb-30">
-                @if ($message = Session::get('success'))
-                <div class="alert alert-success alert-block" id="hello">
-                    <button type="button" class="close" data-dismiss="alert">×</button>
-                    <strong>{{ $message }}</strong>
-                </div>
-                @endif
-
-                @if (count($errors) > 0)
-                <div class="alert alert-danger">
-                    <strong>Whoops!</strong> There were some problems with your input.
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-                @endif
                 @if($list->post_type == 'Rent')
                 <form method="POST" action="{{ route('rooftop_update',$list->id) }}" enctype="multipart/form-data">
                     @csrf
                     <div class="row">
-
-                        <div class=" col-12 mb-3 ">
-                            <label for="" class="form-label me-2 fw-bold">Post Title</label>
-                            <input name="title" type="text" value="" class="form-control" id="" placeholder="Enter Post Title">
+                    <div class=" col-12 mb-3 ">
+                            <label for="title_Rent" class="form-label me-2 fw-bold">Post Title</label>
+                            <input name="title" value="{{$list->title}}" type="text" class="form-control" id="title_Rent" placeholder="Enter Post Title">
                         </div>
-                        <div class="col-lg-4 col-md-4 col-sm-12 col-12 mb-3 ">
-                            <label for="resort_name_Rent" class="form-label me-2 fw-bold">Rooftop Name</label>
-                            <input name="title" value="{{$list->title}}" type="text" class="form-control" id="resort_name_Rent" placeholder="Enter Rooftop name">
+                        <div class=" col-lg-4 col-md-4 col-sm-12 col-12 mb-3 ">
+                            <label for="c_name_Rent" class="form-label me-2 fw-bold">Shooting Spot Name</label>
+                            <input name="c_name" value="{{$list->c_name}}" type="text" class="form-control" id="c_name_Rent" placeholder="Enter Shooting Spot Name">
                         </div>
                         <div class=" col-lg-4 col-md-4 col-sm-12 col-12 mb-3">
                             <label for="date_Rent" class="form-label me-2 fw-bold">Date</label>
@@ -42,15 +24,37 @@
                         </div>
                         <div class=" col-lg-4 col-md-4 col-sm-12 col-12 mb-3">
                             <label for="phone_Rent" class="form-label me-2 fw-bold">Mobile</label>
-                            <input type="number" name="phone" value="{{$list->phone}}" class="form-control">
+                            <input type="number" name="phone" value="{{$list->phone}}" readonly class="form-control">
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-12 col-12 mb-3 ">
                             <label for="Area_Rent" class="form-label me-2 fw-bold">Roof Area</label>
                             <input name="floor_area" value="{{$list->floor_area}}" type="text" class="form-control" id="Area_Rent" placeholder="Enter Roof Area">
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-12 col-12 mb-3 ">
-                            <label for="price_Rent" class="form-label me-2 fw-bold">Rent Per Month</label>
-                            <input name="price" value="{{$list->price}}" type="number" class="form-control" id="price_Rent" placeholder="Enter Price">
+                        <label for="price_rented" class="form-label me-2 fw-bold">Rent</label>
+                            <div class="row">
+                                <div class="col-4 pe-0">
+                                    <div class="input-group mb-3">
+                                        <input name="price" value="{{$list->price}}" type="number" class="form-control" id="price_rented" placeholder="Enter Price">
+                                    </div>
+                                </div>
+                                <div class="col-1">
+                                    <span class="text-light fs-3">/</span>
+                                </div>
+                                <div class="col-7 ps-0">
+                                    <div class="input-group mb-3">
+                                        <select class="form-select form-select-md mb-3" aria-label=".form-select-lg example" name="per_price">
+                                            <option selected hidden>Choose Rent Type</option>
+                                            <option value="hour"  {{$list->per_price == "hour" ? 'selected':''}}>Hour</option>
+                                            <option value="day" {{$list->per_price == "day" ? 'selected':''}}> Day</option>
+                                            <option value="night" {{$list->per_price == "night" ? 'selected':''}}> Only Night</option>
+                                            <option value="week" {{$list->per_price == "week" ? 'selected':''}}> Week</option>
+                                            <option value="month" {{$list->per_price == "month" ? 'selected':''}}> Month</option>
+                                            <option value="year" {{$list->per_price == "year" ? 'selected':''}}> Year</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div class=" col-12 mb-3 ">
                             <label for="address_Rent" class="form-label me-2 fw-bold">Address</label>
@@ -261,14 +265,13 @@
                     @csrf
 
                     <div class="row">
-
-                        <div class=" col-12 mb-3 ">
-                            <label for="" class="form-label me-2 fw-bold">Post Title</label>
-                            <input name="title" type="text" value="" class="form-control" id="" placeholder="Enter Post Title">
+                    <div class=" col-12 mb-3 ">
+                            <label for="title_Want" class="form-label me-2 fw-bold">Post Title</label>
+                            <input name="title" value="{{$list->title}}" type="text" class="form-control" id="title_Want" placeholder="Enter Post Title">
                         </div>
-                        <div class="col-lg-4 col-md-4 col-sm-12 col-12 mb-3 ">
-                            <label for="resort_name_Want" class="form-label me-2 fw-bold">Rooftop Name</label>
-                            <input name="title" value="{{$list->title}}" type="text" class="form-control" id="resort_name_Want" placeholder="Enter Rooftop name">
+                        <div class=" col-lg-4 col-md-4 col-sm-12 col-12 mb-3 ">
+                            <label for="c_name_want" class="form-label me-2 fw-bold">Shooting Spot Name</label>
+                            <input name="c_name" value="{{$list->c_name}}" type="text" class="form-control" id="c_name_want" placeholder="Enter Shooting Spot Name">
                         </div>
                         <div class=" col-lg-4 col-md-4 col-sm-12 col-12 mb-3">
                             <label for="date_Want" class="form-label me-2 fw-bold">Date</label>
@@ -276,15 +279,37 @@
                         </div>
                         <div class=" col-lg-4 col-md-4 col-sm-12 col-12 mb-3">
                             <label for="phone_Want" class="form-label me-2 fw-bold">Mobile</label>
-                            <input type="number" name="phone" value="{{$list->phone}}" class="form-control">
+                            <input type="number" name="phone" value="{{$list->phone}}" readonly class="form-control">
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-12 col-12 mb-3 ">
                             <label for="Area_Want" class="form-label me-2 fw-bold">Roof Area</label>
                             <input name="floor_area" value="{{$list->floor_area}}" type="text" class="form-control" id="Area_Want" placeholder="Enter Roof Area">
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-12 col-12 mb-3 ">
-                            <label for="price_Want" class="form-label me-2 fw-bold">Rent Per Month</label>
-                            <input name="price" value="{{$list->price}}" type="number" class="form-control" id="price_Want" placeholder="Enter Price">
+                        <label for="price_rented" class="form-label me-2 fw-bold">Rent</label>
+                            <div class="row">
+                                <div class="col-4 pe-0">
+                                    <div class="input-group mb-3">
+                                        <input name="price" value="{{$list->price}}" type="number" class="form-control" id="price_rented" placeholder="Enter Price">
+                                    </div>
+                                </div>
+                                <div class="col-1">
+                                    <span class="text-light fs-3">/</span>
+                                </div>
+                                <div class="col-7 ps-0">
+                                    <div class="input-group mb-3">
+                                        <select class="form-select form-select-md mb-3" aria-label=".form-select-lg example" name="per_price">
+                                            <option selected hidden>Choose Rent Type</option>
+                                            <option value="hour"  {{$list->per_price == "hour" ? 'selected':''}}>Hour</option>
+                                            <option value="day" {{$list->per_price == "day" ? 'selected':''}}> Day</option>
+                                            <option value="night" {{$list->per_price == "night" ? 'selected':''}}> Only Night</option>
+                                            <option value="week" {{$list->per_price == "week" ? 'selected':''}}> Week</option>
+                                            <option value="month" {{$list->per_price == "month" ? 'selected':''}}> Month</option>
+                                            <option value="year" {{$list->per_price == "year" ? 'selected':''}}> Year</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                         <div class=" col-12 mb-3 ">
                             <label for="address_Want" class="form-label me-2 fw-bold">Address</label>
@@ -295,62 +320,58 @@
                             <label for="description_Want" class="form-label me-2 fw-bold">Description</label>
                             <textarea name="description" type="text" class="form-control" id="description_Want" rows="3" placeholder="Enter Description">{{$list->description}}</textarea>
                         </div>
-                        <div class="col-lg-3 col-md-3 col-sm-12 col-12 mb-3 ">
+                        <div class="col-12 mb-3 ">
                             <h2 class="fw-bold mb-3">Amenities</h2>
-                            <div class="row ms-5 ">
-                                <div class=" form-check mb-2">
+                            <div class="row ms-3 ps-2 ">
+                                <div class=" col-lg-2 col-md-2 col-sm-6 col-12 form-check mb-2">
                                     <input class="form-check-input" type="checkbox" id="water_Want" name="water" {{  ($list->water == 'on' ? ' checked' : '') }}>
                                     <label class="form-check-label" for="water_Want">
                                         Water
                                     </label>
                                 </div>
-                                <div class=" form-check mb-2">
+                                <div class=" col-lg-2 col-md-2 col-sm-6 col-12 form-check mb-2">
                                     <input class="form-check-input" type="checkbox" id="electricity_Want" name="electricity" {{  ($list->electricity == 'on' ? ' checked' : '') }}>
                                     <label class="form-check-label" for="electricity_Want">
                                         Electricity
                                     </label>
                                 </div>
-                                <div class=" form-check mb-2">
+                                <div class=" col-lg-2 col-md-2 col-sm-6 col-12 form-check mb-2">
                                     <input class="form-check-input" type="checkbox" id="p_Want" name="p_protection" {{  ($list->p_protection == 'on' ? ' checked' : '') }}>
                                     <label class="form-check-label" for="p_Want">
                                         Periphery Protection
                                     </label>
                                 </div>
-                                <div class=" form-check mb-2">
+                                <div class=" col-lg-2 col-md-2 col-sm-6 col-12 form-check mb-2">
                                     <input class="form-check-input" type="checkbox" id="lift_Want" name="lift" {{  ($list->lift == 'on' ? ' checked' : '') }}>
                                     <label class="form-check-label" for="lift_Want">
                                         Lift
                                     </label>
                                 </div>
-                                <div class=" form-check mb-2">
+                                <div class=" col-lg-2 col-md-2 col-sm-6 col-12 form-check mb-2">
                                     <input class="form-check-input" type="checkbox" id="gen_Want" name="generator" {{  ($list->generator == 'on' ? ' checked' : '') }}>
                                     <label class="form-check-label" for="gen_Want">
                                         Generator
                                     </label>
                                 </div>
-                                <div class=" form-check mb-2">
+                                <div class=" col-lg-2 col-md-2 col-sm-6 col-12 form-check mb-2">
                                     <input class="form-check-input" type="checkbox" id="attatched_toilet_Want" name="toilet" {{  ($list->toilet == 'on' ? ' checked' : '') }}>
                                     <label class="form-check-label" for="attatched_toilet_Want">
                                         Toilet
                                     </label>
                                 </div>
-                                <div class=" form-check mb-2">
+                                <div class=" col-lg-2 col-md-2 col-sm-6 col-12 form-check mb-2">
                                     <input class="form-check-input" type="checkbox" id="shed_Want" name="shed" {{  ($list->shed == 'on' ? ' checked' : '') }}>
                                     <label class="form-check-label" for="shed_Want">
                                         Shed
                                     </label>
                                 </div>
-                                <div class=" form-check mb-2">
+                                <div class=" col-lg-2 col-md-2 col-sm-6 col-12 form-check mb-2">
                                     <input class="form-check-input" type="checkbox" id="parking_Want" name="parking" {{  ($list->parking == 'on' ? ' checked' : '') }}>
                                     <label class="form-check-label" for="parking_Want">
                                         Parking
                                     </label>
                                 </div>
                             </div>
-                        </div>
-                        <div class="my-3">
-                            <label for="video_Rent" class="form-label me-2 fw-bold"> Youtube Link</label>
-                            <input type="text" class="form-control" name="video" value="{{$list->video}}" id="video_Rent" placeholder="  Youtube Link">
                         </div>
                     </div>
                     <div class="text-center">
