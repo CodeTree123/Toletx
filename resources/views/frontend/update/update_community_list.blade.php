@@ -6,23 +6,6 @@
         <div class="min-height-200px">
             <!-- Default Basic Forms Start -->
             <div class="pd-20 card-box mb-30">
-                @if ($message = Session::get('success'))
-                <div class="alert alert-success alert-block" id="hello">
-                    <button type="button" class="close" data-dismiss="alert">×</button>
-                    <strong>{{ $message }}</strong>
-                </div>
-                @endif
-
-                @if (count($errors) > 0)
-                <div class="alert alert-danger">
-                    <strong>Whoops!</strong> There were some problems with your input.
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-                @endif
                 @if($list->post_type == 'Rent')
                 <form method="POST" action="{{ route('community_update',$list->id) }}" enctype="multipart/form-data">
                     @csrf
@@ -31,9 +14,13 @@
                             <label for="title_rented" class="form-label me-2 fw-bold">Post Title</label>
                             <input name="title" value="{{$list->title}}" type="text" class="form-control" id="title_rented" placeholder="Enter Post Title">
                         </div>
+                        <div class="col-lg-4 co-md-4 col-sm-12 col-12 mb-3 ">
+                            <label for="community_name_rented" class="form-label me-2 fw-bold">Community Hall Name</label>
+                            <input name="c_name" type="text" class="form-control" id="community_name_rented" value="{{$list->c_name}}" placeholder="Enter Community Hall Name" required>
+                        </div>
                         <div class=" col-lg-4 col-md-4 col-sm-12 col-12 mb-3">
                             <label for="date_rented" class="form-label me-2 fw-bold">Date</label>
-                            <input name="date" value="{{$list->date}}" type="date" class="form-control" id="date_rented" onfocus="this.showPicker()">
+                            <input name="date" value="{{$list->date}}" min="{{\Carbon\Carbon::today()->format('Y-m-d')}}" type="date" class="form-control" id="date_rented" onfocus="this.showPicker()">
                         </div>
                         <div class=" col-lg-4 col-md-4 col-sm-12 col-12 mb-3">
                             <label for="phone_rented" class="form-label me-2 fw-bold">Mobile</label>
@@ -90,7 +77,7 @@
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-12 col-12 mb-3 ">
                             <label for="area_rented" class="form-label me-2 fw-bold">Floor area</label>
-                            <input name="floor_size" value="{{$list->floor_size}}" type="number" class="form-control" id="area_rented" placeholder="Enter Floor area">
+                            <input name="floor_size" value="{{$list->floor_size}}" type="text" class="form-control" id="area_rented" placeholder="Enter Floor area">
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-12 col-12 mb-3">
                             <label for="floor_rented" class="form-label me-2 fw-bold">Floor Level</label>
@@ -116,7 +103,7 @@
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-12 col-12 mb-3">
                             <label for="road_rented" class="form-label me-2 fw-bold">Road Width</label>
-                            <input name="road_width" value="{{$list->road_width}}" type="number" class="form-control" id="road_rented" placeholder="Enter Road Width">
+                            <input name="road_width" value="{{$list->road_width}}" type="text" class="form-control" id="road_rented" placeholder="Enter Road Width">
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-12 col-12 mb-3">
                             <label for="interior_rented" class="form-label me-2 fw-bold">Interior Condition</label>
@@ -129,7 +116,7 @@
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-12 col-12 mb-3 ">
                             <label for="Seating_rented" class="form-label me-2 fw-bold">No of Seating Arrangement</label>
-                            <input name="seat" value="{{$list->seat}}" type="number" class="form-control" id="Seating_rented" placeholder="Enter No of Seating Arrangement">
+                            <input name="seat" value="{{$list->seat}}" type="text" class="form-control" id="Seating_rented" placeholder="Enter No of Seating Arrangement">
                         </div>
                         <div class="col-12 mb-3 ">
                             <label for="address_rented" class="form-label me-2 fw-bold">Address</label>
@@ -218,7 +205,7 @@
                                         </div>
                                         @endif
 
-                                        <label for="photo_Rent" class="d-block"> Main Image</label>
+                                        <label for="photo_Rent" class="d-block mt-2"> Main Image</label>
                                     </div>
                                 </div>
                                 <div class="row">
@@ -237,7 +224,7 @@
                                             <a href="{{route('image_delete',['Community_Center',$list->id,'communities','photo1',$list->photo1])}}" class="btn btn-primary update_section_file_input_dlt_btn ms-1 p-1"><i class="fa-solid fa-trash-can"></i></a>
                                         </div>
                                         @endif
-                                        <label for="photo1_Rent" class="d-block "> Photo 2</label>
+                                        <label for="photo1_Rent" class="d-block mt-2 "> Photo 2</label>
                                     </div>
                                     <div class="col-lg-4 col-md-4 col-sm-12 col-12 p-2">
                                         @if($list->photo2 == '')
@@ -254,7 +241,7 @@
                                             <a href="{{route('image_delete',['Community_Center',$list->id,'communities','photo2',$list->photo2])}}" class="btn btn-primary update_section_file_input_dlt_btn ms-1 p-1"><i class="fa-solid fa-trash-can"></i></a>
                                         </div>
                                         @endif
-                                        <label for="photo2_Rent" class="d-block"> Photo 3</label>
+                                        <label for="photo2_Rent" class="d-block mt-2"> Photo 3</label>
 
                                     </div>
                                     <div class="col-lg-4 col-md-4 col-sm-12 col-12 p-2">
@@ -272,7 +259,7 @@
                                             <a href="{{route('image_delete',['Community_Center',$list->id,'communities','photo3',$list->photo3])}}" class="btn btn-primary update_section_file_input_dlt_btn ms-1 p-1"><i class="fa-solid fa-trash-can"></i></a>
                                         </div>
                                         @endif
-                                        <label for="photo2_Rent" class="d-block"> Photo 4</label>
+                                        <label for="photo2_Rent" class="d-block mt-2"> Photo 4</label>
                                     </div>
                                     <div class="col-lg-4 col-md-4 col-sm-12 col-12 p-2">
                                         @if($list->photo4 == '')
@@ -289,7 +276,7 @@
                                             <a href="{{route('image_delete',['Community_Center',$list->id,'communities','photo4',$list->photo4])}}" class="btn btn-primary update_section_file_input_dlt_btn ms-1 p-1"><i class="fa-solid fa-trash-can"></i></a>
                                         </div>
                                         @endif
-                                        <label for="photo2_Rent" class="d-block"> Photo 5</label>
+                                        <label for="photo2_Rent" class="d-block mt-2"> Photo 5</label>
                                     </div>
                                     <div class="col-lg-4 col-md-4 col-sm-12 col-12 p-2">
                                         @if($list->photo5 == '')
@@ -306,7 +293,7 @@
                                             <a href="{{route('image_delete',['Community_Center',$list->id,'communities','photo5',$list->photo5])}}" class="btn btn-primary update_section_file_input_dlt_btn ms-1 p-1"><i class="fa-solid fa-trash-can"></i></a>
                                         </div>
                                         @endif
-                                        <label for="photo2_Rent" class="d-block"> Photo 6</label>
+                                        <label for="photo2_Rent" class="d-block mt-2"> Photo 6</label>
                                     </div>
                                     <div class="col-lg-4 col-md-4 col-sm-12 col-12 p-2">
                                         @if($list->photo6 == '')
@@ -323,7 +310,7 @@
                                             <a href="{{route('image_delete',['Community_Center',$list->id,'communities','photo6',$list->photo6])}}" class="btn btn-primary update_section_file_input_dlt_btn ms-1 p-1"><i class="fa-solid fa-trash-can"></i></a>
                                         </div>
                                         @endif
-                                        <label for="photo2_Rent" class="d-block"> Photo 7</label>
+                                        <label for="photo2_Rent" class="d-block mt-2"> Photo 7</label>
                                     </div>
                                 </div>
                             </div>
@@ -346,9 +333,13 @@
                             <label for="title_wanted" class="form-label me-2 fw-bold">Post Title</label>
                             <input name="title" value="{{$list->title}}" type="text" class="form-control" id="title_wanted" placeholder="Enter Post Title">
                         </div>
+                        <div class="col-lg-4 co-md-4 col-sm-12 col-12 mb-3 ">
+                            <label for="community_name_wanted" class="form-label me-2 fw-bold">Community Hall Name</label>
+                            <input name="c_name" type="text" class="form-control" id="community_name_wanted" value="{{$list->c_name}}" placeholder="Enter Community Hall Name" required>
+                        </div>
                         <div class=" col-lg-4 col-md-4 col-sm-12 col-12 mb-3">
                             <label for="date_wanted" class="form-label me-2 fw-bold">Date</label>
-                            <input name="date" value="{{$list->date}}" type="date" class="form-control" id="date_wanted" onfocus="this.showPicker()">
+                            <input name="date" value="{{$list->date}}" min="{{\Carbon\Carbon::today()->format('Y-m-d')}}" type="date" class="form-control" id="date_wanted" onfocus="this.showPicker()">
                         </div>
                         <div class=" col-lg-4 col-md-4 col-sm-12 col-12 mb-3">
                             <label for="phone_wanted" class="form-label me-2 fw-bold">Mobile</label>
@@ -356,7 +347,7 @@
                         </div>
 
                         <div class="col-lg-4 col-md-4 col-sm-12 col-12 mb-3 ">
-                            <label for="price_wanted" class="form-label me-2 fw-bold">Rent Per Day</label>
+                            <label for="price_wanted" class="form-label me-2 fw-bold">Rent</label>
                             <div class="row">
                                 <div class="col-4 pe-0">
                                     <div class="input-group">
@@ -405,7 +396,7 @@
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-12 col-12 mb-3 ">
                             <label for="area_wanted" class="form-label me-2 fw-bold">Floor area</label>
-                            <input name="floor_size" value="{{$list->floor_size}}" type="number" class="form-control" id="area_wanted" placeholder="Enter Floor area">
+                            <input name="floor_size" value="{{$list->floor_size}}" type="text" class="form-control" id="area_wanted" placeholder="Enter Floor area">
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-12 col-12 mb-3">
                             <label for="floor_wanted" class="form-label me-2 fw-bold">Floor Level</label>
@@ -431,7 +422,7 @@
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-12 col-12 mb-3">
                             <label for="road_wanted" class="form-label me-2 fw-bold">Road Width</label>
-                            <input name="road_width" value="{{$list->road_width}}" type="number" class="form-control" id="road_wanted" placeholder="Enter Road Width">
+                            <input name="road_width" value="{{$list->road_width}}" type="text" class="form-control" id="road_wanted" placeholder="Enter Road Width">
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-12 col-12 mb-3">
                             <label for="interior_wanted" class="form-label me-2 fw-bold">Interior Condition</label>
@@ -513,10 +504,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="col-12 mb-3 ">
-                            <label for="video_rented" class="form-label me-2 fw-bold"> Youtube Link</label>
-                            <input type="text" class="form-control" name="video" value="{{$list->video}}" id="video_rented" placeholder="  Youtube Link">
-                        </div>
+                        
                     </div>
                     <div class="text-center">
                         <button class="btn btn-primary  w-25 mx-auto" type="submit">Update Want Post</button>

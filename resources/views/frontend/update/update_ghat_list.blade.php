@@ -35,7 +35,7 @@
                         </div>
                         <div class=" col-lg-4 col-md-4 col-sm-12 col-12 mb-3">
                             <label for="date_rented" class="form-label me-2 fw-bold">Date</label>
-                            <input name="date" value="{{$list->date}}" type="date" class="form-control" id="date_rented" onfocus="this.showPicker()">
+                            <input name="date" value="{{$list->date}}" min="{{\Carbon\Carbon::today()->format('Y-m-d')}}" type="date" class="form-control" id="date_rented" onfocus="this.showPicker()">
                         </div>
                         <div class=" col-lg-4 col-md-4 col-sm-12 col-12 mb-3">
                             <label for="phone_rented" class="form-label me-2 fw-bold">Mobile</label>
@@ -43,7 +43,7 @@
                         </div>
 
                         <div class="col-lg-4 col-md-4 col-sm-12 col-12 mb-3 ">
-                            <label for="price_rented" class="form-label me-2 fw-bold">Rent Per Month</label>
+                            <label for="price_rented" class="form-label me-2 fw-bold">Rent</label>
                             <div class="row">
                                 <div class="col-4 pe-0">
                                     <div class="input-group">
@@ -73,7 +73,7 @@
                             <input name="address" value="{{$list->address}}" type="text" class="form-control" id="address_rented" placeholder="Enter Address">
                         </div>
                         <div class="col-12 mb-3 ">
-                            <label for="description_rented" class="form-label me-2 fw-bold"> Ghat Used For</label>
+                            <label for="description_rented" class="form-label me-2 fw-bold">Description</label>
                             <textarea name="description" type="text" class="form-control" id="description_rented" rows="3" placeholder="Enter Description">{{$list->description}}</textarea>
                         </div>
                         <div class="col-lg-3 col-md-3 col-sm-12 col-12 mb-3  ">
@@ -241,7 +241,7 @@
                         </div>
                         <div class=" col-lg-4 col-md-4 col-sm-12 col-12 mb-3">
                             <label for="date_wanted" class="form-label me-2 fw-bold">Date</label>
-                            <input name="date" value="{{$list->date}}" type="date" class="form-control" id="date_wanted" onfocus="this.showPicker()">
+                            <input name="date" value="{{$list->date}}" min="{{\Carbon\Carbon::today()->format('Y-m-d')}}" type="date" class="form-control" id="date_wanted" onfocus="this.showPicker()">
                         </div>
                         <div class=" col-lg-4 col-md-4 col-sm-12 col-12 mb-3">
                             <label for="phone_wanted" class="form-label me-2 fw-bold">Mobile</label>
@@ -249,7 +249,7 @@
                         </div>
 
                         <div class="col-lg-4 col-md-4 col-sm-12 col-12 mb-3 ">
-                            <label for="price_wanted" class="form-label me-2 fw-bold">Rent Per Month</label>
+                            <label for="price_wanted" class="form-label me-2 fw-bold">Rent</label>
                             <div class="row">
                                 <div class="col-4 pe-0">
                                     <div class="input-group">
@@ -279,7 +279,7 @@
                             <input name="address" value="{{$list->address}}" type="text" class="form-control" id="address_wanted" placeholder="Enter Address">
                         </div>
                         <div class="col-12 mb-3 ">
-                            <label for="description_wanted" class="form-label me-2 fw-bold"> Ghat Used For</label>
+                            <label for="description_wanted" class="form-label me-2 fw-bold"> Description</label>
                             <textarea name="description" type="text" class="form-control" id="description_wanted" rows="3" placeholder="Enter Description">{{$list->description}}</textarea>
                         </div>
                         <div class="col-lg-12 col-md-12 col-sm-12 col-12 mb-3  ">
@@ -298,10 +298,6 @@
                                     </label>
                                 </div>
                             </div>
-                        </div>
-                        <div class="my-3">
-                            <label for="video_rented" class="form-label me-2 fw-bold"> Youtube Link</label>
-                            <input type="text" class="form-control" name="video" value="{{$list->video}}" id="video_rented" placeholder="  Youtube Link">
                         </div>
                         <button class="btn btn-primary  w-25 mx-auto" type="submit">Update Want Post</button>
                     </div>

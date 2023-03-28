@@ -6,23 +6,6 @@
         <div class="min-height-200px">
             <!-- Default Basic Forms Start -->
             <div class="pd-20 card-box mb-30">
-                @if ($message = Session::get('success'))
-                <div class="alert alert-success alert-block" id="hello">
-                    <button type="button" class="close" data-dismiss="alert">×</button>
-                    <strong>{{ $message }}</strong>
-                </div>
-                @endif
-
-                @if (count($errors) > 0)
-                <div class="alert alert-danger">
-                    <strong>Whoops!</strong> There were some problems with your input.
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-                @endif
                 @if($list->post_type == 'Rent')
                 <form method="POST" action="{{ route('picnic_update',$list->id) }}" enctype="multipart/form-data">
                     @csrf
@@ -31,7 +14,7 @@
 
                         <div class=" col-12 mb-3 ">
                             <label for="post_title_Rent" class="form-label me-2 fw-bold">Post Title </label>
-                            <input name="title" value="" type="text" class="form-control" id="post_title_Rent" placeholder="Enter Post Title">
+                            <input name="title" value="{{$list->title}}" type="text" class="form-control" id="post_title_Rent" placeholder="Enter Post Title">
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-12 col-12 mb-3 ">
                             <label for="title_Rent" class="form-label me-2 fw-bold">Picnic Spot Name </label>
@@ -39,7 +22,7 @@
                         </div>
                         <div class=" col-lg-4 col-md-4 col-sm-12 col-12 mb-3">
                             <label for="date_Rent" class="form-label me-2 fw-bold">Date</label>
-                            <input name="date" value="{{$list->date}}" type="date" class="form-control" id="date_Rent" onfocus="this.showPicker()">
+                            <input name="date" value="{{$list->date}}" min="{{\Carbon\Carbon::today()->format('Y-m-d')}}" type="date" class="form-control" id="date_Rent" onfocus="this.showPicker()">
                         </div>
                         <div class=" col-lg-4 col-md-4 col-sm-12 col-12 mb-3">
                             <label for="phone_Rent" class="form-label me-2 fw-bold">Mobile</label>
@@ -47,7 +30,7 @@
                         </div>
 
                         <div class="col-lg-4 col-md-4 col-sm-12 col-12 mb-3 ">
-                            <label for="price_Rent" class="form-label me-2 fw-bold">Rent Per Day</label>
+                            <label for="price_Rent" class="form-label me-2 fw-bold">Rent</label>
                             <div class="row">
                                 <div class="col-4 pe-0">
                                     <div class="input-group">
@@ -71,8 +54,8 @@
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-12 col-12 mb-3 ">
-                            <label for="area_Rent" class="form-label me-2 fw-bold">Land Area</label>
-                            <input name="land_area" value="{{$list->land_area}}" type="number" class="form-control" id="area_Rent" placeholder="Enter Land Area">
+                            <label for="area_Rent" class="form-label me-2 fw-bold">Picnic Spot Area</label>
+                            <input name="land_area" value="{{$list->land_area}}" type="text" class="form-control" id="area_Rent" placeholder="Enter Picnic Spot Area">
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-12 col-12 mb-3 ">
                             <label for="address_Rent" class="form-label me-2 fw-bold">Address</label>
@@ -129,7 +112,7 @@
                             <div class="form-check ms-3 ps-2 mb-2">
                                 <input class="form-check-input" type="checkbox" id="sports_Rent" name="dining" {{  ($list->dining == 'on' ? ' checked' : '') }}>
                                 <label class="form-check-label" for="sports_Rent">
-                                    Dining Failities
+                                    Dining Facilities
                                 </label>
                             </div>
                             <div class="form-check ms-3 ps-2 mb-2">
@@ -291,15 +274,15 @@
                     <div class="row">
                         <div class=" col-12 mb-3 ">
                             <label for="post_title_Rent" class="form-label me-2 fw-bold">Post Title </label>
-                            <input name="title" value="" type="text" class="form-control" id="post_title_Rent" placeholder="Enter Post Title">
+                            <input name="title" value="{{$list->title}}" type="text" class="form-control" id="post_title_Rent" placeholder="Enter Post Title">
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-12 col-12 mb-3 ">
-                            <label for="title_Want" class="form-label me-2 fw-bold">Picnic Spot Name For Rent</label>
+                            <label for="title_Want" class="form-label me-2 fw-bold">Picnic Spot Name</label>
                             <input name="title" value="{{$list->title}}" type="text" class="form-control" id="title_Want" placeholder="Enter Picnic Spot Name">
                         </div>
                         <div class=" col-lg-4 col-md-4 col-sm-12 col-12 mb-3">
                             <label for="date_Want" class="form-label me-2 fw-bold">Date</label>
-                            <input name="date" value="{{$list->date}}" type="date" class="form-control" id="date_Want" onfocus="this.showPicker()">
+                            <input name="date" value="{{$list->date}}" min="{{\Carbon\Carbon::today()->format('Y-m-d')}}" type="date" class="form-control" id="date_Want" onfocus="this.showPicker()">
                         </div>
                         <div class=" col-lg-4 col-md-4 col-sm-12 col-12 mb-3">
                             <label for="phone_Want" class="form-label me-2 fw-bold">Mobile</label>
@@ -307,7 +290,7 @@
                         </div>
 
                         <div class="col-lg-4 col-md-4 col-sm-12 col-12 mb-3 ">
-                            <label for="price_Want" class="form-label me-2 fw-bold">Rent Per Day</label>
+                            <label for="price_Want" class="form-label me-2 fw-bold">Rent</label>
                             <div class="row">
                                 <div class="col-4 pe-0">
                                     <div class="input-group">
@@ -331,8 +314,8 @@
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-12 col-12 mb-3 ">
-                            <label for="area_Want" class="form-label me-2 fw-bold">Land Area</label>
-                            <input name="land_area" value="{{$list->land_area}}" type="number" class="form-control" id="area_Want" placeholder="Enter Land Area">
+                            <label for="area_Want" class="form-label me-2 fw-bold">Picnic Spot Area</label>
+                            <input name="land_area" value="{{$list->land_area}}" type="text" class="form-control" id="area_Want" placeholder="Enter Picnic Spot Area">
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-12 col-12 mb-3 ">
                             <label for="address_Want" class="form-label me-2 fw-bold">Address</label>
@@ -409,13 +392,8 @@
                             </div>
 
                         </div>
-                        <div class="my-3">
-                            <label for="video_Rent" class="form-label me-2 fw-bold"> Youtube Link</label>
-                            <input type="text" class="form-control" name="video" value="{{$list->video}}" id="video_Rent" placeholder="  Youtube Link">
-                        </div>
                         <div class="text-center">
                             <button class="btn btn-primary  w-25 mx-auto" type="submit">Update Want Post</button>
-
                         </div>
                 </form>
                 @endif
