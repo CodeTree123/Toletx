@@ -266,6 +266,7 @@ class PostController extends Controller
     //room post
     function post_room_rented(Request $request)
     {
+        
         $filename = '';
         $filename1 = '';
         $filename2 = '';

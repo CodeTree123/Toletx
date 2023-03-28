@@ -6,24 +6,6 @@
         <div class="min-height-200px">
             <!-- Default Basic Forms Start -->
             <div class="pd-20 card-box mb-30">
-                @if ($message = Session::get('success'))
-                <div class="alert alert-success alert-block" id="hello">
-                    <button type="button" class="close" data-dismiss="alert">×</button>
-                    <strong>{{ $message }}</strong>
-                </div>
-                @endif
-
-                @if (count($errors) > 0)
-                <div class="alert alert-danger">
-                    <strong>Whoops!</strong> There were some problems with your input.
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-                @endif
-
                 @if($list->post_type == 'Rent')
                 <form method="POST" action="{{ route('building_update',$list->id) }}" enctype="multipart/form-data">
                     @csrf
@@ -39,15 +21,60 @@
                         <div class=" col-lg-4 col-md-4 col-sm-12 col-12 mb-3">
                             <label for="phone_rented" class="form-label me-2 fw-bold">Mobile</label>
                             <input name="phone" value="{{$list->phone}}" type="tel" class="form-control" id="phone_ value=" {{$list->phone}}"rented">
-                        </div> 
-                        <div class="col-lg-4 col-md-4 col-sm-12 col-12 mb-3 ">
-                            <label for="price_rented" class="form-label me-2 fw-bold">Rent Per Month</label>
-                            <input name="price" value="{{$list->price}}" type="number" class="form-control" id="price_rented" placeholder="Enter Price">
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-12 col-12 mb-3 ">
-                            <label for="s_charge_rented" class="form-label me-2 fw-bold">Service Charge</label>
-                            <input name="s_charge" value="{{$list->s_charge}}" type="number" class="form-control" id="s_charge_rented" placeholder="Enter Service Charge">
-                        </div>  
+                            <!-- <label for="price_rented" class="form-label me-2 fw-bold">Rent Per Month</label> -->
+                            <label for="price_rented" class="form-label me-2 fw-bold">Rent</label>
+                            <div class="row">
+                                <div class="col-4 pe-0">
+                                    <div class="input-group mb-3">
+                                        <input name="price" value="{{$list->price}}" type="number" class="form-control" id="price_rented" placeholder="Enter Price">
+                                    </div>
+                                </div>
+                                <div class="col-1">
+                                    <span class="text-light fs-3">/</span>
+                                </div>
+                                <div class="col-7 ps-0">
+                                    <div class="input-group mb-3">
+                                        <select class="form-select form-select-md mb-3" aria-label=".form-select-lg example" name="per_price">
+                                            <option selected hidden>Choose Rent Type</option>
+                                            <option value="hour"  {{$list->per_price == "hour" ? 'selected':''}}>Hour</option>
+                                            <option value="day" {{$list->per_price == "day" ? 'selected':''}}> Day</option>
+                                            <option value="night" {{$list->per_price == "night" ? 'selected':''}}> Only Night</option>
+                                            <option value="week" {{$list->per_price == "week" ? 'selected':''}}> Week</option>
+                                            <option value="month" {{$list->per_price == "month" ? 'selected':''}}> Month</option>
+                                            <option value="year" {{$list->per_price == "year" ? 'selected':''}}> Year</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-4 col-md-4 col-sm-12 col-12 mb-3 ">
+                                <label for="s_charge_rented" class="form-label me-2 fw-bold">Service Charge</label>
+                                <div class="row">
+                                    <div class="col-4 pe-0">
+                                        <div class="input-group mb-3">
+                                    <input name="s_charge" value="{{$list->s_charge}}" type="number" class="form-control" id="s_charge_rented" placeholder="Enter Service Charge">
+                                </div>
+                            </div>
+                            <div class="col-1">
+                                <span class="text-light fs-3">/</span>
+                            </div>
+                            <div class="col-7 ps-0">
+                                <div class="input-group mb-3">
+                                    <select class="form-select form-select-md mb-3" aria-label=".form-select-lg example" name="s_per_price">
+                                        <option selected hidden>Choose Service Type</option>
+                                        <option value="hour" {{$list->s_per_price == "hour" ? 'selected':''}}>Hour</option>
+                                        <option value="day" {{$list->s_per_price == "day" ? 'selected':''}}> Day</option>
+                                        <option value="night" {{$list->s_per_price == "night" ? 'selected':''}}> Only Night</option>
+                                        <option value="week" {{$list->s_per_price == "week" ? 'selected':''}}> Week</option>
+                                        <option value="month" {{$list->s_per_price == "month" ? 'selected':''}}> Month</option>
+                                        <option value="year" {{$list->s_per_price == "year" ? 'selected':''}}> Year</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
+                        </div>
                         <div class="col-lg-4 col-md-4 col-sm-12 col-12 mb-3 ">
                             <label for="building_size_rented" class="form-label me-2 fw-bold">Land Area</label>
                             <input name="building_size" value="{{$list->building_size}}" type="text" class="form-control" id="building_size_rented" placeholder="Enter Land Area">
@@ -55,15 +82,19 @@
                         <div class=" col-lg-4 col-md-4 col-sm-12 col-12 mb-3">
                             <label for="floor_rented" class="form-label me-2 fw-bold">Building Type</label>
                             <select id="floor_rented" class="form-select" name="t_build" required>
-                                <option value="" >Choose...</option>
+                                <option selected hidden>Choose...</option>
                                 <option value="rcc" {{$list->t_build == "rcc" ? 'selected':''}}>R.C.C</option>
                                 <option value="Tin Shed" {{$list->t_build == "Tin Shed" ? 'selected':''}}>Tin Shed</option>
+                                <option value="Steal Shed" {{$list->t_build == "Steal Shed" ? 'selected':''}}>Steal Shed</option>
+                                <option value="Brick Building" {{$list->t_build == "Brick Building" ? 'selected':''}}>Brick Building</option>
+                                <option value="Bamboo Shed" {{$list->t_build == "Bamboo Shed" ? 'selected':''}}>Bamboo Shed</option>
+                                <option value="Mud Building" {{$list->t_build == "Mud Building" ? 'selected':''}}>Mud Building</option>
                             </select>
                         </div>
                         <div class=" col-lg-4 col-md-4 col-sm-12 col-12 mb-3">
                             <label for="floor_rented" class="form-label me-2 fw-bold">No. of Floor</label>
                             <select id="floor_rented" class="form-select" name="floor" required>
-                                <option value="" >Choose...</option>
+                                <option value="">Choose...</option>
                                 <option value="1" {{$list->floor == "1" ? 'selected':''}}>1</option>
                                 <option value="2" {{$list->floor == "2" ? 'selected':''}}>2</option>
                                 <option value="3" {{$list->floor == "3" ? 'selected':''}}>3</option>
@@ -153,7 +184,7 @@
                             <h2 class="fw-bold mb-3">Gallery Section</h2>
                             <div class="row">
                                 <div class="col">
-                                    
+
                                     @if($list->photo == '')
                                     <img src="{{asset('/Frontend/assets/img/th.webp')}}" alt="" srcset="" class="update_section_image img-fluid">
                                     <div class=" input-group mt-2 update_section_file_input">
@@ -174,7 +205,7 @@
                             </div>
                             <div class="row">
                                 <div class="col-lg-4 col-md-4 col-sm-12 col-12">
-                                @if($list->photo1 == '')
+                                    @if($list->photo1 == '')
                                     <div class="d-flex justify-content-between align-items-center">
                                         <img src="{{asset('/Frontend/assets/img/th.webp')}}" alt="" srcset="" class="update_section_image img-fluid">
                                         <div class=" input-group mt-2 update_section_file_input">
@@ -193,7 +224,7 @@
                                     <label for="photo1_Rent" class="d-block "> Photo 2</label>
                                 </div>
                                 <div class="col-lg-4 col-md-4 col-sm-12 col-12">
-                                @if($list->photo2 == '')
+                                    @if($list->photo2 == '')
                                     <img src="{{asset('/Frontend/assets/img/th.webp')}}" alt="" srcset="" class="update_section_image img-fluid">
                                     <div class=" input-group mt-2 update_section_file_input">
                                         <input type="file" class="form-control update_section_file_input" name="photo2" id="photo_Rent" placeholder="asd" onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])">
@@ -208,10 +239,10 @@
                                     </div>
                                     @endif
                                     <label for="photo2_Rent" class="d-block"> Photo 3</label>
-                                    
+
                                 </div>
                                 <div class="col-lg-4 col-md-4 col-sm-12 col-12">
-                                @if($list->photo3 == '')
+                                    @if($list->photo3 == '')
                                     <img src="{{asset('/Frontend/assets/img/th.webp')}}" alt="" srcset="" class="update_section_image img-fluid">
                                     <div class=" input-group mt-2 update_section_file_input">
                                         <input type="file" class="form-control update_section_file_input" name="photo3" id="photo_Rent" placeholder="asd" onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])">
@@ -228,7 +259,7 @@
                                     <label for="photo2_Rent" class="d-block"> Photo 4</label>
                                 </div>
                                 <div class="col-lg-4 col-md-4 col-sm-12 col-12">
-                                @if($list->photo4 == '')
+                                    @if($list->photo4 == '')
                                     <img src="{{asset('/Frontend/assets/img/th.webp')}}" alt="" srcset="" class="update_section_image img-fluid">
                                     <div class=" input-group mt-2 update_section_file_input">
                                         <input type="file" class="form-control update_section_file_input" name="photo4" id="photo_Rent" placeholder="asd" onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])">
@@ -245,7 +276,7 @@
                                     <label for="photo2_Rent" class="d-block"> Photo 5</label>
                                 </div>
                                 <div class="col-lg-4 col-md-4 col-sm-12 col-12">
-                                @if($list->photo5 == '')
+                                    @if($list->photo5 == '')
                                     <img src="{{asset('/Frontend/assets/img/th.webp')}}" alt="" srcset="" class="update_section_image img-fluid">
                                     <div class=" input-group mt-2 update_section_file_input">
                                         <input type="file" class="form-control update_section_file_input" name="photo5" id="photo_Rent" placeholder="asd" onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])">
@@ -262,7 +293,7 @@
                                     <label for="photo2_Rent" class="d-block"> Photo 6</label>
                                 </div>
                                 <div class="col-lg-4 col-md-4 col-sm-12 col-12">
-                                @if($list->photo6 == '')
+                                    @if($list->photo6 == '')
                                     <img src="{{asset('/Frontend/assets/img/th.webp')}}" alt="" srcset="" class="update_section_image img-fluid">
                                     <div class=" input-group mt-2 update_section_file_input">
                                         <input type="file" class="form-control update_section_file_input" name="photo6" id="photo_Rent" placeholder="asd" onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])">
@@ -280,8 +311,8 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="text-center"> 
-                        <button class="btn btn-primary  my-2" type="submit">Update Rent Post</button>
+                        <div class="text-center">
+                            <button class="btn btn-primary  my-2" type="submit">Update Rent Post</button>
                         </div>
                     </div>
                 </form>
@@ -299,16 +330,60 @@
                         </div>
                         <div class=" col-lg-4 col-md-4 col-sm-12 col-12 mb-3">
                             <label for="phone_rented" class="form-label me-2 fw-bold">Mobile</label>
-                            <input name="phone" value="{{$list->phone}}" type="tel" class="form-control" id="phone_ value=" {{$list->phone}}"rented">
+                            <input name="phone" value="{{$list->phone}}" type="tel" class="form-control" id="phone_rented" >
                         </div>
 
                         <div class="col-lg-4 col-md-4 col-sm-12 col-12 mb-3 ">
-                            <label for="price_rented" class="form-label me-2 fw-bold">Rent Per Month</label>
-                            <input name="price" value="{{$list->price}}" type="number" class="form-control" id="price_rented" placeholder="Enter Price">
+                            <label for="price_rented" class="form-label me-2 fw-bold">Rent</label>
+                                <div class="row">
+                                    <div class="col-4 pe-0">
+                                        <div class="input-group mb-3">
+                                            <input name="price" value="{{$list->price}}" type="number" class="form-control" id="price_rented" placeholder="Enter Price">
+                                        </div>
+                                    </div>
+                                    <div class="col-1">
+                                        <span class="text-light fs-3">/</span>
+                                    </div>
+                                    <div class="col-7 ps-0">
+                                        <div class="input-group mb-3">
+                                            <select class="form-select form-select-md mb-3" aria-label=".form-select-lg example" name="per_price">
+                                                <option selected hidden>Choose Rent Type</option>
+                                                <option value="hour"  {{$list->per_price == "hour" ? 'selected':''}}>Hour</option>
+                                                <option value="day" {{$list->per_price == "day" ? 'selected':''}}> Day</option>
+                                                <option value="night" {{$list->per_price == "night" ? 'selected':''}}> Only Night</option>
+                                                <option value="week" {{$list->per_price == "week" ? 'selected':''}}> Week</option>
+                                                <option value="month" {{$list->per_price == "month" ? 'selected':''}}> Month</option>
+                                                <option value="year" {{$list->per_price == "year" ? 'selected':''}}> Year</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-12 col-12 mb-3 ">
-                            <label for="s_charge_rented" class="form-label me-2 fw-bold">Service Charge</label>
-                            <input name="s_charge" value="{{$list->s_charge}}" type="number" class="form-control" id="s_charge_rented" placeholder="Enter Service Charge">
+                        <label for="s_charge_rented" class="form-label me-2 fw-bold">Service Charge</label>
+                                <div class="row">
+                                    <div class="col-4 pe-0">
+                                        <div class="input-group mb-3">
+                                    <input name="s_charge" value="{{$list->s_charge}}" type="number" class="form-control" id="s_charge_rented" placeholder="Enter Service Charge">
+                                </div>
+                            </div>
+                            <div class="col-1">
+                                <span class="text-light fs-3">/</span>
+                            </div>
+                            <div class="col-7 ps-0">
+                                <div class="input-group mb-3">
+                                    <select class="form-select form-select-md mb-3" aria-label=".form-select-lg example" name="s_per_price">
+                                        <option selected hidden>Choose Service Type</option>
+                                        <option value="hour" {{$list->s_per_price == "hour" ? 'selected':''}}>Hour</option>
+                                        <option value="day" {{$list->s_per_price == "day" ? 'selected':''}}> Day</option>
+                                        <option value="night" {{$list->s_per_price == "night" ? 'selected':''}}> Only Night</option>
+                                        <option value="week" {{$list->s_per_price == "week" ? 'selected':''}}> Week</option>
+                                        <option value="month" {{$list->s_per_price == "month" ? 'selected':''}}> Month</option>
+                                        <option value="year" {{$list->s_per_price == "year" ? 'selected':''}}> Year</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </div>
                         </div>
 
 
@@ -319,9 +394,13 @@
                         <div class=" col-lg-4 col-md-4 col-sm-12 col-12 mb-3">
                             <label for="floor_rented" class="form-label me-2 fw-bold">Building Type</label>
                             <select id="floor_rented" class="form-select" name="t_build" required>
-                                <option value="" >Choose...</option>
+                                <option selected hidden>Choose...</option>
                                 <option value="rcc" {{$list->t_build == "rcc" ? 'selected':''}}>R.C.C</option>
                                 <option value="Tin Shed" {{$list->t_build == "Tin Shed" ? 'selected':''}}>Tin Shed</option>
+                                <option value="Steal Shed" {{$list->t_build == "Steal Shed" ? 'selected':''}}>Steal Shed</option>
+                                <option value="Brick Building" {{$list->t_build == "Brick Building" ? 'selected':''}}>Brick Building</option>
+                                <option value="Bamboo Shed" {{$list->t_build == "Bamboo Shed" ? 'selected':''}}>Bamboo Shed</option>
+                                <option value="Mud Building" {{$list->t_build == "Mud Building" ? 'selected':''}}>Mud Building</option>
                             </select>
                         </div>
                         <div class=" col-lg-4 col-md-4 col-sm-12 col-12 mb-3">
