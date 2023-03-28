@@ -65,7 +65,7 @@
                                     <tr>
                                         <td>
                                             <a href="{{ url('/room/details') }}/{{ $room->id }}">
-                                                {{Str::limit($room->title,42)}}
+                                                {{Str::limit($room->title,25)}}
                                             </a>
                                         </td>
                                         @if($room->post_type == 'Rent')
@@ -75,7 +75,7 @@
                                         @endif
                                         <td>{{ \Carbon\Carbon::parse($room->created_at)->format('d/m/Y')}}</td>
                                         <td>
-                                            <a href="{{route('user_room_edit',$room->id)}}">
+                                            <a href="{{route('user_room_edit',$room->id)}}" class="me-2">
                                                 <i class="fa-solid fa-pen-to-square"></i>
                                             </a>
                                             <a href="{{route('room_delete',$room->id)}}">
@@ -88,7 +88,7 @@
                                     <tr>
                                         <td>
                                             <a href="{{ url('/bilboard/details') }}/{{ $bilboard->id }}">
-                                                {{Str::limit($bilboard->title,42)}}
+                                                {{Str::limit($bilboard->title,25)}}
                                             </a>
                                         </td>
                                         @if($bilboard->post_type == 'Rent')
@@ -98,7 +98,7 @@
                                         @endif
                                         <td>{{ \Carbon\Carbon::parse($bilboard->created_at)->format('d/m/Y')}}</td>
                                         <td>
-                                            <a href="{{ route('user_bilboard_edit',$bilboard->id)}}">
+                                            <a href="{{ route('user_bilboard_edit',$bilboard->id)}}" class="me-2">
                                                 <i class="fa-solid fa-pen-to-square"></i>
                                             </a>
                                             <a href="{{route('bilboard_delete',$bilboard->id)}}">
@@ -111,7 +111,7 @@
                                     <tr>
                                         <td>
                                             <a href="{{ url('/community/details') }}/{{ $community->id }}">
-                                                {{Str::limit($community->title,42)}}
+                                                {{Str::limit($community->title,25)}}
                                             </a>
                                         </td>
                                         @if($community->post_type == 'Rent')
@@ -122,7 +122,7 @@
                                         <td>{{ \Carbon\Carbon::parse($community->created_at)->format('d/m/Y')}}</td>
                                         <td>
 
-                                            <a href="{{ route('user_community_edit',$community->id)}}">
+                                            <a href="{{ route('user_community_edit',$community->id)}}" class="me-2">
                                                 <i class="fa-solid fa-pen-to-square"></i>
                                             </a>
                                             <a href="{{route('community_delete',$community->id)}}">
@@ -135,7 +135,7 @@
                                     <tr>
                                         <td>
                                             <a href="{{ url('/picnic/details') }}/{{ $picnic->id }}">
-                                                {{Str::limit($picnic->title,42)}}
+                                                {{Str::limit($picnic->title,25)}}
                                             </a>
                                         </td>
                                         @if($picnic->post_type == 'Rent')
@@ -145,7 +145,7 @@
                                         @endif
                                         <td>{{ \Carbon\Carbon::parse($picnic->created_at)->format('d/m/Y')}}</td>
                                         <td>
-                                            <a href="{{ route('user_picnic_edit',$picnic->id)  }}">
+                                            <a href="{{ route('user_picnic_edit',$picnic->id)  }}" class="me-2">
                                                 <i class="fa-solid fa-pen-to-square"></i>
                                             </a>
                                             <a href="{{route('picnic_delete',$picnic->id)}}">
@@ -158,7 +158,7 @@
                                     <tr>
                                         <td>
                                             <a href="{{ url('/ghat/details') }}/{{ $ghat->id }}">
-                                                {{Str::limit($ghat->title,42)}}
+                                                {{Str::limit($ghat->title,25)}}
                                             </a>
                                         </td>
                                         @if($ghat->post_type == 'Rent')
@@ -168,7 +168,7 @@
                                         @endif
                                         <td>{{ \Carbon\Carbon::parse($ghat->created_at)->format('d/m/Y')}}</td>
                                         <td>
-                                            <a href="{{ route('user_ghat_edit',$ghat->id)  }}">
+                                            <a href="{{ route('user_ghat_edit',$ghat->id)  }}" class="me-2">
                                                 <i class="fa-solid fa-pen-to-square"></i>
                                             </a>
                                             <a href="{{route('ghat_delete',$ghat->id)}}">
@@ -181,7 +181,7 @@
                                     <tr>
                                         <td>
                                             <a href="{{ url('/swimming/details') }}/{{ $swimming->id }}">
-                                                {{Str::limit($swimming->title,42)}}
+                                                {{Str::limit($swimming->title,25)}}
                                             </a>
                                         </td>
                                         @if($swimming->post_type == 'Rent')
@@ -191,7 +191,7 @@
                                         @endif
                                         <td>{{ \Carbon\Carbon::parse($swimming->created_at)->format('d/m/Y')}}</td>
                                         <td>
-                                            <a href="{{ route('user_swimming_edit',$swimming->id)  }}">
+                                            <a href="{{ route('user_swimming_edit',$swimming->id)  }}" class="me-2">
                                                 <i class="fa-solid fa-pen-to-square"></i>
                                             </a>
                                             <a href="{{route('swimmingpool_delete',$swimming->id)}}">
@@ -204,7 +204,7 @@
                                     <tr>
                                         <td>
                                             <a href="{{ url('/exibution/details') }}/{{ $exibution->id }}">
-                                                {{Str::limit($exibution->title,42)}}
+                                                {{Str::limit($exibution->title,25)}}
                                             </a>
                                         </td>
                                         @if($exibution->post_type == 'Rent')
@@ -214,7 +214,7 @@
                                         @endif
                                         <td>{{ \Carbon\Carbon::parse($exibution->created_at)->format('d/m/Y')}}</td>
                                         <td>
-                                            <a href="{{ route('user_exhibution_edit',$exibution->id)  }}">
+                                            <a href="{{ route('user_exhibution_edit',$exibution->id)  }}" class="me-2">
                                                 <i class="fa-solid fa-pen-to-square"></i>
                                             </a>
                                             <a href="{{route('exibution_center_delete',$exibution->id)}}">
@@ -227,7 +227,7 @@
                                     <tr>
                                         <td>
                                             <a href="{{ url('/factory/details') }}/{{ $factory->id }}">
-                                                {{Str::limit($factory->title,42)}}
+                                                {{Str::limit($factory->title,25)}}
                                             </a>
                                         </td>
                                         @if($factory->post_type == 'Rent')
@@ -237,7 +237,7 @@
                                         @endif
                                         <td>{{ \Carbon\Carbon::parse($factory->created_at)->format('d/m/Y')}}</td>
                                         <td>
-                                            <a href="{{ route('user_factory_edit',$factory->id)  }}">
+                                            <a href="{{ route('user_factory_edit',$factory->id)  }}" class="me-2">
                                                 <i class="fa-solid fa-pen-to-square"></i>
                                             </a>
                                             <a href="{{route('factory_delete',$factory->id)}}">
@@ -250,7 +250,7 @@
                                     <tr>
                                         <td>
                                             <a href="{{ url('/flat/details') }}/{{ $flat->id }}">
-                                                {{Str::limit($flat->title,42)}}
+                                                {{Str::limit($flat->title,25)}}
                                             </a>
                                         </td>
                                         @if($flat->post_type == 'Rent')
@@ -260,7 +260,7 @@
                                         @endif
                                         <td>{{ \Carbon\Carbon::parse($flat->created_at)->format('d/m/Y')}}</td>
                                         <td>
-                                            <a href="{{ route('user_flat_edit',$flat->id)  }}">
+                                            <a href="{{ route('user_flat_edit',$flat->id)  }}" class="me-2">
                                                 <i class="fa-solid fa-pen-to-square"></i>
                                             </a>
                                             <a href="{{route('flat_delete',$flat->id)}}">
@@ -273,7 +273,7 @@
                                     <tr>
                                         <td>
                                             <a href="{{ url('/hostel/details') }}/{{ $hostel->id }}">
-                                                {{Str::limit($hostel->hostel_name,42)}}
+                                                {{Str::limit($hostel->hostel_name,25)}}
                                             </a>
                                         </td>
                                         @if($hostel->post_type == 'Rent')
@@ -283,7 +283,7 @@
                                         @endif
                                         <td>{{ \Carbon\Carbon::parse($hostel->created_at)->format('d/m/Y')}}</td>
                                         <td>
-                                            <a href="{{ route('user_hostel_edit',$hostel->id)  }}">
+                                            <a href="{{ route('user_hostel_edit',$hostel->id)  }}" class="me-2">
                                                 <i class="fa-solid fa-pen-to-square"></i>
                                             </a>
                                             <a href="{{route('hostel_delete',$hostel->id)}}">
@@ -296,7 +296,7 @@
                                     <tr>
                                         <td>
                                             <a href="{{ url('/hotel/details') }}/{{ $hotel->id }}">
-                                                {{Str::limit($hotel->hotel_name,42)}}
+                                                {{Str::limit($hotel->hotel_name,25)}}
                                             </a>
                                         </td>
                                         @if($hotel->post_type == 'Rent')
@@ -306,7 +306,7 @@
                                         @endif
                                         <td>{{ \Carbon\Carbon::parse($hotel->created_at)->format('d/m/Y')}}</td>
                                         <td>
-                                            <a href="{{ route('user_hotel_edit',$hotel->id)  }}">
+                                            <a href="{{ route('user_hotel_edit',$hotel->id)  }}" class="me-2">
                                                 <i class="fa-solid fa-pen-to-square"></i>
                                             </a>
                                             <a href="{{route('hotel_delete',$hotel->id)}}">
@@ -319,7 +319,7 @@
                                     <tr>
                                         <td>
                                             <a href="{{ url('/office/details') }}/{{ $office->id }}">
-                                                {{Str::limit($office->title,42)}}
+                                                {{Str::limit($office->title,25)}}
                                             </a>
                                         </td>
                                         @if($office->post_type == 'Rent')
@@ -329,7 +329,7 @@
                                         @endif
                                         <td>{{ \Carbon\Carbon::parse($office->created_at)->format('d/m/Y')}}</td>
                                         <td>
-                                            <a href="{{ route('user_office_edit',$office->id)  }}">
+                                            <a href="{{ route('user_office_edit',$office->id)  }}" class="me-2">
                                                 <i class="fa-solid fa-pen-to-square"></i>
                                             </a>
                                             <a href="{{route('office_delete',$office->id)}}">
@@ -342,7 +342,7 @@
                                     <tr>
                                         <td>
                                             <a href="{{ url('/playground/details') }}/{{ $playground->id }}">
-                                                {{Str::limit($playground->title,42)}}
+                                                {{Str::limit($playground->title,25)}}
                                             </a>
                                         </td>
                                         @if($playground->post_type == 'Rent')
@@ -352,7 +352,7 @@
                                         @endif
                                         <td>{{ \Carbon\Carbon::parse($playground->created_at)->format('d/m/Y')}}</td>
                                         <td>
-                                            <a href="{{ route('user_playground_edit',$playground->id)  }}">
+                                            <a href="{{ route('user_playground_edit',$playground->id)  }}" class="me-2">
                                                 <i class="fa-solid fa-pen-to-square"></i>
                                             </a>
                                             <a href="{{route('playground_delete',$playground->id)}}">
@@ -365,7 +365,7 @@
                                     <tr>
                                         <td>
                                             <a href="{{ url('/pond/details') }}/{{ $pond->id }}">
-                                                {{Str::limit($pond->title,42)}}
+                                                {{Str::limit($pond->title,25)}}
                                             </a>
                                         </td>
                                         @if($pond->post_type == 'Rent')
@@ -375,7 +375,7 @@
                                         @endif
                                         <td>{{ \Carbon\Carbon::parse($pond->created_at)->format('d/m/Y')}}</td>
                                         <td>
-                                            <a href="{{ route('user_pond_edit',$pond->id)  }}">
+                                            <a href="{{ route('user_pond_edit',$pond->id)  }}" class="me-2">
                                                 <i class="fa-solid fa-pen-to-square"></i>
                                             </a>
                                             <a href="{{route('pond_delete',$pond->id)}}">
@@ -398,7 +398,7 @@
                                         @endif
                                         <td>{{ \Carbon\Carbon::parse($retaurant->created_at)->format('d/m/Y')}}</td>
                                         <td>
-                                            <a href="{{ route('user_resort_edit',$retaurant->id)}}">
+                                            <a href="{{ route('user_resort_edit',$retaurant->id)}}" class="me-2">
                                                 <i class="fa-solid fa-pen-to-square"></i>
                                             </a>
                                             <a href="{{route('restuarant_delete',$retaurant->id)}}">
@@ -411,7 +411,7 @@
                                     <tr>
                                         <td>
                                             <a href="{{ url('/rooftop/details') }}/{{ $rooftop->id }}">
-                                                {{Str::limit($rooftop->title,42)}}
+                                                {{Str::limit($rooftop->title,25)}}
                                             </a>
                                         </td>
                                         @if($rooftop->post_type == 'Rent')
@@ -421,7 +421,7 @@
                                         @endif
                                         <td>{{ \Carbon\Carbon::parse($rooftop->created_at)->format('d/m/Y')}}</td>
                                         <td>
-                                            <a href="{{ route('user_rooftop_edit',$rooftop->id)  }}">
+                                            <a href="{{ route('user_rooftop_edit',$rooftop->id)  }}" class="me-2">
                                                 <i class="fa-solid fa-pen-to-square"></i>
                                             </a>
                                             <a href="{{route('rooftop_delete',$rooftop->id)}}">
@@ -434,7 +434,7 @@
                                     <tr>
                                         <td>
                                             <a href="{{ url('/shooting/details') }}/{{ $shooting->id }}">
-                                                {{Str::limit($shooting->title,42)}}
+                                                {{Str::limit($shooting->title,25)}}
                                             </a>
                                         </td>
                                         @if($shooting->post_type == 'Rent')
@@ -444,7 +444,7 @@
                                         @endif
                                         <td>{{ \Carbon\Carbon::parse($shooting->created_at)->format('d/m/Y')}}</td>
                                         <td>
-                                            <a href="{{ route('user_shooting_edit',$shooting->id)  }}">
+                                            <a href="{{ route('user_shooting_edit',$shooting->id)  }}" class="me-2">
                                                 <i class="fa-solid fa-pen-to-square"></i>
                                             </a>
                                             <a href="{{route('shooting_delete',$shooting->id)}}">
@@ -457,7 +457,7 @@
                                     <tr>
                                         <td>
                                             <a href="{{ url('/shop/details') }}/{{ $shop->id }}">
-                                                {{Str::limit($shop->title,42)}}
+                                                {{Str::limit($shop->title,25)}}
                                             </a>
                                         </td>
                                         @if($shop->post_type == 'Rent')
@@ -467,7 +467,7 @@
                                         @endif
                                         <td>{{ \Carbon\Carbon::parse($shop->created_at)->format('d/m/Y')}}</td>
                                         <td>
-                                            <a href="{{ route('user_shop_edit',$shop->id)  }}">
+                                            <a href="{{ route('user_shop_edit',$shop->id)  }}" class="me-2">
                                                 <i class="fa-solid fa-pen-to-square"></i>
                                             </a>
                                             <a href="{{route('shop_delete',$shop->id)}}">
@@ -480,7 +480,7 @@
                                     <tr>
                                         <td>
                                             <a href="{{ url('/land/details') }}/{{ $land->id }}">
-                                                {{Str::limit($land->title,42)}}
+                                                {{Str::limit($land->title,25)}}
                                             </a>
                                         </td>
                                         @if($land->post_type == 'Rent')
@@ -490,7 +490,7 @@
                                         @endif
                                         <td>{{ \Carbon\Carbon::parse($land->created_at)->format('d/m/Y')}}</td>
                                         <td>
-                                            <a href="{{ route('user_land_edit',$land->id)  }}">
+                                            <a href="{{ route('user_land_edit',$land->id)  }}" class="me-2">
                                                 <i class="fa-solid fa-pen-to-square"></i>
                                             </a>
                                             <a href="{{route('land_delete',$land->id)}}">
@@ -503,7 +503,7 @@
                                     <tr>
                                         <td>
                                             <a href="{{ url('/warehouse/details') }}/{{ $warehouse->id }}">
-                                                {{Str::limit($warehouse->title,42)}}
+                                                {{Str::limit($warehouse->title,25)}}
                                             </a>
                                         </td>
                                         @if($warehouse->post_type == 'Rent')
@@ -513,7 +513,7 @@
                                         @endif
                                         <td>{{ \Carbon\Carbon::parse($warehouse->created_at)->format('d/m/Y')}}</td>
                                         <td>
-                                            <a href="{{ route('user_warehouse_edit',$warehouse->id)  }}">
+                                            <a href="{{ route('user_warehouse_edit',$warehouse->id)  }}" class="me-2">
                                                 <i class="fa-solid fa-pen-to-square"></i>
                                             </a>
                                             <a href="{{route('warehouse_delete',$warehouse->id)}}">
@@ -526,7 +526,7 @@
                                     <tr>
                                         <td>
                                             <a href="{{ url('/parking/details') }}/{{ $parking->id }}">
-                                                {{Str::limit($parking->title,42)}}
+                                                {{Str::limit($parking->title,25)}}
                                             </a>
                                         </td>
                                         @if($parking->post_type == 'Rent')
@@ -536,7 +536,7 @@
                                         @endif
                                         <td>{{ \Carbon\Carbon::parse($parking->created_at)->format('d/m/Y')}}</td>
                                         <td>
-                                            <a href="{{ route('user_parking_edit',$parking->id)  }}">
+                                            <a href="{{ route('user_parking_edit',$parking->id)  }}" class="me-2">
                                                 <i class="fa-solid fa-pen-to-square"></i>
                                             </a>
                                             <a href="{{route('parking_spot_delete',$parking->id)}}">
@@ -549,7 +549,7 @@
                                     <tr>
                                         <td>
                                             <a href="{{ url('/building/details') }}/{{ $building->id }}">
-                                                {{Str::limit($building->building_name,42)}}
+                                                {{Str::limit($building->building_name,25)}}
                                             </a>
                                         </td>
                                         @if($building->post_type == 'Rent')
@@ -559,7 +559,7 @@
                                         @endif
                                         <td>{{ \Carbon\Carbon::parse($building->created_at)->format('d/m/Y')}}</td>
                                         <td>
-                                            <a href="{{ route('user_building_edit',$building->id)  }}">
+                                            <a href="{{ route('user_building_edit',$building->id)  }}" class="me-2">
                                                 <i class="fa-solid fa-pen-to-square"></i>
                                             </a>
                                             <a href="{{route('building_delete',$building->id)}}">

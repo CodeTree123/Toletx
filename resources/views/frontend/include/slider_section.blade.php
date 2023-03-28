@@ -62,7 +62,7 @@ $warehouses = Warehouse::all(); ?>
                     <img src="{{asset('public/uploads/rooms')}}/{{$list->photo}}" class="card-img-top" alt="..." />
 
                     <div class="card-body main-slider-body main-slider-body text-center px-1">
-                        <p class="card-text main-slider">{{Str::limit($list->title,42)}}</p>
+                        <p class="card-text main-slider">{{Str::limit($list->title,25)}}</p>
                         <h5 class="card-title main-slider text-capitalize">Room Rent : {{$list->price}} Tk</h5>
                         <p class=" main-slider">
                             <span>Available From : {{ Carbon\Carbon::parse($list->date)->format('d/m/Y') }}</span>
@@ -78,7 +78,7 @@ $warehouses = Warehouse::all(); ?>
                 <div class="card shadow mb-2 ms-2 me-2 slick-slider-card" style="width: 10rem">
                     <img src="{{asset('public/uploads/bilboards/')}}/{{$list->photo}}" class="card-img-top" alt="..." />
                     <div class="card-body main-slider-body main-slider-body text-center px-1">
-                        <p class="card-text main-slider">{{Str::limit($list->title,42)}}</p>
+                        <p class="card-text main-slider">{{Str::limit($list->title,25)}}</p>
                         <h5 class="card-title main-slider text-capitalize">Billboard Rent : {{$list->price}} Tk</h5>
                         <p class=" main-slider">
                             <span>Available From : {{ Carbon\Carbon::parse($list->date)->format('d/m/Y') }}</span>
@@ -94,7 +94,7 @@ $warehouses = Warehouse::all(); ?>
                 <div class="card shadow mb-2 ms-2 me-2 slick-slider-card" style="width: 10rem">
                     <img src="{{asset('public/uploads/garages')}}/{{$list->photo}}" class="card-img-top" alt="..." />
                     <div class="card-body main-slider-body main-slider-body text-center px-1">
-                        <p class="card-text main-slider">{{Str::limit($list->title,42)}}</p>
+                        <p class="card-text main-slider">{{Str::limit($list->title,25)}}</p>
                         <h5 class="card-title main-slider text-capitalize">Parking Rent : {{$list->price}} Tk</h5>
                         <p class=" main-slider">
                             <span>Available From : {{ Carbon\Carbon::parse($list->date)->format('d/m/Y') }}</span>
@@ -110,7 +110,7 @@ $warehouses = Warehouse::all(); ?>
                 <div class="card shadow mb-2 ms-2 me-2 slick-slider-card" style="width: 10rem">
                     <img src="{{asset('public/uploads/communities')}}/{{$list->photo}}" class="card-img-top" alt="..." />
                     <div class="card-body main-slider-body main-slider-body text-center px-1">
-                        <p class="card-text main-slider">{{Str::limit($list->title,42)}}</p>
+                        <p class="card-text main-slider">{{Str::limit($list->title,25)}}</p>
                         <h5 class="card-title main-slider text-capitalize">Community Rent : {{$list->price}} Tk</h5>
                         <p class=" main-slider">
                             <span>Available From : {{ Carbon\Carbon::parse($list->date)->format('d/m/Y') }}</span>
@@ -126,7 +126,7 @@ $warehouses = Warehouse::all(); ?>
                 <div class="card shadow mb-2 ms-2 me-2 slick-slider-card" style="width: 10rem">
                     <img src="{{asset('public/uploads/exhibutions')}}/{{$list->photo}}" class="card-img-top" alt="..." />
                     <div class="card-body main-slider-body main-slider-body text-center px-1">
-                        <p class="card-text main-slider">{{Str::limit($list->title,42)}}</p>
+                        <p class="card-text main-slider">{{Str::limit($list->title,25)}}</p>
                         <h5 class="card-title main-slider text-capitalize">Exhibition Rent : {{$list->price}} Tk</h5>
                         <p class=" main-slider">
                             <span>Available From : {{ Carbon\Carbon::parse($list->date)->format('d/m/Y') }}</span>
@@ -143,7 +143,7 @@ $warehouses = Warehouse::all(); ?>
                 <div class="card shadow mb-2 ms-2 me-2 slick-slider-card" style="width: 10rem">
                     <img src="{{asset('public/uploads/factories')}}/{{$list->photo}}" class="card-img-top" alt="..." />
                     <div class="card-body main-slider-body main-slider-body text-center px-1">
-                        <p class="card-text main-slider">{{Str::limit($list->title,42)}}</p>
+                        <p class="card-text main-slider">{{Str::limit($list->title,25)}}</p>
                         <h5 class="card-title main-slider text-capitalize">Factory Rent : {{$list->price}} Tk</h5>
                         <p class=" main-slider">
                             <span>Available From : {{ Carbon\Carbon::parse($list->date)->format('d/m/Y') }}</span>
@@ -159,7 +159,7 @@ $warehouses = Warehouse::all(); ?>
                 <div class="card shadow mb-2 ms-2 me-2 slick-slider-card" style="width: 10rem">
                     <img src="{{asset('public/uploads/flats')}}/{{$list->photo}}" class="card-img-top" alt="..." />
                     <div class="card-body main-slider-body main-slider-body text-center px-1">
-                        <p class="card-text main-slider">{{Str::limit($list->title,42)}}</p>
+                        <p class="card-text main-slider">{{Str::limit($list->title,25)}}</p>
                         <h5 class="card-title main-slider text-capitalize">Flat Rent : {{$list->price}} Tk</h5>
                         <p class=" main-slider">
                             <span>Available From : {{ Carbon\Carbon::parse($list->date)->format('d/m/Y') }}</span>
@@ -175,7 +175,7 @@ $warehouses = Warehouse::all(); ?>
                 <div class="card shadow mb-2 ms-2 me-2 slick-slider-card" style="width: 10rem">
                     <img src="{{asset('public/uploads/ghats')}}/{{$list->photo}}" class="card-img-top" alt="..." />
                     <div class="card-body main-slider-body main-slider-body text-center px-1">
-                        <p class="card-text main-slider">{{Str::limit($list->title,42)}}</p>
+                        <p class="card-text main-slider">{{Str::limit($list->title,25)}}</p>
                         <h5 class="card-title main-slider text-capitalize">Ghat Rent : {{$list->price}} Tk</h5>
                         <p class=" main-slider">
                             <span>Available From : {{ Carbon\Carbon::parse($list->date)->format('d/m/Y') }}</span>
@@ -191,7 +191,7 @@ $warehouses = Warehouse::all(); ?>
                 <div class="card shadow mb-2 ms-2 me-2 slick-slider-card" style="width: 10rem">
                     <img src="{{asset('public/uploads/hostels')}}/{{$list->photo}}" class="card-img-top" alt="..." />
                     <div class="card-body main-slider-body main-slider-body text-center px-1">
-                        <p class="card-text main-slider">{{Str::limit($list->hostel_name,42)}}</p>
+                        <p class="card-text main-slider">{{Str::limit($list->hostel_name,25)}}</p>
                         <h5 class="card-title main-slider text-capitalize">Hostel Rent : {{$list->price}} Tk</h5>
                         <p class=" main-slider">
                             <span>Available From : {{ Carbon\Carbon::parse($list->date)->format('d/m/Y') }}</span>
@@ -207,7 +207,7 @@ $warehouses = Warehouse::all(); ?>
                 <div class="card shadow mb-2 ms-2 me-2 slick-slider-card" style="width: 10rem">
                     <img src="{{asset('public/uploads/hotels')}}/{{$list->photo}}" class="card-img-top" alt="..." />
                     <div class="card-body main-slider-body main-slider-body text-center px-1">
-                        <p class="card-text main-slider">{{Str::limit($list->hotel_name,42)}}</p>
+                        <p class="card-text main-slider">{{Str::limit($list->hotel_name,25)}}</p>
                         <h5 class="card-title main-slider text-capitalize">Hotel Rent : {{$list->price}} Tk</h5>
                         <p class=" main-slider">
                             <span>Available From : {{ Carbon\Carbon::parse($list->date)->format('d/m/Y') }}</span>
@@ -223,7 +223,7 @@ $warehouses = Warehouse::all(); ?>
                 <div class="card shadow mb-2 ms-2 me-2 slick-slider-card" style="width: 10rem">
                     <img src="{{asset('public/uploads/offices')}}/{{$list->photo}}" class="card-img-top" alt="..." />
                     <div class="card-body main-slider-body main-slider-body text-center px-1">
-                        <p class="card-text main-slider">{{Str::limit($list->title,42)}}</p>
+                        <p class="card-text main-slider">{{Str::limit($list->title,25)}}</p>
                         <h5 class="card-title main-slider text-capitalize">Office Rent : {{$list->price}} Tk</h5>
                         <p class=" main-slider">
                             <span>Available From : {{ Carbon\Carbon::parse($list->date)->format('d/m/Y') }}</span>
@@ -239,7 +239,7 @@ $warehouses = Warehouse::all(); ?>
                 <div class="card shadow mb-2 ms-2 me-2 slick-slider-card" style="width: 10rem">
                     <img src="{{asset('public/uploads/lands')}}/{{$list->photo}}" class="card-img-top" alt="..." />
                     <div class="card-body main-slider-body main-slider-body text-center px-1">
-                        <p class="card-text main-slider">{{Str::limit($list->title,42)}}</p>
+                        <p class="card-text main-slider">{{Str::limit($list->title,25)}}</p>
                         <h5 class="card-title main-slider text-capitalize">Land Rent : {{$list->price}} Tk</h5>
                         <p class=" main-slider">
                             <span>Available From : {{ Carbon\Carbon::parse($list->date)->format('d/m/Y') }}</span>
@@ -255,7 +255,7 @@ $warehouses = Warehouse::all(); ?>
                 <div class="card shadow mb-2 ms-2 me-2 slick-slider-card" style="width: 10rem">
                     <img src="{{asset('public/uploads/playgrounds')}}/{{$list->photo}}" class="card-img-top" alt="..." />
                     <div class="card-body main-slider-body main-slider-body text-center px-1">
-                        <p class="card-text main-slider">{{Str::limit($list->title,42)}}</p>
+                        <p class="card-text main-slider">{{Str::limit($list->title,25)}}</p>
                         <h5 class="card-title main-slider text-capitalize">Camp Site Rent : {{$list->price}} Tk</h5>
                         <p class=" main-slider">
                             <span>Available From : {{ Carbon\Carbon::parse($list->date)->format('d/m/Y') }}</span>
@@ -271,7 +271,7 @@ $warehouses = Warehouse::all(); ?>
                 <div class="card shadow mb-2 ms-2 me-2 slick-slider-card" style="width: 10rem">
                     <img src="{{asset('public/uploads/ponds')}}/{{$list->photo}}" class="card-img-top" alt="..." />
                     <div class="card-body main-slider-body main-slider-body text-center px-1">
-                        <p class="card-text main-slider">{{Str::limit($list->title,42)}}</p>
+                        <p class="card-text main-slider">{{Str::limit($list->title,25)}}</p>
                         <h5 class="card-title main-slider text-capitalize">Pond Rent : {{$list->price}} Tk</h5>
                         <p class=" main-slider">
                             <span>Available From : {{ Carbon\Carbon::parse($list->date)->format('d/m/Y') }}</span>
@@ -287,7 +287,7 @@ $warehouses = Warehouse::all(); ?>
                 <div class="card shadow mb-2 ms-2 me-2 slick-slider-card" style="width: 10rem">
                     <img src="{{asset('public/uploads/resturents/'.$list->photo)}}" class="card-img-top" alt="..." />
                     <div class="card-body main-slider-body main-slider-body text-center px-1">
-                        <p class="card-text main-slider">{{Str::limit($list->resort_name,42)}}</p>
+                        <p class="card-text main-slider">{{Str::limit($list->resort_name,25)}}</p>
                         <h5 class="card-title main-slider text-capitalize">Resort Rent : {{$list->price}} Tk</h5>
                         <p class=" main-slider">
                             <span>Available From : {{ Carbon\Carbon::parse($list->date)->format('d/m/Y') }}</span>
@@ -303,7 +303,7 @@ $warehouses = Warehouse::all(); ?>
                 <div class="card shadow mb-2 ms-2 me-2 slick-slider-card" style="width: 10rem">
                     <img src="{{asset('public/uploads/rooftops')}}/{{$list->photo}}" class="card-img-top" alt="..." />
                     <div class="card-body main-slider-body main-slider-body text-center px-1">
-                        <p class="card-text main-slider">{{Str::limit($list->title,42)}}</p>
+                        <p class="card-text main-slider">{{Str::limit($list->title,25)}}</p>
                         <h5 class="card-title main-slider text-capitalize">Rooftop Rent : {{$list->price}} Tk</h5>
                         <p class=" main-slider">
                             <span>Available From : {{ Carbon\Carbon::parse($list->date)->format('d/m/Y') }}</span>
@@ -319,7 +319,7 @@ $warehouses = Warehouse::all(); ?>
                 <div class="card shadow mb-2 ms-2 me-2 slick-slider-card" style="width: 10rem">
                     <img src="{{asset('public/uploads/shootings')}}/{{$list->photo}}" class="card-img-top" alt="..." />
                     <div class="card-body main-slider-body main-slider-body text-center px-1">
-                        <p class="card-text main-slider">{{Str::limit($list->title,42)}}</p>
+                        <p class="card-text main-slider">{{Str::limit($list->title,25)}}</p>
                         <h5 class="card-title main-slider text-capitalize">Shooting Spot Rent : {{$list->price}} Tk</h5>
                         <p class=" main-slider">
                             <span>Available From : {{ Carbon\Carbon::parse($list->date)->format('d/m/Y') }}</span>
@@ -335,7 +335,7 @@ $warehouses = Warehouse::all(); ?>
                 <div class="card shadow mb-2 ms-2 me-2 slick-slider-card" style="width: 10rem">
                     <img src="{{asset('public/uploads/shops')}}/{{$list->photo}}" class="card-img-top" alt="..." />
                     <div class="card-body main-slider-body main-slider-body text-center px-1">
-                        <p class="card-text main-slider">{{Str::limit($list->title,42)}}</p>
+                        <p class="card-text main-slider">{{Str::limit($list->title,25)}}</p>
                         <h5 class="card-title main-slider text-capitalize">Shop Rent : {{$list->price}} Tk</h5>
                         <p class=" main-slider">
                             <span>Available From : {{ Carbon\Carbon::parse($list->date)->format('d/m/Y') }}</span>
@@ -351,7 +351,7 @@ $warehouses = Warehouse::all(); ?>
                 <div class="card shadow mb-2 ms-2 me-2 slick-slider-card" style="width: 10rem">
                     <img src="{{asset('public/uploads/swimmingpools')}}/{{$list->photo}}" class="card-img-top" alt="..." />
                     <div class="card-body main-slider-body main-slider-body text-center px-1">
-                        <p class="card-text main-slider">{{Str::limit($list->title,42)}}</p>
+                        <p class="card-text main-slider">{{Str::limit($list->title,25)}}</p>
                         <h5 class="card-title main-slider text-capitalize">pool Rent : {{$list->price}} Tk</h5>
                         <p class=" main-slider">
                             <span>Available From : {{ Carbon\Carbon::parse($list->date)->format('d/m/Y') }}</span>
@@ -367,7 +367,7 @@ $warehouses = Warehouse::all(); ?>
                 <div class="card shadow mb-2 ms-2 me-2 slick-slider-card" style="width: 10rem">
                     <img src="{{asset('public/uploads/warehouses')}}/{{$list->photo}}" class="card-img-top" alt="..." />
                     <div class="card-body main-slider-body main-slider-body text-center px-1">
-                        <p class="card-text main-slider">{{Str::limit($list->title,42)}}</p>
+                        <p class="card-text main-slider">{{Str::limit($list->title,25)}}</p>
                         <h5 class="card-title main-slider text-capitalize">Warehouse Rent : {{$list->price}} Tk</h5>
                         <p class=" main-slider">
                             <span>Available From : {{ Carbon\Carbon::parse($list->date)->format('d/m/Y') }}</span>
@@ -383,7 +383,7 @@ $warehouses = Warehouse::all(); ?>
                 <div class="card shadow mb-2 ms-2 me-2 slick-slider-card" style="width: 10rem">
                     <img src="{{asset('public/uploads/picnics')}}/{{$list->photo}}" class="card-img-top" alt="..." />
                     <div class="card-body main-slider-body main-slider-body text-center px-1">
-                        <p class="card-text main-slider">{{Str::limit($list->title,42)}}</p>
+                        <p class="card-text main-slider">{{Str::limit($list->title,25)}}</p>
                         <h5 class="card-title main-slider text-capitalize">Picnic spot Rent : {{$list->price}} Tk</h5>
                         <p class=" main-slider">
                             <span>Available From : {{ Carbon\Carbon::parse($list->date)->format('d/m/Y') }}</span>
@@ -399,7 +399,7 @@ $warehouses = Warehouse::all(); ?>
                 <div class="card shadow mb-2 ms-2 me-2 slick-slider-card" style="width: 10rem">
                     <img src="{{asset('public/uploads/buildings')}}/{{$list->photo}}" class="card-img-top" alt="..." />
                     <div class="card-body main-slider-body main-slider-body text-center px-1">
-                        <p class="card-text main-slider">{{Str::limit($list->building_name,42)}}</p>
+                        <p class="card-text main-slider">{{Str::limit($list->building_name,25)}}</p>
                         <h5 class="card-title main-slider text-capitalize">Building Rent : {{$list->price}} Tk</h5>
                         <p class=" main-slider">
                             <span>Available From : {{ Carbon\Carbon::parse($list->date)->format('d/m/Y') }}</span>
@@ -431,7 +431,7 @@ $warehouses = Warehouse::all(); ?>
                     </a>
                     @endif
                     <div class="card-body main-slider-body main-slider-body text-center px-1">
-                        <p class="card-text main-slider">{{Str::limit($list->title,42)}}</p>
+                        <p class="card-text main-slider">{{Str::limit($list->title,25)}}</p>
                         <h5 class="card-title main-slider text-capitalize">Need Room : {{$list->price}} Tk</h5>
                         <p class=" main-slider">
                             <span>Available From : {{ Carbon\Carbon::parse($list->date)->format('d/m/Y') }}</span>
@@ -457,7 +457,7 @@ $warehouses = Warehouse::all(); ?>
                     </a>
                     @endif
                     <div class="card-body main-slider-body main-slider-body text-center px-1">
-                        <p class="card-text main-slider">{{Str::limit($list->title,42)}}</p>
+                        <p class="card-text main-slider">{{Str::limit($list->title,25)}}</p>
                         <h5 class="card-title main-slider text-capitalize">Need Billboard : {{$list->price}} Tk</h5>
                         <p class=" main-slider">
                             <span>Available From : {{ Carbon\Carbon::parse($list->date)->format('d/m/Y') }}</span>
@@ -483,7 +483,7 @@ $warehouses = Warehouse::all(); ?>
                     </a>
                     @endif
                     <div class="card-body main-slider-body main-slider-body text-center px-1">
-                        <p class="card-text main-slider">{{Str::limit($list->title,42)}}</p>
+                        <p class="card-text main-slider">{{Str::limit($list->title,25)}}</p>
                         <h5 class="card-title main-slider text-capitalize">Need Parking : {{$list->price}} Tk</h5>
                         <p class=" main-slider">
                             <span>Available From : {{ Carbon\Carbon::parse($list->date)->format('d/m/Y') }}</span>
@@ -509,7 +509,7 @@ $warehouses = Warehouse::all(); ?>
                     </a>
                     @endif
                     <div class="card-body main-slider-body main-slider-body text-center px-1">
-                        <p class="card-text main-slider">{{Str::limit($list->title,42)}}</p>
+                        <p class="card-text main-slider">{{Str::limit($list->title,25)}}</p>
                         <h5 class="card-title main-slider text-capitalize">Need Community : {{$list->price}} Tk</h5>
                         <p class=" main-slider">
                             <span>Available From : {{ Carbon\Carbon::parse($list->date)->format('d/m/Y') }}</span>
@@ -535,7 +535,7 @@ $warehouses = Warehouse::all(); ?>
                     </a>
                     @endif
                     <div class="card-body main-slider-body main-slider-body text-center px-1">
-                        <p class="card-text main-slider">{{Str::limit($list->title,42)}}</p>
+                        <p class="card-text main-slider">{{Str::limit($list->title,25)}}</p>
                         <h5 class="card-title main-slider text-capitalize">Need Exhibitio : {{$list->price}} Tk</h5>
                         <p class=" main-slider">
                             <span>Available From : {{ Carbon\Carbon::parse($list->date)->format('d/m/Y') }}</span>
@@ -561,7 +561,7 @@ $warehouses = Warehouse::all(); ?>
                     </a>
                     @endif
                     <div class="card-body main-slider-body main-slider-body text-center px-1">
-                        <p class="card-text main-slider">{{Str::limit($list->title,42)}}</p>
+                        <p class="card-text main-slider">{{Str::limit($list->title,25)}}</p>
                         <h5 class="card-title main-slider text-capitalize">Need Factory : {{$list->price}} Tk</h5>
                         <p class=" main-slider">
                             <span>Available From : {{ Carbon\Carbon::parse($list->date)->format('d/m/Y') }}</span>
@@ -587,7 +587,7 @@ $warehouses = Warehouse::all(); ?>
                     </a>
                     @endif
                     <div class="card-body main-slider-body main-slider-body text-center px-1">
-                        <p class="card-text main-slider">{{Str::limit($list->title,42)}}</p>
+                        <p class="card-text main-slider">{{Str::limit($list->title,25)}}</p>
                         <h5 class="card-title main-slider text-capitalize">Need Flat : {{$list->price}} Tk</h5>
                         <p class=" main-slider">
                             <span>Available From : {{ Carbon\Carbon::parse($list->date)->format('d/m/Y') }}</span>
@@ -613,7 +613,7 @@ $warehouses = Warehouse::all(); ?>
                     </a>
                     @endif
                     <div class="card-body main-slider-body main-slider-body text-center px-1">
-                        <p class="card-text main-slider">{{Str::limit($list->title,42)}}</p>
+                        <p class="card-text main-slider">{{Str::limit($list->title,25)}}</p>
                         <h5 class="card-title main-slider text-capitalize">Need Ghat : {{$list->price}} Tk</h5>
                         <p class=" main-slider">
                             <span>Available From : {{ Carbon\Carbon::parse($list->date)->format('d/m/Y') }}</span>
@@ -639,7 +639,7 @@ $warehouses = Warehouse::all(); ?>
                     </a>
                     @endif
                     <div class="card-body main-slider-body main-slider-body text-center px-1">
-                        <p class="card-text main-slider">{{Str::limit($list->hostel_name,42)}}</p>
+                        <p class="card-text main-slider">{{Str::limit($list->hostel_name,25)}}</p>
                         <h5 class="card-title main-slider text-capitalize">Need Hostel :{{$list->price}} Tk</h5>
                         <p class=" main-slider">
                             <span>Available From : {{ Carbon\Carbon::parse($list->date)->format('d/m/Y') }}</span>
@@ -665,7 +665,7 @@ $warehouses = Warehouse::all(); ?>
                     </a>
                     @endif
                     <div class="card-body main-slider-body main-slider-body text-center px-1">
-                        <p class="card-text main-slider">{{Str::limit($list->hotel_name,42)}}</p>
+                        <p class="card-text main-slider">{{Str::limit($list->hotel_name,25)}}</p>
                         <h5 class="card-title main-slider text-capitalize">Need Hotel : {{$list->price}} Tk</h5>
                         <p class=" main-slider">
                             <span>Available From : {{ Carbon\Carbon::parse($list->date)->format('d/m/Y') }}</span>
@@ -691,7 +691,7 @@ $warehouses = Warehouse::all(); ?>
                     </a>
                     @endif
                     <div class="card-body main-slider-body main-slider-body text-center px-1">
-                        <p class="card-text main-slider">{{Str::limit($list->title,42)}}</p>
+                        <p class="card-text main-slider">{{Str::limit($list->title,25)}}</p>
                         <h5 class="card-title main-slider text-capitalize">Need Office :{{$list->price}} Tk</h5>
                         <p class=" main-slider">
                             <span>Available From : {{ Carbon\Carbon::parse($list->date)->format('d/m/Y') }}</span>
@@ -717,7 +717,7 @@ $warehouses = Warehouse::all(); ?>
                     </a>
                     @endif
                     <div class="card-body main-slider-body main-slider-body text-center px-1">
-                        <p class="card-text main-slider">{{Str::limit($list->title,42)}}</p>
+                        <p class="card-text main-slider">{{Str::limit($list->title,25)}}</p>
                         <h5 class="card-title main-slider text-capitalize">Need Land : {{$list->price}} Tk</h5>
                         <p class=" main-slider">
                             <span>Available From : {{ Carbon\Carbon::parse($list->date)->format('d/m/Y') }}</span>
@@ -743,7 +743,7 @@ $warehouses = Warehouse::all(); ?>
                     </a>
                     @endif
                     <div class="card-body main-slider-body main-slider-body text-center px-1">
-                        <p class="card-text main-slider">{{Str::limit($list->title,42)}}</p>
+                        <p class="card-text main-slider">{{Str::limit($list->title,25)}}</p>
                         <h5 class="card-title main-slider text-capitalize">Need Camp Site : {{$list->price}} Tk</h5>
                         <p class=" main-slider">
                             <span>Available From : {{ Carbon\Carbon::parse($list->date)->format('d/m/Y') }}</span>
@@ -769,7 +769,7 @@ $warehouses = Warehouse::all(); ?>
                     </a>
                     @endif
                     <div class="card-body main-slider-body main-slider-body text-center px-1">
-                        <p class="card-text main-slider">{{Str::limit($list->title,42)}}</p>
+                        <p class="card-text main-slider">{{Str::limit($list->title,25)}}</p>
                         <h5 class="card-title main-slider text-capitalize">Need Pond : {{$list->price}} Tk</h5>
                         <p class=" main-slider">
                             <span>Available From : {{ Carbon\Carbon::parse($list->date)->format('d/m/Y') }}</span>
@@ -795,7 +795,7 @@ $warehouses = Warehouse::all(); ?>
                     </a>
                     @endif
                     <div class="card-body main-slider-body main-slider-body text-center px-1">
-                        <p class="card-text main-slider">{{Str::limit($list->resort_name,42)}}</p>
+                        <p class="card-text main-slider">{{Str::limit($list->resort_name,25)}}</p>
                         <h5 class="card-title main-slider text-capitalize">Need Resort :{{$list->price}} Tk</h5>
                         <p class=" main-slider">
                             <span>Available From : {{ Carbon\Carbon::parse($list->date)->format('d/m/Y') }}</span>
@@ -821,7 +821,7 @@ $warehouses = Warehouse::all(); ?>
                     </a>
                     @endif
                     <div class="card-body main-slider-body main-slider-body text-center px-1">
-                        <p class="card-text main-slider">{{Str::limit($list->title,42)}}</p>
+                        <p class="card-text main-slider">{{Str::limit($list->title,25)}}</p>
                         <h5 class="card-title main-slider text-capitalize">Need Rooftop : {{$list->price}} Tk</h5>
                         <p class=" main-slider">
                             <span>Available From : {{ Carbon\Carbon::parse($list->date)->format('d/m/Y') }}</span>
@@ -847,7 +847,7 @@ $warehouses = Warehouse::all(); ?>
                     </a>
                     @endif
                     <div class="card-body main-slider-body main-slider-body text-center px-1">
-                        <p class="card-text main-slider">{{Str::limit($list->title,42)}}</p>
+                        <p class="card-text main-slider">{{Str::limit($list->title,25)}}</p>
                         <h5 class="card-title main-slider text-capitalize">Need Shooting Spot : {{$list->price}} Tk</h5>
                         <p class=" main-slider">
                             <span>Available From : {{ Carbon\Carbon::parse($list->date)->format('d/m/Y') }}</span>
@@ -873,7 +873,7 @@ $warehouses = Warehouse::all(); ?>
                     </a>
                     @endif
                     <div class="card-body main-slider-body main-slider-body text-center px-1">
-                        <p class="card-text main-slider">{{Str::limit($list->title,42)}}</p>
+                        <p class="card-text main-slider">{{Str::limit($list->title,25)}}</p>
                         <h5 class="card-title main-slider text-capitalize">Need Shop : {{$list->price}} Tk</h5>
                         <p class=" main-slider">
                             <span>Available From : {{ Carbon\Carbon::parse($list->date)->format('d/m/Y') }}</span>
@@ -899,7 +899,7 @@ $warehouses = Warehouse::all(); ?>
                     </a>
                     @endif
                     <div class="card-body main-slider-body main-slider-body text-center px-1">
-                        <p class="card-text main-slider">{{Str::limit($list->title,42)}}</p>
+                        <p class="card-text main-slider">{{Str::limit($list->title,25)}}</p>
                         <h5 class="card-title main-slider text-capitalize">Need pool : {{$list->price}} Tk</h5>
                         <p class=" main-slider">
                             <span>Available From : {{ Carbon\Carbon::parse($list->date)->format('d/m/Y') }}</span>
@@ -925,7 +925,7 @@ $warehouses = Warehouse::all(); ?>
                     </a>
                     @endif
                     <div class="card-body main-slider-body main-slider-body text-center px-1">
-                        <p class="card-text main-slider">{{Str::limit($list->title,42)}}</p>
+                        <p class="card-text main-slider">{{Str::limit($list->title,25)}}</p>
                         <h5 class="card-title main-slider text-capitalize">Need Warehouse : {{$list->price}} Tk</h5>
                         <p class=" main-slider">
                             <span>Available From : {{ Carbon\Carbon::parse($list->date)->format('d/m/Y') }}</span>
@@ -951,7 +951,7 @@ $warehouses = Warehouse::all(); ?>
                     </a>
                     @endif
                     <div class="card-body main-slider-body main-slider-body text-center px-1">
-                        <p class="card-text main-slider">{{Str::limit($list->title,42)}}</p>
+                        <p class="card-text main-slider">{{Str::limit($list->title,25)}}</p>
                         <h5 class="card-title main-slider text-capitalize">Need Picnic spot : {{$list->price}} Tk</h5>
                         <p class=" main-slider">
                             <span>Available From : {{ Carbon\Carbon::parse($list->date)->format('d/m/Y') }}</span>
@@ -977,7 +977,7 @@ $warehouses = Warehouse::all(); ?>
                     </a>
                     @endif
                     <div class="card-body main-slider-body main-slider-body text-center px-1">
-                        <p class="card-text main-slider">{{Str::limit($list->building_name,42)}}</p>
+                        <p class="card-text main-slider">{{Str::limit($list->building_name,25)}}</p>
                         <h5 class="card-title main-slider text-capitalize">Need Building : {{$list->price}} Tk</h5>
                         <p class=" main-slider">
                             <span>Available From : {{ Carbon\Carbon::parse($list->date)->format('d/m/Y') }}</span>
