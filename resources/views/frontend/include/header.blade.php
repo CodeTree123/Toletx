@@ -109,15 +109,15 @@
             <!-- Settings -->
             <div class="col-lg-1  col-md-1 col-sm-1 col-2 dropdown ps-0 ">
                 <button class="btn setting px-lg-0 px-md-0 px-sm-0 px-3" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                @if (auth()->user()->image == null )
-                @if(auth()->user()->gender == 'Male' )
-                <img src="{{asset('public/man-dummy.png') }}" class="rounded-circle mx-auto img-img" alt="" srcset="" width="32" height="32">
-                @else
-                <img src="{{asset('public/dummy-female.jpg') }}" class="rounded-circle mx-auto img-img" alt="" srcset="" width="32" height="32">
-                @endif
-                @else
-                <img src="{{asset('public/uploads/registers') }}/{{(Auth::user()->image)}}" class="rounded-circle mx-auto img-img" alt="" srcset="" width="32" height="32">
-                @endif
+                    @if (auth()->user()->image == null )
+                    @if(auth()->user()->gender == 'Male' )
+                    <img src="{{asset('public/man-dummy.png') }}" class="rounded-circle mx-auto img-img" alt="" srcset="" width="32" height="32">
+                    @else
+                    <img src="{{asset('public/dummy-female.jpg') }}" class="rounded-circle mx-auto img-img" alt="" srcset="" width="32" height="32">
+                    @endif
+                    @else
+                    <img src="{{asset('public/uploads/registers') }}/{{(Auth::user()->image)}}" class="rounded-circle mx-auto img-img" alt="" srcset="" width="32" height="32">
+                    @endif
                 </button>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                     <li><a class="dropdown-item" href="{{route('profile')}}">Profile</a></li>
@@ -137,8 +137,8 @@
                     <div class="modal-content  post-modal">
                         <div class="modal-header text-center">
                             <h5 class="modal-title " id="exampleModalLabel">Choose a Service</h5>
-                            <button type="button" class="close modal-close" data-bs-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true"><i class="fa-solid fa-xmark"></i></span>
+                            <button type="button" class="btn-close close modal-close" data-bs-dismiss="modal" aria-label="Close">
+                                <!-- <span aria-hidden="true"><i class="fa-solid fa-xmark"></i></span> -->
                             </button>
                         </div>
                         <div class="modal-body">

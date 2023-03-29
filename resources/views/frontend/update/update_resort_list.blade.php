@@ -20,7 +20,7 @@
                         </div>
                         <div class=" col-lg-4 col-md-4 col-sm-12 col-12 mb-3">
                             <label for="date_Rent" class="form-label me-2 fw-bold">Date</label>
-                            <input name="date" value="{{$list->date}}" type="date" class="form-control" id="date_Rent" onfocus="this.showPicker()">
+                            <input name="date" value="{{$list->date}}" min="{{\Carbon\Carbon::today()->format('Y-m-d')}}" type="date" class="form-control" id="date_Rent" onfocus="this.showPicker()">
                         </div>
                         <div class=" col-lg-4 col-md-4 col-sm-12 col-12 mb-3">
                             <label for="phone_Rent" class="form-label me-2 fw-bold">Mobile</label>
@@ -38,10 +38,10 @@
                             </select>
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-12 col-12 mb-3 ">
-                        <label for="price_rented" class="form-label me-2 fw-bold">Rent</label>
+                            <label for="price_rented" class="form-label me-2 fw-bold">Rent</label>
                             <div class="row">
                                 <div class="col-4 pe-0">
-                                    <div class="input-group mb-3">
+                                    <div class="input-group">
                                         <input name="price" value="{{$list->price}}" type="number" class="form-control" id="price_rented" placeholder="Enter Price">
                                     </div>
                                 </div>
@@ -49,10 +49,10 @@
                                     <span class="text-light fs-3">/</span>
                                 </div>
                                 <div class="col-7 ps-0">
-                                    <div class="input-group mb-3">
-                                        <select class="form-select form-select-md mb-3" aria-label=".form-select-lg example" name="per_price">
+                                    <div class="input-group">
+                                        <select class="form-select form-select-md" aria-label=".form-select-lg example" name="per_price">
                                             <option selected hidden>Choose Rent Type</option>
-                                            <option value="hour"  {{$list->per_price == "hour" ? 'selected':''}}>Hour</option>
+                                            <option value="hour" {{$list->per_price == "hour" ? 'selected':''}}>Hour</option>
                                             <option value="day" {{$list->per_price == "day" ? 'selected':''}}> Day</option>
                                             <option value="night" {{$list->per_price == "night" ? 'selected':''}}> Only Night</option>
                                             <option value="week" {{$list->per_price == "week" ? 'selected':''}}> Week</option>
@@ -67,7 +67,7 @@
                             <label for="s_charge_rented" class="form-label me-2 fw-bold">Service Charge</label>
                             <div class="row">
                                 <div class="col-4 pe-0">
-                                    <div class="input-group mb-3">
+                                    <div class="input-group">
                                         <input name="s_charge" value="{{$list->s_charge}}" type="number" class="form-control" id="s_charge_rented" placeholder="Enter Service Charge">
                                     </div>
                                 </div>
@@ -75,8 +75,8 @@
                                     <span class="text-light fs-3">/</span>
                                 </div>
                                 <div class="col-7 ps-0">
-                                    <div class="input-group mb-3">
-                                        <select class="form-select form-select-md mb-3" aria-label=".form-select-lg example" name="s_per_price">
+                                    <div class="input-group">
+                                        <select class="form-select form-select-md" aria-label=".form-select-lg example" name="s_per_price">
                                             <option selected hidden>Choose Service Type</option>
                                             <option value="hour" {{$list->s_per_price == "hour" ? 'selected':''}}>Hour</option>
                                             <option value="day" {{$list->s_per_price == "day" ? 'selected':''}}> Day</option>
@@ -100,79 +100,79 @@
                         </div>
                         <div class="col-lg-3 col-md-3 col-sm-12 col-12 mb-3  ">
                             <h2 class="fw-bold mb-3">Amenities</h2>
-                            <div class="form-check ms-5 mb-2">
+                            <div class="form-check ms-3 ps-2 mb-2">
                                 <input class="form-check-input" type="checkbox" id="attatched_toilet_Rent" name="attached_toilet" {{  ($list->attached_toilet == 'on' ? ' checked' : '') }}>
                                 <label class="form-check-label" for="attatched_toilet_Rent">
                                     Attached Toilet
                                 </label>
                             </div>
-                            <div class="form-check ms-5 mb-2">
+                            <div class="form-check ms-3 ps-2 mb-2">
                                 <input class="form-check-input" type="checkbox" id="hot_water_Rent" name="hot_water" {{  ($list->hot_water == 'on' ? ' checked' : '') }}>
                                 <label class="form-check-label" for="hot_water_Rent">
                                     Geyser
                                 </label>
                             </div>
-                            <div class="form-check ms-5 mb-2">
+                            <div class="form-check ms-3 ps-2 mb-2">
                                 <input class="form-check-input" type="checkbox" id="ac_Rent" name="ac" {{  ($list->ac == 'on' ? ' checked' : '') }}>
                                 <label class="form-check-label" for="ac_Rent">
                                     A.C
                                 </label>
                             </div>
-                            <div class="form-check ms-5 mb-2">
+                            <div class="form-check ms-3 ps-2 mb-2">
                                 <input class="form-check-input" type="checkbox" id="swimmingpool_Rent" name="swimmingpool" {{  ($list->swimmingpool == 'on' ? ' checked' : '') }}>
                                 <label class="form-check-label" for="swimmingpool_Rent">
                                     swimming Pool
                                 </label>
                             </div>
-                            <div class="form-check ms-5 mb-2">
+                            <div class="form-check ms-3 ps-2 mb-2">
                                 <input class="form-check-input" type="checkbox" id="gym_Rent" name="gym" {{  ($list->gym == 'on' ? ' checked' : '') }}>
                                 <label class="form-check-label" for="gym_Rent">
                                     Gym
                                 </label>
                             </div>
-                            <div class="form-check ms-5 mb-2">
+                            <div class="form-check ms-3 ps-2 mb-2">
                                 <input class="form-check-input" type="checkbox" id="spa_Rent" name="spa" {{  ($list->spa == 'on' ? ' checked' : '') }}>
                                 <label class="form-check-label" for="spa_Rent">
                                     Spa
                                 </label>
                             </div>
-                            <div class="form-check ms-5 mb-2">
+                            <div class="form-check ms-3 ps-2 mb-2">
                                 <input class="form-check-input" type="checkbox" id="wifi_Rent" name="wifi" {{  ($list->wifi == 'on' ? ' checked' : '') }}>
                                 <label class="form-check-label" for="wifi_Rent">
                                     Wifi
                                 </label>
                             </div>
-                            <div class="form-check ms-5 mb-2">
+                            <div class="form-check ms-3 ps-2 mb-2">
                                 <input class="form-check-input" type="checkbox" id="generator_Rent" name="generator" {{  ($list->generator == 'on' ? ' checked' : '') }}>
                                 <label class="form-check-label" for="generator_Rent">
                                     Genarator
                                 </label>
                             </div>
-                            <div class="form-check ms-5 mb-2">
+                            <div class="form-check ms-3 ps-2 mb-2">
                                 <input class="form-check-input" type="checkbox" id="laundry_Rent" name="laundry" {{  ($list->laundry == 'on' ? ' checked' : '') }}>
                                 <label class="form-check-label" for="laundry_Rent">
                                     Laundry
                                 </label>
                             </div>
-                            <div class="form-check ms-5 mb-2">
+                            <div class="form-check ms-3 ps-2 mb-2">
                                 <input class="form-check-input" type="checkbox" id="lift_Rent" name="lift" {{  ($list->lift == 'on' ? ' checked' : '') }}>
                                 <label class="form-check-label" for="lift_Rent">
                                     Lift
                                 </label>
                             </div>
-                            <div class="form-check ms-5 mb-2">
+                            <div class="form-check ms-3 ps-2 mb-2">
                                 <input class="form-check-input" type="checkbox" id="parking_Rent" name="parking" {{  ($list->parking == 'on' ? ' checked' : '') }}>
                                 <label class="form-check-label" for="parking_Rent">
                                     Parking
                                 </label>
                             </div>
-                            <div class="form-check ms-5 mb-2">
+                            <div class="form-check ms-3 ps-2 mb-2">
                                 <input class="form-check-input" type="checkbox" id="sports_Rent" name="sports" {{  ($list->sports == 'on' ? ' checked' : '') }}>
                                 <label class="form-check-label" for="sports_Rent">
                                     Sports Facilities
                                 </label>
                             </div>
-                            <div class="form-check ms-5 mb-2">
+                            <div class="form-check ms-3 ps-2 mb-2">
                                 <input class="form-check-input" type="checkbox" id="dining_Rent" name="dining" {{  ($list->dining == 'on' ? ' checked' : '') }}>
                                 <label class="form-check-label" for="dining_Rent">
                                     Dining Facilities
@@ -184,129 +184,153 @@
                         <div class="col-lg-9 col-md-9 col-sm-12 col-12">
                             <h2 class="fw-bold mb-3">Gallery Section</h2>
                             <div class="row">
-                                <div class="col">
+                                <div class="col-6 p-2">
 
                                     @if($list->photo == '')
-                                    <img src="{{asset('/Frontend/assets/img/th.webp')}}" alt="" srcset="" class="update_section_image img-fluid">
+                                    <img src="{{asset('/Frontend/assets/img/th.webp')}}" alt="" srcset="" class="update_section_image img-fluid img-thumbnail">
                                     <div class=" input-group mt-2 update_section_file_input update_section_file_input">
                                         <input type="file" class="form-control " name="photo" id="photo_Rent" placeholder="asd" onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])">
                                     </div>
                                     @else
-                                    <img src="{{asset('public/uploads/resturents/'.$list->photo)}}" alt="" srcset="" class="update_section_image img-fluid">
+                                    <img src="{{asset('public/uploads/resturents/'.$list->photo)}}" alt="" srcset="" class="update_section_image img-fluid img-thumbnail">
                                     <div class="d-flex justify-content-between">
                                         <div class="input-group mt-2 update_section_file_input update_section_file_input">
                                             <input type="file" class="form-control" name="photo" id="photo_Rent" placeholder="asd" onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])">
                                         </div>
-                                        <!-- <a href="{{route('image_delete',['Restaurant',$list->id,'resturents','photo',$list->photo])}}" class="btn btn-primary update_section_file_input_dlt_btn ms-1 p-2"><i class="fa-solid fa-trash-can"></i></a> -->
+                                        <!-- <a href="{{route('image_delete',['Restaurant',$list->id,'resturents','photo',$list->photo])}}" class="btn btn-primary update_section_file_input_dlt_btn ms-1 p-1"><i class="fa-solid fa-trash-can"></i></a> -->
                                     </div>
                                     @endif
 
-                                    <label for="photo_Rent" class="d-block"> Main Image</label>
+                                    <label for="photo_Rent" class="d-block mt-2"> Main Image</label>
                                 </div>
                             </div>
                             <div class="row">
-                                <div class="col-lg-4 col-md-4 col-sm-12 col-12 mb-3 ">
+                                <div class="col-lg-4 col-md-4 col-sm-12 col-12 p-2 ">
                                     @if($list->photo1 == '')
-                                    <img src="{{asset('/Frontend/assets/img/th.webp')}}" alt="" srcset="" class="update_section_image img-fluid">
-                                    <div class=" input-group mt-2 update_section_file_input update_section_file_input">
+                                    <di class="post_img_update img-thumbnail">
+                                        <img src="{{asset('/Frontend/assets/img/th.webp')}}" alt="" srcset="" class="update_section_image img-fluid">
+                                    </di mt-2v>
+                                    <div class=" input-group update_section_file_input update_section_file_input">
                                         <input type="file" class="form-control " name="photo1" id="photo_Rent" placeholder="asd" onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])">
                                     </div>
                                     @else
-                                    <img src="{{asset('public/uploads/resturents/'.$list->photo1)}}" alt="" srcset="" class="update_section_image img-fluid">
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <div class="input-group mt-2 update_section_file_input update_section_file_input">
+                                    <div class="post_img_update img-thumbnail">
+                                        <img src="{{asset('public/uploads/resturents/'.$list->photo1)}}" alt="" srcset="" class="update_section_image img-fluid">
+                                    </div>
+                                    <div class="d-flex justify-content-between align-items-center mt-2">
+                                        <div class="input-group update_section_file_input update_section_file_input">
                                             <input type="file" class="form-control" name="photo1" id="photo_Rent" placeholder="asd" onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])">
                                         </div>
-                                        <a href="{{route('image_delete',['Restaurant',$list->id,'resturents','photo1',$list->photo1])}}" class="btn btn-primary update_section_file_input_dlt_btn ms-1 p-2"><i class="fa-solid fa-trash-can"></i></a>
+                                        <a href="{{route('image_delete',['Restaurant',$list->id,'resturents','photo1',$list->photo1])}}" class="btn btn-primary update_section_file_input_dlt_btn ms-1 p-1"><i class="fa-solid fa-trash-can"></i></a>
                                     </div>
                                     @endif
-                                    <label for="photo1_Rent" class="d-block "> Photo 2</label>
+                                    <label for="photo1_Rent" class="d-block mt-2 "> Photo 2</label>
                                 </div>
-                                <div class="col-lg-4 col-md-4 col-sm-12 col-12 mb-3 ">
+                                <div class="col-lg-4 col-md-4 col-sm-12 col-12 p-2 ">
                                     @if($list->photo2 == '')
-                                    <img src="{{asset('/Frontend/assets/img/th.webp')}}" alt="" srcset="" class="update_section_image img-fluid">
-                                    <div class=" input-group mt-2 update_section_file_input update_section_file_input">
+                                    <di class="post_img_update img-thumbnail">
+                                        <img src="{{asset('/Frontend/assets/img/th.webp')}}" alt="" srcset="" class="update_section_image img-fluid">
+                                    </di mt-2v>
+                                    <div class=" input-group update_section_file_input update_section_file_input">
                                         <input type="file" class="form-control " name="photo2" id="photo_Rent" placeholder="asd" onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])">
                                     </div>
                                     @else
-                                    <img src="{{asset('public/uploads/resturents/'.$list->photo2)}}" alt="" srcset="" class="update_section_image img-fluid">
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <div class="input-group mt-2 update_section_file_input update_section_file_input">
+                                    <div class="post_img_update img-thumbnail">
+                                        <img src="{{asset('public/uploads/resturents/'.$list->photo2)}}" alt="" srcset="" class="update_section_image img-fluid">
+                                    </div>
+                                    <div class="d-flex justify-content-between align-items-center mt-2">
+                                        <div class="input-group update_section_file_input update_section_file_input">
                                             <input type="file" class="form-control" name="photo2" id="photo_Rent" placeholder="asd" onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])">
                                         </div>
-                                        <a href="{{route('image_delete',['Restaurant',$list->id,'resturents','photo2',$list->photo2])}}" class="btn btn-primary update_section_file_input_dlt_btn ms-1 p-2"><i class="fa-solid fa-trash-can"></i></a>
+                                        <a href="{{route('image_delete',['Restaurant',$list->id,'resturents','photo2',$list->photo2])}}" class="btn btn-primary update_section_file_input_dlt_btn ms-1 p-1"><i class="fa-solid fa-trash-can"></i></a>
                                     </div>
                                     @endif
-                                    <label for="photo2_Rent" class="d-block"> Photo 3</label>
+                                    <label for="photo2_Rent" class="d-block mt-2"> Photo 3</label>
 
                                 </div>
-                                <div class="col-lg-4 col-md-4 col-sm-12 col-12 mb-3 ">
+                                <div class="col-lg-4 col-md-4 col-sm-12 col-12 p-2 ">
                                     @if($list->photo3 == '')
-                                    <img src="{{asset('/Frontend/assets/img/th.webp')}}" alt="" srcset="" class="update_section_image img-fluid">
-                                    <div class=" input-group mt-2 update_section_file_input update_section_file_input">
+                                    <di class="post_img_update img-thumbnail">
+                                        <img src="{{asset('/Frontend/assets/img/th.webp')}}" alt="" srcset="" class="update_section_image img-fluid">
+                                    </di mt-2v>
+                                    <div class=" input-group update_section_file_input update_section_file_input">
                                         <input type="file" class="form-control " name="photo3" id="photo_Rent" placeholder="asd" onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])">
                                     </div>
                                     @else
-                                    <img src="{{asset('public/uploads/resturents/'.$list->photo3)}}" alt="" srcset="" class="update_section_image img-fluid">
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <div class="input-group mt-2 update_section_file_input update_section_file_input">
+                                    <div class="post_img_update img-thumbnail">
+                                        <img src="{{asset('public/uploads/resturents/'.$list->photo3)}}" alt="" srcset="" class="update_section_image img-fluid">
+                                    </div>
+                                    <div class="d-flex justify-content-between align-items-center mt-2">
+                                        <div class="input-group update_section_file_input update_section_file_input">
                                             <input type="file" class="form-control" name="photo3" id="photo_Rent" placeholder="asd" onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])">
                                         </div>
-                                        <a href="{{route('image_delete',['Restaurant',$list->id,'resturents','photo3',$list->photo3])}}" class="btn btn-primary update_section_file_input_dlt_btn ms-1 p-2"><i class="fa-solid fa-trash-can"></i></a>
+                                        <a href="{{route('image_delete',['Restaurant',$list->id,'resturents','photo3',$list->photo3])}}" class="btn btn-primary update_section_file_input_dlt_btn ms-1 p-1"><i class="fa-solid fa-trash-can"></i></a>
                                     </div>
                                     @endif
-                                    <label for="photo2_Rent" class="d-block"> Photo 4</label>
+                                    <label for="photo2_Rent" class="d-block mt-2"> Photo 4</label>
                                 </div>
-                                <div class="col-lg-4 col-md-4 col-sm-12 col-12 mb-3 ">
+                                <div class="col-lg-4 col-md-4 col-sm-12 col-12 p-2 ">
                                     @if($list->photo4 == '')
-                                    <img src="{{asset('/Frontend/assets/img/th.webp')}}" alt="" srcset="" class="update_section_image img-fluid">
-                                    <div class=" input-group mt-2 update_section_file_input update_section_file_input">
+                                    <di class="post_img_update img-thumbnail">
+                                        <img src="{{asset('/Frontend/assets/img/th.webp')}}" alt="" srcset="" class="update_section_image img-fluid">
+                                    </di mt-2v>
+                                    <div class=" input-group update_section_file_input update_section_file_input">
                                         <input type="file" class="form-control " name="photo4" id="photo_Rent" placeholder="asd" onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])">
                                     </div>
                                     @else
-                                    <img src="{{asset('public/uploads/resturents/'.$list->photo4)}}" alt="" srcset="" class="update_section_image img-fluid">
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <div class="input-group mt-2 update_section_file_input update_section_file_input">
+                                    <div class="post_img_update img-thumbnail">
+                                        <img src="{{asset('public/uploads/resturents/'.$list->photo4)}}" alt="" srcset="" class="update_section_image img-fluid">
+                                    </div>
+                                    <div class="d-flex justify-content-between align-items-center mt-2">
+                                        <div class="input-group update_section_file_input update_section_file_input">
                                             <input type="file" class="form-control" name="photo4" id="photo_Rent" placeholder="asd" onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])">
                                         </div>
-                                        <a href="{{route('image_delete',['Restaurant',$list->id,'resturents','photo4',$list->photo4])}}" class="btn btn-primary update_section_file_input_dlt_btn ms-1 p-2"><i class="fa-solid fa-trash-can"></i></a>
+                                        <a href="{{route('image_delete',['Restaurant',$list->id,'resturents','photo4',$list->photo4])}}" class="btn btn-primary update_section_file_input_dlt_btn ms-1 p-1"><i class="fa-solid fa-trash-can"></i></a>
                                     </div>
                                     @endif
-                                    <label for="photo2_Rent" class="d-block"> Photo 5</label>
+                                    <label for="photo2_Rent" class="d-block mt-2"> Photo 5</label>
                                 </div>
-                                <div class="col-lg-4 col-md-4 col-sm-12 col-12 mb-3 ">
+                                <div class="col-lg-4 col-md-4 col-sm-12 col-12 p-2 ">
                                     @if($list->photo5 == '')
-                                    <img src="{{asset('/Frontend/assets/img/th.webp')}}" alt="" srcset="" class="update_section_image img-fluid">
-                                    <div class=" input-group mt-2 update_section_file_input update_section_file_input">
+                                    <di class="post_img_update img-thumbnail">
+                                        <img src="{{asset('/Frontend/assets/img/th.webp')}}" alt="" srcset="" class="update_section_image img-fluid">
+                                    </di mt-2v>
+                                    <div class=" input-group update_section_file_input update_section_file_input">
                                         <input type="file" class="form-control " name="photo5" id="photo_Rent" placeholder="asd" onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])">
                                     </div>
                                     @else
-                                    <img src="{{asset('public/uploads/resturents/'.$list->photo5)}}" alt="" srcset="" class="update_section_image img-fluid">
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <div class="input-group mt-2 update_section_file_input update_section_file_input">
+                                    <div class="post_img_update img-thumbnail">
+                                        <img src="{{asset('public/uploads/resturents/'.$list->photo5)}}" alt="" srcset="" class="update_section_image img-fluid">
+                                    </div>
+                                    <div class="d-flex justify-content-between align-items-center mt-2">
+                                        <div class="input-group update_section_file_input update_section_file_input">
                                             <input type="file" class="form-control" name="photo5" id="photo_Rent" placeholder="asd" onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])">
                                         </div>
-                                        <a href="{{route('image_delete',['Restaurant',$list->id,'resturents','photo5',$list->photo5])}}" class="btn btn-primary update_section_file_input_dlt_btn ms-1 p-2"><i class="fa-solid fa-trash-can"></i></a>
+                                        <a href="{{route('image_delete',['Restaurant',$list->id,'resturents','photo5',$list->photo5])}}" class="btn btn-primary update_section_file_input_dlt_btn ms-1 p-1"><i class="fa-solid fa-trash-can"></i></a>
                                     </div>
                                     @endif
-                                    <label for="photo2_Rent" class="d-block"> Photo 6</label>
+                                    <label for="photo2_Rent" class="d-block mt-2"> Photo 6</label>
                                 </div>
-                                <div class="col-lg-4 col-md-4 col-sm-12 col-12 mb-3 ">
+                                <div class="col-lg-4 col-md-4 col-sm-12 col-12 p-2 ">
                                     @if($list->photo6 == '')
-                                    <img src="{{asset('/Frontend/assets/img/th.webp')}}" alt="" srcset="" class="update_section_image img-fluid">
-                                    <div class=" input-group mt-2 update_section_file_input update_section_file_input">
+                                    <di class="post_img_update img-thumbnail">
+                                        <img src="{{asset('/Frontend/assets/img/th.webp')}}" alt="" srcset="" class="update_section_image img-fluid">
+                                    </di mt-2v>
+                                    <div class=" input-group update_section_file_input update_section_file_input">
                                         <input type="file" class="form-control " name="photo6" id="photo_Rent" placeholder="asd" onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])">
                                     </div>
                                     @else
-                                    <img src="{{asset('public/uploads/resturents/'.$list->photo6)}}" alt="" srcset="" class="update_section_image img-fluid">
-                                    <div class="d-flex justify-content-between align-items-center">
-                                        <div class="input-group mt-2 update_section_file_input update_section_file_input">
+                                    <div class="post_img_update img-thumbnail">
+                                        <img src="{{asset('public/uploads/resturents/'.$list->photo6)}}" alt="" srcset="" class="update_section_image img-fluid">
+                                    </div>
+                                    <div class="d-flex justify-content-between align-items-center mt-2">
+                                        <div class="input-group update_section_file_input update_section_file_input">
                                             <input type="file" class="form-control" name="photo6" id="photo_Rent" placeholder="asd" onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])">
                                         </div>
-                                        <a href="{{route('image_delete',['Restaurant',$list->id,'resturents','photo6',$list->photo6])}}" class="btn btn-primary update_section_file_input_dlt_btn ms-1 p-2"><i class="fa-solid fa-trash-can"></i></a>
+                                        <a href="{{route('image_delete',['Restaurant',$list->id,'resturents','photo6',$list->photo6])}}" class="btn btn-primary update_section_file_input_dlt_btn ms-1 p-1"><i class="fa-solid fa-trash-can"></i></a>
                                     </div>
                                     @endif
-                                    <label for="photo2_Rent" class="d-block"> Photo 7</label>
+                                    <label for="photo2_Rent" class="d-block mt-2"> Photo 7</label>
                                 </div>
                             </div>
                         </div>
@@ -325,7 +349,7 @@
 
                     <div class="row">
 
-                    <div class=" col-12 mb-3 ">
+                        <div class=" col-12 mb-3 ">
                             <label for="post_title_Want" class="form-label me-2 fw-bold">Post Title</label>
                             <input name="post_title" type="text" value="{{$list->post_title}}" class="form-control" id="post_title_Want" placeholder="Enter Post Title">
                         </div>
@@ -335,7 +359,7 @@
                         </div>
                         <div class=" col-lg-4 col-md-4 col-sm-12 col-12 mb-3">
                             <label for="date_Want" class="form-label me-2 fw-bold">Date</label>
-                            <input name="date" value="{{$list->date}}" type="date" class="form-control" id="date_Want" onfocus="this.showPicker()">
+                            <input name="date" value="{{$list->date}}" min="{{\Carbon\Carbon::today()->format('Y-m-d')}}" type="date" class="form-control" id="date_Want" onfocus="this.showPicker()">
                         </div>
                         <div class=" col-lg-4 col-md-4 col-sm-12 col-12 mb-3">
                             <label for="phone_Want" class="form-label me-2 fw-bold">Mobile</label>
@@ -354,10 +378,10 @@
                             </select>
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-12 col-12 mb-3 ">
-                        <label for="price_rented" class="form-label me-2 fw-bold">Rent</label>
+                            <label for="price_rented" class="form-label me-2 fw-bold">Rent</label>
                             <div class="row">
                                 <div class="col-4 pe-0">
-                                    <div class="input-group mb-3">
+                                    <div class="input-group">
                                         <input name="price" value="{{$list->price}}" type="number" class="form-control" id="price_rented" placeholder="Enter Price">
                                     </div>
                                 </div>
@@ -365,10 +389,10 @@
                                     <span class="text-light fs-3">/</span>
                                 </div>
                                 <div class="col-7 ps-0">
-                                    <div class="input-group mb-3">
-                                        <select class="form-select form-select-md mb-3" aria-label=".form-select-lg example" name="per_price">
+                                    <div class="input-group">
+                                        <select class="form-select form-select-md" aria-label=".form-select-lg example" name="per_price">
                                             <option selected hidden>Choose Rent Type</option>
-                                            <option value="hour"  {{$list->per_price == "hour" ? 'selected':''}}>Hour</option>
+                                            <option value="hour" {{$list->per_price == "hour" ? 'selected':''}}>Hour</option>
                                             <option value="day" {{$list->per_price == "day" ? 'selected':''}}> Day</option>
                                             <option value="night" {{$list->per_price == "night" ? 'selected':''}}> Only Night</option>
                                             <option value="week" {{$list->per_price == "week" ? 'selected':''}}> Week</option>
@@ -380,10 +404,10 @@
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-12 col-12 mb-3 ">
-                        <label for="s_charge_rented" class="form-label me-2 fw-bold">Service Charge</label>
+                            <label for="s_charge_rented" class="form-label me-2 fw-bold">Service Charge</label>
                             <div class="row">
                                 <div class="col-4 pe-0">
-                                    <div class="input-group mb-3">
+                                    <div class="input-group">
                                         <input name="s_charge" value="{{$list->s_charge}}" type="number" class="form-control" id="s_charge_rented" placeholder="Enter Service Charge">
                                     </div>
                                 </div>
@@ -391,8 +415,8 @@
                                     <span class="text-light fs-3">/</span>
                                 </div>
                                 <div class="col-7 ps-0">
-                                    <div class="input-group mb-3">
-                                        <select class="form-select form-select-md mb-3" aria-label=".form-select-lg example" name="s_per_price">
+                                    <div class="input-group">
+                                        <select class="form-select form-select-md" aria-label=".form-select-lg example" name="s_per_price">
                                             <option selected hidden>Choose Service Type</option>
                                             <option value="hour" {{$list->s_per_price == "hour" ? 'selected':''}}>Hour</option>
                                             <option value="day" {{$list->s_per_price == "day" ? 'selected':''}}> Day</option>

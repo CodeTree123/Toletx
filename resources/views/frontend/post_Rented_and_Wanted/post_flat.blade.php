@@ -43,7 +43,7 @@
                         <label for="price_rented" class="form-label me-2 fw-bold">Rent</label>
                         <div class="row">
                             <div class="col-4 pe-0">
-                                <div class="input-group mb-3">
+                                <div class="input-group">
                                     <input name="price" type="number" class="form-control" id="price_rented" placeholder="Enter Rent" required>
                                 </div>
                             </div>
@@ -51,8 +51,8 @@
                                 <span class="text-light fs-3">/</span>
                             </div>
                             <div class="col-7 ps-0">
-                                <div class="input-group mb-3">
-                                    <select class="form-select form-select-md mb-3" aria-label=".form-select-lg example"id="per_price_rented" name="per_price">
+                                <div class="input-group">
+                                    <select class="form-select form-select-md" aria-label=".form-select-lg example"id="per_price_rented" name="per_price">
                                         <option selected hidden>Choose Rent Type</option>
                                         <option value="hour">Hour</option>
                                         <option value="day"> Day</option>
@@ -69,7 +69,7 @@
                         <label for="s_charge_rented" class="form-label me-2 fw-bold">Service Charge</label>
                         <div class="row">
                             <div class="col-4 pe-0">
-                                <div class="input-group mb-3">
+                                <div class="input-group">
                                     <input name="s_charge" type="number" class="form-control" id="s_charge_rented" placeholder="Enter Service Charge" required>
                                 </div>
                             </div>
@@ -77,8 +77,8 @@
                                 <span class="text-light fs-3">/</span>
                             </div>
                             <div class="col-7 ps-0">
-                                <div class="input-group mb-3">
-                                    <select class="form-select form-select-md mb-3" aria-label=".form-select-lg example"id="s_per_charge_rented" name="s_per_price">
+                                <div class="input-group">
+                                    <select class="form-select form-select-md" aria-label=".form-select-lg example"id="s_per_charge_rented" name="s_per_price">
                                         <option selected hidden>Choose Service Type</option>
                                         <option value="hour">Hour</option>
                                         <option value="day"> Day</option>
@@ -114,8 +114,8 @@
                         <input name="kitchen" type="number" class="form-control" id="Kitchen_rented" placeholder="Enter Kitchen rooms" required>
                     </div>
                     <div class="col-lg-4 co-md-4 col-sm-12 col-12 mb-3">
-                        <label for="flat_varanda_rented" class="form-label me-2 fw-bold">No. of Varanda</label>
-                        <input name="varanda" type="number" class="form-control" id="flat_varanda_rented" placeholder="Enter No. of varanda" required>
+                        <label for="flat_varanda_rented" class="form-label me-2 fw-bold">No. of Veranda</label>
+                        <input name="varanda" type="number" class="form-control" id="flat_varanda_rented" placeholder="Enter No. of veranda" required>
                     </div>
                     <div class="col-lg-4 co-md-4 col-sm-12 col-12 mb-3">
                         <label for="flat_attached_toilet_rented" class="form-label me-2 fw-bold">No. of Toilets</label>
@@ -289,7 +289,7 @@
                         <label for="price_wanted" class="form-label me-2 fw-bold">Rent</label>
                         <div class="row">
                             <div class="col-4 pe-0">
-                                <div class="input-group mb-3">
+                                <div class="input-group">
                                     <input name="price" type="number" class="form-control" id="price_wanted" placeholder="Enter Rent" required>
                                 </div>
                             </div>
@@ -297,8 +297,8 @@
                                 <span class="text-light fs-3">/</span>
                             </div>
                             <div class="col-7 ps-0">
-                                <div class="input-group mb-3">
-                                    <select class="form-select form-select-md mb-3" aria-label=".form-select-lg example" name="per_price">
+                                <div class="input-group">
+                                    <select class="form-select form-select-md" aria-label=".form-select-lg example" name="per_price">
                                         <option selected hidden>Choose Rent Type</option>
                                         <option value="hour">Hour</option>
                                         <option value="day"> Day</option>
@@ -315,7 +315,7 @@
                         <label for="s_charge_wanted" class="form-label me-2 fw-bold">Service Charge</label>
                         <div class="row">
                             <div class="col-4 pe-0">
-                                <div class="input-group mb-3">
+                                <div class="input-group">
                                     <input name="s_charge" type="number" class="form-control" id="s_charge_wanted" placeholder="Enter Service Charge" required>
                                 </div>
                             </div>
@@ -323,8 +323,8 @@
                                 <span class="text-light fs-3">/</span>
                             </div>
                             <div class="col-7 ps-0">
-                                <div class="input-group mb-3">
-                                    <select class="form-select form-select-md mb-3" aria-label=".form-select-lg example" name="s_per_price">
+                                <div class="input-group">
+                                    <select class="form-select form-select-md" aria-label=".form-select-lg example" name="s_per_price">
                                         <option selected hidden>Choose Service Type</option>
                                         <option value="hour">Hour</option>
                                         <option value="day"> Day</option>
@@ -358,8 +358,8 @@
                         <input name="kitchen" type="number" class="form-control" id="flat_Kitchen_wanted" placeholder="Enter Kitchen rooms" required>
                     </div>
                     <div class="col-lg-4 co-md-4 col-sm-12 col-12 mb-3">
-                        <label for="flat_varanda_wanted" class="form-label me-2 fw-bold">No. of Varanda</label>
-                        <input name="varanda" type="number" class="form-control" id="flat_varanda_wanted" placeholder="Enter No. of varanda" required>
+                        <label for="flat_varanda_wanted" class="form-label me-2 fw-bold">No. of Veranda</label>
+                        <input name="varanda" type="number" class="form-control" id="flat_varanda_wanted" placeholder="Enter No. of veranda" required>
                     </div>
                     <div class="col-lg-4 co-md-4 col-sm-12 col-12 mb-3">
                         <label for="flat_attached_toilet_wanted" class="form-label me-2 fw-bold">No. of Toilets</label>

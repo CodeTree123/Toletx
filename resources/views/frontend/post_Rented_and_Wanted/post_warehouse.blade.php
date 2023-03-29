@@ -50,7 +50,7 @@
                             <option value="grocery">grocery</option>
                             <option value="cosmetic">cosmetic</option>
                             <option value="medicine">medicine</option>
-                            <option value="camical">camical</option>
+                            <option value="comical">comical</option>
                             <option value="machineries">Machineries</option>
                             <option value="readymade ">Readymade Garments</option>
                             <option value="ceramic">Ceramic</option>
@@ -250,7 +250,7 @@
                             <option value="grocery">grocery</option>
                             <option value="cosmetic">cosmetic</option>
                             <option value="medicine">medicine</option>
-                            <option value="camical">camical</option>
+                            <option value="comical">comical</option>
                             <option value="machineries">Machineries</option>
                             <option value="readymade ">Readymade Garments</option>
                             <option value="ceramic">Ceramic</option>
@@ -308,7 +308,7 @@
                     </div>
 
                     <div class="col-12 mb-3 ">
-                        <h2 class="fw-bold mb-3">Ameneties</h2>
+                        <h2 class="fw-bold mb-3">Amenities</h2>
                         <div class="row ms-3 ps-2">
 
                             <div class="col-2 form-check mb-2">

@@ -183,15 +183,15 @@
                         <div class="col-lg-8 col-md-8 col-sm-12 col-12">
                             <h2 class="fw-bold mb-3">Gallery Section</h2>
                             <div class="row">
-                                <div class="col p-2">
+                                <div class="col-6 p-2">
 
                                     @if($list->photo == '')
-                                    <img src="{{asset('/Frontend/assets/img/th.webp')}}" alt="" srcset="" class="update_section_image img-fluid">
+                                    <img src="{{asset('/Frontend/assets/img/th.webp')}}" alt="" srcset="" class="update_section_image img-fluid img-thumbnail">
                                     <div class=" input-group mt-2 update_section_file_input">
                                         <input type="file" class="form-control " name="photo" id="photo_Rent" placeholder="asd" onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])">
                                     </div>
                                     @else
-                                    <img src="{{asset('public/uploads/hotels/'.$list->photo)}}" alt="" srcset="" class="update_section_image img-fluid">
+                                    <img src="{{asset('public/uploads/hotels/'.$list->photo)}}" alt="" srcset="" class="update_section_image img-fluid img-thumbnail">
                                     <div class="d-flex justify-content-between">
                                         <div class="input-group mt-2 update_section_file_input">
                                             <input type="file" class="form-control" name="photo" id="photo_Rent" placeholder="asd" onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])">
@@ -200,18 +200,22 @@
                                     </div>
                                     @endif
 
-                                    <label for="photo_Rent" class="d-block"> Main Image</label>
+                                    <label for="photo_Rent" class="d-block mt-2"> Main Image</label>
                                 </div>
                             </div>
                             <div class="row">
                                 <div class="col-lg-4 col-md-4 col-sm-12 col-12 p-2">
                                     @if($list->photo1 == '')
-                                    <img src="{{asset('/Frontend/assets/img/th.webp')}}" alt="" srcset="" class="update_section_image img-fluid">
+                                    <div class="post_img_update img-thumbnail">
+                                        <img src="{{asset('/Frontend/assets/img/th.webp')}}" alt="" srcset="" class="update_section_image img-fluid">
+                                    </div>
                                     <div class=" input-group mt-2 update_section_file_input">
                                         <input type="file" class="form-control " name="photo1" id="photo_Rent" placeholder="asd" onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])">
                                     </div>
                                     @else
-                                    <img src="{{asset('public/uploads/hotels/'.$list->photo1)}}" alt="" srcset="" class="update_section_image img-fluid">
+                                    <div class="post_img_update img-thumbnail">
+                                        <img src="{{asset('public/uploads/hotels/'.$list->photo1)}}" alt="" srcset="" class="update_section_image img-fluid">
+                                    </div>
                                     <div class="d-flex justify-content-between align-items-center mt-2">
                                         <div class="input-group update_section_file_input">
                                             <input type="file" class="form-control" name="photo1" id="photo_Rent" placeholder="asd" onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])">
@@ -219,16 +223,20 @@
                                         <a href="{{route('image_delete',['Hotel',$list->id,'hotels','photo1',$list->photo1])}}" class="btn btn-primary update_section_file_input_dlt_btn ms-1 p-1"><i class="fa-solid fa-trash-can"></i></a>
                                     </div>
                                     @endif
-                                    <label for="photo1_Rent" class="d-block "> Photo 2</label>
+                                    <label for="photo1_Rent" class="d-block mt-2 "> Photo 2</label>
                                 </div>
                                 <div class="col-lg-4 col-md-4 col-sm-12 col-12 p-2">
                                     @if($list->photo2 == '')
-                                    <img src="{{asset('/Frontend/assets/img/th.webp')}}" alt="" srcset="" class="update_section_image img-fluid">
+                                    <div class="post_img_update img-thumbnail">
+                                        <img src="{{asset('/Frontend/assets/img/th.webp')}}" alt="" srcset="" class="update_section_image img-fluid ">
+                                    </div>
                                     <div class=" input-group mt-2 update_section_file_input">
                                         <input type="file" class="form-control " name="photo2" id="photo_Rent" placeholder="asd" onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])">
                                     </div>
                                     @else
-                                    <img src="{{asset('public/uploads/hotels/'.$list->photo2)}}" alt="" srcset="" class="update_section_image img-fluid">
+                                    <div class="post_img_update img-thumbnail">
+                                        <img src="{{asset('public/uploads/hotels/'.$list->photo2)}}" alt="" srcset="" class="update_section_image img-fluid">
+                                    </div>
                                     <div class="d-flex justify-content-between align-items-center mt-2">
                                         <div class="input-group update_section_file_input">
                                             <input type="file" class="form-control" name="photo2" id="photo_Rent" placeholder="asd" onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])">
@@ -236,17 +244,21 @@
                                         <a href="{{route('image_delete',['Hotel',$list->id,'hotels','photo2',$list->photo2])}}" class="btn btn-primary update_section_file_input_dlt_btn ms-1 p-1"><i class="fa-solid fa-trash-can"></i></a>
                                     </div>
                                     @endif
-                                    <label for="photo2_Rent" class="d-block"> Photo 3</label>
+                                    <label for="photo2_Rent" class="d-block mt-2"> Photo 3</label>
 
                                 </div>
                                 <div class="col-lg-4 col-md-4 col-sm-12 col-12 p-2">
                                     @if($list->photo3 == '')
-                                    <img src="{{asset('/Frontend/assets/img/th.webp')}}" alt="" srcset="" class="update_section_image img-fluid">
+                                    <div class="post_img_update img-thumbnail">
+                                        <img src="{{asset('/Frontend/assets/img/th.webp')}}" alt="" srcset="" class="update_section_image img-fluid">
+                                    </div>
                                     <div class=" input-group mt-2 update_section_file_input">
                                         <input type="file" class="form-control " name="photo3" id="photo_Rent" placeholder="asd" onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])">
                                     </div>
                                     @else
-                                    <img src="{{asset('public/uploads/hotels/'.$list->photo3)}}" alt="" srcset="" class="update_section_image img-fluid">
+                                    <div class="post_img_update img-thumbnail">
+                                        <img src="{{asset('public/uploads/hotels/'.$list->photo3)}}" alt="" srcset="" class="update_section_image img-fluid">
+                                    </div>
                                     <div class="d-flex justify-content-between align-items-center mt-2">
                                         <div class="input-group update_section_file_input">
                                             <input type="file" class="form-control" name="photo3" id="photo_Rent" placeholder="asd" onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])">
@@ -254,16 +266,20 @@
                                         <a href="{{route('image_delete',['Hotel',$list->id,'hotels','photo3',$list->photo3])}}" class="btn btn-primary update_section_file_input_dlt_btn ms-1 p-1"><i class="fa-solid fa-trash-can"></i></a>
                                     </div>
                                     @endif
-                                    <label for="photo2_Rent" class="d-block"> Photo 4</label>
+                                    <label for="photo2_Rent" class="d-block mt-2"> Photo 4</label>
                                 </div>
                                 <div class="col-lg-4 col-md-4 col-sm-12 col-12 p-2">
                                     @if($list->photo4 == '')
-                                    <img src="{{asset('/Frontend/assets/img/th.webp')}}" alt="" srcset="" class="update_section_image img-fluid">
+                                    <div class="post_img_update img-thumbnail">
+                                        <img src="{{asset('/Frontend/assets/img/th.webp')}}" alt="" srcset="" class="update_section_image img-fluid">
+                                    </div>
                                     <div class=" input-group mt-2 update_section_file_input">
                                         <input type="file" class="form-control " name="photo4" id="photo_Rent" placeholder="asd" onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])">
                                     </div>
                                     @else
-                                    <img src="{{asset('public/uploads/hotels/'.$list->photo4)}}" alt="" srcset="" class="update_section_image img-fluid">
+                                    <div class="post_img_update img-thumbnail">
+                                        <img src="{{asset('public/uploads/hotels/'.$list->photo4)}}" alt="" srcset="" class="update_section_image img-fluid">
+                                    </div>
                                     <div class="d-flex justify-content-between align-items-center mt-2">
                                         <div class="input-group update_section_file_input">
                                             <input type="file" class="form-control" name="photo4" id="photo_Rent" placeholder="asd" onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])">
@@ -271,16 +287,20 @@
                                         <a href="{{route('image_delete',['Hotel',$list->id,'hotels','photo4',$list->photo4])}}" class="btn btn-primary update_section_file_input_dlt_btn ms-1 p-1"><i class="fa-solid fa-trash-can"></i></a>
                                     </div>
                                     @endif
-                                    <label for="photo2_Rent" class="d-block"> Photo 5</label>
+                                    <label for="photo2_Rent" class="d-block mt-2"> Photo 5</label>
                                 </div>
                                 <div class="col-lg-4 col-md-4 col-sm-12 col-12 p-2">
                                     @if($list->photo5 == '')
-                                    <img src="{{asset('/Frontend/assets/img/th.webp')}}" alt="" srcset="" class="update_section_image img-fluid">
+                                    <div class="post_img_update img-thumbnail">
+                                        <img src="{{asset('/Frontend/assets/img/th.webp')}}" alt="" srcset="" class="update_section_image img-fluid">
+                                    </div>
                                     <div class=" input-group mt-2 update_section_file_input">
                                         <input type="file" class="form-control " name="photo5" id="photo_Rent" placeholder="asd" onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])">
                                     </div>
                                     @else
-                                    <img src="{{asset('public/uploads/hotels/'.$list->photo5)}}" alt="" srcset="" class="update_section_image img-fluid">
+                                    <div class="post_img_update img-thumbnail">
+                                        <img src="{{asset('public/uploads/hotels/'.$list->photo5)}}" alt="" srcset="" class="update_section_image img-fluid">
+                                    </div>
                                     <div class="d-flex justify-content-between align-items-center mt-2">
                                         <div class="input-group update_section_file_input">
                                             <input type="file" class="form-control" name="photo5" id="photo_Rent" placeholder="asd" onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])">
@@ -288,16 +308,20 @@
                                         <a href="{{route('image_delete',['Hotel',$list->id,'hotels','photo5',$list->photo5])}}" class="btn btn-primary update_section_file_input_dlt_btn ms-1 p-1"><i class="fa-solid fa-trash-can"></i></a>
                                     </div>
                                     @endif
-                                    <label for="photo2_Rent" class="d-block"> Photo 6</label>
+                                    <label for="photo2_Rent" class="d-block mt-2"> Photo 6</label>
                                 </div>
                                 <div class="col-lg-4 col-md-4 col-sm-12 col-12 p-2">
                                     @if($list->photo6 == '')
-                                    <img src="{{asset('/Frontend/assets/img/th.webp')}}" alt="" srcset="" class="update_section_image img-fluid">
+                                    <div class="post_img_update img-thumbnail">
+                                        <img src="{{asset('/Frontend/assets/img/th.webp')}}" alt="" srcset="" class="update_section_image img-fluid">
+                                    </div>
                                     <div class=" input-group mt-2 update_section_file_input">
                                         <input type="file" class="form-control " name="photo6" id="photo_Rent" placeholder="asd" onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])">
                                     </div>
                                     @else
-                                    <img src="{{asset('public/uploads/hotels/'.$list->photo6)}}" alt="" srcset="" class="update_section_image img-fluid">
+                                    <div class="post_img_update img-thumbnail">
+                                        <img src="{{asset('public/uploads/hotels/'.$list->photo6)}}" alt="" srcset="" class="update_section_image img-fluid">
+                                    </div>
                                     <div class="d-flex justify-content-between align-items-center mt-2">
                                         <div class="input-group update_section_file_input">
                                             <input type="file" class="form-control" name="photo6" id="photo_Rent" placeholder="asd" onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])">
@@ -305,7 +329,7 @@
                                         <a href="{{route('image_delete',['Hotel',$list->id,'hotels','photo6',$list->photo6])}}" class="btn btn-primary update_section_file_input_dlt_btn ms-1 p-1"><i class="fa-solid fa-trash-can"></i></a>
                                     </div>
                                     @endif
-                                    <label for="photo2_Rent" class="d-block"> Photo 7</label>
+                                    <label for="photo2_Rent" class="d-block mt-2"> Photo 7</label>
                                 </div>
                             </div>
                         </div>

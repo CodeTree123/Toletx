@@ -60,7 +60,7 @@
                         <label for="price_Rent" class="form-label me-2 fw-bold">Rent</label>
                         <div class="row">
                             <div class="col-4 pe-0">
-                                <div class="input-group mb-3">
+                                <div class="input-group">
                                     <input name="price" type="number" class="form-control" id="price_Rent" placeholder="Enter Rent" required>
                                 </div>
                             </div>
@@ -68,8 +68,8 @@
                                 <span class="text-light fs-3">/</span>
                             </div>
                             <div class="col-7 ps-0">
-                                <div class="input-group mb-3">
-                                    <select class="form-select form-select-md mb-3" aria-label=".form-select-lg example" id="per_price_Rent" name="per_price">
+                                <div class="input-group">
+                                    <select class="form-select form-select-md" aria-label=".form-select-lg example" id="per_price_Rent" name="per_price">
                                         <option selected hidden>Choose Rent Type</option>
                                         <option value="hour">Hour</option>
                                         <option value="day"> Day</option>
@@ -293,7 +293,7 @@
                         <label for="price_Want" class="form-label me-2 fw-bold">Rent</label>
                         <div class="row">
                             <div class="col-4 pe-0">
-                                <div class="input-group mb-3">
+                                <div class="input-group">
                                     <input name="price" type="number" class="form-control" id="price_Want" placeholder="Enter Price" required>
                                 </div>
                             </div>
@@ -301,8 +301,8 @@
                                 <span class="text-light fs-3">/</span>
                             </div>
                             <div class="col-7 ps-0">
-                                <div class="input-group mb-3">
-                                    <select class="form-select form-select-md mb-3" aria-label=".form-select-lg example" id="per_price_Want" name="per_price">
+                                <div class="input-group">
+                                    <select class="form-select form-select-md" aria-label=".form-select-lg example" id="per_price_Want" name="per_price">
                                         <option selected hidden>Choose Rent Type</option>
                                         <option value="hour">Hour</option>
                                         <option value="day"> Day</option>

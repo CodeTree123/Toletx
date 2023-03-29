@@ -30,12 +30,6 @@
                     </div>
                     <div class=" col-lg-4 co-md-4 col-sm-12 col-12 mb-3">
                         <label for="phone_Rent" class="form-label me-2 fw-bold">Mobile</label>
-                        {{--<select id="phone_Rent" class="form-select" name="phone" required>
-                            <option value="">Choose number</option>
-                            @foreach($lists as $list)
-                            <option value="{{$list->phone}}">{{$list->phone}}</option>
-                        @endforeach
-                        </select>--}}
                         <input name="phone" type="number" class="form-control" id="phone_Rent" placeholder="Enter " value="{{$list->phone}}" readonly>
                     </div>
 
@@ -43,7 +37,7 @@
                         <label for="price_Rent" class="form-label me-2 fw-bold">Rent</label>
                         <div class="row">
                             <div class="col-4 pe-0">
-                                <div class="input-group mb-3">
+                                <div class="input-group">
                                     <input name="price" type="number" class="form-control" id="price_Rent" placeholder="Enter Rent">
                                 </div>
                             </div>
@@ -51,8 +45,8 @@
                                 <span class="text-light fs-3">/</span>
                             </div>
                             <div class="col-7 ps-0">
-                                <div class="input-group mb-3">
-                                    <select class="form-select form-select-md mb-3" aria-label=".form-select-lg example"   name="per_price">
+                                <div class="input-group">
+                                    <select class="form-select form-select-md" aria-label=".form-select-lg example"   name="per_price">
                                         <option selected hidden>Choose Rent Type</option>
                                         <option value="hour">Hour</option>
                                         <option value="day"> Day</option>
@@ -153,12 +147,6 @@
                     </div>
                     <div class=" col-lg-4 co-md-4 col-sm-12 col-12 mb-3">
                         <label for="phone_Want" class="form-label me-2 fw-bold">Mobile</label>
-                        {{--<select id="phone_Want" class="form-select" name="phone" required>
-                            <option value="">Choose number</option>
-                            @foreach($lists as $list)
-                            <option value="{{$list->phone}}">{{$list->phone}}</option>
-                        @endforeach
-                        </select>--}}
                         <input name="phone" type="number" class="form-control" id="phone_Want" placeholder="Enter " value="{{$list->phone}}" readonly>
                     </div>
 
@@ -166,7 +154,7 @@
                         <label for="price_Want" class="form-label me-2 fw-bold">Rent</label>
                         <div class="row">
                             <div class="col-4 pe-0">
-                                <div class="input-group mb-3">
+                                <div class="input-group">
                                     <input name="price" type="number" class="form-control" id="price_Want" placeholder="Enter Rent">
                                 </div>
                             </div>
@@ -174,8 +162,8 @@
                                 <span class="text-light fs-3">/</span>
                             </div>
                             <div class="col-7 ps-0">
-                                <div class="input-group mb-3">
-                                    <select class="form-select form-select-md mb-3" aria-label=".form-select-lg example" name="per_price">
+                                <div class="input-group">
+                                    <select class="form-select form-select-md" aria-label=".form-select-lg example" name="per_price">
                                         <option selected hidden>Choose Rent Type</option>
                                         <option value="hour">Hour</option>
                                         <option value="day"> Day</option>

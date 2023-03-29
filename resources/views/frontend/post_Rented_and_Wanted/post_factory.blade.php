@@ -48,8 +48,8 @@
                         <input name="floor_size" type="text" class="form-control" id="area_rented" placeholder="Enter Floor area" required>
                     </div>
                     <div class="col-lg-4 co-md-4 col-sm-12 col-12 mb-3 ">
-                        <label for="height_rented" class="form-label me-2 fw-bold">Floor Hieght</label>
-                        <input name="floor_height" type="text" class="form-control" id="height_rented" placeholder="Enter Floor Hieght" required>
+                        <label for="height_rented" class="form-label me-2 fw-bold">Floor Height</label>
+                        <input name="floor_height" type="text" class="form-control" id="height_rented" placeholder="Enter Floor Height" required>
                     </div>
                     <div class="col-lg-4 co-md-4 col-sm-12 col-12 mb-3">
                         <label for="floor_rented" class="form-label me-2 fw-bold">Floor Level</label>
@@ -89,7 +89,7 @@
                         <textarea name="description" type="text" class="form-control" id="description_rented" rows="3" placeholder="Enter Description"></textarea>
                     </div>
                     <div class="col-lg-4 co-md-4 col-sm-12 col-12 mb-3 ">
-                        <h2 class="fw-bold mb-3">Ameneties</h2>
+                        <h2 class="fw-bold mb-3">Amenities</h2>
                         <div class="form-check ms-5 mb-2">
                             <input class="form-check-input" type="checkbox" id="elect_rented" name="electricity">
                             <label class="form-check-label" for="elect_rented">
@@ -237,8 +237,8 @@
                         <input name="floor_size" type="text" class="form-control" id="area_wanted" placeholder="Enter Floor area" required>
                     </div>
                     <div class="col-lg-4 co-md-4 col-sm-12 col-12 mb-3 ">
-                        <label for="height_wanted" class="form-label me-2 fw-bold">Floor Hieght</label>
-                        <input name="floor_height" type="text" class="form-control" id="height_wanted" placeholder="Enter Floor Hieght" required>
+                        <label for="height_wanted" class="form-label me-2 fw-bold">Floor Height</label>
+                        <input name="floor_height" type="text" class="form-control" id="height_wanted" placeholder="Enter Floor Height" required>
                     </div>
                     <div class="col-lg-4 co-md-4 col-sm-12 col-12 mb-3">
                         <label for="floor_wanted" class="form-label me-2 fw-bold">Floor Level</label>
@@ -276,7 +276,7 @@
                         <textarea name="description" type="text" class="form-control" id="description_wanted" rows="3" placeholder="Enter Description"></textarea>
                     </div>
                     <div class="col-12 mb-3 ">
-                        <h2 class="fw-bold mb-3">Ameneties</h2>
+                        <h2 class="fw-bold mb-3">Amenities</h2>
                         <div class="row ms-3 ps-2">
                             <div class="col-2 form-check mb-2">
                                 <input class="form-check-input" type="checkbox" id="elect_wanted" name="electricity">

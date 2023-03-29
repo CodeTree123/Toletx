@@ -50,7 +50,10 @@
                         </table>
                     </div>
                     <div class="tab-pane profile-tab-pane mt-2 fade" id="customer_need" role="tabpanel" aria-labelledby="customer_need-tab">
-                        <div class="post_list ">
+                        <style>
+                            
+                        </style>
+                        <div class="post_list inPost_Scroll">
                             <table class="table table-bordered text-center align-middle">
                                 <thead>
                                     <tr>

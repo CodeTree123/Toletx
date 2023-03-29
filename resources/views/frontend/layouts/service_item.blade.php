@@ -2,7 +2,7 @@
 @section('content')
 <link rel="stylesheet" href="{{asset('Frontend/assets/css/icon.css')}}">
 <!-- <link rel="stylesheet" href="{{asset('Frontend/assets/css/service_item.css')}}">       -->
-<div class="row mt-2   service-group-row">
+<div class="row m-0 mt-2 justify-content-center service-group-row">
     <a class="  col-lg-3 col-md-3 col-small  me-2 pb-3 pt-3 mb-2 main-service text-center " href="{{route('room')}}">
         <span class="icon-room service_item "></span>
         <br>

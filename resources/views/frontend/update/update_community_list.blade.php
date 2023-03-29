@@ -188,15 +188,15 @@
                             <div class="col-lg-9 col-md-9 col-sm-12 col-12">
                                 <h2 class="fw-bold mb-3">Gallery Section</h2>
                                 <div class="row">
-                                    <div class="col">
+                                    <div class="col-6 p-2">
 
                                         @if($list->photo == '')
-                                        <img src="{{asset('/Frontend/assets/img/th.webp')}}" alt="" srcset="" class="update_section_image img-fluid">
+                                        <img src="{{asset('/Frontend/assets/img/th.webp')}}" alt="" srcset="" class="update_section_image img-fluid img-thumbnail">
                                         <div class=" input-group mt-2 update_section_file_input">
                                             <input type="file" class="form-control " name="photo" id="photo_Rent" placeholder="asd" onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])">
                                         </div>
                                         @else
-                                        <img src="{{asset('public/uploads/communities/'.$list->photo)}}" alt="" srcset="" class="update_section_image img-fluid">
+                                        <img src="{{asset('public/uploads/communities/'.$list->photo)}}" alt="" srcset="" class="update_section_image img-fluid img-thumbnail">
                                         <div class="d-flex justify-content-between">
                                             <div class="input-group mt-2 update_section_file_input">
                                                 <input type="file" class="form-control" name="photo" id="photo_Rent" placeholder="asd" onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])">
@@ -211,12 +211,16 @@
                                 <div class="row">
                                     <div class="col-lg-4 col-md-4 col-sm-12 col-12 p-2">
                                         @if($list->photo1 == '')
-                                        <img src="{{asset('/Frontend/assets/img/th.webp')}}" alt="" srcset="" class="update_section_image img-fluid">
+                                        <div class="post_img_update img-thumbnail">
+                                            <img src="{{asset('/Frontend/assets/img/th.webp')}}" alt="" srcset="" class="update_section_image img-fluid">
+                                        </div>
                                         <div class=" input-group mt-2 update_section_file_input">
                                             <input type="file" class="form-control " name="photo1" id="photo_Rent" placeholder="asd" onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])">
                                         </div>
                                         @else
-                                        <img src="{{asset('public/uploads/communities/'.$list->photo1)}}" alt="" srcset="" class="update_section_image img-fluid">
+                                        <div class="post_img_update img-thumbnail">
+                                            <img src="{{asset('public/uploads/communities/'.$list->photo1)}}" alt="" srcset="" class="update_section_image img-fluid">
+                                        </div>
                                         <div class="d-flex justify-content-between align-items-center mt-2">
                                             <div class="input-group update_section_file_input">
                                                 <input type="file" class="form-control" name="photo1" id="photo_Rent" placeholder="asd" onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])">
@@ -228,12 +232,16 @@
                                     </div>
                                     <div class="col-lg-4 col-md-4 col-sm-12 col-12 p-2">
                                         @if($list->photo2 == '')
-                                        <img src="{{asset('/Frontend/assets/img/th.webp')}}" alt="" srcset="" class="update_section_image img-fluid">
+                                        <div class="post_img_update img-thumbnail">
+                                            <img src="{{asset('/Frontend/assets/img/th.webp')}}" alt="" srcset="" class="update_section_image img-fluid">
+                                        </div>
                                         <div class=" input-group mt-2 update_section_file_input">
                                             <input type="file" class="form-control " name="photo2" id="photo_Rent" placeholder="asd" onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])">
                                         </div>
                                         @else
-                                        <img src="{{asset('public/uploads/communities/'.$list->photo2)}}" alt="" srcset="" class="update_section_image img-fluid">
+                                        <div class="post_img_update img-thumbnail">
+                                            <img src="{{asset('public/uploads/communities/'.$list->photo2)}}" alt="" srcset="" class="update_section_image img-fluid">
+                                        </div>
                                         <div class="d-flex justify-content-between align-items-center mt-2">
                                             <div class="input-group update_section_file_input">
                                                 <input type="file" class="form-control" name="photo2" id="photo_Rent" placeholder="asd" onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])">
@@ -246,12 +254,16 @@
                                     </div>
                                     <div class="col-lg-4 col-md-4 col-sm-12 col-12 p-2">
                                         @if($list->photo3 == '')
-                                        <img src="{{asset('/Frontend/assets/img/th.webp')}}" alt="" srcset="" class="update_section_image img-fluid">
+                                        <div class="post_img_update img-thumbnail">
+                                            <img src="{{asset('/Frontend/assets/img/th.webp')}}" alt="" srcset="" class="update_section_image img-fluid">
+                                        </div>
                                         <div class=" input-group mt-2 update_section_file_input">
                                             <input type="file" class="form-control " name="photo3" id="photo_Rent" placeholder="asd" onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])">
                                         </div>
                                         @else
-                                        <img src="{{asset('public/uploads/communities/'.$list->photo3)}}" alt="" srcset="" class="update_section_image img-fluid">
+                                        <div class="post_img_update img-thumbnail">
+                                            <img src="{{asset('public/uploads/communities/'.$list->photo3)}}" alt="" srcset="" class="update_section_image img-fluid">
+                                        </div>
                                         <div class="d-flex justify-content-between align-items-center mt-2">
                                             <div class="input-group update_section_file_input">
                                                 <input type="file" class="form-control" name="photo3" id="photo_Rent" placeholder="asd" onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])">
@@ -263,12 +275,16 @@
                                     </div>
                                     <div class="col-lg-4 col-md-4 col-sm-12 col-12 p-2">
                                         @if($list->photo4 == '')
-                                        <img src="{{asset('/Frontend/assets/img/th.webp')}}" alt="" srcset="" class="update_section_image img-fluid">
+                                        <div class="post_img_update img-thumbnail">
+                                            <img src="{{asset('/Frontend/assets/img/th.webp')}}" alt="" srcset="" class="update_section_image img-fluid">
+                                        </div>
                                         <div class=" input-group mt-2 update_section_file_input">
                                             <input type="file" class="form-control " name="photo4" id="photo_Rent" placeholder="asd" onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])">
                                         </div>
                                         @else
-                                        <img src="{{asset('public/uploads/communities/'.$list->photo4)}}" alt="" srcset="" class="update_section_image img-fluid">
+                                        <div class="post_img_update img-thumbnail">
+                                            <img src="{{asset('public/uploads/communities/'.$list->photo4)}}" alt="" srcset="" class="update_section_image img-fluid">
+                                        </div>
                                         <div class="d-flex justify-content-between align-items-center mt-2">
                                             <div class="input-group update_section_file_input">
                                                 <input type="file" class="form-control" name="photo4" id="photo_Rent" placeholder="asd" onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])">
@@ -280,12 +296,16 @@
                                     </div>
                                     <div class="col-lg-4 col-md-4 col-sm-12 col-12 p-2">
                                         @if($list->photo5 == '')
-                                        <img src="{{asset('/Frontend/assets/img/th.webp')}}" alt="" srcset="" class="update_section_image img-fluid">
+                                        <div class="post_img_update img-thumbnail">
+                                            <img src="{{asset('/Frontend/assets/img/th.webp')}}" alt="" srcset="" class="update_section_image img-fluid">
+                                        </div>
                                         <div class=" input-group mt-2 update_section_file_input">
                                             <input type="file" class="form-control " name="photo5" id="photo_Rent" placeholder="asd" onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])">
                                         </div>
                                         @else
-                                        <img src="{{asset('public/uploads/communities/'.$list->photo5)}}" alt="" srcset="" class="update_section_image img-fluid">
+                                        <div class="post_img_update img-thumbnail">
+                                            <img src="{{asset('public/uploads/communities/'.$list->photo5)}}" alt="" srcset="" class="update_section_image img-fluid">
+                                        </div>
                                         <div class="d-flex justify-content-between align-items-center mt-2">
                                             <div class="input-group update_section_file_input">
                                                 <input type="file" class="form-control" name="photo5" id="photo_Rent" placeholder="asd" onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])">
@@ -297,12 +317,16 @@
                                     </div>
                                     <div class="col-lg-4 col-md-4 col-sm-12 col-12 p-2">
                                         @if($list->photo6 == '')
-                                        <img src="{{asset('/Frontend/assets/img/th.webp')}}" alt="" srcset="" class="update_section_image img-fluid">
+                                        <div class="post_img_update img-thumbnail">
+                                            <img src="{{asset('/Frontend/assets/img/th.webp')}}" alt="" srcset="" class="update_section_image img-fluid">
+                                        </div>
                                         <div class=" input-group mt-2 update_section_file_input">
                                             <input type="file" class="form-control " name="photo6" id="photo_Rent" placeholder="asd" onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])">
                                         </div>
                                         @else
-                                        <img src="{{asset('public/uploads/communities/'.$list->photo6)}}" alt="" srcset="" class="update_section_image img-fluid">
+                                        <div class="post_img_update img-thumbnail">
+                                            <img src="{{asset('public/uploads/communities/'.$list->photo6)}}" alt="" srcset="" class="update_section_image img-fluid">
+                                        </div>
                                         <div class="d-flex justify-content-between align-items-center mt-2">
                                             <div class="input-group update_section_file_input">
                                                 <input type="file" class="form-control" name="photo6" id="photo_Rent" placeholder="asd" onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])">
@@ -504,7 +528,7 @@
                                 </div>
                             </div>
                         </div>
-                        
+
                     </div>
                     <div class="text-center">
                         <button class="btn btn-primary  w-25 mx-auto" type="submit">Update Want Post</button>
