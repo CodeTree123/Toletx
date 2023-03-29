@@ -3029,10 +3029,7 @@ class PostController extends Controller
         ]);
         return back()->with('success', 'Billboard Wanted Post successfully Added.');
     }
-
     //end billboard
-
-
 
     //post delete method
     function image_delete($model, $id, $path, $image_col, $image_name)
@@ -3053,8 +3050,6 @@ class PostController extends Controller
         ]);
         return back();
     }
-
-
     function picnic_delete($id)
     {
         $list = Picnic_Spot::findOrFail($id)->delete();
