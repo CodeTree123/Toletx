@@ -266,7 +266,7 @@ class PostController extends Controller
     //room post
     function post_room_rented(Request $request)
     {
-        
+
         $filename = '';
         $filename1 = '';
         $filename2 = '';
@@ -633,7 +633,7 @@ class PostController extends Controller
     }
     function post_building_wanted(Request $request)
     {
-// dd($request->all());
+        // dd($request->all());
 
         Building::create([
             'user_id' => $request->user_id,
@@ -1492,7 +1492,7 @@ class PostController extends Controller
             $filename6 =  "community-7-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
             $file->move($destinationPath, $filename6);
         }
-        
+
         Community_Center::create([
             'user_id' => $request->user_id,
             'post_type' => $request->post_type,
@@ -2979,7 +2979,7 @@ class PostController extends Controller
             $filename6 =  "bilboard-7-" . date('YmdHis') . "." . $file->getClientOriginalExtension();
             $file->move($destinationPath, $filename6);
         }
-// dd($request->all());
+        // dd($request->all());
         Bilboard::create([
             'user_id' => $request->user_id,
             'post_type' => $request->post_type,
@@ -3009,7 +3009,7 @@ class PostController extends Controller
     }
     public function post_billboard_wanted(Request $request)
     {
-// dd($request->all());
+        // dd($request->all());
 
         Bilboard::create([
             'user_id' => $request->user_id,

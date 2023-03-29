@@ -9,16 +9,14 @@
                 @if($list->post_type == 'Rent')
                 <form method="POST" action="{{ route('picnic_update',$list->id) }}" enctype="multipart/form-data">
                     @csrf
-
                     <div class="row">
-
                         <div class=" col-12 mb-3 ">
                             <label for="post_title_Rent" class="form-label me-2 fw-bold">Post Title </label>
                             <input name="title" value="{{$list->title}}" type="text" class="form-control" id="post_title_Rent" placeholder="Enter Post Title">
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-12 col-12 mb-3 ">
-                            <label for="title_Rent" class="form-label me-2 fw-bold">Picnic Spot Name </label>
-                            <input name="title" value="{{$list->title}}" type="text" class="form-control" id="title_Rent" placeholder="Enter Picnic Spot Name">
+                            <label for="c_name_Rent" class="form-label me-2 fw-bold">Picnic Spot Name </label>
+                            <input name="c_name" value="{{$list->c_name}}" type="text" class="form-control" id="c_name_Rent" placeholder="Enter Picnic Spot Name">
                         </div>
                         <div class=" col-lg-4 col-md-4 col-sm-12 col-12 mb-3">
                             <label for="date_Rent" class="form-label me-2 fw-bold">Date</label>
@@ -277,8 +275,8 @@
                             <input name="title" value="{{$list->title}}" type="text" class="form-control" id="post_title_Rent" placeholder="Enter Post Title">
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-12 col-12 mb-3 ">
-                            <label for="title_Want" class="form-label me-2 fw-bold">Picnic Spot Name</label>
-                            <input name="title" value="{{$list->title}}" type="text" class="form-control" id="title_Want" placeholder="Enter Picnic Spot Name">
+                            <label for="c_name_Want" class="form-label me-2 fw-bold">Picnic Spot Name</label>
+                            <input name="c_name" value="{{$list->c_name}}" type="text" class="form-control" id="c_name_Want" placeholder="Enter Picnic Spot Name">
                         </div>
                         <div class=" col-lg-4 col-md-4 col-sm-12 col-12 mb-3">
                             <label for="date_Want" class="form-label me-2 fw-bold">Date</label>

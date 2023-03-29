@@ -25,31 +25,31 @@
 
                         <div class="col-lg-4 col-md-4 col-sm-12 col-12 mb-3 ">
                             <label for="price_rented" class="form-label me-2 fw-bold">Rent</label>
-                                <div class="row">
-                                    <div class="col-4 pe-0">
-                                        <div class="input-group mb-3">
-                                            <input name="price" value="{{$list->price}}" type="number" class="form-control" id="price_rented" placeholder="Enter Price">
-                                        </div>
-                                    </div>
-                                    <div class="col-1">
-                                        <span class="text-light fs-3">/</span>
-                                    </div>
-                                    <div class="col-7 ps-0">
-                                        <div class="input-group mb-3">
-                                            <select class="form-select form-select-md mb-3" aria-label=".form-select-lg example" name="per_price">
-                                                <option selected hidden>Choose Rent Type</option>
-                                                <option value="hour"  {{$list->per_price == "hour" ? 'selected':''}}>Hour</option>
-                                                <option value="day" {{$list->per_price == "day" ? 'selected':''}}> Day</option>
-                                                <option value="night" {{$list->per_price == "night" ? 'selected':''}}> Only Night</option>
-                                                <option value="week" {{$list->per_price == "week" ? 'selected':''}}> Week</option>
-                                                <option value="month" {{$list->per_price == "month" ? 'selected':''}}> Month</option>
-                                                <option value="year" {{$list->per_price == "year" ? 'selected':''}}> Year</option>
-                                            </select>
-                                        </div>
+                            <div class="row">
+                                <div class="col-4 pe-0">
+                                    <div class="input-group mb-3">
+                                        <input name="price" value="{{$list->price}}" type="number" class="form-control" id="price_rented" placeholder="Enter Price">
                                     </div>
                                 </div>
+                                <div class="col-1">
+                                    <span class="text-light fs-3">/</span>
+                                </div>
+                                <div class="col-7 ps-0">
+                                    <div class="input-group mb-3">
+                                        <select class="form-select form-select-md mb-3" aria-label=".form-select-lg example" name="per_price">
+                                            <option selected hidden>Choose Rent Type</option>
+                                            <option value="hour" {{$list->per_price == "hour" ? 'selected':''}}>Hour</option>
+                                            <option value="day" {{$list->per_price == "day" ? 'selected':''}}> Day</option>
+                                            <option value="night" {{$list->per_price == "night" ? 'selected':''}}> Only Night</option>
+                                            <option value="week" {{$list->per_price == "week" ? 'selected':''}}> Week</option>
+                                            <option value="month" {{$list->per_price == "month" ? 'selected':''}}> Month</option>
+                                            <option value="year" {{$list->per_price == "year" ? 'selected':''}}> Year</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    
+
                         <div class="col-lg-4 col-md-4 col-sm-12 col-12 mb-3 ">
                             <label for="area_Rent" class="form-label me-2 fw-bold">Land area</label>
                             <input name="land_area" value="{{$list->land_area}}" type="text" class="form-control" id="area_Rent" placeholder="Enter area">
@@ -67,7 +67,7 @@
                             <input name="address" value="{{$list->address}}" type="text" class="form-control" id="address_Rent" placeholder="Enter Address">
                         </div>
                         <div class="col-12 mb-3 ">
-                            <label for="description_Rent" class="form-label me-2 fw-bold"> Land Used For</label>
+                            <label for="description_Rent" class="form-label me-2 fw-bold"> Description</label>
                             <textarea name="description" type="text" class="form-control" id="description_Rent" rows="3" placeholder="Enter Description">{{$list->description}}</textarea>
                         </div>
                         <div class="col-lg-3 col-md-3 col-sm-12 col-12 mb-3 ">
@@ -103,20 +103,20 @@
                                 </label>
                             </div>
 
-                           
+
                         </div>
                         <div class="col-lg-9 col-md-9 col-sm-12 col-12">
                             <h2 class="fw-bold mb-3">Gallery Section</h2>
                             <div class="row">
                                 <div class="col">
-                                    
+
                                     @if($list->photo == '')
-                                    <img src="{{asset('/Frontend/assets/img/th.webp')}}" alt="" srcset=""  class="update_section_image img-fluid">
+                                    <img src="{{asset('/Frontend/assets/img/th.webp')}}" alt="" srcset="" class="update_section_image img-fluid">
                                     <div class=" input-group mt-2 update_section_file_input">
                                         <input type="file" class="form-control " name="photo" id="photo_Rent" placeholder="asd" onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])">
                                     </div>
                                     @else
-                                    <img src="{{asset('public/uploads/lands/'.$list->photo)}}" alt="" srcset=""  class="update_section_image img-fluid">
+                                    <img src="{{asset('public/uploads/lands/'.$list->photo)}}" alt="" srcset="" class="update_section_image img-fluid">
                                     <div class="d-flex justify-content-between">
                                         <div class="input-group mt-2 update_section_file_input">
                                             <input type="file" class="form-control" name="photo" id="photo_Rent" placeholder="asd" onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])">
@@ -130,13 +130,13 @@
                             </div>
                             <div class="row">
                                 <div class="col-lg-4 col-md-4 col-sm-12 col-12">
-                                @if($list->photo1 == '')
-                                    <img src="{{asset('/Frontend/assets/img/th.webp')}}" alt="" srcset=""  class="update_section_image img-fluid">
+                                    @if($list->photo1 == '')
+                                    <img src="{{asset('/Frontend/assets/img/th.webp')}}" alt="" srcset="" class="update_section_image img-fluid">
                                     <div class=" input-group mt-2 update_section_file_input">
                                         <input type="file" class="form-control " name="photo1" id="photo_Rent" placeholder="asd" onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])">
                                     </div>
                                     @else
-                                    <img src="{{asset('public/uploads/lands/'.$list->photo1)}}" alt="" srcset=""  class="update_section_image img-fluid">
+                                    <img src="{{asset('public/uploads/lands/'.$list->photo1)}}" alt="" srcset="" class="update_section_image img-fluid">
                                     <div class="d-flex justify-content-between align-items-center">
                                         <div class="input-group mt-2 update_section_file_input">
                                             <input type="file" class="form-control" name="photo1" id="photo_Rent" placeholder="asd" onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])">
@@ -147,13 +147,13 @@
                                     <label for="photo1_Rent" class="d-block "> Photo 2</label>
                                 </div>
                                 <div class="col-lg-4 col-md-4 col-sm-12 col-12">
-                                @if($list->photo2 == '')
-                                    <img src="{{asset('/Frontend/assets/img/th.webp')}}" alt="" srcset=""  class="update_section_image img-fluid">
+                                    @if($list->photo2 == '')
+                                    <img src="{{asset('/Frontend/assets/img/th.webp')}}" alt="" srcset="" class="update_section_image img-fluid">
                                     <div class=" input-group mt-2 update_section_file_input">
                                         <input type="file" class="form-control " name="photo2" id="photo_Rent" placeholder="asd" onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])">
                                     </div>
                                     @else
-                                    <img src="{{asset('public/uploads/lands/'.$list->photo2)}}" alt="" srcset=""  class="update_section_image img-fluid">
+                                    <img src="{{asset('public/uploads/lands/'.$list->photo2)}}" alt="" srcset="" class="update_section_image img-fluid">
                                     <div class="d-flex justify-content-between align-items-center">
                                         <div class="input-group mt-2 update_section_file_input">
                                             <input type="file" class="form-control" name="photo2" id="photo_Rent" placeholder="asd" onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])">
@@ -162,16 +162,16 @@
                                     </div>
                                     @endif
                                     <label for="photo2_Rent" class="d-block"> Photo 3</label>
-                                    
+
                                 </div>
                                 <div class="col-lg-4 col-md-4 col-sm-12 col-12">
-                                @if($list->photo3 == '')
-                                    <img src="{{asset('/Frontend/assets/img/th.webp')}}" alt="" srcset=""  class="update_section_image img-fluid">
+                                    @if($list->photo3 == '')
+                                    <img src="{{asset('/Frontend/assets/img/th.webp')}}" alt="" srcset="" class="update_section_image img-fluid">
                                     <div class=" input-group mt-2 update_section_file_input">
                                         <input type="file" class="form-control " name="photo3" id="photo_Rent" placeholder="asd" onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])">
                                     </div>
                                     @else
-                                    <img src="{{asset('public/uploads/lands/'.$list->photo3)}}" alt="" srcset=""  class="update_section_image img-fluid">
+                                    <img src="{{asset('public/uploads/lands/'.$list->photo3)}}" alt="" srcset="" class="update_section_image img-fluid">
                                     <div class="d-flex justify-content-between align-items-center">
                                         <div class="input-group mt-2 update_section_file_input">
                                             <input type="file" class="form-control" name="photo3" id="photo_Rent" placeholder="asd" onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])">
@@ -182,13 +182,13 @@
                                     <label for="photo2_Rent" class="d-block"> Photo 4</label>
                                 </div>
                                 <div class="col-lg-4 col-md-4 col-sm-12 col-12">
-                                @if($list->photo4 == '')
-                                    <img src="{{asset('/Frontend/assets/img/th.webp')}}" alt="" srcset=""  class="update_section_image img-fluid">
+                                    @if($list->photo4 == '')
+                                    <img src="{{asset('/Frontend/assets/img/th.webp')}}" alt="" srcset="" class="update_section_image img-fluid">
                                     <div class=" input-group mt-2 update_section_file_input">
                                         <input type="file" class="form-control " name="photo4" id="photo_Rent" placeholder="asd" onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])">
                                     </div>
                                     @else
-                                    <img src="{{asset('public/uploads/lands/'.$list->photo4)}}" alt="" srcset=""  class="update_section_image img-fluid">
+                                    <img src="{{asset('public/uploads/lands/'.$list->photo4)}}" alt="" srcset="" class="update_section_image img-fluid">
                                     <div class="d-flex justify-content-between align-items-center">
                                         <div class="input-group mt-2 update_section_file_input">
                                             <input type="file" class="form-control" name="photo4" id="photo_Rent" placeholder="asd" onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])">
@@ -199,13 +199,13 @@
                                     <label for="photo2_Rent" class="d-block"> Photo 5</label>
                                 </div>
                                 <div class="col-lg-4 col-md-4 col-sm-12 col-12">
-                                @if($list->photo5 == '')
-                                    <img src="{{asset('/Frontend/assets/img/th.webp')}}" alt="" srcset=""  class="update_section_image img-fluid">
+                                    @if($list->photo5 == '')
+                                    <img src="{{asset('/Frontend/assets/img/th.webp')}}" alt="" srcset="" class="update_section_image img-fluid">
                                     <div class=" input-group mt-2 update_section_file_input">
                                         <input type="file" class="form-control " name="photo5" id="photo_Rent" placeholder="asd" onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])">
                                     </div>
                                     @else
-                                    <img src="{{asset('public/uploads/lands/'.$list->photo5)}}" alt="" srcset=""  class="update_section_image img-fluid">
+                                    <img src="{{asset('public/uploads/lands/'.$list->photo5)}}" alt="" srcset="" class="update_section_image img-fluid">
                                     <div class="d-flex justify-content-between align-items-center">
                                         <div class="input-group mt-2 update_section_file_input">
                                             <input type="file" class="form-control" name="photo5" id="photo_Rent" placeholder="asd" onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])">
@@ -216,13 +216,13 @@
                                     <label for="photo2_Rent" class="d-block"> Photo 6</label>
                                 </div>
                                 <div class="col-lg-4 col-md-4 col-sm-12 col-12">
-                                @if($list->photo6 == '')
-                                    <img src="{{asset('/Frontend/assets/img/th.webp')}}" alt="" srcset=""  class="update_section_image img-fluid">
+                                    @if($list->photo6 == '')
+                                    <img src="{{asset('/Frontend/assets/img/th.webp')}}" alt="" srcset="" class="update_section_image img-fluid">
                                     <div class=" input-group mt-2 update_section_file_input">
                                         <input type="file" class="form-control " name="photo6" id="photo_Rent" placeholder="asd" onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])">
                                     </div>
                                     @else
-                                    <img src="{{asset('public/uploads/lands/'.$list->photo6)}}" alt="" srcset=""  class="update_section_image img-fluid">
+                                    <img src="{{asset('public/uploads/lands/'.$list->photo6)}}" alt="" srcset="" class="update_section_image img-fluid">
                                     <div class="d-flex justify-content-between align-items-center">
                                         <div class="input-group mt-2 update_section_file_input">
                                             <input type="file" class="form-control" name="photo6" id="photo_Rent" placeholder="asd" onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])">
@@ -235,11 +235,11 @@
                             </div>
                         </div>
                         <div class="my-3 ">
-                                <label for="video_Rent" class="form-label me-2 fw-bold"> Youtube Link</label>
-                                <input type="text" class="form-control" name="video" value="{{$list->video}}" id="video_Rent" placeholder="  Youtube Link">
-                            </div>
-                        <div class="text-center"> 
-                        <button class="btn btn-primary  my-2" type="submit">Update Rent Post</button>
+                            <label for="video_Rent" class="form-label me-2 fw-bold"> Youtube Link</label>
+                            <input type="text" class="form-control" name="video" value="{{$list->video}}" id="video_Rent" placeholder="  Youtube Link">
+                        </div>
+                        <div class="text-center">
+                            <button class="btn btn-primary  my-2" type="submit">Update Rent Post</button>
                         </div>
                     </div>
                 </form>
@@ -262,32 +262,32 @@
                         </div>
 
                         <div class="col-lg-4 col-md-4 col-sm-12 col-12 mb-3 ">
-                        <label for="price_rented" class="form-label me-2 fw-bold">Rent</label>
-                                <div class="row">
-                                    <div class="col-4 pe-0">
-                                        <div class="input-group mb-3">
-                                            <input name="price" value="{{$list->price}}" type="number" class="form-control" id="price_rented" placeholder="Enter Price">
-                                        </div>
-                                    </div>
-                                    <div class="col-1">
-                                        <span class="text-light fs-3">/</span>
-                                    </div>
-                                    <div class="col-7 ps-0">
-                                        <div class="input-group mb-3">
-                                            <select class="form-select form-select-md mb-3" aria-label=".form-select-lg example" name="per_price">
-                                                <option selected hidden>Choose Rent Type</option>
-                                                <option value="hour"  {{$list->per_price == "hour" ? 'selected':''}}>Hour</option>
-                                                <option value="day" {{$list->per_price == "day" ? 'selected':''}}> Day</option>
-                                                <option value="night" {{$list->per_price == "night" ? 'selected':''}}> Only Night</option>
-                                                <option value="week" {{$list->per_price == "week" ? 'selected':''}}> Week</option>
-                                                <option value="month" {{$list->per_price == "month" ? 'selected':''}}> Month</option>
-                                                <option value="year" {{$list->per_price == "year" ? 'selected':''}}> Year</option>
-                                            </select>
-                                        </div>
+                            <label for="price_rented" class="form-label me-2 fw-bold">Rent</label>
+                            <div class="row">
+                                <div class="col-4 pe-0">
+                                    <div class="input-group mb-3">
+                                        <input name="price" value="{{$list->price}}" type="number" class="form-control" id="price_rented" placeholder="Enter Price">
                                     </div>
                                 </div>
+                                <div class="col-1">
+                                    <span class="text-light fs-3">/</span>
+                                </div>
+                                <div class="col-7 ps-0">
+                                    <div class="input-group mb-3">
+                                        <select class="form-select form-select-md mb-3" aria-label=".form-select-lg example" name="per_price">
+                                            <option selected hidden>Choose Rent Type</option>
+                                            <option value="hour" {{$list->per_price == "hour" ? 'selected':''}}>Hour</option>
+                                            <option value="day" {{$list->per_price == "day" ? 'selected':''}}> Day</option>
+                                            <option value="night" {{$list->per_price == "night" ? 'selected':''}}> Only Night</option>
+                                            <option value="week" {{$list->per_price == "week" ? 'selected':''}}> Week</option>
+                                            <option value="month" {{$list->per_price == "month" ? 'selected':''}}> Month</option>
+                                            <option value="year" {{$list->per_price == "year" ? 'selected':''}}> Year</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                    
+
                         <div class="col-lg-4 col-md-4 col-sm-12 col-12 mb-3 ">
                             <label for="area_Want" class="form-label me-2 fw-bold">Land area</label>
                             <input name="land_area" value="{{$list->land_area}}" type="text" class="form-control" id="area_Want" placeholder="Enter area">
@@ -305,7 +305,7 @@
                             <input name="address" value="{{$list->address}}" type="text" class="form-control" id="address_Want" placeholder="Enter Address">
                         </div>
                         <div class="col-12 mb-3 ">
-                            <label for="description_Want" class="form-label me-2 fw-bold"> Land Used For</label>
+                            <label for="description_Want" class="form-label me-2 fw-bold"> Description</label>
                             <textarea name="description" type="text" class="form-control" id="description_Want" rows="3" placeholder="Enter Description">{{$list->description}}</textarea>
                         </div>
                         <div class="col-12 mb-3">
@@ -345,7 +345,7 @@
                         </div>
                     </div>
                     <div class="text-center">
-                    <button class="btn btn-primary  w-25 mx-auto" type="submit">Update Want Post</button>
+                        <button class="btn btn-primary  w-25 mx-auto" type="submit">Update Want Post</button>
                     </div>
                 </form>
                 @endif

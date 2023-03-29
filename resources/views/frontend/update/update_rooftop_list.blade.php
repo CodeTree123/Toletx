@@ -10,7 +10,7 @@
                 <form method="POST" action="{{ route('rooftop_update',$list->id) }}" enctype="multipart/form-data">
                     @csrf
                     <div class="row">
-                    <div class=" col-12 mb-3 ">
+                        <div class=" col-12 mb-3 ">
                             <label for="title_Rent" class="form-label me-2 fw-bold">Post Title</label>
                             <input name="title" value="{{$list->title}}" type="text" class="form-control" id="title_Rent" placeholder="Enter Post Title">
                         </div>
@@ -27,11 +27,11 @@
                             <input type="number" name="phone" value="{{$list->phone}}" readonly class="form-control">
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-12 col-12 mb-3 ">
-                            <label for="Area_Rent" class="form-label me-2 fw-bold">Roof Area</label>
-                            <input name="floor_area" value="{{$list->floor_area}}" type="text" class="form-control" id="Area_Rent" placeholder="Enter Roof Area">
+                            <label for="Area_Rent" class="form-label me-2 fw-bold">Rooftop Area</label>
+                            <input name="floor_area" value="{{$list->floor_area}}" type="text" class="form-control" id="Area_Rent" placeholder="Enter Rooftop Area">
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-12 col-12 mb-3 ">
-                        <label for="price_rented" class="form-label me-2 fw-bold">Rent</label>
+                            <label for="price_rented" class="form-label me-2 fw-bold">Rent</label>
                             <div class="row">
                                 <div class="col-4 pe-0">
                                     <div class="input-group mb-3">
@@ -45,7 +45,7 @@
                                     <div class="input-group mb-3">
                                         <select class="form-select form-select-md mb-3" aria-label=".form-select-lg example" name="per_price">
                                             <option selected hidden>Choose Rent Type</option>
-                                            <option value="hour"  {{$list->per_price == "hour" ? 'selected':''}}>Hour</option>
+                                            <option value="hour" {{$list->per_price == "hour" ? 'selected':''}}>Hour</option>
                                             <option value="day" {{$list->per_price == "day" ? 'selected':''}}> Day</option>
                                             <option value="night" {{$list->per_price == "night" ? 'selected':''}}> Only Night</option>
                                             <option value="week" {{$list->per_price == "week" ? 'selected':''}}> Week</option>
@@ -265,7 +265,7 @@
                     @csrf
 
                     <div class="row">
-                    <div class=" col-12 mb-3 ">
+                        <div class=" col-12 mb-3 ">
                             <label for="title_Want" class="form-label me-2 fw-bold">Post Title</label>
                             <input name="title" value="{{$list->title}}" type="text" class="form-control" id="title_Want" placeholder="Enter Post Title">
                         </div>
@@ -282,11 +282,11 @@
                             <input type="number" name="phone" value="{{$list->phone}}" readonly class="form-control">
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-12 col-12 mb-3 ">
-                            <label for="Area_Want" class="form-label me-2 fw-bold">Roof Area</label>
-                            <input name="floor_area" value="{{$list->floor_area}}" type="text" class="form-control" id="Area_Want" placeholder="Enter Roof Area">
+                            <label for="Area_Want" class="form-label me-2 fw-bold">Rooftop Area</label>
+                            <input name="floor_area" value="{{$list->floor_area}}" type="text" class="form-control" id="Area_Want" placeholder="Enter Rooftop Area">
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-12 col-12 mb-3 ">
-                        <label for="price_rented" class="form-label me-2 fw-bold">Rent</label>
+                            <label for="price_rented" class="form-label me-2 fw-bold">Rent</label>
                             <div class="row">
                                 <div class="col-4 pe-0">
                                     <div class="input-group mb-3">
@@ -300,7 +300,7 @@
                                     <div class="input-group mb-3">
                                         <select class="form-select form-select-md mb-3" aria-label=".form-select-lg example" name="per_price">
                                             <option selected hidden>Choose Rent Type</option>
-                                            <option value="hour"  {{$list->per_price == "hour" ? 'selected':''}}>Hour</option>
+                                            <option value="hour" {{$list->per_price == "hour" ? 'selected':''}}>Hour</option>
                                             <option value="day" {{$list->per_price == "day" ? 'selected':''}}> Day</option>
                                             <option value="night" {{$list->per_price == "night" ? 'selected':''}}> Only Night</option>
                                             <option value="week" {{$list->per_price == "week" ? 'selected':''}}> Week</option>

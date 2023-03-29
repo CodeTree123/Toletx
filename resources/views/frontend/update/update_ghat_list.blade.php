@@ -6,28 +6,9 @@
         <div class="min-height-200px">
             <!-- Default Basic Forms Start -->
             <div class="pd-20 card-box mb-30">
-                @if ($message = Session::get('success'))
-                <div class="alert alert-success alert-block" id="hello">
-                    <button type="button" class="close" data-dismiss="alert">×</button>
-                    <strong>{{ $message }}</strong>
-                </div>
-                @endif
-
-                @if (count($errors) > 0)
-                <div class="alert alert-danger">
-                    <strong>Whoops!</strong> There were some problems with your input.
-                    <ul>
-                        @foreach ($errors->all() as $error)
-                        <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-                @endif
-
                 @if($list->post_type == 'Rent')
                 <form method="POST" action="{{ route('ghat_update',$list->id) }}" enctype="multipart/form-data">
                     @csrf
-
                     <div class="row">
                         <div class="col-12 mb-3 ">
                             <label for="title_rented" class="form-label me-2 fw-bold">Post Title</label>

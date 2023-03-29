@@ -12,16 +12,16 @@
 
                 <div class="row">
                     <div class=" col-12 mb-3 ">
-                        <label for="" class="form-label me-2 fw-bold">Post Title</label>
-                        <input name="title" type="text" value="{{$list->title}}" class="form-control" id="" placeholder="Enter Post Title">
+                        <label for="title_rented" class="form-label me-2 fw-bold">Post Title</label>
+                        <input name="title" type="text" value="{{$list->title}}" class="form-control" id="title_rented" placeholder="Enter Post Title">
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-12 col-12 mb-3 ">
-                        <label for="title_rented" class="form-label me-2 fw-bold">Exhibition Center Name</label>
-                        <input name="title" value="{{$list->title}}" type="text" class="form-control" id="title_rented" placeholder="Enter Warehouse Name">
+                        <label for="c_name_rented" class="form-label me-2 fw-bold">Exhibition Center Name</label>
+                        <input name="c_name" value="{{$list->c_name}}" type="text" class="form-control" id="c_name_rented" placeholder="Enter Warehouse Name">
                     </div>
                     <div class=" col-lg-4 col-md-4 col-sm-12 col-12 mb-3">
                         <label for="date_rented" class="form-label me-2 fw-bold">Date</label>
-                        <input name="date" value="{{$list->date}}" type="date" class="form-control" id="date_rented" onfocus="this.showPicker()" min="{{\Carbon\Carbon::today()->format('Y-m-d')}}">
+                        <input name="date" value="{{$list->date}}" type="date" class="form-control" id="date_rented" onfocus="this.showPicker()">
                     </div>
                     <div class=" col-lg-4 col-md-4 col-sm-12 col-12 mb-3">
                         <label for="phone_rented" class="form-label me-2 fw-bold">Mobile</label>
@@ -261,16 +261,16 @@
 
                 <div class="row">
                     <div class=" col-12 mb-3 ">
-                        <label for="" class="form-label me-2 fw-bold">Post Title</label>
-                        <input name="title" type="text" value="{{$list->title}}" class="form-control" id="" placeholder="Enter Post Title">
+                        <label for="title_wanted" class="form-label me-2 fw-bold">Post Title</label>
+                        <input name="title" type="text" value="{{$list->title}}" class="form-control" id="title_wanted" placeholder="Enter Post Title">
                     </div>
                     <div class="col-lg-4 col-md-4 col-sm-12 col-12 mb-3 ">
-                        <label for="title_wanted" class="form-label me-2 fw-bold">Exhibition Center Name</label>
-                        <input name="title" value="{{$list->title}}" type="text" class="form-control" id="title_wanted" placeholder="Enter Warehouse Name">
+                        <label for="c_name_wanted" class="form-label me-2 fw-bold">Exhibition Center Name</label>
+                        <input name="c_name" value="{{$list->c_name}}" type="text" class="form-control" id="c_name_wanted" placeholder="Enter Warehouse Name">
                     </div>
                     <div class=" col-lg-4 col-md-4 col-sm-12 col-12 mb-3">
                         <label for="date_wanted" class="form-label me-2 fw-bold">Date</label>
-                        <input name="date" value="{{$list->date}}" min="{{\Carbon\Carbon::today()->format('Y-m-d')}}" type="date" class="form-control" id="date_wanted" onfocus="this.showPicker()" min="{{$list->date}}">
+                        <input name="date" value="{{$list->date}}" type="date" class="form-control" id="date_wanted" onfocus="this.showPicker()">
                     </div>
                     <div class=" col-lg-4 col-md-4 col-sm-12 col-12 mb-3">
                         <label for="phone_wanted" class="form-label me-2 fw-bold">Mobile</label>
