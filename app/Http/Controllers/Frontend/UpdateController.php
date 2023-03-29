@@ -123,8 +123,8 @@ class UpdateController extends Controller
 
         // update full row based on id
         $room->update([
-            'user_id' => $request->user_id,
-            'post_type' => $request->post_type,
+            'user_id' => $room->user_id,
+            'post_type' => $room->post_type,
             'title' => $request->title,
             'date' => $request->date,
             'phone' => $request->phone,
@@ -243,8 +243,8 @@ class UpdateController extends Controller
         }
 
         $flat->update([
-            'user_id' => $request->user_id,
-            'post_type' => $request->post_type,
+            'user_id' => $flat->user_id,
+            'post_type' => $flat->post_type,
             'title' => $request->title,
             'date' => $request->date,
             'phone' => $request->phone,
@@ -368,8 +368,8 @@ class UpdateController extends Controller
         }
 
         $building->update([
-            'user_id' => $request->user_id,
-            'post_type' => $request->post_type,
+            'user_id' => $building->user_id,
+            'post_type' => $building->post_type,
             'building_name' => $request->building_name,
             'date' => $request->date,
             'phone' => $request->phone,
@@ -484,8 +484,8 @@ class UpdateController extends Controller
         }
 
         $garage->update([
-            'user_id' => $request->user_id,
-            'post_type' => $request->post_type,
+            'user_id' => $garage->user_id,
+            'post_type' => $garage->post_type,
             'title' => $request->title,
             'date' => $request->date,
             'phone' => $request->phone,
@@ -589,8 +589,8 @@ class UpdateController extends Controller
         }
 
         $hotel->update([
-            'user_id' => $request->user_id,
-            'post_type' => $request->post_type,
+            'user_id' => $hotel->user_id,
+            'post_type' => $hotel->post_type,
             'post_title' => $request->post_title,
             'date' => $request->date,
             'phone' => $request->phone,
@@ -705,8 +705,8 @@ class UpdateController extends Controller
         }
 
         $hostel->update([
-            'user_id' => $request->user_id,
-            'post_type' => $request->post_type,
+            'user_id' => $hostel->user_id,
+            'post_type' => $hostel->post_type,
             'title' => $request->title,
             'date' => $request->date,
             'phone' => $request->phone,
@@ -825,8 +825,8 @@ class UpdateController extends Controller
         }
 
         $restuarant->update([
-            'user_id' => $request->user_id,
-            'post_type' => $request->post_type,
+            'user_id' => $restuarant->user_id,
+            'post_type' => $restuarant->post_type,
             'post_title' => $request->post_title,
             'date' => $request->date,
             'phone' => $request->phone,
@@ -944,8 +944,8 @@ class UpdateController extends Controller
         }
 
         $office->update([
-            'user_id' => $request->user_id,
-            'post_type' => $request->post_type,
+            'user_id' => $office->user_id,
+            'post_type' => $office->post_type,
             'title' => $request->title,
             'date' => $request->date,
             'phone' => $request->phone,
@@ -1060,8 +1060,8 @@ class UpdateController extends Controller
         }
 
         $shop->update([
-            'user_id' => $request->user_id,
-            'post_type' => $request->post_type,
+            'user_id' => $shop->user_id,
+            'post_type' => $shop->post_type,
             'title' => $request->title,
             'date' => $request->date,
             'phone' => $request->phone,
@@ -1170,8 +1170,8 @@ class UpdateController extends Controller
         }
 
         $communitie->update([
-            'user_id' => $request->user_id,
-            'post_type' => $request->post_type,
+            'user_id' => $communitie->user_id,
+            'post_type' => $communitie->post_type,
             'title' => $request->title,
             'c_name' => $request->c_name,
             'date' => $request->date,
@@ -1288,8 +1288,8 @@ class UpdateController extends Controller
         }
 
         $factorie->update([
-            'user_id' => $request->user_id,
-            'post_type' => $request->post_type,
+            'user_id' => $factorie->user_id,
+            'post_type' => $factorie->post_type,
             'title' => $request->title,
             'date' => $request->date,
             'phone' => $request->phone,
@@ -1401,8 +1401,8 @@ class UpdateController extends Controller
         }
 
         $warehouse->update([
-            'user_id' => $request->user_id,
-            'post_type' => $request->post_type,
+            'user_id' => $warehouse->user_id,
+            'post_type' => $warehouse->post_type,
             'title' => $request->title,
             'date' => $request->date,
             'phone' => $request->phone,
@@ -1514,8 +1514,8 @@ class UpdateController extends Controller
             unset($pond['photo6']);
         }
         $pond->update([
-            'user_id' => $request->user_id,
-            'post_type' => $request->post_type,
+            'user_id' => $pond->user_id,
+            'post_type' => $pond->post_type,
             'title' => $request->title,
             'date' => $request->date,
             'phone' => $request->phone,
@@ -1617,8 +1617,8 @@ class UpdateController extends Controller
             unset($land['photo6']);
         }
         $land->update([
-            'user_id' => $request->user_id,
-            'post_type' => $request->post_type,
+            'user_id' => $land->user_id,
+            'post_type' => $land->post_type,
             'title' => $request->title,
             'date' => $request->date,
             'phone' => $request->phone,
@@ -1725,8 +1725,8 @@ class UpdateController extends Controller
             unset($ghat['photo6']);
         }
         $ghat->update([
-            'user_id' => $request->user_id,
-            'post_type' => $request->post_type,
+            'user_id' => $ghat->user_id,
+            'post_type' => $ghat->post_type,
             'title' => $request->title,
             'date' => $request->date,
             'phone' => $request->phone,
@@ -1828,8 +1828,8 @@ class UpdateController extends Controller
         }
 
         $swimmingpool->update([
-            'user_id' => $request->user_id,
-            'post_type' => $request->post_type,
+            'user_id' => $swimmingpool->user_id,
+            'post_type' => $swimmingpool->post_type,
             'title' => $request->title,
             'date' => $request->date,
             'phone' => $request->phone,
@@ -1938,8 +1938,8 @@ class UpdateController extends Controller
         }
 
         $playground->update([
-            'user_id' => $request->user_id,
-            'post_type' => $request->post_type,
+            'user_id' => $playground->user_id,
+            'post_type' => $playground->post_type,
             'title' => $request->title,
             'c_name' => $request->c_name,
             'date' => $request->date,
@@ -2048,8 +2048,8 @@ class UpdateController extends Controller
         }
 
         $shooting->update([
-            'user_id' => $request->user_id,
-            'post_type' => $request->post_type,
+            'user_id' => $shooting->user_id,
+            'post_type' => $shooting->post_type,
             'title' => $request->title,
             'c_name' => $request->c_name,
             'date' => $request->date,
@@ -2160,8 +2160,8 @@ class UpdateController extends Controller
             unset($picnic['photo6']);
         }
         $picnic->update([
-            'user_id' => $request->user_id,
-            'post_type' => $request->post_type,
+            'user_id' => $picnic->user_id,
+            'post_type' => $picnic->post_type,
             'title' => $request->title,
             'c_name' => $request->c_name,
             'date' => $request->date,
@@ -2271,8 +2271,8 @@ class UpdateController extends Controller
             unset($exhibution['photo6']);
         }
         $exhibution->update([
-            'user_id' => $request->user_id,
-            'post_type' => $request->post_type,
+            'user_id' => $exhibution->user_id,
+            'post_type' => $exhibution->post_type,
             'title' => $request->title,
             'c_name' => $request->c_name,
             'date' => $request->date,
@@ -2382,8 +2382,8 @@ class UpdateController extends Controller
         }
 
         $rooftop->update([
-            'user_id' => $request->user_id,
-            'post_type' => $request->post_type,
+            'user_id' => $rooftop->user_id,
+            'post_type' => $rooftop->post_type,
             'title' => $request->title,
             'c_name' => $request->c_name,
             'date' => $request->date,
@@ -2492,8 +2492,8 @@ class UpdateController extends Controller
         }
 
         $bilboard->update([
-            'user_id' => $request->user_id,
-            'post_type' => $request->post_type,
+            'user_id' => $bilboard->user_id,
+            'post_type' => $bilboard->post_type,
             'title' => $request->title,
             'date' => $request->date,
             'phone' => $request->phone,

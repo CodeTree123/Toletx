@@ -15,7 +15,7 @@
                     </div>
                     <div class=" col-lg-4 col-md-4 col-sm-12 col-12 mb-3">
                         <label for="date_rented" class="form-label me-2 fw-bold">Date</label>
-                        <input name="date" value="{{$list->date}}" min="{{\Carbon\Carbon::today()->format('Y-m-d')}}" type="date" class="form-control" id="date_rented" onfocus="this.showPicker()">
+                        <input name="date" value="{{$list->date}}" type="date" class="form-control" id="date_rented" onfocus="this.showPicker()">
                     </div>
                     <div class=" col-lg-4 col-md-4 col-sm-12 col-12 mb-3">
                         <label for="phone_rented" class="form-label me-2 fw-bold">Mobile</label>
@@ -304,7 +304,7 @@
                     </div>
                     <div class=" col-lg-4 col-md-4 col-sm-12 col-12 mb-3">
                         <label for="date_wanted" class="form-label me-2 fw-bold">Date</label>
-                        <input name="date" value="{{$list->date}}" min="{{\Carbon\Carbon::today()->format('Y-m-d')}}" type="date" class="form-control" id="date_wanted" onfocus="this.showPicker()">
+                        <input name="date" value="{{$list->date}}" type="date" class="form-control" id="date_wanted" onfocus="this.showPicker()">
                     </div>
                     <div class=" col-lg-4 col-md-4 col-sm-12 col-12 mb-3">
                         <label for="phone_wanted" class="form-label me-2 fw-bold">Mobile</label>

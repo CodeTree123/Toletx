@@ -52,8 +52,8 @@
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-12 col-12 mb-3 ">
-                            <label for="floor_size_Rent" class="form-label me-2 fw-bold">Spot Area</label>
-                            <input name="floor_area" value="{{$list->floor_area}}" type="text" class="form-control" id="floor_size_Rent" placeholder="Enter Spot Area">
+                            <label for="floor_size_Rent" class="form-label me-2 fw-bold">Shooting Spot Area</label>
+                            <input name="floor_area" value="{{$list->floor_area}}" type="text" class="form-control" id="floor_size_Rent" placeholder="Enter Shooting Spot Area">
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-12 col-12 mb-3 ">
                             <label for="road_width_Rent" class="form-label me-2 fw-bold">Road Width</label>
@@ -338,8 +338,8 @@
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-12 col-12 mb-3 ">
-                            <label for="floor_size_Want" class="form-label me-2 fw-bold">Spot Area</label>
-                            <input name="floor_area" value="{{$list->floor_area}}" type="text" class="form-control" id="floor_size_Want" placeholder="Enter Spot Area">
+                            <label for="floor_size_Want" class="form-label me-2 fw-bold">Shooting Spot Area</label>
+                            <input name="floor_area" value="{{$list->floor_area}}" type="text" class="form-control" id="floor_size_Want" placeholder="Enter Shooting Spot Area">
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-12 col-12 mb-3 ">
                             <label for="road_width_Want" class="form-label me-2 fw-bold">Road Width</label>

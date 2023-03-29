@@ -67,7 +67,7 @@
                             <input name="address" value="{{$list->address}}" type="text" class="form-control" id="address_Rent" placeholder="Enter Address">
                         </div>
                         <div class="col-12 mb-3 ">
-                            <label for="description_Rent" class="form-label me-2 fw-bold"> Land Used For</label>
+                            <label for="description_Rent" class="form-label me-2 fw-bold"> Description</label>
                             <textarea name="description" type="text" class="form-control" id="description_Rent" rows="3" placeholder="Enter Description">{{$list->description}}</textarea>
                         </div>
                         <div class="col-lg-3 col-md-3 col-sm-12 col-12 mb-3 ">
@@ -329,7 +329,7 @@
                             <input name="address" value="{{$list->address}}" type="text" class="form-control" id="address_Want" placeholder="Enter Address">
                         </div>
                         <div class="col-12 mb-3 ">
-                            <label for="description_Want" class="form-label me-2 fw-bold"> Land Used For</label>
+                            <label for="description_Want" class="form-label me-2 fw-bold"> Description</label>
                             <textarea name="description" type="text" class="form-control" id="description_Want" rows="3" placeholder="Enter Description">{{$list->description}}</textarea>
                         </div>
                         <div class="col-12 mb-3">

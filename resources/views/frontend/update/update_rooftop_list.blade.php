@@ -27,8 +27,8 @@
                             <input type="number" name="phone" value="{{$list->phone}}" readonly class="form-control">
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-12 col-12 mb-3 ">
-                            <label for="Area_Rent" class="form-label me-2 fw-bold">Roof Area</label>
-                            <input name="floor_area" value="{{$list->floor_area}}" type="text" class="form-control" id="Area_Rent" placeholder="Enter Roof Area">
+                            <label for="Area_Rent" class="form-label me-2 fw-bold">Rooftop Area</label>
+                            <input name="floor_area" value="{{$list->floor_area}}" type="text" class="form-control" id="Area_Rent" placeholder="Enter Rooftop Area">
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-12 col-12 mb-3 ">
                             <label for="price_rented" class="form-label me-2 fw-bold">Rent</label>
@@ -306,8 +306,8 @@
                             <input type="number" name="phone" value="{{$list->phone}}" readonly class="form-control">
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-12 col-12 mb-3 ">
-                            <label for="Area_Want" class="form-label me-2 fw-bold">Roof Area</label>
-                            <input name="floor_area" value="{{$list->floor_area}}" type="text" class="form-control" id="Area_Want" placeholder="Enter Roof Area">
+                            <label for="Area_Want" class="form-label me-2 fw-bold">Rooftop Area</label>
+                            <input name="floor_area" value="{{$list->floor_area}}" type="text" class="form-control" id="Area_Want" placeholder="Enter Rooftop Area">
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-12 col-12 mb-3 ">
                             <label for="price_rented" class="form-label me-2 fw-bold">Rent</label>

@@ -193,7 +193,7 @@
                         <input name="address" type="text" class="form-control" placeholder="Enter Address" required>
                     </div>
                     <div class="col-12 mb-3 ">
-                        <label for="description_Want" class="form-label me-2 fw-bold"> Pond Used For</label>
+                        <label for="description_Want" class="form-label me-2 fw-bold"> Description</label>
                         <textarea name="description" type="text" class="form-control" id="description_Want" rows="3" placeholder="Enter Description"></textarea>
                     </div>
                     <button class="btn btn-primary w-25 mx-auto" type="submit">Submit</button>

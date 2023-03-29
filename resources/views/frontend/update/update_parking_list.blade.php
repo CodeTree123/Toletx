@@ -11,8 +11,8 @@
                     @csrf
                     <div class="row">
                         <div class=" col-12 mb-3 ">
-                            <label for="" class="form-label me-2 fw-bold">Post Title</label>
-                            <input name="title" type="text" value="{{$list->title}}" class="form-control" id="" placeholder="Enter Post Title">
+                            <label for="title_rented" class="form-label me-2 fw-bold">Post Title</label>
+                            <input name="title" type="text" value="{{$list->title}}" class="form-control" id="title_rented" placeholder="Enter Post Title">
                         </div>
 
                         <div class=" col-lg-4 col-md-4 col-sm-12 col-12 mb-3">
@@ -249,8 +249,8 @@
                     @csrf
                     <div class="row">
                         <div class=" col-12 mb-3 ">
-                            <label for="" class="form-label me-2 fw-bold">Post Title</label>
-                            <input name="title" type="text" value="{{$list->title}}" class="form-control" id="" placeholder="Enter Post Title">
+                            <label for="title_wanted" class="form-label me-2 fw-bold">Post Title</label>
+                            <input name="title" type="text" value="{{$list->title}}" class="form-control" id="title_wanted" placeholder="Enter Post Title">
                         </div>
 
                         <div class=" col-lg-4 col-md-4 col-sm-12 col-12 mb-3">
