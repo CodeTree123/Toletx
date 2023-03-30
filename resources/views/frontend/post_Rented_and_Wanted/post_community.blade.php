@@ -10,35 +10,33 @@
         </nav>
         @include('frontend.include.selector_section')
 
-        <div class="col-12" id="Rent" style="display: none;">
+        <div class="col-12" id="Rent" style="display: {{old('post_type') == 'Rent' ? 'flex' : 'none'}};">
             <form method="POST" action="{{ route('post_community_rented') }}" enctype="multipart/form-data">
                 @csrf
                 <div class="col-md-6">
                     <input id="user_id" type="hidden" class="form-control" name="user_id" value="{{ Auth::user()->id }}" required autocomplete="user_id" autofocus>
                 </div>
-                <input class="form-control" type="hidden" id="post_rent" name="post_type">
+                <input class="form-control" type="hidden" id="post_rent" name="post_type" value="{{old('post_type')}}">
                 <div class="row">
                     <div class="col-12 mb-3 ">
                         <label for="title_rented" class="form-label me-2 fw-bold">Post Title</label>
-                        <input name="title" type="text" class="form-control" id="title_rented" placeholder="Enter Post Title" required>
+                        <input name="title" type="text" class="form-control" id="title_rented" placeholder="Enter Post Title" value="{{old('title')}}">
+                        <span class="text-danger">@error('title') {{$message}} @enderror</span>
                     </div>
                     <div class="col-lg-4 co-md-4 col-sm-12 col-12 mb-3 ">
                         <label for="community_name_rented" class="form-label me-2 fw-bold">Community Hall Name</label>
-                        <input name="c_name" type="text" class="form-control" id="community_name_rented" placeholder="Enter Community Hall Name" required>
+                        <input name="c_name" type="text" class="form-control" id="community_name_rented" placeholder="Enter Community Hall Name" value="{{old('c_name')}}">
+                        <span class="text-danger">@error('c_name') {{$message}} @enderror</span>
                     </div>
                     <div class=" col-lg-4 co-md-4 col-sm-12 col-12 mb-3">
                         <label for="date_rented" class="form-label me-2 fw-bold">Date</label>
-                        <input name="date" type="date" class="form-control" id="date_rented" min="{{\Carbon\Carbon::today()->format('Y-m-d')}}" onfocus="this.showPicker()" required>
+                        <input name="date" type="date" class="form-control" id="date_rented" min="{{\Carbon\Carbon::today()->format('Y-m-d')}}" onfocus="this.showPicker()" value="{{old('date')}}">
+                        <span class="text-danger">@error('date') {{$message}} @enderror</span>
                     </div>
                     <div class=" col-lg-4 co-md-4 col-sm-12 col-12 mb-3">
                         <label for="phone_rented" class="form-label me-2 fw-bold">Mobile</label>
-                        {{--<select id="phone_rented" class="form-select" name="phone" required>
-                            <option value="">Choose number</option>
-                            @foreach($lists as $list)
-                            <option value="{{$list->phone}}">{{$list->phone}}</option>
-                        @endforeach
-                        </select>--}}
                         <input name="phone" type="number" class="form-control" id="phone_rented" placeholder="Enter " value="{{$list->phone}}" readonly>
+                        <span class="text-danger">@error('phone') {{$message}} @enderror</span>
                     </div>
 
                     <div class="col-lg-4 co-md-4 col-sm-12 col-12 mb-3 ">
@@ -46,7 +44,7 @@
                         <div class="row">
                             <div class="col-4 pe-0">
                                 <div class="input-group">
-                                    <input name="price" type="number" class="form-control" id="price_rented" placeholder="Enter Rent" required>
+                                    <input name="price" type="number" class="form-control" id="price_rented" placeholder="Enter Rent" value="{{old('')}}">
                                 </div>
                             </div>
                             <div class="col-1">
@@ -64,13 +62,15 @@
                                 </div>
                             </div>
                         </div>
+                        <span class="text-danger">@error('price') {{$message}} @enderror</span><br>
+                        <span class="text-danger">@error('per_price') {{$message}} @enderror</span>
                     </div>
                     <div class="col-lg-4 co-md-4 col-sm-12 col-12 mb-3 ">
                         <label for="s_charge_rented" class="form-label me-2 fw-bold">Service Charge</label>
                         <div class="row">
                             <div class="col-4 pe-0">
                                 <div class="input-group">
-                                    <input name="s_charge" type="number" class="form-control" id="s_charge_rented" placeholder="Enter Service Charge" required>
+                                    <input name="s_charge" type="number" class="form-control" id="s_charge_rented" placeholder="Enter Service Charge" value="{{old('')}}">
                                 </div>
                             </div>
                             <div class="col-1">
@@ -88,14 +88,17 @@
                                 </div>
                             </div>
                         </div>
+                        <span class="text-danger">@error('s_charge') {{$message}} @enderror</span><br>
+                        <span class="text-danger">@error('s_per_price') {{$message}} @enderror</span>
                     </div>
                     <div class="col-lg-4 co-md-4 col-sm-12 col-12 mb-3 ">
                         <label for="area_rented" class="form-label me-2 fw-bold">Floor area</label>
-                        <input name="floor_size" type="text" class="form-control" id="area_rented" placeholder="Enter Floor area" required>
+                        <input name="floor_size" type="text" class="form-control" id="area_rented" placeholder="Enter Floor area" value="{{old('floor_size')}}">
+                        <span class="text-danger">@error('floor_size') {{$message}} @enderror</span>
                     </div>
                     <div class="col-lg-4 co-md-4 col-sm-12 col-12 mb-3">
                         <label for="floor_rented" class="form-label me-2 fw-bold">Floor Level</label>
-                        <select id="floor_rented" class="form-select" name="floor_level" required>
+                        <select id="floor_rented" class="form-select" name="floor_level">
                             <option selected hidden>Choose Floor Level</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
@@ -114,32 +117,37 @@
                             <option value="15">15</option>
                             <option value="15">15+</option>
                         </select>
+                        <span class="text-danger">@error('floor_level') {{$message}} @enderror</span>
                     </div>
                     <div class="col-lg-4 co-md-4 col-sm-12 col-12 mb-3">
                         <label for="road_rented" class="form-label me-2 fw-bold">Road Width</label>
-                        <input name="road_width" type="text" class="form-control" id="road_rented" placeholder="Enter Road Width" required>
+                        <input name="road_width" type="text" class="form-control" id="road_rented" placeholder="Enter Road Width" value="{{old('road_width')}}">
+                        <span class="text-danger">@error('road_width') {{$message}} @enderror</span>
                     </div>
                     <div class="col-lg-4 co-md-4 col-sm-12 col-12 mb-3">
                         <label for="interior_rented" class="form-label me-2 fw-bold">Interior Condition</label>
-                        <select id="interior_rented" class="form-select" name="interior_condition" required>
+                        <select id="interior_rented" class="form-select" name="interior_condition">
                             <option selected hidden>Choose Interior Condition</option>
                             <option value="good">Good</option>
                             <option value="moderate">Moderate</option>
                             <option value="best">Best</option>
                         </select>
+                        <span class="text-danger">@error('interior_condition') {{$message}} @enderror</span>
                     </div>
 
                     <div class="col-lg-4 co-md-4 col-sm-12 col-12 mb-3 ">
                         <label for="Seating_rented" class="form-label me-2 fw-bold">No of Seating Arrangement</label>
-                        <input name="seat" type="text" class="form-control" id="Seating_rented" placeholder="Enter No of Seating Arrangement" required>
+                        <input name="seat" type="text" class="form-control" id="Seating_rented" placeholder="Enter No of Seating Arrangement" value="{{old('seat')}}">
+                        <span class="text-danger">@error('seat') {{$message}} @enderror</span>
                     </div>
                     <div class="col-12 mb-3 ">
                         <label for="address_rented" class="form-label me-2 fw-bold">Address</label>
-                        <input name="address" type="text" class="form-control" placeholder="Enter Address" required>
+                        <input name="address" type="text" class="form-control" placeholder="Enter Address" value="{{old('address')}}">
+                        <span class="text-danger">@error('address') {{$message}} @enderror</span>
                     </div>
                     <div class="col-12 mb-3 ">
                         <label for="description_rented" class="form-label me-2 fw-bold">Description</label>
-                        <textarea name="description" type="text" class="form-control" id="description_rented" rows="3" placeholder="Enter Description"></textarea>
+                        <textarea name="description" type="text" class="form-control" id="description_rented" rows="3" placeholder="Enter Description">{{old('description')}}</textarea>
                     </div>
                     <div class="col-lg-4 co-md-4 col-sm-12 col-12 mb-3 ">
                         <h2 class="fw-bold mb-3">Amenities</h2>
@@ -200,39 +208,39 @@
                     </div>
                     <div class="col-8">
                         <h2 class="fw-bold mb-3">Gallery Section</h2>
-                        <label for="photo_rented" class="d-block"> Photo 1</label>
-                        <div class="input-group mb-3 ">
-
+                        <div class="mb-3 ">
+                            <label for="photo_rented" class="d-block"> Photo 1</label>
                             <input type="file" class="form-control" name="photo" id="photo_rented" placeholder="asd">
+                            <span class="text-danger">@error('photo') {{$message}} @enderror</span>
                         </div>
 
-                        <label for="photo1_rented" class="d-block"> Photo 2</label>
-                        <div class="input-group mb-3">
+                        <div class="mb-3">
+                            <label for="photo1_rented" class="d-block"> Photo 2</label>
                             <input type="file" class="form-control" name="photo1" id="photo1_rented">
                         </div>
 
-                        <label for="photo2_rented" class="d-block"> Photo 3</label>
-                        <div class="input-group mb-3">
+                        <div class="mb-3">
+                            <label for="photo2_rented" class="d-block"> Photo 3</label>
                             <input type="file" class="form-control" name="photo2" id="photo2_rented">
                         </div>
 
-                        <label for="photo3_rented" class="d-block"> Photo 4</label>
-                        <div class="input-group mb-3">
+                        <div class="mb-3">
+                            <label for="photo3_rented" class="d-block"> Photo 4</label>
                             <input type="file" class="form-control" name="photo3" id="photo3_rented">
                         </div>
 
-                        <label for="photo4_rented" class="d-block"> Photo 5</label>
-                        <div class="input-group mb-3">
+                        <div class="mb-3">
+                            <label for="photo4_rented" class="d-block"> Photo 5</label>
                             <input type="file" class="form-control" name="photo4" id="photo4_rented">
                         </div>
 
-                        <label for="photo5_rented" class="d-block"> Photo 6</label>
-                        <div class="input-group mb-3">
+                        <div class="mb-3">
+                            <label for="photo5_rented" class="d-block"> Photo 6</label>
                             <input type="file" class="form-control" name="photo5" id="photo5_rented">
                         </div>
 
-                        <label for="photo6_rented" class="d-block"> Photo 7</label>
-                        <div class="input-group mb-3">
+                        <div class="mb-3">
+                            <label for="photo6_rented" class="d-block"> Photo 7</label>
                             <input type="file" class="form-control" name="photo6" id="photo6_rented">
                         </div>
 
@@ -240,7 +248,7 @@
 
                     <div class="col-12 mb-3 ">
                         <label for="video_rented" class="form-label me-2 fw-bold"> Youtube Link</label>
-                        <input type="text" class="form-control" name="video" id="video_rented" placeholder="  Youtube Link">
+                        <input type="text" class="form-control" name="video" id="video_rented" placeholder="Youtube Link" value="{{old('video')}}">
                     </div>
 
 
@@ -248,7 +256,7 @@
                 </div>
             </form>
         </div>
-        <div class="col-12" id="Want" style="display: none;">
+        <div class="col-12" id="Want" style="display: {{old('post_type') == 'Want' ? 'flex' : 'none'}};">
             <form method="POST" action="{{ route('post_community_wanted') }}">
                 @csrf
                 <div class="col-md-6">
@@ -256,29 +264,27 @@
 
 
                 </div>
-                <input class="form-control" type="hidden" id="post_want" name="post_type">
+                <input class="form-control" type="hidden" id="post_want" name="post_type" value="{{old('post_type')}}">
                 <div class="row">
                     <div class="col-12 mb-3 ">
                         <label for="title_wanted" class="form-label me-2 fw-bold">Post Title</label>
-                        <input name="title" type="text" class="form-control" id="title_wanted" placeholder="Enter Post Title" required>
+                        <input name="title" type="text" class="form-control" id="title_wanted" placeholder="Enter Post Title" value="{{old('title')}}">
+                        <span class="text-danger">@error('title') {{$message}} @enderror</span>
                     </div>
                     <div class="col-lg-4 co-md-4 col-sm-12 col-12 mb-3 ">
                         <label for="community_name_wanted" class="form-label me-2 fw-bold">Community Hall Name</label>
-                        <input name="c_name" type="text" class="form-control" id="community_name_wanted" placeholder="Enter Community Hall Name" required>
+                        <input name="c_name" type="text" class="form-control" id="community_name_wanted" placeholder="Enter Community Hall Name" value="{{old('c_name')}}">
+                        <span class="text-danger">@error('c_name') {{$message}} @enderror</span>
                     </div>
                     <div class=" col-lg-4 co-md-4 col-sm-12 col-12 mb-3">
                         <label for="date_wanted" class="form-label me-2 fw-bold">Date</label>
-                        <input name="date" type="date" class="form-control" id="date_wanted" min="{{\Carbon\Carbon::today()->format('Y-m-d')}}" onfocus="this.showPicker()" required>
+                        <input name="date" type="date" class="form-control" id="date_wanted" min="{{\Carbon\Carbon::today()->format('Y-m-d')}}" onfocus="this.showPicker()" value="{{old('date')}}">
+                        <span class="text-danger">@error('date') {{$message}} @enderror</span>
                     </div>
                     <div class=" col-lg-4 co-md-4 col-sm-12 col-12 mb-3">
                         <label for="phone_wanted" class="form-label me-2 fw-bold">Mobile</label>
-                        {{--<select id="phone_wanted" class="form-select" name="phone" required>
-                            <option value="">Choose number</option>
-                            @foreach($lists as $list)
-                            <option value="{{$list->phone}}">{{$list->phone}}</option>
-                        @endforeach
-                        </select>--}}
                         <input name="phone" type="number" class="form-control" id="phone_wanted" placeholder="Enter " value="{{$list->phone}}" readonly>
+                        <span class="text-danger">@error('phone') {{$message}} @enderror</span>
                     </div>
 
                     <div class="col-lg-4 co-md-4 col-sm-12 col-12 mb-3 ">
@@ -286,7 +292,7 @@
                         <div class="row">
                             <div class="col-4 pe-0">
                                 <div class="input-group">
-                                    <input name="price" type="number" class="form-control" id="price_wanted" placeholder="Enter Rent" required>
+                                    <input name="price" type="number" class="form-control" id="price_wanted" placeholder="Enter Rent" value="{{old('')}}">
                                 </div>
                             </div>
                             <div class="col-1">
@@ -294,7 +300,7 @@
                             </div>
                             <div class="col-7 ps-0">
                                 <div class="input-group">
-                                    <select class="form-select form-select-md" aria-label=".form-select-lg example"id="per_price_wanted" name="per_price">
+                                    <select class="form-select form-select-md" aria-label=".form-select-lg example" id="per_price_wanted" name="per_price">
                                         <option selected hidden>Choose Rent Type</option>
                                         <option value="hour">Hour</option>
                                         <option value="day shift"> Day Shift</option>
@@ -304,13 +310,15 @@
                                 </div>
                             </div>
                         </div>
+                        <span class="text-danger">@error('price') {{$message}} @enderror</span><br>
+                        <span class="text-danger">@error('per_price') {{$message}} @enderror</span>
                     </div>
                     <div class="col-lg-4 co-md-4 col-sm-12 col-12 mb-3 ">
                         <label for="s_charge_wanted" class="form-label me-2 fw-bold">Service Charge</label>
                         <div class="row">
                             <div class="col-4 pe-0">
                                 <div class="input-group">
-                                    <input name="s_charge" type="number" class="form-control" id="s_charge_wanted" placeholder="Enter Service Charge" required>
+                                    <input name="s_charge" type="number" class="form-control" id="s_charge_wanted" placeholder="Enter Service Charge" value="{{old('')}}">
                                 </div>
                             </div>
                             <div class="col-1">
@@ -318,7 +326,7 @@
                             </div>
                             <div class="col-7 ps-0">
                                 <div class="input-group">
-                                    <select class="form-select form-select-md" aria-label=".form-select-lg example" id="s_per_price_wanted"  name="s_per_price">
+                                    <select class="form-select form-select-md" aria-label=".form-select-lg example" id="s_per_price_wanted" name="s_per_price">
                                         <option selected hidden>Choose Service Type</option>
                                         <option value="hour">Hour</option>
                                         <option value="day shift"> Day Shift</option>
@@ -328,14 +336,17 @@
                                 </div>
                             </div>
                         </div>
+                        <span class="text-danger">@error('s_charge') {{$message}} @enderror</span><br>
+                        <span class="text-danger">@error('s_per_price') {{$message}} @enderror</span>
                     </div>
                     <div class="col-lg-4 co-md-4 col-sm-12 col-12 mb-3 ">
                         <label for="area_wanted" class="form-label me-2 fw-bold">Floor area</label>
-                        <input name="floor_size" type="text" class="form-control" id="area_wanted" placeholder="Enter Floor area" required>
+                        <input name="floor_size" type="text" class="form-control" id="area_wanted" placeholder="Enter Floor area" value="{{old('floor_size')}}">
+                        <span class="text-danger">@error('floor_size') {{$message}} @enderror</span>
                     </div>
                     <div class="col-lg-4 co-md-4 col-sm-12 col-12 mb-3">
                         <label for="floor_wanted" class="form-label me-2 fw-bold">Floor Level</label>
-                        <select id="floor_wanted" class="form-select" name="floor_level" required>
+                        <select id="floor_wanted" class="form-select" name="floor_level">
                             <option selected hidden>Choose Floor Level</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
@@ -354,32 +365,37 @@
                             <option value="15">15</option>
                             <option value="15">15+</option>
                         </select>
+                        <span class="text-danger">@error('floor_level') {{$message}} @enderror</span>
                     </div>
                     <div class="col-lg-4 co-md-4 col-sm-12 col-12 mb-3">
                         <label for="road_wanted" class="form-label me-2 fw-bold">Road Width</label>
-                        <input name="road_width" type="text" class="form-control" id="road_wanted" placeholder="Enter Road Width" required>
+                        <input name="road_width" type="text" class="form-control" id="road_wanted" placeholder="Enter Road Width" value="{{old('road_width')}}">
+                        <span class="text-danger">@error('road_width') {{$message}} @enderror</span>
                     </div>
                     <div class="col-lg-4 co-md-4 col-sm-12 col-12 mb-3">
                         <label for="interior_wanted" class="form-label me-2 fw-bold">Interior Condition</label>
-                        <select id="interior_wanted" class="form-select" name="interior_condition" required>
+                        <select id="interior_wanted" class="form-select" name="interior_condition">
                             <option selected hidden>Choose Interior Condition</option>
                             <option value="good">Good</option>
                             <option value="moderate">Moderate</option>
                             <option value="best">Best</option>
                         </select>
+                        <span class="text-danger">@error('interior_condition') {{$message}} @enderror</span>
                     </div>
 
                     <div class="col-lg-4 co-md-4 col-sm-12 col-12 mb-3 ">
                         <label for="Seating_wanted" class="form-label me-2 fw-bold">No of Seating Arrangement</label>
-                        <input name="seat" type="text" class="form-control" id="Seating_wanted" placeholder="Enter No of Seating Arrangement" required>
+                        <input name="seat" type="text" class="form-control" id="Seating_wanted" placeholder="Enter No of Seating Arrangement" value="{{old('seat')}}">
+                        <span class="text-danger">@error('seat') {{$message}} @enderror</span>
                     </div>
                     <div class="col-12 mb-3 ">
                         <label for="address_wanted" class="form-label me-2 fw-bold">Address</label>
-                        <input name="address" type="text" class="form-control" placeholder="Enter Address" required>
+                        <input name="address" type="text" class="form-control" placeholder="Enter Address" value="{{old('address')}}">
+                        <span class="text-danger">@error('address') {{$message}} @enderror</span>
                     </div>
                     <div class="col-12 mb-3 ">
                         <label for="description_wanted" class="form-label me-2 fw-bold">Description</label>
-                        <textarea name="description" type="text" class="form-control" id="description_wanted" rows="3" placeholder="Enter Description"></textarea>
+                        <textarea name="description" type="text" class="form-control" id="description_wanted" rows="3" placeholder="Enter Description">{{old('description')}}</textarea>
                     </div>
                     <div class="col-12 mb-3 ">
                         <h2 class="fw-bold mb-3">Amenities</h2>
