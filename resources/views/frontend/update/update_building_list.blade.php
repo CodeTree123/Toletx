@@ -395,7 +395,7 @@
                                 <div class="col-7 ps-0">
                                     <div class="input-group">
                                         <select class="form-select form-select-md" aria-label=".form-select-lg example" name="s_per_price">
-                                            <option selected hidden>Choose Service Type</option>
+                                              <option selected hidden>Choose Service Type</option>
                                             <option value="hour" {{$list->s_per_price == "hour" ? 'selected':''}}>Hour</option>
                                             <option value="day" {{$list->s_per_price == "day" ? 'selected':''}}> Day</option>
                                             <option value="night" {{$list->s_per_price == "night" ? 'selected':''}}> Only Night</option>
