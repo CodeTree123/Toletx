@@ -279,7 +279,7 @@ class PostController extends Controller
             'guest_count' => 'required',
             'address' => 'required',
             'photo' => 'required|image|mimes:jpeg,png,jpg',
-        ],[
+        ], [
             'title.required' => 'This field is required.',
             'date.required' => 'This field is required.',
             'phone.required' => 'This field is required.',
@@ -297,7 +297,7 @@ class PostController extends Controller
             'photo.mimes' => 'Photo 1 file Type must be jpeg,png,jpg.',
         ]);
 
-        dd($request->all());
+        // dd($request->all());
 
         $filename = '';
         $filename1 = '';
@@ -421,7 +421,7 @@ class PostController extends Controller
         ]);
 
         dd($request->all());
-        
+
         Room::create([
             'user_id' => $request->user_id,
             'post_type' => $request->post_type,
@@ -683,6 +683,44 @@ class PostController extends Controller
     //building
     function post_building_rented(Request $request)
     {
+        // Rented Validation
+        $request->validate([
+            'building_name' => 'required',
+            'date' => 'required',
+            'phone' => 'required',
+            'price' => 'required',
+            'per_price' => 'required|in:hour,day,night,week,month,year',
+            's_charge' => 'required',
+            's_per_price' => 'required|in:hour,day,night,week,month,year',
+            'building_size' => 'required',
+            'floor' => 'required|in:1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,15+',
+            'floor_size' => 'required',
+            't_build' => 'required|in:rcc,Tin Shed,Steal Shed,Brick Building,Bamboo Shed,Mud Building',
+            'road_width' => 'required',
+            'address' => 'required',
+            'photo' => 'required|image|mimes:jpeg,png,jpg',
+        ], [
+            'building_name.required' => 'This field is required.',
+            'date.required' => 'This field is required.',
+            'phone.required' => 'This field is required.',
+            'price.required' => 'Rent field is required.',
+            'per_price.required' => 'Rent Type field is required.',
+            'per_price.in' => 'Rent Type field must be selected.',
+            's_charge.required' => 'Service Charge field is required.',
+            's_per_price.required' => 'Service Charge Type field is required.',
+            's_per_price.in' => 'Service Charge Type field must be selected.',
+            'building_size.required' => 'This field is required.',
+            'floor.required' => 'Floor field is required.',
+            'floor.in' => 'Floor field must be selected.',
+            'floor_size.required' => 'This field is required.',
+            't_build.required' => 'Building Type is required.',
+            't_build.in' => 'Building Type field must be selected.',
+            'road_width.required' => 'This field is required.',
+            'address.required' => 'This field is required.',
+            'photo.image' => 'Photo 1 field must be image type.',
+            'photo.mimes' => 'Photo 1 file Type must be jpeg,png,jpg.',
+        ]);
+
         $filename = '';
         $filename1 = '';
         $filename2 = '';
@@ -774,25 +812,57 @@ class PostController extends Controller
     }
     function post_building_wanted(Request $request)
     {
-        // dd($request->all());
+        $request->validate([
+            'w_building_name' => 'required',
+            'w_date' => 'required',
+            'w_phone' => 'required',
+            'w_price' => 'required',
+            'w_per_price' => 'required|in:hour,day,night,week,month,year',
+            'w_s_charge' => 'required',
+            'w_s_per_price' => 'required|in:hour,day,night,week,month,year',
+            'w_building_size' => 'required',
+            'w_floor' => 'required|in:1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,15+',
+            'w_floor_size' => 'required',
+            'w_t_build' => 'required|in:rcc,Tin Shed,Steal Shed,Brick Building,Bamboo Shed,Mud Building',
+            'w_road_width' => 'required',
+            'w_address' => 'required',
+        ], [
+            'w_building_name.required' => 'This field is required.',
+            'w_date.required' => 'This field is required.',
+            'w_phone.required' => 'This field is required.',
+            'w_price.required' => 'Rent field is required.',
+            'w_per_price.required' => 'Rent Type field is required.',
+            'w_per_price.in' => 'Rent Type field must be selected.',
+            'w_s_charge.required' => 'Service Charge field is required.',
+            'w_s_per_price.required' => 'Service Charge Type field is required.',
+            'w_s_per_price.in' => 'Service Charge Type field must be selected.',
+            'w_building_size.required' => 'This field is required.',
+            'w_floor.required' => 'Floor field is required.',
+            'w_floor.in' => 'Floor field must be selected.',
+            'w_floor_size.required' => 'This field is required.',
+            'w_t_build.required' => 'This field is required.',
+            'w_t_build.in' => 'Building Type field must be selected.',
+            'w_road_width.required' => 'This field is required.',
+            'w_address.required' => 'This field is required.',
+        ]);
 
         Building::create([
             'user_id' => $request->user_id,
             'post_type' => $request->post_type,
-            'building_name' => $request->building_name,
-            'date' => $request->date,
-            'phone' => $request->phone,
-            'price' => $request->price,
-            'per_price' => $request->per_price,
-            's_charge' => $request->s_charge,
-            's_per_price' => $request->s_per_price,
-            'building_size' => $request->building_size,
-            'floor' => $request->floor,
-            'floor_size' => $request->floor_size,
-            't_build' => $request->t_build,
-            'road_width' => $request->road_width,
+            'building_name' => $request->w_building_name,
+            'date' => $request->w_date,
+            'phone' => $request->w_phone,
+            'price' => $request->w_price,
+            'per_price' => $request->w_per_price,
+            's_charge' => $request->w_s_charge,
+            's_per_price' => $request->w_s_per_price,
+            'building_size' => $request->w_building_size,
+            'floor' => $request->w_floor,
+            'floor_size' => $request->w_floor_size,
+            't_build' => $request->w_t_build,
+            'road_width' => $request->w_road_width,
             'description' => $request->description,
-            'address' => $request->address,
+            'address' => $request->w_address,
             'gas' => $request->gas,
             'water' => $request->water,
             'electricity' => $request->electricity,
@@ -811,8 +881,38 @@ class PostController extends Controller
     // garage
 
     function post_parking_spot_rented(Request $request)
-    {
 
+
+    {
+        // Rented Validation
+        $request->validate([
+            'title' => 'required',
+            'date' => 'required',
+            'phone' => 'required',
+            'address' => 'required',
+            'price' => 'required',
+            'per_price' => 'required|in:hour,day,night,week,month,year',
+            'floor_level' => 'required|Ground,lavel 1,lavel 2',
+            'floor_height' => 'required',
+            'vehicle_type' => 'required|Truck,Motor bike,Pickup,Privet car,Everything',
+            'photo' => 'required|image|mimes:jpeg,png,jpg',
+        ], [
+            'title.required' => 'This field is required.',
+            'date.required' => 'This field is required.',
+            'phone.required' => 'This field is required.',
+            'address.required' => 'This field is required.',
+            'price.required' => 'Rent field is required.',
+            'per_price.required' => 'Rent Type field is required.',
+            'per_price.in' => 'Rent Type field must be selected.',
+            'floor_level.required' => 'Floor level field is required.',
+            'floor_level.in' => 'Floor level field must be selected.',
+            'floor_height.required' => 'This field is required.',
+            'vehicle_type.required' => 'Vehicle Type field is required.',
+            'vehicle_type.in' => 'Vehicle Type field must be selected.',
+            'photo.required' => 'Photo 1 field is required.',
+            'photo.image' => 'Photo 1 field must be image type.',
+            'photo.mimes' => 'Photo 1 file Type must be jpeg,png,jpg.',
+        ]);
         $filename = '';
         $filename1 = '';
         $filename2 = '';
@@ -894,20 +994,44 @@ class PostController extends Controller
     }
     function post_parking_spot_wanted(Request $request)
     {
+        $request->validate([
+            'w_title' => 'required',
+            'w_date' => 'required',
+            'w_phone' => 'required',
+            'w_address' => 'required',
+            'w_price' => 'required',
+            'w_per_price' => 'required|in:hour,day,night,week,month,year',
+            'w_floor_level' => 'required|Ground,lavel 1,lavel 2',
+            'w_floor_height' => 'required',
+            'w_vehicle_type' => 'required|Truck,Motor bike,Pickup,Privet car,Everything',
+        ], [
+            'w_title.required' => 'This field is required.',
+            'w_date.required' => 'This field is required.',
+            'w_phone.required' => 'This field is required.',
+            'w_address.required' => 'This field is required.',
+            'w_price.required' => 'Rent field is required.',
+            'w_per_price.required' => 'Rent Type field is required.',
+            'w_per_price.in' => 'Rent Type field must be selected.',
+            'w_floor_level.required' => 'Floor level field is required.',
+            'w_floor_level.in' => 'Floor level field must be selected.',
+            'w_floor_height.required' => 'This field is required.',
+            'w_vehicle_type.required' => 'Vehicle Type field is required.',
+            'w_vehicle_type.in' => 'Vehicle Type field must be selected.',
+        ]);
 
         Parking_Spot::create([
             'user_id' => $request->user_id,
             'post_type' => $request->post_type,
-            'title' => $request->title,
-            'date' => $request->date,
-            'phone' => $request->phone,
-            'address' => $request->address,
-            'description' => $request->description,
-            'price' => $request->price,
-            'per_price' => $request->per_price,
-            'floor_level' => $request->floor_level,
-            'floor_height' => $request->floor_height,
-            'vehicle_type' => $request->vehicle_type,
+            'title' => $request->w_title,
+            'date' => $request->w_date,
+            'phone' => $request->w_phone,
+            'address' => $request->w_address,
+            'description' => $request->w_description,
+            'price' => $request->w_price,
+            'per_price' => $request->w_per_price,
+            'floor_level' => $request->w_floor_level,
+            'floor_height' => $request->w_floor_height,
+            'vehicle_type' => $request->w_vehicle_type,
             'active' => 1,
             'created_at'   => Carbon::now()
         ]);
@@ -919,8 +1043,41 @@ class PostController extends Controller
     // hotel
 
     function post_hotel_rented(Request $request)
-    {
 
+
+    {
+        // Rented Validation
+        $request->validate([
+            'post_title' => 'required',
+            'date' => 'required',
+            'phone' => 'required',
+            'price' => 'required',
+            'per_price' => 'required|in:hour,day,night,week,month,year',
+            's_charge' => 'required',
+            's_per_price' => 'required|in:hour,day,night,week,month,year',
+            'hotel_name' => 'required',
+            'location' => 'required',
+            'room_type' => 'required|in:Single bed, Double bed,Family bed,Couple bed,Twin bed,Bunk bed,Honeymoon Suite,Presidential Suite',
+            'photo' => 'required|image|mimes:jpeg,png,jpg',
+        ], [
+            'post_title.required' => 'This field is required.',
+            'date.required' => 'This field is required.',
+            'phone.required' => 'This field is required.',
+            'price.required' => 'Rent field is required.',
+            'per_price.required' => 'Rent Type field is required.',
+            'per_price.in' => 'Rent Type field must be selected.',
+            's_charge.required' => 'Service Charge field is required.',
+            's_per_price.required' => 'Service Charge field is required.',
+            's_per_price.in' => 'Service Charge field must be selected.',
+            'hotel_name.required' => 'This field is required.',
+            'location.required' => 'This field must be selected.',
+            'room_type.required' => 'Room Type field is required.',
+            'room_type.in' => 'Room Type field must be selected.',
+            'address.required' => 'This field is required.',
+            'photo.required' => 'Photo 1 field is required.',
+            'photo.image' => 'Photo 1 field must be image type.',
+            'photo.mimes' => 'Photo 1 file Type must be jpeg,png,jpg.',
+        ]);
         $filename = '';
         $filename1 = '';
         $filename2 = '';
@@ -1015,6 +1172,33 @@ class PostController extends Controller
 
     function post_hotel_wanted(Request $request)
     {
+        $request->validate([
+            'w_post_title' => 'required',
+            'w_date' => 'required',
+            'w_phone' => 'required',
+            'w_price' => 'required',
+            'w_per_price' => 'required|in:hour,day,night,week,month,year',
+            'w_s_charge' => 'required',
+            'w_s_per_price' => 'required|in:hour,day,night,week,month,year',
+            'w_hotel_name' => 'required',
+            'w_location' => 'required',
+            'w_room_type' => 'required|in:Single bed, Double bed,Family bed,Couple bed,Twin bed,Bunk bed,Honeymoon Suite,Presidential Suite',
+        ], [
+            'w_post_title.required' => 'This field is required.',
+            'w_date.required' => 'This field is required.',
+            'w_phone.required' => 'This field is required.',
+            'w_price.required' => 'Rent field is required.',
+            'w_per_price.required' => 'Rent Type field is required.',
+            'w_per_price.in' => 'Rent Type field must be selected.',
+            'w_s_charge.required' => 'Service Charge field is required.',
+            'w_s_per_price.required' => 'Service Charge field is required.',
+            'w_s_per_price.in' => 'Service Charge field must be selected.',
+            'w_hotel_name.required' => 'This field is required.',
+            'w_location.required' => 'This field must be selected.',
+            'w_room_type.required' => 'This field is required.',
+            'room_type.in' => 'Room Type field must be selected.',
+            'w_address.required' => 'This field is required.',
+        ]);
         Hotel::create([
             'user_id' => $request->user_id,
             'post_type' => $request->post_type,
@@ -1053,8 +1237,42 @@ class PostController extends Controller
     // hostel
 
     function post_hostel_rented(Request $request)
-    {
 
+
+    {
+        // Rented Validation
+        $request->validate([
+            'title' => 'required',
+            'date' => 'required',
+            'phone' => 'required',
+            'price' => 'required',
+            'per_price' => 'required|in:hour,day,night,week,month,year',
+            's_charge' => 'required',
+            's_per_price' => 'required|in:hour,day,night,week,month,year',
+            'hostel_name' => 'required',
+            'address' => 'required',
+            'room_size' => 'required',
+            'room_type' => 'required|in:Single bed, Double bed,Family bed,Couple bed,Twin bed,Bunk bed,Honeymoon Suite,Presidential Suite',
+            'photo' => 'required|image|mimes:jpeg,png,jpg',
+        ], [
+            'title.required' => 'This field is required.',
+            'date.required' => 'This field is required.',
+            'phone.required' => 'This field is required.',
+            'price.required' => 'Rent field is required.',
+            'per_price.required' => 'Rent Type field is required.',
+            'per_price.in' => 'Rent Type field must be selected.',
+            's_charge.required' => 'Service Charge field is required.',
+            's_per_price.required' => 'Service Charge Type field is required.',
+            's_per_price.in' => 'Service Charge Type field must be selected.',
+            'hostel_name.required' => 'This field is required.',
+            'room_size.required' => 'This field is required.',
+            'room_type.required' => 'Room Type field is required.',
+            'room_type.in' => 'Room Type field must be selected.',
+            'address.required' => 'This field is required.',
+            'photo.required' => 'Photo 1 field is required.',
+            'photo.image' => 'Photo 1 field must be image type.',
+            'photo.mimes' => 'Photo 1 file Type must be jpeg,png,jpg.',
+        ]);
         $filename = '';
         $filename1 = '';
         $filename2 = '';
@@ -1150,7 +1368,35 @@ class PostController extends Controller
     }
     public function post_hostel_wanted(Request $request)
     {
+        $request->validate([
+            'w_title' => 'required',
+            'w_date' => 'required',
+            'w_phone' => 'required',
+            'w_price' => 'required',
+            'w_per_price' => 'required|in:hour,day,night,week,month,year',
+            'w_s_charge' => 'required',
+            'w_s_per_price' => 'required|in:hour,day,night,week,month,year',
+            'w_hostel_name' => 'required',
+            'w_address' => 'required',
+            'w_room_size' => 'required',
+            'w_room_type' => 'required|in:Single bed, Double bed,Family bed,Couple bed,Twin bed,Bunk bed,Honeymoon Suite,Presidential Suite',
 
+        ], [
+            'w_title.required' => 'This field is required.',
+            'w_date.required' => 'This field is required.',
+            'w_phone.required' => 'This field is required.',
+            'w_price.required' => 'Rent field is required.',
+            'w_per_price.required' => 'Rent Type field is required.',
+            'w_per_price.in' => 'Rent Type field must be selected.',
+            'w_s_charge.required' => 'Service Charge field is required.',
+            'w_s_per_price.required' => 'Service Charge Type field is required.',
+            'w_s_per_price.in' => 'Service Charge Type field must be selected.',
+            'w_hostel_name.required' => 'This field is required.',
+            'w_room_size.required' => 'This field is required.',
+            'w_room_type.required' => 'Room Type field is required.',
+            'w_room_type.in' => 'Room Type field must be selected.',
+            'w_address.required' => 'This field is required.',
+        ]);
         Hostel::create([
             'user_id' => $request->user_id,
             'post_type' => $request->post_type,
@@ -1191,8 +1437,40 @@ class PostController extends Controller
     //resort
 
     function post_restuarant_rented(Request $request)
-    {
 
+
+    {
+        // Rented Validation
+        $request->validate([
+            'post_title' => 'required',
+            'date' => 'required',
+            'phone' => 'required',
+            'price' => 'required',
+            'per_price' => 'required|in:hour,day,night,week,month,year',
+            's_charge' => 'required',
+            's_per_price' => 'required|in:hour,day,night,week,month,year',
+            'resort_name' => 'required',
+            'room_type' => 'required|in:Bungalow,cottage,Villa,Honeymoon,President',
+            'address' => 'required',
+            'photo' => 'required|image|mimes:jpeg,png,jpg',
+        ], [
+            'post_title.required' => 'This field is required.',
+            'date.required' => 'This field is required.',
+            'phone.required' => 'This field is required.',
+            'price.required' => 'Rent field is required.',
+            'per_price.required' => 'Rent Type field is required.',
+            'per_price.in' => 'Rent Type field must be selected.',
+            's_charge.required' => 'Service Charge field is required.',
+            's_per_price.required' => 'Service Charge Type field is required.',
+            's_per_price.in' => 'Service Charge Type field must be selected.',
+            'resort_name.required' => 'This field is required.',
+            'room_type.required' => 'Room Type field is required.',
+            'room_type.in' => 'Room Type field must be selected.',
+            'address.required' => 'This field is required.',
+            'photo.required' => 'Photo 1 field is required.',
+            'photo.image' => 'Photo 1 field must be image type.',
+            'photo.mimes' => 'Photo 1 file Type must be jpeg,png,jpg.',
+        ]);
         $filename = '';
         $filename1 = '';
         $filename2 = '';
@@ -1288,6 +1566,33 @@ class PostController extends Controller
     }
     function post_restuarant_wanted(Request $request)
     {
+        $request->validate([
+            'w_post_title' => 'required',
+            'w_date' => 'required',
+            'w_phone' => 'required',
+            'w_price' => 'required',
+            'w_per_price' => 'required|in:hour,day,night,week,month,year',
+            'w_s_charge' => 'required',
+            'w_s_per_price' => 'required|in:hour,day,night,week,month,year',
+            'w_resort_name' => 'required',
+            'w_room_type' => 'required|in:Bungalow,cottage,Villa,Honeymoon,President',
+            'w_address' => 'required',
+        ], [
+            'w_post_title.required' => 'This field is required.',
+            'w_date.required' => 'This field is required.',
+            'w_phone.required' => 'This field is required.',
+            'w_price.required' => 'Rent field is required.',
+            'w_per_price.required' => 'Rent Type field is required.',
+            'w_per_price.in' => 'Rent Type field must be selected.',
+            'w_s_charge.required' => 'Service Charge field is required.',
+            'w_s_per_price.required' => 'Service Charge Type field is required.',
+            'w_s_per_price.in' => 'Service Charge Type field must be selected.',
+            'w_resort_name.required' => 'This field is required.',
+            'w_room_type.required' => 'Room Type field is required.',
+            'w_room_type.in' => 'Room Type field must be selected.',
+            'w_address.required' => 'This field is required.',
+        ]);
+
         Restaurant::create([
             'user_id' => $request->user_id,
             'post_type' => $request->post_type,
@@ -1328,8 +1633,45 @@ class PostController extends Controller
     // office
 
     function post_office_rented(Request $request)
-    {
 
+
+    {
+        // Rented Validation
+        $request->validate([
+            'title' => 'required',
+            'date' => 'required',
+            'phone' => 'required',
+            'price' => 'required',
+            'per_price' => 'required|in:hour,day,night,week,month,year',
+            's_charge' => 'required',
+            's_per_price' => 'required|in:hour,day,night,week,month,year',
+            'address' => 'required',
+            'floor_level' => 'required|in:1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,15+',
+            'floor_size' => 'required',
+            'road_width' => 'required',
+            'interior_condition' => 'required|good,moderate,best',
+            'photo' => 'required|image|mimes:jpeg,png,jpg',
+        ], [
+            'title.required' => 'This field is required.',
+            'date.required' => 'This field is required.',
+            'phone.required' => 'This field is required.',
+            'price.required' => 'Rent field is required.',
+            'per_price.required' => 'Rent Type field is required.',
+            'per_price.in' => 'Rent Type field must be selected.',
+            's_charge.required' => 'Service Charge field is required.',
+            's_per_price.required' => 'Service Charge Type field is required.',
+            's_per_price.in' => 'Service Charge Type field must be selected.',
+            'floor_level.required' => 'Floor Level field is required.',
+            'floor_level.in' => 'Floor Level Type field must be selected.',
+            'floor_size.required' => 'This field is required.',
+            'road_width.required' => 'This field is required.',
+            'interior_condition.required' => 'Interior Condition field is required.',
+            'interior_condition.in' => 'Interior Condition Type field must be selected.',
+            'address.required' => 'This field is required.',
+            'photo.required' => 'Photo 1 field is required.',
+            'photo.image' => 'Photo 1 field must be image type.',
+            'photo.mimes' => 'Photo 1 file Type must be jpeg,png,jpg.',
+        ]);
         $filename = '';
         $filename1 = '';
         $filename2 = '';
@@ -1423,6 +1765,38 @@ class PostController extends Controller
     }
     function post_office_wanted(Request $request)
     {
+
+        $request->validate([
+            'title' => 'required',
+            'date' => 'required',
+            'phone' => 'required',
+            'price' => 'required',
+            'per_price' => 'required|in:hour,day,night,week,month,year',
+            's_charge' => 'required',
+            's_per_price' => 'required|in:hour,day,night,week,month,year',
+            'address' => 'required',
+            'floor_level' => 'required|in:1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,15+',
+            'floor_size' => 'required',
+            'road_width' => 'required',
+            'interior_condition' => 'required|good,moderate,best',
+        ], [
+            'title.required' => 'This field is required.',
+            'date.required' => 'This field is required.',
+            'phone.required' => 'This field is required.',
+            'price.required' => 'Rent field is required.',
+            'per_price.required' => 'Rent Type field is required.',
+            'per_price.in' => 'Rent Type field must be selected.',
+            's_charge.required' => 'Service Charge field is required.',
+            's_per_price.required' => 'Service Charge Type field is required.',
+            's_per_price.in' => 'Service Charge Type field must be selected.',
+            'floor_level.required' => 'Floor Level field is required.',
+            'floor_level.in' => 'Floor Level Type field must be selected.',
+            'floor_size.required' => 'This field is required.',
+            'road_width.required' => 'This field is required.',
+            'interior_condition.required' => 'Interior Condition field is required.',
+            'interior_condition.in' => 'Interior Condition Type field must be selected.',
+            'address.required' => 'This field is required.',
+        ]);
         Office::create([
             'user_id' => $request->user_id,
             'post_type' => $request->post_type,
@@ -1461,6 +1835,30 @@ class PostController extends Controller
     function post_shop_rented(Request $request)
     {
 
+        // Rented Validation
+        $request->validate([
+            'title' => 'required',
+            'date' => 'required',
+            'phone' => 'required',
+            'address' => 'required',
+            'floor_level' => 'required|in:1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,15+',
+            'floor_size' => 'required',
+            'road_width' => 'required',
+            'photo' => 'required|image|mimes:jpeg,png,jpg',
+        ], [
+            'title.required' => 'This field is required.',
+            'date.required' => 'This field is required.',
+            'phone.required' => 'This field is required.',
+            'price.required' => 'Rent field is required.',
+            'floor_level.required' => 'Floor Level Type field is required.',
+            'floor_level.in' => 'Floor Level Type field must be selected.',
+            'floor_size.required' => 'This field is required.',
+            'road_width.required' => 'This field is required.',
+            'address.required' => 'This field is required.',
+            'photo.required' => 'Photo 1 field is required.',
+            'photo.image' => 'Photo 1 field must be image type.',
+            'photo.mimes' => 'Photo 1 file Type must be jpeg,png,jpg.',
+        ]);
         $filename = '';
         $filename1 = '';
         $filename2 = '';
@@ -1547,27 +1945,46 @@ class PostController extends Controller
     }
     function post_shop_wanted(Request $request)
     {
-
+        $request->validate([
+            'w_title' => 'required',
+            'w_date' => 'required',
+            'w_phone' => 'required',
+            'w_address' => 'required',
+            'w_floor_level' => 'required|in:1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,15+',
+            'w_floor_size' => 'required',
+            'w_road_width' => 'required',
+            'photo' => 'required|image|mimes:jpeg,png,jpg',
+        ], [
+            'w_title.required' => 'This field is required.',
+            'w_date.required' => 'This field is required.',
+            'w_phone.required' => 'This field is required.',
+            'w_price.required' => 'Rent field is required.',
+            'w_floor_level.required' => 'Floor Level Type field is required.',
+            'w_floor_level.in' => 'Floor Level Type field must be selected.',
+            'w_floor_size.required' => 'This field is required.',
+            'w_road_width.required' => 'This field is required.',
+            'w_address.required' => 'This field is required.',
+        ]);
         Shop::create([
 
-            'user_id' => $request->user_id,
-            'post_type' => $request->post_type,
-            'title' => $request->title,
-            'date' => $request->date,
-            'phone' => $request->phone,
-            'description' => $request->description,
-            'address' => $request->address,
-            'floor_level' => $request->floor_level,
-            'floor_size' => $request->floor_size,
-            'road_width' => $request->road_width,
-            'fire_safety' => $request->fire_safety,
-            'generator' => $request->generator,
-            'lift' => $request->lift,
-            'parking' => $request->parking,
-            'electricity' => $request->electricity,
-            'gas' => $request->gas,
-            'water' => $request->water,
-            'price' => $request->price,
+            'user_id' => $request->w_user_id,
+            'post_type' => $request->w_post_type,
+            'title' => $request->w_title,
+            'date' => $request->w_date,
+            'phone' => $request->w_phone,
+            'description' => $request->w_description,
+            'address' => $request->w_address,
+            'floor_level' => $request->w_floor_level,
+            'floor_size' => $request->w_floor_size,
+            'road_width' => $request->w_road_width,
+            'fire_safety' => $request->w_fire_safety,
+            'generator' => $request->w_generator,
+            'lift' => $request->w_lift,
+            'parking' => $request->w_parking,
+            'electricity' => $request->w_electricity,
+            'gas' => $request->w_gas,
+            'water' => $request->w_water,
+            'price' => $request->w_price,
             'active' => 1,
             'created_at'   => Carbon::now()
         ]);
@@ -1582,6 +1999,36 @@ class PostController extends Controller
 
     function post_community_rented(Request $request)
     {
+        // Rented Validation
+        $request->validate([
+            'title' => 'required',
+            'date' => 'required',
+            'phone' => 'required',
+            'price' => 'required',
+            'per_price' => 'required|in:hour,day,night,week,month,year',
+            's_charge' => 'required',
+            's_per_price' => 'required|in:hour,day,night,week,month,year',
+            'room_size' => 'required',
+            'guest_count' => 'required',
+            'address' => 'required',
+            'photo' => 'required|image|mimes:jpeg,png,jpg',
+        ], [
+            'title.required' => 'This field is required.',
+            'date.required' => 'This field is required.',
+            'phone.required' => 'This field is required.',
+            'price.required' => 'Rent field is required.',
+            'per_price.required' => 'Rent Type field is required.',
+            'per_price.in' => 'Rent Type field must be selected.',
+            's_charge.required' => 'Service Charge field is required.',
+            's_per_price.required' => 'Service Charge Type field is required.',
+            's_per_price.in' => 'Service Charge Type field must be selected.',
+            'room_size.required' => 'This field is required.',
+            'guest_count.required' => 'This field is required.',
+            'address.required' => 'This field is required.',
+            'photo.required' => 'Photo 1 field is required.',
+            'photo.image' => 'Photo 1 field must be image type.',
+            'photo.mimes' => 'Photo 1 file Type must be jpeg,png,jpg.',
+        ]);
         $filename = '';
         $filename1 = '';
         $filename2 = '';
@@ -1718,8 +2165,39 @@ class PostController extends Controller
     // factory
 
     function post_factory_rented(Request $request)
-    {
 
+
+    {
+        // Rented Validation
+        $request->validate([
+            'title' => 'required',
+            'date' => 'required',
+            'phone' => 'required',
+            'price' => 'required',
+            'per_price' => 'required|in:hour,day,night,week,month,year',
+            's_charge' => 'required',
+            's_per_price' => 'required|in:hour,day,night,week,month,year',
+            'room_size' => 'required',
+            'guest_count' => 'required',
+            'address' => 'required',
+            'photo' => 'required|image|mimes:jpeg,png,jpg',
+        ], [
+            'title.required' => 'This field is required.',
+            'date.required' => 'This field is required.',
+            'phone.required' => 'This field is required.',
+            'price.required' => 'Rent field is required.',
+            'per_price.required' => 'Rent Type field is required.',
+            'per_price.in' => 'Rent Type field must be selected.',
+            's_charge.required' => 'Service Charge field is required.',
+            's_per_price.required' => 'Service Charge Type field is required.',
+            's_per_price.in' => 'Service Charge Type field must be selected.',
+            'room_size.required' => 'This field is required.',
+            'guest_count.required' => 'This field is required.',
+            'address.required' => 'This field is required.',
+            'photo.required' => 'Photo 1 field is required.',
+            'photo.image' => 'Photo 1 field must be image type.',
+            'photo.mimes' => 'Photo 1 file Type must be jpeg,png,jpg.',
+        ]);
         $filename = '';
         $filename1 = '';
         $filename2 = '';
@@ -1846,8 +2324,39 @@ class PostController extends Controller
     // warehouse
 
     function post_warehouse_rented(Request $request)
-    {
 
+
+    {
+        // Rented Validation
+        $request->validate([
+            'title' => 'required',
+            'date' => 'required',
+            'phone' => 'required',
+            'price' => 'required',
+            'per_price' => 'required|in:hour,day,night,week,month,year',
+            's_charge' => 'required',
+            's_per_price' => 'required|in:hour,day,night,week,month,year',
+            'room_size' => 'required',
+            'guest_count' => 'required',
+            'address' => 'required',
+            'photo' => 'required|image|mimes:jpeg,png,jpg',
+        ], [
+            'title.required' => 'This field is required.',
+            'date.required' => 'This field is required.',
+            'phone.required' => 'This field is required.',
+            'price.required' => 'Rent field is required.',
+            'per_price.required' => 'Rent Type field is required.',
+            'per_price.in' => 'Rent Type field must be selected.',
+            's_charge.required' => 'Service Charge field is required.',
+            's_per_price.required' => 'Service Charge Type field is required.',
+            's_per_price.in' => 'Service Charge Type field must be selected.',
+            'room_size.required' => 'This field is required.',
+            'guest_count.required' => 'This field is required.',
+            'address.required' => 'This field is required.',
+            'photo.required' => 'Photo 1 field is required.',
+            'photo.image' => 'Photo 1 field must be image type.',
+            'photo.mimes' => 'Photo 1 file Type must be jpeg,png,jpg.',
+        ]);
         $filename = '';
         $filename1 = '';
         $filename2 = '';
@@ -1975,8 +2484,39 @@ class PostController extends Controller
     //  land
 
     function post_land_rented(Request $request)
-    {
 
+
+    {
+        // Rented Validation
+        $request->validate([
+            'title' => 'required',
+            'date' => 'required',
+            'phone' => 'required',
+            'price' => 'required',
+            'per_price' => 'required|in:hour,day,night,week,month,year',
+            's_charge' => 'required',
+            's_per_price' => 'required|in:hour,day,night,week,month,year',
+            'room_size' => 'required',
+            'guest_count' => 'required',
+            'address' => 'required',
+            'photo' => 'required|image|mimes:jpeg,png,jpg',
+        ], [
+            'title.required' => 'This field is required.',
+            'date.required' => 'This field is required.',
+            'phone.required' => 'This field is required.',
+            'price.required' => 'Rent field is required.',
+            'per_price.required' => 'Rent Type field is required.',
+            'per_price.in' => 'Rent Type field must be selected.',
+            's_charge.required' => 'Service Charge field is required.',
+            's_per_price.required' => 'Service Charge Type field is required.',
+            's_per_price.in' => 'Service Charge Type field must be selected.',
+            'room_size.required' => 'This field is required.',
+            'guest_count.required' => 'This field is required.',
+            'address.required' => 'This field is required.',
+            'photo.required' => 'Photo 1 field is required.',
+            'photo.image' => 'Photo 1 field must be image type.',
+            'photo.mimes' => 'Photo 1 file Type must be jpeg,png,jpg.',
+        ]);
         $filename = '';
         $filename1 = '';
         $filename2 = '';
@@ -2094,7 +2634,38 @@ class PostController extends Controller
 
     function post_pond_rented(Request $request)
     {
-        // dd($request->all());
+
+
+        // Rented Validation
+        $request->validate([
+            'title' => 'required',
+            'date' => 'required',
+            'phone' => 'required',
+            'price' => 'required',
+            'per_price' => 'required|in:hour,day,night,week,month,year',
+            's_charge' => 'required',
+            's_per_price' => 'required|in:hour,day,night,week,month,year',
+            'room_size' => 'required',
+            'guest_count' => 'required',
+            'address' => 'required',
+            'photo' => 'required|image|mimes:jpeg,png,jpg',
+        ], [
+            'title.required' => 'This field is required.',
+            'date.required' => 'This field is required.',
+            'phone.required' => 'This field is required.',
+            'price.required' => 'Rent field is required.',
+            'per_price.required' => 'Rent Type field is required.',
+            'per_price.in' => 'Rent Type field must be selected.',
+            's_charge.required' => 'Service Charge field is required.',
+            's_per_price.required' => 'Service Charge Type field is required.',
+            's_per_price.in' => 'Service Charge Type field must be selected.',
+            'room_size.required' => 'This field is required.',
+            'guest_count.required' => 'This field is required.',
+            'address.required' => 'This field is required.',
+            'photo.required' => 'Photo 1 field is required.',
+            'photo.image' => 'Photo 1 field must be image type.',
+            'photo.mimes' => 'Photo 1 file Type must be jpeg,png,jpg.',
+        ]); // dd($request->all());
         $filename = '';
         $filename1 = '';
         $filename2 = '';
@@ -2207,8 +2778,39 @@ class PostController extends Controller
 
 
     function post_ghat_rented(Request $request)
-    {
 
+
+    {
+        // Rented Validation
+        $request->validate([
+            'title' => 'required',
+            'date' => 'required',
+            'phone' => 'required',
+            'price' => 'required',
+            'per_price' => 'required|in:hour,day,night,week,month,year',
+            's_charge' => 'required',
+            's_per_price' => 'required|in:hour,day,night,week,month,year',
+            'room_size' => 'required',
+            'guest_count' => 'required',
+            'address' => 'required',
+            'photo' => 'required|image|mimes:jpeg,png,jpg',
+        ], [
+            'title.required' => 'This field is required.',
+            'date.required' => 'This field is required.',
+            'phone.required' => 'This field is required.',
+            'price.required' => 'Rent field is required.',
+            'per_price.required' => 'Rent Type field is required.',
+            'per_price.in' => 'Rent Type field must be selected.',
+            's_charge.required' => 'Service Charge field is required.',
+            's_per_price.required' => 'Service Charge Type field is required.',
+            's_per_price.in' => 'Service Charge Type field must be selected.',
+            'room_size.required' => 'This field is required.',
+            'guest_count.required' => 'This field is required.',
+            'address.required' => 'This field is required.',
+            'photo.required' => 'Photo 1 field is required.',
+            'photo.image' => 'Photo 1 field must be image type.',
+            'photo.mimes' => 'Photo 1 file Type must be jpeg,png,jpg.',
+        ]);
         $filename = '';
         $filename1 = '';
         $filename2 = '';
@@ -2314,8 +2916,39 @@ class PostController extends Controller
     // swimming pool
 
     function post_swimmingpool_rented(Request $request)
-    {
 
+
+    {
+        // Rented Validation
+        $request->validate([
+            'title' => 'required',
+            'date' => 'required',
+            'phone' => 'required',
+            'price' => 'required',
+            'per_price' => 'required|in:hour,day,night,week,month,year',
+            's_charge' => 'required',
+            's_per_price' => 'required|in:hour,day,night,week,month,year',
+            'room_size' => 'required',
+            'guest_count' => 'required',
+            'address' => 'required',
+            'photo' => 'required|image|mimes:jpeg,png,jpg',
+        ], [
+            'title.required' => 'This field is required.',
+            'date.required' => 'This field is required.',
+            'phone.required' => 'This field is required.',
+            'price.required' => 'Rent field is required.',
+            'per_price.required' => 'Rent Type field is required.',
+            'per_price.in' => 'Rent Type field must be selected.',
+            's_charge.required' => 'Service Charge field is required.',
+            's_per_price.required' => 'Service Charge Type field is required.',
+            's_per_price.in' => 'Service Charge Type field must be selected.',
+            'room_size.required' => 'This field is required.',
+            'guest_count.required' => 'This field is required.',
+            'address.required' => 'This field is required.',
+            'photo.required' => 'Photo 1 field is required.',
+            'photo.image' => 'Photo 1 field must be image type.',
+            'photo.mimes' => 'Photo 1 file Type must be jpeg,png,jpg.',
+        ]);
         $filename = '';
         $filename1 = '';
         $filename2 = '';
@@ -2437,6 +3070,38 @@ class PostController extends Controller
 
     function post_playground_rented(Request $request)
     {
+
+
+        // Rented Validation
+        $request->validate([
+            'title' => 'required',
+            'date' => 'required',
+            'phone' => 'required',
+            'price' => 'required',
+            'per_price' => 'required|in:hour,day,night,week,month,year',
+            's_charge' => 'required',
+            's_per_price' => 'required|in:hour,day,night,week,month,year',
+            'room_size' => 'required',
+            'guest_count' => 'required',
+            'address' => 'required',
+            'photo' => 'required|image|mimes:jpeg,png,jpg',
+        ], [
+            'title.required' => 'This field is required.',
+            'date.required' => 'This field is required.',
+            'phone.required' => 'This field is required.',
+            'price.required' => 'Rent field is required.',
+            'per_price.required' => 'Rent Type field is required.',
+            'per_price.in' => 'Rent Type field must be selected.',
+            's_charge.required' => 'Service Charge field is required.',
+            's_per_price.required' => 'Service Charge Type field is required.',
+            's_per_price.in' => 'Service Charge Type field must be selected.',
+            'room_size.required' => 'This field is required.',
+            'guest_count.required' => 'This field is required.',
+            'address.required' => 'This field is required.',
+            'photo.required' => 'Photo 1 field is required.',
+            'photo.image' => 'Photo 1 field must be image type.',
+            'photo.mimes' => 'Photo 1 file Type must be jpeg,png,jpg.',
+        ]);
         $filename = '';
         $filename1 = '';
         $filename2 = '';
@@ -2557,8 +3222,39 @@ class PostController extends Controller
     //shooting spot
 
     function post_shooting_rented(Request $request)
-    {
 
+
+    {
+        // Rented Validation
+        $request->validate([
+            'title' => 'required',
+            'date' => 'required',
+            'phone' => 'required',
+            'price' => 'required',
+            'per_price' => 'required|in:hour,day,night,week,month,year',
+            's_charge' => 'required',
+            's_per_price' => 'required|in:hour,day,night,week,month,year',
+            'room_size' => 'required',
+            'guest_count' => 'required',
+            'address' => 'required',
+            'photo' => 'required|image|mimes:jpeg,png,jpg',
+        ], [
+            'title.required' => 'This field is required.',
+            'date.required' => 'This field is required.',
+            'phone.required' => 'This field is required.',
+            'price.required' => 'Rent field is required.',
+            'per_price.required' => 'Rent Type field is required.',
+            'per_price.in' => 'Rent Type field must be selected.',
+            's_charge.required' => 'Service Charge field is required.',
+            's_per_price.required' => 'Service Charge Type field is required.',
+            's_per_price.in' => 'Service Charge Type field must be selected.',
+            'room_size.required' => 'This field is required.',
+            'guest_count.required' => 'This field is required.',
+            'address.required' => 'This field is required.',
+            'photo.required' => 'Photo 1 field is required.',
+            'photo.image' => 'Photo 1 field must be image type.',
+            'photo.mimes' => 'Photo 1 file Type must be jpeg,png,jpg.',
+        ]);
         $filename = '';
         $filename1 = '';
         $filename2 = '';
@@ -2691,8 +3387,39 @@ class PostController extends Controller
     //picnic
 
     function post_picnic_rented(Request $request)
-    {
 
+
+    {
+        // Rented Validation
+        $request->validate([
+            'title' => 'required',
+            'date' => 'required',
+            'phone' => 'required',
+            'price' => 'required',
+            'per_price' => 'required|in:hour,day,night,week,month,year',
+            's_charge' => 'required',
+            's_per_price' => 'required|in:hour,day,night,week,month,year',
+            'room_size' => 'required',
+            'guest_count' => 'required',
+            'address' => 'required',
+            'photo' => 'required|image|mimes:jpeg,png,jpg',
+        ], [
+            'title.required' => 'This field is required.',
+            'date.required' => 'This field is required.',
+            'phone.required' => 'This field is required.',
+            'price.required' => 'Rent field is required.',
+            'per_price.required' => 'Rent Type field is required.',
+            'per_price.in' => 'Rent Type field must be selected.',
+            's_charge.required' => 'Service Charge field is required.',
+            's_per_price.required' => 'Service Charge Type field is required.',
+            's_per_price.in' => 'Service Charge Type field must be selected.',
+            'room_size.required' => 'This field is required.',
+            'guest_count.required' => 'This field is required.',
+            'address.required' => 'This field is required.',
+            'photo.required' => 'Photo 1 field is required.',
+            'photo.image' => 'Photo 1 field must be image type.',
+            'photo.mimes' => 'Photo 1 file Type must be jpeg,png,jpg.',
+        ]);
         $filename = '';
         $filename1 = '';
         $filename2 = '';
@@ -2821,6 +3548,38 @@ class PostController extends Controller
 
     function post_exibution_center_rented(Request $request)
     {
+
+
+        // Rented Validation
+        $request->validate([
+            'title' => 'required',
+            'date' => 'required',
+            'phone' => 'required',
+            'price' => 'required',
+            'per_price' => 'required|in:hour,day,night,week,month,year',
+            's_charge' => 'required',
+            's_per_price' => 'required|in:hour,day,night,week,month,year',
+            'room_size' => 'required',
+            'guest_count' => 'required',
+            'address' => 'required',
+            'photo' => 'required|image|mimes:jpeg,png,jpg',
+        ], [
+            'title.required' => 'This field is required.',
+            'date.required' => 'This field is required.',
+            'phone.required' => 'This field is required.',
+            'price.required' => 'Rent field is required.',
+            'per_price.required' => 'Rent Type field is required.',
+            'per_price.in' => 'Rent Type field must be selected.',
+            's_charge.required' => 'Service Charge field is required.',
+            's_per_price.required' => 'Service Charge Type field is required.',
+            's_per_price.in' => 'Service Charge Type field must be selected.',
+            'room_size.required' => 'This field is required.',
+            'guest_count.required' => 'This field is required.',
+            'address.required' => 'This field is required.',
+            'photo.required' => 'Photo 1 field is required.',
+            'photo.image' => 'Photo 1 field must be image type.',
+            'photo.mimes' => 'Photo 1 file Type must be jpeg,png,jpg.',
+        ]);
         $filename = '';
         $filename1 = '';
         $filename2 = '';
@@ -2945,6 +3704,38 @@ class PostController extends Controller
 
     function post_rooftop_rented(Request $request)
     {
+
+
+        // Rented Validation
+        $request->validate([
+            'title' => 'required',
+            'date' => 'required',
+            'phone' => 'required',
+            'price' => 'required',
+            'per_price' => 'required|in:hour,day,night,week,month,year',
+            's_charge' => 'required',
+            's_per_price' => 'required|in:hour,day,night,week,month,year',
+            'room_size' => 'required',
+            'guest_count' => 'required',
+            'address' => 'required',
+            'photo' => 'required|image|mimes:jpeg,png,jpg',
+        ], [
+            'title.required' => 'This field is required.',
+            'date.required' => 'This field is required.',
+            'phone.required' => 'This field is required.',
+            'price.required' => 'Rent field is required.',
+            'per_price.required' => 'Rent Type field is required.',
+            'per_price.in' => 'Rent Type field must be selected.',
+            's_charge.required' => 'Service Charge field is required.',
+            's_per_price.required' => 'Service Charge Type field is required.',
+            's_per_price.in' => 'Service Charge Type field must be selected.',
+            'room_size.required' => 'This field is required.',
+            'guest_count.required' => 'This field is required.',
+            'address.required' => 'This field is required.',
+            'photo.required' => 'Photo 1 field is required.',
+            'photo.image' => 'Photo 1 field must be image type.',
+            'photo.mimes' => 'Photo 1 file Type must be jpeg,png,jpg.',
+        ]);
         $filename = '';
         $filename1 = '';
         $filename2 = '';
@@ -3067,8 +3858,39 @@ class PostController extends Controller
     // billboard
 
     function post_billboard_rented(Request $request)
-    {
 
+
+    {
+        // Rented Validation
+        $request->validate([
+            'title' => 'required',
+            'date' => 'required',
+            'phone' => 'required',
+            'price' => 'required',
+            'per_price' => 'required|in:hour,day,night,week,month,year',
+            's_charge' => 'required',
+            's_per_price' => 'required|in:hour,day,night,week,month,year',
+            'room_size' => 'required',
+            'guest_count' => 'required',
+            'address' => 'required',
+            'photo' => 'required|image|mimes:jpeg,png,jpg',
+        ], [
+            'title.required' => 'This field is required.',
+            'date.required' => 'This field is required.',
+            'phone.required' => 'This field is required.',
+            'price.required' => 'Rent field is required.',
+            'per_price.required' => 'Rent Type field is required.',
+            'per_price.in' => 'Rent Type field must be selected.',
+            's_charge.required' => 'Service Charge field is required.',
+            's_per_price.required' => 'Service Charge Type field is required.',
+            's_per_price.in' => 'Service Charge Type field must be selected.',
+            'room_size.required' => 'This field is required.',
+            'guest_count.required' => 'This field is required.',
+            'address.required' => 'This field is required.',
+            'photo.required' => 'Photo 1 field is required.',
+            'photo.image' => 'Photo 1 field must be image type.',
+            'photo.mimes' => 'Photo 1 file Type must be jpeg,png,jpg.',
+        ]);
         $filename = '';
         $filename1 = '';
         $filename2 = '';

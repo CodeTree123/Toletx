@@ -311,7 +311,7 @@
                             </div>
                             <div class="col-7 ps-0">
                                 <div class="input-group">
-                                    <select class="form-select form-select-md" aria-label=".form-select-lg example"  id="s_per_price_wanted" name="s_per_price">
+                                    <select class="form-select form-select-md" aria-label=".form-select-lg example" id="s_per_price_wanted" name="s_per_price">
                                         <option selected hidden>Choose Service Type</option>
                                         <option value="hour">Hour</option>
                                         <option value="day"> Day</option>
