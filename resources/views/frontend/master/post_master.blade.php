@@ -57,11 +57,11 @@
                 <div class="container  post_container">
                     @if ($message = Session::get('success'))
                     <div class="alert alert-success alert-block" id="hello">
-                        <button type="button" class="close" data-dismiss="alert">×</button>
+                        <button type="button" class="btn-close" data-dismiss="alert">×</button>
                         <strong>{{ $message }}</strong>
                     </div>
                     @endif
-                    @if (count($errors) > 0)
+                    {{--@if (count($errors) > 0)
                     <div class="alert alert-danger" id="hello">
                         <strong>Whoops!</strong> There were some problems with your input.
                         <ul>
@@ -70,7 +70,7 @@
                             @endforeach
                         </ul>
                     </div>
-                    @endif
+                    @endif--}}
                     @yield('content')
                 </div>
             </div>

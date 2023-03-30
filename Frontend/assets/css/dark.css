@@ -777,7 +777,7 @@ i.edit-img-icon {
 .post_container .shadow {
     box-shadow: 0 .5rem 1rem rgba(255, 255, 255, 0.15)!important;
  }
-/* .post_container label, */
+.post_container label,
 .post_container h2{
     color: #ffffff ;
  }

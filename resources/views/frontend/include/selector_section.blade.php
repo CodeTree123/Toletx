@@ -2,8 +2,8 @@
 <div class="col-sm-12 col-md-12 mb-3">
     <select id="choose_post_type" class="form-select w-50 mx-auto">
         <option selected hidden>Choose Post Type...</option>
-        <option value="Rent">Rent</option>
-        <option value="Want">Want</option>
+        <option value="Rent" @selected(old('post_type') == "Rent")>Rent</option>
+        <option value="Want" @selected(old('post_type') == "Want")>Want</option>
     </select>
 </div>
 @else

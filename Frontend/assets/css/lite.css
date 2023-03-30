@@ -10,6 +10,10 @@
     color: white !important;
 }
 
+[data-theme="lite"] .text-danger {
+    color: rgba(var(--bs-danger-rgb),var(--bs-text-opacity))!important;
+}
+
 [data-theme="lite"] {
     background-color: #ffffff !important;
     color: rgb(0, 0, 0);

@@ -266,6 +266,38 @@ class PostController extends Controller
     //room post
     function post_room_rented(Request $request)
     {
+        // Rented Validation
+        $request->validate([
+            'title' => 'required',
+            'date' => 'required',
+            'phone' => 'required',
+            'price' => 'required',
+            'per_price' => 'required|in:hour,day,night,week,month,year',
+            's_charge' => 'required',
+            's_per_price' => 'required|in:hour,day,night,week,month,year',
+            'room_size' => 'required',
+            'guest_count' => 'required',
+            'address' => 'required',
+            'photo' => 'required|image|mimes:jpeg,png,jpg',
+        ],[
+            'title.required' => 'This field is required.',
+            'date.required' => 'This field is required.',
+            'phone.required' => 'This field is required.',
+            'price.required' => 'Rent field is required.',
+            'per_price.required' => 'Rent Type field is required.',
+            'per_price.in' => 'Rent Type field must be selected.',
+            's_charge.required' => 'Service Charge field is required.',
+            's_per_price.required' => 'Service Charge Type field is required.',
+            's_per_price.in' => 'Service Charge Type field must be selected.',
+            'room_size.required' => 'This field is required.',
+            'guest_count.required' => 'This field is required.',
+            'address.required' => 'This field is required.',
+            'photo.required' => 'Photo 1 field is required.',
+            'photo.image' => 'Photo 1 field must be image type.',
+            'photo.mimes' => 'Photo 1 file Type must be jpeg,png,jpg.',
+        ]);
+
+        dd($request->all());
 
         $filename = '';
         $filename1 = '';
@@ -361,6 +393,35 @@ class PostController extends Controller
     }
     function post_room_wanted(Request $request)
     {
+        // Wanted Validation
+        $request->validate([
+            'title' => 'required',
+            'date' => 'required',
+            'phone' => 'required',
+            'price' => 'required',
+            'per_price' => 'required|in:hour,day,night,week,month,year',
+            's_charge' => 'required',
+            's_per_price' => 'required|in:hour,day,night,week,month,year',
+            'room_size' => 'required',
+            'guest_count' => 'required',
+            'address' => 'required',
+        ], [
+            'title.required' => 'This field is required.',
+            'date.required' => 'This field is required.',
+            'phone.required' => 'This field is required.',
+            'price.required' => 'Rent field is required.',
+            'per_price.required' => 'Rent Type field is required.',
+            'per_price.in' => 'Rent Type field must be selected.',
+            's_charge.required' => 'Service Charge field is required.',
+            's_per_price.required' => 'Service Charge Type field is required.',
+            's_per_price.in' => 'Service Charge Type field must be selected.',
+            'room_size.required' => 'This field is required.',
+            'guest_count.required' => 'This field is required.',
+            'address.required' => 'This field is required.',
+        ]);
+
+        dd($request->all());
+        
         Room::create([
             'user_id' => $request->user_id,
             'post_type' => $request->post_type,
@@ -399,6 +460,48 @@ class PostController extends Controller
     //Flat post
     function post_flat_rented(Request $request)
     {
+        // Rented Validation
+        $request->validate([
+            'title' => 'required',
+            'date' => 'required',
+            'phone' => 'required',
+            'price' => 'required',
+            'per_price' => 'required|in:hour,day,night,week,month,year',
+            's_charge' => 'required',
+            's_per_price' => 'required|in:hour,day,night,week,month,year',
+            'floor_level' => 'required',
+            'bedrooms' => 'required',
+            'drawing' => 'required',
+            'dining' => 'required',
+            'kitchen' => 'required',
+            'varanda' => 'required',
+            'attached_toilet' => 'required',
+            'flat_size' => 'required',
+            'address' => 'required',
+            'photo' => 'required|image|mimes:jpeg,png,jpg',
+        ], [
+            'title.required' => 'This field is required.',
+            'date.required' => 'This field is required.',
+            'phone.required' => 'This field is required.',
+            'price.required' => 'Rent field is required.',
+            'per_price.required' => 'Rent Type field is required.',
+            'per_price.in' => 'Rent Type field must be selected.',
+            's_charge.required' => 'Service Charge field is required.',
+            's_per_price.required' => 'Service Charge Type field is required.',
+            's_per_price.in' => 'Service Charge Type field must be selected.',
+            'floor_level.required' => 'This field is required.',
+            'bedrooms.required' => 'This field is required.',
+            'drawing.required' => 'This field is required.',
+            'dining.required' => 'This field is required.',
+            'kitchen.required' => 'This field is required.',
+            'varanda.required' => 'This field is required.',
+            'attached_toilet.required' => 'This field is required.',
+            'flat_size.required' => 'This field is required.',
+            'address.required' => 'This field is required.',
+            'photo.required' => 'Photo 1 field is required.',
+            'photo.image' => 'Photo 1 field must be image type.',
+            'photo.mimes' => 'Photo 1 file Type must be jpeg,png,jpg.',
+        ]);
 
         $filename = '';
         $filename1 = '';
@@ -500,38 +603,76 @@ class PostController extends Controller
     }
     function post_flat_wanted(Request $request)
     {
+        $request->validate([
+            'w_title' => 'required',
+            'w_date' => 'required',
+            'w_phone' => 'required',
+            'w_price' => 'required',
+            'w_per_price' => 'required|in:hour,day,night,week,month,year',
+            'w_s_charge' => 'required',
+            'w_s_per_price' => 'required|in:hour,day,night,week,month,year',
+            'w_floor_level' => 'required',
+            'w_bedrooms' => 'required',
+            'w_drawing' => 'required',
+            'w_dining' => 'required',
+            'w_kitchen' => 'required',
+            'w_varanda' => 'required',
+            'w_attached_toilet' => 'required',
+            'w_flat_size' => 'required',
+            'w_address' => 'required',
+        ], [
+            'w_title.required' => 'This field is required.',
+            'w_date.required' => 'This field is required.',
+            'w_phone.required' => 'This field is required.',
+            'w_price.required' => 'Rent field is required.',
+            'w_per_price.required' => 'Rent Type field is required.',
+            'w_per_price.in' => 'Rent Type field must be selected.',
+            'w_s_charge.required' => 'Service Charge field is required.',
+            'w_s_per_price.required' => 'Service Charge Type field is required.',
+            'w_s_per_price.in' => 'Service Charge Type field must be selected.',
+            'w_floor_level.required' => 'This field is required.',
+            'w_bedrooms.required' => 'This field is required.',
+            'w_drawing.required' => 'This field is required.',
+            'w_dining.required' => 'This field is required.',
+            'w_kitchen.required' => 'This field is required.',
+            'w_varanda.required' => 'This field is required.',
+            'w_attached_toilet.required' => 'This field is required.',
+            'w_flat_size.required' => 'This field is required.',
+            'w_address.required' => 'This field is required.',
+        ]);
+
         Flat::create([
             'user_id' => $request->user_id,
             'post_type' => $request->post_type,
-            'title' => $request->title,
-            'date' => $request->date,
-            'phone' => $request->phone,
-            's_charge' => $request->s_charge,
-            's_per_price' => $request->s_per_price,
-            'price' => $request->price,
-            'per_price' => $request->per_price,
-            'description' => $request->description,
-            'address' => $request->address,
-            'flat_size' => $request->flat_size,
-            'floor_level' => $request->floor_level,
-            'bedrooms' => $request->bedrooms,
-            'fire_exit' => $request->fire_exit,
-            'wifi' => $request->wifi,
-            'attached_toilet' => $request->attached_toilet,
-            'kitchen' => $request->kitchen,
-            'drawing' => $request->drawing,
-            'varanda' => $request->varanda,
-            'dining' => $request->dining,
-            'lift' => $request->lift,
-            'furnished' => $request->furnished,
-            'generator' => $request->generator,
-            'hot_water' => $request->hot_water,
-            'ac' => $request->ac,
-            'cable_tv' => $request->cable_tv,
-            'gas' => $request->gas,
-            'water' => $request->water,
-            'electricity' => $request->electricity,
-            'parking' => $request->parking,
+            'title' => $request->w_title,
+            'date' => $request->w_date,
+            'phone' => $request->w_phone,
+            's_charge' => $request->w_s_charge,
+            's_per_price' => $request->w_s_per_price,
+            'price' => $request->w_price,
+            'per_price' => $request->w_per_price,
+            'description' => $request->w_description,
+            'address' => $request->w_address,
+            'flat_size' => $request->w_flat_size,
+            'floor_level' => $request->w_floor_level,
+            'bedrooms' => $request->w_bedrooms,
+            'fire_exit' => $request->w_fire_exit,
+            'wifi' => $request->w_wifi,
+            'attached_toilet' => $request->w_attached_toilet,
+            'kitchen' => $request->w_kitchen,
+            'drawing' => $request->w_drawing,
+            'varanda' => $request->w_varanda,
+            'dining' => $request->w_dining,
+            'lift' => $request->w_lift,
+            'furnished' => $request->w_furnished,
+            'generator' => $request->w_generator,
+            'hot_water' => $request->w_hot_water,
+            'ac' => $request->w_ac,
+            'cable_tv' => $request->w_cable_tv,
+            'gas' => $request->w_gas,
+            'water' => $request->w_water,
+            'electricity' => $request->w_electricity,
+            'parking' => $request->w_parking,
             'active' => 1,
             'created_at' => Carbon::now()
         ]);
