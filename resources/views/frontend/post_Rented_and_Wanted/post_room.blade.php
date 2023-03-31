@@ -252,18 +252,18 @@
                 <div class="row">
                     <div class="col-12 mb-3 ">
                         <label for="room_name_Want" class="form-label me-2 fw-bold">Post Title</label>
-                        <input name="title" type="text" class="form-control" id="room_name_Want" placeholder="Enter Post Title">
-                        <span class="text-danger">@error('title') {{$message}} @enderror</span>
+                        <input name="w_title" type="text" class="form-control" id="room_name_Want" placeholder="Enter Post Title">
+                        <span class="text-danger">@error('w_title') {{$message}} @enderror</span>
                     </div>
                     <div class=" col-lg-4 co-md-4 col-sm-12 col-12 mb-3">
                         <label for="date_Want" class="form-label me-2 fw-bold">Date</label>
-                        <input name="date" type="date" class="form-control" id="date_Want" min="{{\Carbon\Carbon::today()->format('Y-m-d')}}" onfocus="this.showPicker()">
-                        <span class="text-danger">@error('date') {{$message}} @enderror</span>
+                        <input name="w_date" type="date" class="form-control" id="date_Want" min="{{\Carbon\Carbon::today()->format('Y-m-d')}}" onfocus="this.showPicker()">
+                        <span class="text-danger">@error('w_date') {{$message}} @enderror</span>
                     </div>
                     <div class=" col-lg-4 co-md-4 col-sm-12 col-12 mb-3">
                         <label for="phone_Want" class="form-label me-2 fw-bold">Mobile</label>
-                        <input name="phone" type="number" class="form-control" id="phone_Want" placeholder="Enter Phone" value="{{$list->phone}}" readonly>
-                        <span class="text-danger">@error('phone') {{$message}} @enderror</span>
+                        <input name="w_phone" type="number" class="form-control" id="phone_Want" placeholder="Enter Phone" value="{{$list->phone}}" readonly>
+                        <span class="text-danger">@error('w_phone') {{$message}} @enderror</span>
                     </div>
 
                     <div class="col-lg-4 co-md-4 col-sm-12 col-12 mb-3 ">
@@ -271,7 +271,7 @@
                         <div class="row">
                             <div class="col-4 pe-0">
                                 <div class="input-group">
-                                    <input name="price" type="number" class="form-control" id="price_Want" placeholder="Enter Price">
+                                    <input name="w_price" type="number" class="form-control" id="price_Want" placeholder="Enter Price">
                                 </div>
                             </div>
                             <div class="col-1">
@@ -279,7 +279,7 @@
                             </div>
                             <div class="col-7 ps-0">
                                 <div class="input-group">
-                                    <select class="form-select form-select-md" aria-label=".form-select-lg example" name="per_price">
+                                    <select class="form-select form-select-md" aria-label=".form-select-lg example" name="w_per_price">
                                         <option selected hidden>Choose Rent Type</option>
                                         <option value="hour">Hour</option>
                                         <option value="day"> Day</option>
@@ -291,15 +291,15 @@
                                 </div>
                             </div>
                         </div>
-                        <span class="text-danger">@error('price') {{$message}} @enderror</span><br>
-                        <span class="text-danger">@error('per_price') {{$message}} @enderror</span>
+                        <span class="text-danger">@error('w_price') {{$message}} @enderror</span><br>
+                        <span class="text-danger">@error('w_per_price') {{$message}} @enderror</span>
                     </div>
                     <div class="col-lg-4 co-md-4 col-sm-12 col-12 mb-3 ">
                         <label for="s_charge_Want" class="form-label me-2 fw-bold">Service Charge</label>
                         <div class="row">
                             <div class="col-4 pe-0">
                                 <div class="input-group">
-                                    <input name="s_charge" type="number" class="form-control" id="s_charge_Want" placeholder="Enter Service Charge">
+                                    <input name="w_s_charge" type="number" class="form-control" id="s_charge_Want" placeholder="Enter Service Charge">
                                 </div>
                             </div>
                             <div class="col-1">
@@ -307,7 +307,7 @@
                             </div>
                             <div class="col-7 ps-0">
                                 <div class="input-group">
-                                    <select class="form-select form-select-md" aria-label=".form-select-lg example" name="s_per_price">
+                                    <select class="form-select form-select-md" aria-label=".form-select-lg example" name="w_s_per_price">
                                         <option selected hidden>Choose Service Type</option>
                                         <option value="hour">Hour</option>
                                         <option value="day"> Day</option>
@@ -319,23 +319,23 @@
                                 </div>
                             </div>
                         </div>
-                        <span class="text-danger">@error('s_charge') {{$message}} @enderror</span><br>
-                        <span class="text-danger">@error('s_per_price') {{$message}} @enderror</span>
+                        <span class="text-danger">@error('w_s_charge') {{$message}} @enderror</span><br>
+                        <span class="text-danger">@error('w_s_per_price') {{$message}} @enderror</span>
                     </div>
                     <div class="col-lg-4 co-md-4 col-sm-12 col-12 mb-3 ">
                         <label for="room_size_Want" class="form-label me-2 fw-bold">Room Size</label>
-                        <input name="room_size" type="text" class="form-control" id="room_size_Want" placeholder="Enter Room Size">
-                        <span class="text-danger">@error('room_size') {{$message}} @enderror</span>
+                        <input name="w_room_size" type="text" class="form-control" id="room_size_Want" placeholder="Enter Room Size">
+                        <span class="text-danger">@error('w_room_size') {{$message}} @enderror</span>
                     </div>
                     <div class="col-lg-4 co-md-4 col-sm-12 col-12 mb-3 ">
                         <label for="guest_Want" class="form-label me-2 fw-bold">Guest Count</label>
-                        <input name="guest_count" type="number" class="form-control" id="guest_Want" placeholder="Enter guest count">
-                        <span class="text-danger">@error('guest_count') {{$message}} @enderror</span>
+                        <input name="w_guest_count" type="number" class="form-control" id="guest_Want" placeholder="Enter guest count">
+                        <span class="text-danger">@error('w_guest_count') {{$message}} @enderror</span>
                     </div>
                     <div class="col-12 mb-3 ">
                         <label for="address_Want" class="form-label me-2 fw-bold">Address</label>
-                        <input name="address" type="text" class="form-control" placeholder="Enter Address">
-                        <span class="text-danger">@error('address') {{$message}} @enderror</span>
+                        <input name="w_address" type="text" class="form-control" placeholder="Enter Address">
+                        <span class="text-danger">@error('w_address') {{$message}} @enderror</span>
                     </div>
                     <div class="col-12 mb-3 ">
                         <label for="description_Want" class="form-label me-2 fw-bold">Description</label>
@@ -345,81 +345,81 @@
                         <h2 class="fw-bold mb-3">Amenities</h2>
                         <div class="row ms-3 ps-2">
                             <div class="col-2 form-check mb-2">
-                                <input class="form-check-input" type="checkbox" id="electricity_Want" name="electricity">
+                                <input class="form-check-input" type="checkbox" id="electricity_Want" name="w_electricity">
                                 <label class="form-check-label" for="electricity_Want">
                                     Electricity
                                 </label>
                             </div>
                             <div class="col-2 form-check mb-2">
-                                <input class="form-check-input" type="checkbox" id="gas_Want" name="gas">
+                                <input class="form-check-input" type="checkbox" id="gas_Want" name="w_gas">
                                 <label class="form-check-label" for="gas_Want">
                                     Gas
                                 </label>
                             </div>
                             <div class="col-2 form-check mb-2">
-                                <input class="form-check-input" type="checkbox" id="Water_Want" name="water">
+                                <input class="form-check-input" type="checkbox" id="Water_Want" name="w_water">
                                 <label class="form-check-label" for="Water_Want">
                                     Water
                                 </label>
                             </div>
                             <div class="col-2 form-check mb-2">
-                                <input class="form-check-input" type="checkbox" id="furnished_Want" name="furnished">
+                                <input class="form-check-input" type="checkbox" id="furnished_Want" name="w_furnished">
                                 <label class="form-check-label" for="furnished_Want">
                                     Furniture
                                 </label>
                             </div>
                             <div class="col-2 form-check mb-2">
-                                <input class="form-check-input" type="checkbox" id="attatched_toilet_Want" name="attached_toilet">
+                                <input class="form-check-input" type="checkbox" id="attatched_toilet_Want" name="w_attached_toilet">
                                 <label class="form-check-label" for="attatched_toilet_Want">
                                     Attached Toilet
                                 </label>
                             </div>
                             <div class="col-2 form-check mb-2">
-                                <input class="form-check-input" type="checkbox" id="hot_water_Want" name="hot_water">
+                                <input class="form-check-input" type="checkbox" id="hot_water_Want" name="w_hot_water">
                                 <label class="form-check-label" for="hot_water_Want">
                                     Geyser
                                 </label>
                             </div>
                             <div class="col-2 form-check mb-2">
-                                <input class="form-check-input" type="checkbox" id="ac_Want" name="ac">
+                                <input class="form-check-input" type="checkbox" id="ac_Want" name="w_ac">
                                 <label class="form-check-label" for="ac_Want">
                                     A.C
                                 </label>
                             </div>
                             <div class="col-2 form-check mb-2">
-                                <input class="form-check-input" type="checkbox" id="cabel_tv_Want" name="cable_tv">
+                                <input class="form-check-input" type="checkbox" id="cabel_tv_Want" name="w_cable_tv">
                                 <label class="form-check-label" for="cabel_tv_Want">
                                     Cable Tv
                                 </label>
                             </div>
 
                             <div class="col-2 form-check mb-2">
-                                <input class="form-check-input" type="checkbox" id="gen_Want" name="generator">
+                                <input class="form-check-input" type="checkbox" id="gen_Want" name="w_generator">
                                 <label class="form-check-label" for="gen_Want">
                                     Generator
                                 </label>
                             </div>
                             <div class="col-2 form-check mb-2">
-                                <input class="form-check-input" type="checkbox" id="wifi_Want" name="wifi">
+                                <input class="form-check-input" type="checkbox" id="wifi_Want" name="w_wifi">
                                 <label class="form-check-label" for="wifi_Want">
                                     Wifi
                                 </label>
                             </div>
                             <div class="col-2 form-check mb-2">
-                                <input class="form-check-input" type="checkbox" id="laundry_Want" name="varanda">
+                                <input class="form-check-input" type="checkbox" id="laundry_Want" name="w_varanda">
                                 <label class="form-check-label" for="laundry_Want">
                                     Attached Veranda
                                 </label>
                             </div>
                             <div class="col-2 form-check mb-2">
-                                <input class="form-check-input" type="checkbox" id="lift_Want" name="lift">
+                                <input class="form-check-input" type="checkbox" id="lift_Want" name="w_lift">
                                 <label class="form-check-label" for="lift_Want">
                                     Lift
                                 </label>
                             </div>
 
                             <div class="col-2 form-check mb-2">
-                                <input class="form-check-input" type="checkbox" id="parking_Want" name="parking">
+                                <input class="form-check-input" type="checkbox" id="parking_Want" name="w_parking">
                                 <label class="form-check-label" for="parking_Want">
                                     Parking
                                 </label>
