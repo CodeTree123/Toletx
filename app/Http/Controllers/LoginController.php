@@ -117,7 +117,7 @@ class LoginController extends Controller
         $i = $k;
         $n = $request->name;
         $date = date('dmY');
-        $view = $n .'-'. $date .'-'. $i;
+        $view = $n . '-' . $date . '-' . $i;
         $validator = Validator::make($request->all(), [
             'name' => 'required',
             'phone' => 'required',
@@ -139,7 +139,7 @@ class LoginController extends Controller
         } else {
 
             $auth_image = User::create([
-                'unique_id'=>$view,
+                'unique_id' => $view,
                 'name' => $request->name,
                 'phone' => $request->phone,
                 'photo' => $request->photo,
@@ -152,7 +152,7 @@ class LoginController extends Controller
                 'gender' => $request->gender,
                 'n_photo1' => $request->n_photo1,
                 'n_photo2' => $request->n_photo2,
-                'role_id'=>2,
+                'role_id' => 2,
                 'password' => Hash::make($request['password']),
                 'fav_qt1' => $request->fav_qt1,
                 'fav_ans1' => $request->fav_ans1,

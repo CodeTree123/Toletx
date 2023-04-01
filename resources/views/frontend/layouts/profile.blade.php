@@ -8,21 +8,20 @@
         </div>
         <div class="row">
             <div class="col-md-12 ">
-
                 <ul class="nav nav-tabs " id="myTab" role="tablist">
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">My
-                            Information</button>
+                        <a class="nav-link active {{request()->is('profile') ? 'active': '' }} " href="{{url('/profile')}}" role="tab" aria-controls="home" aria-selected="true">My
+                            Information</a>
                     </li>
 
                     <li class="nav-item" role="presentation">
-                        <button class="nav-link" id="customer_need-tab" data-bs-toggle="tab" data-bs-target="#customer_need" type="button" role="tab" aria-controls="customer_need" aria-selected="false">Post List
-                        </button>
+                        <a class="nav-link {{request()->is('services_posted_list') ? 'active': '' }}" href="{{url('/services_posted_list')}}" role="tab" aria-controls="profile" aria-selected="false">Post List
+                        </a>
                     </li>
 
                 </ul>
                 <div class="tab-content" id="myTabContent">
-                    <div class="tab-pane profile-tab-pane mt-2 fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
+                    <div class="tab-pane {{request()->is('profile') ? 'active': '' }} profile-tab-pane mt-2 fade show active" id="{{url('/profile')}}" role="tabpanel" aria-labelledby="home-tab">
                         <table class="table table-bordered text-center align-middle">
 
                             <thead>
@@ -49,10 +48,8 @@
                             </tbody>
                         </table>
                     </div>
-                    <div class="tab-pane profile-tab-pane mt-2 fade" id="customer_need" role="tabpanel" aria-labelledby="customer_need-tab">
-                        <style>
-                            
-                        </style>
+                    <div class="tab-pane {{request()->is('services_posted_list') ? 'active': '' }} profile-tab-pane mt-2 fade" id="{{url('/services_posted_list')}}"  role="tabpanel" aria-labelledby="profile-tab">
+
                         <div class="post_list inPost_Scroll">
                             <table class="table table-bordered text-center align-middle">
                                 <thead>

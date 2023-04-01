@@ -95,6 +95,7 @@ Auth::routes(["verify" => true]);
     Route::get('/marketing/request', [UserController::class, 'marketing_request'])->name('marketing_request');
 
     Route::get('/profile', [PostController::class, 'profile'])->name('profile');
+    Route::get('/services_posted_list', [PostController::class, 'services_posted_list'])->name('services_posted_list');
     Route::get('/package', [UserController::class, 'package'])->name('package');
 
     Route::get('/term', [UserController::class, 'term'])->name('term');
@@ -107,8 +108,8 @@ Auth::routes(["verify" => true]);
 
 //header service route
 
-    Route::get('/post/room', [PostController::class, 'post_room'])->name('post_room'); 
-    Route::get('/post/flat', [PostController::class, 'post_flat'])->name('post_flat'); 
+    Route::get('/post/room', [PostController::class, 'post_room'])->name('post_room');
+    Route::get('/post/flat', [PostController::class, 'post_flat'])->name('post_flat');
 
     Route::get('/post/building', [PostController::class, 'post_building'])->name('post_building');
     Route::get('/post/garage', [PostController::class, 'post_parking_spot'])->name('post_parking_spot');
@@ -128,7 +129,7 @@ Auth::routes(["verify" => true]);
     Route::get('/post/land', [PostController::class, 'post_land'])->name('post_land');
     Route::get('/post/pond', [PostController::class, 'post_pond'])->name('post_pond');
 
-    Route::get('/post/ghat', [PostController::class, 'post_ghat'])->name('post_ghat'); 
+    Route::get('/post/ghat', [PostController::class, 'post_ghat'])->name('post_ghat');
     Route::get('/post/swimming/pool', [PostController::class, 'post_swimmingpool'])->name('post_swimmingpool');
 
     Route::get('/post/camp/site', [PostController::class, 'post_playground'])->name('post_playground');
@@ -420,13 +421,13 @@ Route::group(['middleware' => 'admin'], function () {
 
     Route::get('/room/list', [AdminController::class, 'room_list'])->name('room_list');
     Route::get('/flat/list', [AdminController::class, 'flat_list'])->name('flat_list');
-    
+
     Route::get('/building/list', [AdminController::class, 'building_list'])->name('building_list');
     Route::get('/garage/list', [AdminController::class, 'garage_list'])->name('garage_list');
 
     Route::get('/hotel/list', [AdminController::class, 'hotel_list'])->name('hotel_list');
     Route::get('/hostel/list', [AdminController::class, 'hostel_list'])->name('hostel_list');
-    
+
     Route::get('/resort/list', [AdminController::class, 'resort_list'])->name('resort_list');
     Route::get('/office/list', [AdminController::class, 'office_list'])->name('office_list');
 

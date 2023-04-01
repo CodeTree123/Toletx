@@ -127,6 +127,36 @@ class PostController extends Controller
 
         return view('frontend.layouts.profile', compact('users', 'rooms', 'bilboards', 'ghats', 'buildings', 'communities', 'exibutions', 'factories', 'flats', 'hostels', 'hotels', 'offices', 'playgrounds', 'ponds', 'retaurants', 'rooftops', 'shootings', 'shops', 'swimmings', 'lands', 'warehouses', 'parkings', 'picnics', 'marketing'));
     }
+    public function services_posted_list()
+    {
+        $users = User::where('id', auth()->id())->get();
+        $rooms = Room::where('user_id', auth()->id())->get();
+        $flats = Flat::where('user_id', auth()->id())->get();
+        $buildings = Building::where('user_id', auth()->id())->get();
+        $parkings = Parking_Spot::where('user_id', auth()->id())->get();
+        $hostels = Hostel::where('user_id', auth()->id())->get();
+        $hotels = Hotel::where('user_id', auth()->id())->get();
+        $retaurants = Restaurant::where('user_id', auth()->id())->get();
+        $offices = Office::where('user_id', auth()->id())->get();
+        $shops = Shop::where('user_id', auth()->id())->get();
+        $communities = Community_Center::where('user_id', auth()->id())->get();
+        $factories = Factory::where('user_id', auth()->id())->get();
+        $warehouses = Warehouse::where('user_id', auth()->id())->get();
+        $lands = Land::where('user_id', auth()->id())->get();
+        $ponds = Pond::where('user_id', auth()->id())->get();
+        $ghats = Ghat::where('user_id', auth()->id())->get();
+        $swimmings = Swimming_Pool::where('user_id', auth()->id())->get();
+        $playgrounds = Play_ground::where('user_id', auth()->id())->get();
+        $shootings = Shooting_Spot::where('user_id', auth()->id())->get();
+        $picnics = Picnic_Spot::where('user_id', auth()->id())->get();
+        $exibutions = Exibution_Center::where('user_id', auth()->id())->get();
+        $rooftops = Rooftop::where('user_id', auth()->id())->get();
+        $bilboards = Bilboard::where('user_id', auth()->id())->get();
+        $marketing = marketing::where('e_date', '<=', Carbon::today())->get();
+
+
+        return view('frontend.layouts.profile', compact('users', 'rooms', 'bilboards', 'ghats', 'buildings', 'communities', 'exibutions', 'factories', 'flats', 'hostels', 'hotels', 'offices', 'playgrounds', 'ponds', 'retaurants', 'rooftops', 'shootings', 'shops', 'swimmings', 'lands', 'warehouses', 'parkings', 'picnics', 'marketing'));
+    }
     function post_ghat()
     {
         $list = User::where('id', auth()->id())->first();

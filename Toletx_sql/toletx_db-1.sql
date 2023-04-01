@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Mar 23, 2023 at 11:38 AM
+-- Generation Time: Mar 27, 2023 at 11:00 AM
 -- Server version: 10.4.27-MariaDB
 -- PHP Version: 8.1.12
 
@@ -55,6 +55,14 @@ CREATE TABLE `bilboards` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `bilboards`
+--
+
+INSERT INTO `bilboards` (`id`, `user_id`, `post_type`, `title`, `date`, `phone`, `price`, `size`, `height`, `type`, `description`, `address`, `electricity`, `photo`, `photo1`, `photo2`, `photo3`, `photo4`, `photo5`, `photo6`, `video`, `active`, `table_api`, `created_at`, `updated_at`) VALUES
+(1, 2, 'Rent', 'Autem id et eligendi', '2023-03-27', 1, 62, 'Iure quis tenetur re', 'Dolorem sunt non ali', 'Suscipit aut neque r', 'Ut sapiente quis id', 'Magnam hic odio simi', NULL, 'bilboards-1-20230327085553.webp', 'bilboards-2-20230327085553.jpg', '', '', '', '', '', 'Amet aperiam optio', 1, 22, '2023-03-27 02:55:53', '2023-03-27 02:55:53'),
+(2, 2, 'Want', 'Voluptates ut qui vo', '2023-03-27', 1, 50, 'Eaque voluptatem est', 'Omnis officia ut est', 'Occaecat corporis au', 'Amet blanditiis ali', 'Velit consectetur q', 'on', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 22, '2023-03-27 02:56:17', '2023-03-27 02:56:17');
+
 -- --------------------------------------------------------
 
 --
@@ -71,7 +79,7 @@ CREATE TABLE `buildings` (
   `price` bigint(20) NOT NULL,
   `per_price` varchar(255) NOT NULL,
   `s_charge` bigint(20) NOT NULL,
-  `s_per_charge` varchar(255) NOT NULL,
+  `s_per_price` varchar(255) NOT NULL,
   `description` varchar(255) DEFAULT NULL,
   `address` varchar(255) NOT NULL,
   `building_size` varchar(255) NOT NULL,
@@ -99,6 +107,14 @@ CREATE TABLE `buildings` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `buildings`
+--
+
+INSERT INTO `buildings` (`id`, `user_id`, `post_type`, `building_name`, `phone`, `date`, `price`, `per_price`, `s_charge`, `s_per_price`, `description`, `address`, `building_size`, `floor`, `floor_size`, `t_build`, `road_width`, `gas`, `water`, `electricity`, `lift`, `generator`, `parking`, `fire_exit`, `photo`, `photo1`, `photo2`, `photo3`, `photo4`, `photo5`, `photo6`, `video`, `active`, `table_api`, `created_at`, `updated_at`) VALUES
+(1, 2, 'Rent', 'ahcvZSKHSGcvhjGVCjh', 1, '2023-03-27', 2134, 'day', 324, 'week', 'dfhdfjndghmfghm,fgj,mr', 'dfghdfgjh546456', '23aeaegsedgh', 10, 'sefgseahgwehg43534', 'Brick Building', 'fdgher4356', NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'building-1-20230327083905.jpg', '', '', '', '', '', '', NULL, 1, 3, '2023-03-27 02:39:05', '2023-03-27 02:39:05'),
+(2, 2, 'Want', 'ushyvkjsvfbhkjashbvkashddfvkhasddvbkjasdbhgfvkjh', 1, '2023-03-27', 2000, 'week', 2345, 'night', 'sfgnsfdgn', 'gfnbsfgn', 'adsfgdsbf', 13, 'wergwerh', 'Steal Shed', 'wbsdfy54', NULL, 'on', NULL, 'on', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 3, '2023-03-27 02:41:27', '2023-03-27 02:41:27');
 
 -- --------------------------------------------------------
 
@@ -148,6 +164,14 @@ CREATE TABLE `community__centers` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `community__centers`
+--
+
+INSERT INTO `community__centers` (`id`, `user_id`, `post_type`, `title`, `c_name`, `date`, `phone`, `s_charge`, `s_per_price`, `description`, `address`, `floor_level`, `floor_size`, `road_width`, `interior_condition`, `price`, `per_price`, `fire_safety`, `generator`, `lift`, `parking`, `seat`, `wifi`, `gas`, `electricity`, `water`, `ac`, `photo`, `photo1`, `photo2`, `photo3`, `photo4`, `photo5`, `photo6`, `video`, `active`, `table_api`, `created_at`, `updated_at`) VALUES
+(1, 2, 'Rent', 'Consequatur minima', 'Melanie Dudley', '2023-03-27', 1, 94, 'hour', 'Qui optio qui autem', 'Dolorum in soluta in', '11', 'Ratione sunt earum a', 'Anim labore aut cons', 'moderate', 263, 'hour', 'on', NULL, NULL, 'on', 'Quod pariatur Velit', 'on', NULL, 'on', 'on', 'on', 'community-1-20230327085343.jfif', 'community-2-20230327085343.webp', '', '', '', '', '', 'Corrupti aut qui qu', 1, 10, '2023-03-27 02:53:43', '2023-03-27 02:53:43'),
+(2, 2, 'Want', 'Saepe dolore qui ea', 'Clio Maxwell', '2023-03-27', 1, 4, 'Choose Service Type', 'Temporibus consequat', 'Earum et perferendis', '4', 'Sint rerum adipisici', 'Quo in qui incididun', 'moderate', 877, 'hour', NULL, NULL, 'on', NULL, 'Quam suscipit impedi', NULL, 'on', NULL, 'on', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 10, '2023-03-27 02:53:56', '2023-03-27 02:53:56');
+
 -- --------------------------------------------------------
 
 --
@@ -188,6 +212,14 @@ CREATE TABLE `exibution__centers` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `exibution__centers`
+--
+
+INSERT INTO `exibution__centers` (`id`, `user_id`, `post_type`, `title`, `c_name`, `date`, `phone`, `description`, `address`, `room_size`, `interior_condition`, `floor_level`, `room_type`, `road_width`, `price`, `toilet`, `lift`, `fire_exit`, `generator`, `parking`, `photo`, `photo1`, `photo2`, `photo3`, `photo4`, `photo5`, `photo6`, `video`, `active`, `table_api`, `created_at`, `updated_at`) VALUES
+(1, 2, 'Rent', 'Dolores et sunt ali', 'Graiden Moon', '2023-03-27', 1, 'Est ut pariatur Ab', 'Est architecto unde', 'Voluptatem laborios', 'Choose Interior Condition', '15', 'Ex ad reiciendis dol', 'Exercitationem totam', 598, 'on', 'on', 'on', 'on', NULL, 'exhibution-1-20230327085713.jpg', 'exhibution-2-20230327085713.webp', '', '', '', '', '', 'Reprehenderit odit', 1, 20, '2023-03-27 02:57:13', '2023-03-27 02:57:13'),
+(2, 2, 'Want', 'Qui quo aliqua Impe', 'Mechelle Lee', '2023-03-27', 1, 'Tempor sunt eaque su', 'Porro eaque fugiat', 'Neque quo non consec', 'Choose Interior Condition', '5', 'Ad corporis proident', 'Dolor assumenda comm', 355, 'on', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 20, '2023-03-27 02:57:21', '2023-03-27 02:57:21');
 
 -- --------------------------------------------------------
 
@@ -232,6 +264,14 @@ CREATE TABLE `factories` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `factories`
+--
+
+INSERT INTO `factories` (`id`, `user_id`, `post_type`, `title`, `date`, `phone`, `description`, `address`, `floor_level`, `floor_height`, `floor_size`, `road_width`, `price`, `fire_safety`, `lift`, `parking`, `drainage_system`, `gas`, `water`, `generator`, `electricity`, `ac`, `photo`, `photo1`, `photo2`, `photo3`, `photo4`, `photo5`, `photo6`, `video`, `active`, `table_api`, `created_at`, `updated_at`) VALUES
+(1, 2, 'Rent', 'Est modi est vel vel', '2023-03-27', 1, 'Reiciendis esse a in', 'Accusamus amet quid', '9', 'Anim est veniam cu', 'Sint eiusmod similiq', 'Non minima aut fuga', 58, 'on', 'on', NULL, NULL, 'on', 'on', NULL, 'on', 'on', 'factorie-1-20230327085751.jfif', 'factorie-2-20230327085751.webp', '', '', '', '', '', 'Ipsam eiusmod sit ea', 1, 11, '2023-03-27 02:57:51', '2023-03-27 02:57:51'),
+(2, 2, 'Want', 'Aut eum do error nis', '2023-03-27', 1, 'Quasi ipsum dolores', 'Nisi hic sit aliquid', '8', 'Quis ut omnis sit f', 'Quidem ut consequatu', 'Quae id qui id volup', 479, NULL, NULL, 'on', NULL, 'on', 'on', 'on', NULL, 'on', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 11, '2023-03-27 02:57:58', '2023-03-27 02:57:58');
+
 -- --------------------------------------------------------
 
 --
@@ -262,7 +302,7 @@ CREATE TABLE `flats` (
   `date` date NOT NULL,
   `phone` bigint(20) NOT NULL,
   `s_charge` bigint(20) NOT NULL,
-  `s_per_charge` varchar(255) NOT NULL,
+  `s_per_price` varchar(255) NOT NULL,
   `price` bigint(20) NOT NULL,
   `per_price` varchar(255) NOT NULL,
   `description` varchar(255) DEFAULT NULL,
@@ -300,6 +340,14 @@ CREATE TABLE `flats` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `flats`
+--
+
+INSERT INTO `flats` (`id`, `user_id`, `post_type`, `title`, `date`, `phone`, `s_charge`, `s_per_price`, `price`, `per_price`, `description`, `address`, `flat_size`, `floor_level`, `bedrooms`, `fire_exit`, `wifi`, `attached_toilet`, `kitchen`, `drawing`, `varanda`, `dining`, `lift`, `furnished`, `generator`, `hot_water`, `ac`, `cable_tv`, `gas`, `water`, `electricity`, `parking`, `photo`, `photo1`, `photo2`, `photo3`, `photo4`, `photo5`, `photo6`, `video`, `active`, `table_api`, `created_at`, `updated_at`) VALUES
+(1, 2, 'Rent', 'asdasdfsafasdfafagagadfgadfgadfgasdfgasdfg', '2023-03-27', 1, 14325, 'hour', 2000, 'night', 'sfdghndfhndfndfgndfmn', 'fdxndfgngsdfghnfdg', '345dsf', 435, 435, NULL, NULL, '345', '435', '435', '435', '435', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'flat-1-20230327083320.jpg', 'flat-2-20230327083320.jfif', '', '', '', '', '', NULL, 1, 2, '2023-03-27 02:33:20', '2023-03-27 02:33:20'),
+(2, 2, 'Want', 'asrghsdfhgdgjrgyfjkdtjfhjrfgjsjsrjsrjsrj', '2023-03-27', 1, 456, 'day', 321, 'week', 'dfjdfjmdgmkdgmdghjm', 'fdghdfjdmdgjmdgm', 'rgfjh456', 3466, 36, NULL, NULL, '364', '365', '546', '365', '365', NULL, 'on', NULL, NULL, NULL, NULL, 'on', 'on', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 2, '2023-03-27 02:34:39', '2023-03-27 02:34:39');
 
 -- --------------------------------------------------------
 
@@ -353,6 +401,14 @@ CREATE TABLE `ghats` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Dumping data for table `ghats`
+--
+
+INSERT INTO `ghats` (`id`, `user_id`, `post_type`, `title`, `date`, `phone`, `price`, `per_price`, `description`, `address`, `toilet`, `parking`, `photo`, `photo1`, `photo2`, `photo3`, `photo4`, `photo5`, `photo6`, `video`, `active`, `table_api`, `created_at`, `updated_at`) VALUES
+(1, 2, 'Rent', 'Dolor tempor enim di', '2023-03-27', 1, 898, 'hour', 'Sit nisi nemo suscip', 'Duis sunt aspernatu', 'on', 'on', 'ghat-1-20230327085841.jpg', 'ghat-2-20230327085841.jfif', '', '', '', '', '', 'Quidem cupidatat adi', 1, 15, '2023-03-27 02:58:41', '2023-03-27 02:58:41'),
+(2, 2, 'Want', 'Id voluptatem Volup', '2023-03-27', 1, 938, 'Choose Rent Type', 'Explicabo Dolorem n', 'Minim in sunt rerum', 'on', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 15, '2023-03-27 02:58:51', '2023-03-27 02:58:51');
+
 -- --------------------------------------------------------
 
 --
@@ -401,6 +457,14 @@ CREATE TABLE `hostels` (
   `created_at` timestamp NULL DEFAULT NULL,
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Dumping data for table `hostels`
+--
+
+INSERT INTO `hostels` (`id`, `user_id`, `post_type`, `date`, `phone`, `s_charge`, `s_per_price`, `description`, `hostel_name`, `address`, `room_size`, `room_type`, `price`, `per_price`, `wifi`, `attached_toilet`, `generator`, `lift`, `furnished`, `hot_water`, `laundry`, `ac`, `pool`, `parking`, `dining`, `gym`, `spa`, `sports`, `photo`, `photo1`, `photo2`, `photo3`, `photo4`, `photo5`, `photo6`, `video`, `active`, `table_api`, `created_at`, `updated_at`) VALUES
+(1, 2, 'Rent', '2023-03-27', 1, 76, 'night', 'Qui ut repudiandae h', 'Dominique Kelley', 'Consequat Ipsum est', 'Sed nostrum eligendi', 'Honeymoon Suite', 570, 'year', 'on', NULL, 'on', 'on', NULL, NULL, NULL, NULL, 'on', 'on', NULL, NULL, 'on', NULL, 'hostel-1-20230327084453.jfif', 'hostel-2-20230327084453.jpg', '', '', '', '', '', 'Distinctio Sit elig', 1, 6, '2023-03-27 02:44:53', '2023-03-27 02:44:53'),
+(2, 2, 'Want', '2023-03-27', 1, 33, 'night', 'Quis quisquam dolore', 'Oren Bruce', 'Proident eveniet s', 'Do dolorem praesenti', 'Family bed', 755, 'day', NULL, NULL, NULL, 'on', NULL, 'on', 'on', NULL, 'on', 'on', 'on', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 6, '2023-03-27 02:45:03', '2023-03-27 02:45:03');
 
 -- --------------------------------------------------------
 
@@ -552,7 +616,6 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (7, '2016_06_01_000005_create_oauth_personal_access_clients_table', 1),
 (8, '2019_08_19_000000_create_failed_jobs_table', 1),
 (9, '2019_12_14_000001_create_personal_access_tokens_table', 1),
-(10, '2021_12_28_100841_create_rooms_table', 1),
 (11, '2021_12_28_100923_create_parking__spots_table', 1),
 (12, '2021_12_28_100955_create_hotels_table', 1),
 (13, '2021_12_28_101015_create_offices_table', 1),
@@ -568,16 +631,17 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (23, '2021_12_28_101312_create_rooftops_table', 1),
 (24, '2021_12_28_101333_create_restaurants_table', 1),
 (25, '2021_12_28_101555_create_hostels_table', 1),
-(26, '2022_01_09_104502_create_flats_table', 1),
 (27, '2022_01_18_101557_create_exibution__centers_table', 1),
 (28, '2022_01_18_101623_create_play_grounds_table', 1),
 (29, '2022_02_28_171755_create_phoneotps_table', 1),
 (30, '2022_04_03_063920_create_ghats_table', 1),
 (31, '2022_04_03_064006_create_picnic__spots_table', 1),
-(32, '2022_08_08_092856_create_buildings_table', 1),
 (33, '2022_11_21_070618_create_marketings_table', 1),
 (34, '2022_12_11_072305_create_forms_table', 1),
-(35, '2022_12_13_111134_create_reports_table', 1);
+(35, '2022_12_13_111134_create_reports_table', 1),
+(36, '2021_12_28_100841_create_rooms_table', 2),
+(37, '2022_01_09_104502_create_flats_table', 3),
+(38, '2022_08_08_092856_create_buildings_table', 4);
 
 -- --------------------------------------------------------
 
@@ -847,11 +911,8 @@ CREATE TABLE `picnic__spots` (
 --
 
 INSERT INTO `picnic__spots` (`id`, `user_id`, `post_type`, `title`, `c_name`, `date`, `phone`, `description`, `land_area`, `address`, `price`, `per_price`, `electricity`, `gas`, `water`, `dining`, `shed`, `toilet`, `lift`, `parking`, `generator`, `change_room`, `photo`, `photo1`, `photo2`, `photo3`, `photo4`, `photo5`, `photo6`, `video`, `active`, `table_api`, `created_at`, `updated_at`) VALUES
-(1, 2, 'Rent', 'Ipsum iste velit nis', 'Jaquelyn Decker', '2023-03-23', 1, 'Consequatur rerum ma', 'Eiusmod voluptas inc', 'Est aperiam quasi re', 409, 'Choose Rent Type', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'picnic-1-20230323093542.jpg', 'picnic-2-20230323093542.jpg', 'picnic-3-20230323093542.jfif', 'picnic-4-20230323093542.webp', 'picnic-5-20230323093542.jfif', 'picnic-6-20230323093542.jfif', 'picnic-7-20230323093542.webp', 'Soluta iusto nemo ve', 1, 19, '2023-03-23 03:35:42', '2023-03-23 03:35:42'),
 (2, 2, 'Rent', 'Voluptas eaque irure', 'Genevieve Parrish', '2023-03-23', 1, 'Voluptate nisi aut e', 'Et sit culpa tempori', 'Labore voluptatem O', 357, 'Choose Rent Type', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'picnic-1-20230323094010.jpg', 'picnic-2-20230323094010.jpg', 'picnic-3-20230323094010.jfif', 'picnic-4-20230323094010.webp', 'picnic-5-20230323094010.jfif', 'picnic-6-20230323094010.jfif', 'picnic-7-20230323094010.webp', 'Eos quo iure perspi', 1, 19, '2023-03-23 03:40:10', '2023-03-23 03:40:10'),
-(3, 2, 'Want', 'Qui velit dolore ex', 'Helen Padilla', '2023-03-23', 1, 'Officia deserunt eiu', 'Maxime esse dolorib', 'Voluptatem quisquam', 528, 'night shift', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 19, '2023-03-23 03:40:24', '2023-03-23 03:40:24'),
-(4, 2, 'Rent', 'Eos sed harum omnis', 'Whoopi Coffey', '2023-03-23', 1, 'Et temporibus tempor', 'A veniam porro est', 'Odit saepe Nam eveni', 774, 'hour', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'picnic-1-20230323094440.jpg', 'picnic-2-20230323094440.jpg', 'picnic-3-20230323094440.jfif', 'picnic-4-20230323094440.webp', 'picnic-5-20230323094440.jfif', 'picnic-6-20230323094440.jfif', 'picnic-7-20230323094440.webp', 'Impedit quia conseq', 1, 19, '2023-03-23 03:44:40', '2023-03-23 03:44:40'),
-(5, 2, 'Want', 'Officiis assumenda e', 'Taylor Chambers', '2023-03-23', 1, 'Quibusdam labore ut', 'Cupiditate ex praese', 'At placeat magnam i', 228, 'hour', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 19, '2023-03-23 03:44:53', '2023-03-23 03:44:53');
+(3, 2, 'Want', 'Qui velit dolore ex', 'Helen Padilla', '2023-03-23', 1, 'Officia deserunt eiu', 'Maxime esse dolorib', 'Voluptatem quisquam', 528, 'night shift', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 19, '2023-03-23 03:40:24', '2023-03-23 03:40:24');
 
 -- --------------------------------------------------------
 
@@ -1063,8 +1124,7 @@ CREATE TABLE `rooftops` (
 
 INSERT INTO `rooftops` (`id`, `user_id`, `post_type`, `title`, `c_name`, `date`, `phone`, `description`, `address`, `floor_area`, `price`, `per_price`, `toilet`, `p_protection`, `generator`, `lift`, `parking`, `water`, `electricity`, `shed`, `photo`, `photo1`, `photo2`, `photo3`, `photo4`, `photo5`, `photo6`, `video`, `active`, `table_api`, `created_at`, `updated_at`) VALUES
 (1, 2, 'Rent', 'Porro suscipit quis', 'Vera Clark', '2023-03-23', 1, 'Exercitation quae et', 'Soluta proident rem', 'Incidunt exercitati', 495, 'hour', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'rooftop-1-20230323100952.jpg', 'rooftop-2-20230323100952.jpg', '', '', '', '', '', 'Delectus odit nulla', 1, 21, '2023-03-23 04:09:52', '2023-03-23 04:09:53'),
-(2, 2, 'Want', 'Autem dolorum corrup', 'Xavier Fitzpatrick', '2023-03-23', 1, 'Dolore dolorum eveni', 'Soluta veniam aut s', 'Labore quod architec', 18, 'month', 'on', 'on', 'on', 'on', NULL, 'on', 'on', 'on', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 21, '2023-03-23 04:10:05', '2023-03-23 04:10:05'),
-(3, 2, 'Want', 'Consectetur numquam', 'Savannah Berger', '2023-03-23', 1, 'Molestias facere qui', 'Non corrupti exerci', 'Ut voluptatem error', 760, 'day', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 21, '2023-03-23 04:11:33', '2023-03-23 04:11:33');
+(2, 2, 'Want', 'Autem dolorum corrup', 'Xavier Fitzpatrick', '2023-03-23', 1, 'Dolore dolorum eveni', 'Soluta veniam aut s', 'Labore quod architec', 18, 'month', 'on', 'on', 'on', 'on', NULL, 'on', 'on', 'on', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 21, '2023-03-23 04:10:05', '2023-03-23 04:10:05');
 
 -- --------------------------------------------------------
 
@@ -1080,10 +1140,12 @@ CREATE TABLE `rooms` (
   `date` date NOT NULL,
   `phone` bigint(20) NOT NULL,
   `s_charge` bigint(20) NOT NULL,
+  `s_per_price` varchar(255) NOT NULL,
   `description` varchar(255) DEFAULT NULL,
   `address` varchar(255) NOT NULL,
   `room_size` varchar(255) NOT NULL,
   `price` bigint(20) NOT NULL,
+  `per_price` varchar(255) NOT NULL,
   `guest_count` bigint(20) UNSIGNED DEFAULT NULL,
   `wifi` varchar(255) DEFAULT NULL,
   `attached_toilet` varchar(255) DEFAULT NULL,
@@ -1116,9 +1178,9 @@ CREATE TABLE `rooms` (
 -- Dumping data for table `rooms`
 --
 
-INSERT INTO `rooms` (`id`, `user_id`, `post_type`, `title`, `date`, `phone`, `s_charge`, `description`, `address`, `room_size`, `price`, `guest_count`, `wifi`, `attached_toilet`, `varanda`, `gas`, `water`, `electricity`, `lift`, `furnished`, `hot_water`, `ac`, `cable_tv`, `parking`, `generator`, `photo`, `photo1`, `photo2`, `photo3`, `photo4`, `photo5`, `photo6`, `video`, `active`, `table_api`, `created_at`, `updated_at`) VALUES
-(1, 2, 'Want', 'zdsfvzsd', '2023-03-23', 1, 234, 'zdsfgasdg', 'zxdgzdf', '32423sdf', 234, 435, 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 1, '2023-03-23 04:16:30', '2023-03-23 04:16:30'),
-(2, 2, 'Want', 'Malcolm Cole', '2023-03-23', 1, 77, 'Voluptas dolores adi', 'Commodi inventore co', 'A perspiciatis eum', 955, 1, 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', 'on', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 1, '2023-03-23 04:17:40', '2023-03-23 04:17:40');
+INSERT INTO `rooms` (`id`, `user_id`, `post_type`, `title`, `date`, `phone`, `s_charge`, `s_per_price`, `description`, `address`, `room_size`, `price`, `per_price`, `guest_count`, `wifi`, `attached_toilet`, `varanda`, `gas`, `water`, `electricity`, `lift`, `furnished`, `hot_water`, `ac`, `cable_tv`, `parking`, `generator`, `photo`, `photo1`, `photo2`, `photo3`, `photo4`, `photo5`, `photo6`, `video`, `active`, `table_api`, `created_at`, `updated_at`) VALUES
+(1, 2, 'Rent', 'askudhgfskdjafvb', '2023-03-27', 1, 123421, 'day', 'fgndfjdfj', 'edty', 'xfvbdfg', 2000, 'day', 43534, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 'room-1-20230327082754.webp', '', '', '', '', '', '', 'asefsadf', 1, 1, '2023-03-27 02:27:54', '2023-03-27 02:27:54'),
+(2, 2, 'Want', 'sefsadfgsadgfasdgg', '2023-03-27', 1, 2342, 'night', 'sdgsfg', 'sdfsd', '345', 2000, 'day', 242, NULL, 'on', NULL, NULL, NULL, NULL, NULL, 'on', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, 1, 1, '2023-03-27 02:28:23', '2023-03-27 02:28:23');
 
 -- --------------------------------------------------------
 
@@ -1600,31 +1662,31 @@ ALTER TABLE `warehouses`
 -- AUTO_INCREMENT for table `bilboards`
 --
 ALTER TABLE `bilboards`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `buildings`
 --
 ALTER TABLE `buildings`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `community__centers`
 --
 ALTER TABLE `community__centers`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `exibution__centers`
 --
 ALTER TABLE `exibution__centers`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `factories`
 --
 ALTER TABLE `factories`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `failed_jobs`
@@ -1636,7 +1698,7 @@ ALTER TABLE `failed_jobs`
 -- AUTO_INCREMENT for table `flats`
 --
 ALTER TABLE `flats`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `forms`
@@ -1648,13 +1710,13 @@ ALTER TABLE `forms`
 -- AUTO_INCREMENT for table `ghats`
 --
 ALTER TABLE `ghats`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `hostels`
 --
 ALTER TABLE `hostels`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- AUTO_INCREMENT for table `hotels`
@@ -1678,7 +1740,7 @@ ALTER TABLE `marketings`
 -- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=39;
 
 --
 -- AUTO_INCREMENT for table `oauth_clients`

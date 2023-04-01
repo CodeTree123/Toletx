@@ -83,6 +83,7 @@
                         <div class="col-lg-4 col-md-4 col-sm-12 col-12 mb-3 ">
                             <label for="guest_Rent" class="form-label me-2 fw-bold">Guest Count</label>
                             <input name="guest_count" type="number" value="{{$list->guest_count}}" class="form-control" id="guest_Rent" placeholder="Enter guest count">
+                            <span class="text-danger">@error('guest_count') {{$message}} @enderror</span>
                         </div>
                         <div class=" col-12 mb-3 ">
                             <label for="address_Rent" class="form-label me-2 fw-bold">Address</label>
@@ -422,6 +423,7 @@
                         <div class=" col-lg-4 col-md-4 col-sm-12 col-12 ">
                             <label for="guest_Want" class="form-label me-2 fw-bold">Guest Count</label>
                             <input name="guest_count" type="number" value="{{$list->guest_count}}" class="form-control" id="guest_Want" placeholder="Enter guest count">
+                            <span class="text-danger">@error('guest_count') {{$message}} @enderror</span>
                         </div>
                         <div class="col-12 mb-3 ">
                             <label for="address_Want" class="form-label me-2 fw-bold">Address</label>
