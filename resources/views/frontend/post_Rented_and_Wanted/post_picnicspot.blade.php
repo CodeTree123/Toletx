@@ -16,7 +16,7 @@
             <form method="POST" action="{{ route('post_picnic_rented') }}" enctype="multipart/form-data">
                 @csrf
                 <div class="col-md-6">
-                    <input id="user_id" type="hidden" class="form-control" name="user_id" value="{{ Auth::user()->id }}" required autocomplete="user_id" autofocus>
+                    <input id="user_id" type="hidden" class="form-control" name="user_id" value="{{ Auth::user()->id }}"  autocomplete="user_id" autofocus>
                 </div>
                 <input class="form-control" type="hidden" id="post_rent" name="post_type" value="{{old('post_type')}}">
                 <div class="row">
@@ -194,36 +194,34 @@
                 </div>
             </form>
         </div>
-        <div class="col-12" id="Want" style="display: none;">
+        <div class="col-12" id="Want" style="display: {{old('post_type') == 'Want' ? 'flex' : 'none'}};">
             <form method="POST" action="{{ route('post_picnic_wanted') }}" enctype="multipart/form-data">
                 @csrf
                 <div class="col-md-6">
-                    <input id="user_id" type="hidden" class="form-control" name="user_id" value="{{ Auth::user()->id }}" required autocomplete="user_id" autofocus>
+                    <input id="user_id" type="hidden" class="form-control" name="user_id" value="{{ Auth::user()->id }}"  autocomplete="user_id" autofocus>
                 </div>
-                <input class="form-control" type="hidden" id="post_want" name="post_type">
+                <input class="form-control" type="hidden" id="post_want" name="post_type" value="{{old('post_type')}}">
                 <div class="row">
                     <div class=" col-12 mb-3 ">
                         <label for="post_title_Want" class="form-label me-2 fw-bold">Post Title</label>
-                        <input name="title" type="text" value="" class="form-control" id="post_title_Want" placeholder="Enter Post Title">
+                        <input name="w_title" type="text" value="" class="form-control" id="post_title_Want" placeholder="Enter Post Title" value="{{old('w_title')}}">
+                        <span class="text-danger">@error('w_title') {{$message}} @enderror</span>
                     </div>
 
                     <div class="col-lg-4 co-md-4 col-sm-12 col-12 mb-3 ">
                         <label for="title_Want" class="form-label me-2 fw-bold">Picnic Spot Name</label>
-                        <input name="c_name" type="text" class="form-control" id="title_Want" placeholder="Enter Picnic Spot Name" required>
+                        <input name="w_c_name" type="text" class="form-control" id="title_Want" placeholder="Enter Picnic Spot Name" value="{{old('w_c_name')}}">
+                        <span class="text-danger">@error('w_c_name') {{$message}} @enderror</span>
                     </div>
                     <div class=" col-lg-4 co-md-4 col-sm-12 col-12 mb-3">
                         <label for="date_Want" class="form-label me-2 fw-bold">Date</label>
-                        <input name="date" type="date" class="form-control" id="date_Want" min="{{\Carbon\Carbon::today()->format('Y-m-d')}}" onfocus="this.showPicker()" required>
+                        <input name="w_date" type="date" class="form-control" id="date_Want" min="{{\Carbon\Carbon::today()->format('Y-m-d')}}" onfocus="this.showPicker()" value="{{old('w_date')}}">
+                        <span class="text-danger">@error('w_date') {{$message}} @enderror</span>
                     </div>
                     <div class=" col-lg-4 co-md-4 col-sm-12 col-12 mb-3">
                         <label for="phone_Want" class="form-label me-2 fw-bold">Mobile</label>
-                        {{--<select id="phone_Want" class="form-select" name="phone" required>
-                            <option value="">Choose number</option>
-                            @foreach($lists as $list)
-                            <option value="{{$list->phone}}">{{$list->phone}}</option>
-                        @endforeach
-                        </select>--}}
-                        <input name="phone" type="number" class="form-control" id="phone_Want" placeholder="Enter " value="{{$list->phone}}" readonly>
+                        <input name="w_phone" type="number" class="form-control" id="phone_Want" placeholder="Enter " value="{{$list->phone}}" readonly>
+                        <span class="text-danger">@error('w_phone') {{$message}} @enderror</span>
                     </div>
 
                     <div class="col-lg-4 co-md-4 col-sm-12 col-12 mb-3 ">
@@ -231,7 +229,7 @@
                         <div class="row">
                             <div class="col-4 pe-0">
                                 <div class="input-group">
-                                    <input name="price" type="number" class="form-control" id="price_Want" placeholder="Enter Rent" required>
+                                    <input name="w_price" type="number" class="form-control" id="price_Want" placeholder="Enter Rent" value="{{old('w_')}}">
                                 </div>
                             </div>
                             <div class="col-1">
@@ -239,7 +237,7 @@
                             </div>
                             <div class="col-7 ps-0">
                                 <div class="input-group">
-                                    <select class="form-select form-select-md" aria-label=".form-select-lg example" id="per_price_Want" name="per_price">
+                                    <select class="form-select form-select-md" aria-label=".form-select-lg example" id="per_price_Want" name="w_per_price">
                                         <option selected hidden>Choose Rent Type</option>
                                         <option value="hour">Hour</option>
                                         <option value="day shift"> Day Shift</option>
@@ -249,79 +247,83 @@
                                 </div>
                             </div>
                         </div>
+                        <span class="text-danger">@error('w_price') {{$message}} @enderror</span><br>
+                        <span class="text-danger">@error('w_per_price') {{$message}} @enderror</span>
                     </div>
                     <div class="col-lg-4 co-md-4 col-sm-12 col-12 mb-3 ">
                         <label for="area_Want" class="form-label me-2 fw-bold">Picnic Spot Area</label>
-                        <input name="land_area" type="text" class="form-control" id="area_Want" placeholder="Enter Picnic Spot Area" required>
+                        <input name="w_land_area" type="text" class="form-control" id="area_Want" placeholder="Enter Picnic Spot Area" value="{{old('w_land_area')}}">
+                        <span class="text-danger">@error('w_land_area') {{$message}} @enderror</span>
                     </div>
                     <div class="col-12 mb-3 ">
                         <label for="address_Want" class="form-label me-2 fw-bold">Address</label>
-                        <input name="address" type="text" class="form-control" placeholder="Enter Address" required>
+                        <input name="w_address" type="text" class="form-control" placeholder="Enter Address" value="{{old('w_address')}}">
+                        <span class="text-danger">@error('w_address') {{$message}} @enderror</span>
                     </div>
                     <div class="col-12 mb-3 ">
                         <label for="description_Want" class="form-label me-2 fw-bold">Description</label>
-                        <textarea name="description" type="text" class="form-control" id="description_Want" rows="3" placeholder="Enter Description"></textarea>
+                        <textarea name="w_description" type="text" class="form-control" id="description_Want" rows="3" placeholder="Enter Description">{{old('w_description')}}</textarea>
                     </div>
                     <div class="col-12 mb-3 ">
                         <h2 class="fw-bold mb-3">Amenities</h2>
                         <div class="row ms-3 ps-2">
 
                             <div class="col-2 form-check mb-2">
-                                <input class="form-check-input" type="checkbox" id="shed_Want" name="shed">
+                                <input class="form-check-input" type="checkbox" id="shed_Want" name="w_shed">
                                 <label class="form-check-label" for="shed_Want">
                                     Shed
                                 </label>
                             </div>
                             <div class="col-2 form-check mb-2">
-                                <input class="form-check-input" type="checkbox" id="elect_Want" name="electricity">
+                                <input class="form-check-input" type="checkbox" id="elect_Want" name="w_electricity">
                                 <label class="form-check-label" for="elect_Want">
                                     Electricity
                                 </label>
                             </div>
                             <div class="col-2 form-check mb-2">
-                                <input class="form-check-input" type="checkbox" id="gas_Want" name="gas">
+                                <input class="form-check-input" type="checkbox" id="gas_Want" name="w_gas">
                                 <label class="form-check-label" for="gas_Want">
                                     Gas
                                 </label>
                             </div>
                             <div class="col-2 form-check mb-2">
-                                <input class="form-check-input" type="checkbox" id="water_Want" name="water">
+                                <input class="form-check-input" type="checkbox" id="water_Want" name="w_water">
                                 <label class="form-check-label" for="water_Want">
                                     Water
                                 </label>
                             </div>
                             <div class="col-2 form-check mb-2">
-                                <input class="form-check-input" type="checkbox" id="change_room_Want" name="change_room">
+                                <input class="form-check-input" type="checkbox" id="change_room_Want" name="w_change_room">
                                 <label class="form-check-label" for="change_room_Want">
                                     Changing Room
                                 </label>
                             </div>
                             <div class="col-2 form-check mb-2">
-                                <input class="form-check-input" type="checkbox" id="generator_Want" name="generator">
+                                <input class="form-check-input" type="checkbox" id="generator_Want" name="w_generator">
                                 <label class="form-check-label" for="generator_Want">
                                     Generator
                                 </label>
                             </div>
                             <div class="col-2 form-check mb-2">
-                                <input class="form-check-input" type="checkbox" id="Toilet_Want" name="toilet">
+                                <input class="form-check-input" type="checkbox" id="Toilet_Want" name="w_toilet">
                                 <label class="form-check-label" for="Toilet_Want">
                                     Toilet
                                 </label>
                             </div>
                             <div class="col-2 form-check mb-2">
-                                <input class="form-check-input" type="checkbox" id="sports_Want" name="dining">
+                                <input class="form-check-input" type="checkbox" id="sports_Want" name="w_dining">
                                 <label class="form-check-label" for="sports_Want">
                                     Dining Facilities
                                 </label>
                             </div>
                             <div class="col-2 form-check mb-2">
-                                <input class="form-check-input" type="checkbox" id="lift_Want" name="lift">
+                                <input class="form-check-input" type="checkbox" id="lift_Want" name="w_lift">
                                 <label class="form-check-label" for="lift_Want">
                                     Lift
                                 </label>
                             </div>
                             <div class="col-2 form-check mb-2">
-                                <input class="form-check-input" type="checkbox" id="parking_Want" name="parking">
+                                <input class="form-check-input" type="checkbox" id="parking_Want" name="w_parking">
                                 <label class="form-check-label" for="parking_Want">
                                     Parking
                                 </label>
