@@ -1,12 +1,10 @@
 @extends('frontend.master.post_master')
-
 @section('content')
 <div class="container post_container">
     <div class="pd-ltr-20 xs-pd-20-10">
         <div class="min-height-200px">
             <!-- Default Basic Forms Start -->
             <div class="pd-20 card-box mb-30">
-
                 @if($list->post_type == 'Rent')
                 <form method="POST" action="{{ route('flat_update',$list->id) }}" enctype="multipart/form-data">
                     @csrf
@@ -14,14 +12,17 @@
                         <div class="col-12  mb-3 ">
                             <label for="room_name_rented" class="form-label me-2 fw-bold">Post Title</label>
                             <input name="title" value="{{$list->title}}" type="text" class="form-control" id="room_name_rented" placeholder="Enter Post Title">
+                            <span class="text-danger">@error('title') {{$message}} @enderror</span>
                         </div>
                         <div class=" col-lg-4 col-md-4 col-sm-12 col-12  mb-3">
                             <label for="date_rented" class="form-label me-2 fw-bold">Date</label>
                             <input name="date" value="{{$list->date}}" type="date" class="form-control" id="date_rented" onfocus="this.showPicker()">
+                            <span class="text-danger">@error('date') {{$message}} @enderror</span>
                         </div>
                         <div class=" col-lg-4 col-md-4 col-sm-12 col-12  mb-3">
                             <label for="phone_rented" class="form-label me-2 fw-bold">Mobile</label>
                             <input name="phone" value="{{$list->phone}}" type="tel" class="form-control" id="phone_rented">
+                            <span class="text-danger">@error('phone') {{$message}} @enderror</span>
                         </div>
 
                         <div class="col-lg-4 col-md-4 col-sm-12 col-12  mb-3 ">
@@ -48,6 +49,8 @@
                                         </select>
                                     </div>
                                 </div>
+                                <span class="text-danger">@error('price') {{$message}} @enderror</span>
+                                <span class="text-danger">@error('per_price') {{$message}} @enderror</span>
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-12 col-12  mb-3 ">
@@ -74,45 +77,54 @@
                                         </select>
                                     </div>
                                 </div>
+                                <span class="text-danger">@error('s_charge') {{$message}} @enderror</span>
+                                <span class="text-danger">@error('s_per_price') {{$message}} @enderror</span>
                             </div>
                         </div>
-
-
                         <div class="col-lg-4 col-md-4 col-sm-12 col-12  mb-3 ">
                             <label for="floor_level_rented" class="form-label me-2 fw-bold">Floor Level</label>
                             <input name="floor_level" value="{{$list->floor_level}}" type="number" class="form-control" id="floor_level_rented" placeholder="Enter Floor Level">
+                            <span class="text-danger">@error('floor_level') {{$message}} @enderror</span>
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-12 col-12  mb-3 ">
                             <label for="bedroom_rented" class="form-label me-2 fw-bold">No. of Bedrooms</label>
                             <input name="bedrooms" value="{{$list->bedrooms}}" type="number" class="form-control" id="bedroom_rented" placeholder="Enter Bedrooms">
+                            <span class="text-danger">@error('bedrooms') {{$message}} @enderror</span>
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-12 col-12  mb-3 ">
                             <label for="Drawing_rented" class="form-label me-2 fw-bold">No. of Drawing Rooms</label>
                             <input name="drawing" value="{{$list->drawing}}" type="number" class="form-control" id="Drawing_rented" placeholder="Enter Drawing rooms">
+                            <span class="text-danger">@error('drawing') {{$message}} @enderror</span>
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-12 col-12  mb-3 ">
                             <label for="Dining_rented" class="form-label me-2 fw-bold">No. of Dining Rooms</label>
                             <input name="dining" value="{{$list->dining}}" type="number" class="form-control" id="Dining_rented" placeholder="Enter Dining rooms">
+                            <span class="text-danger">@error('dining') {{$message}} @enderror</span>
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-12 col-12  mb-3 ">
                             <label for="Kitchen_rented" class="form-label me-2 fw-bold">No. of Kitchen Rooms</label>
                             <input name="kitchen" value="{{$list->kitchen}}" type="number" class="form-control" id="Kitchen_rented" placeholder="Enter Kitchen rooms">
+                            <span class="text-danger">@error('kitchen') {{$message}} @enderror</span>
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-12 col-12  mb-3 ">
                             <label for="flat_varanda_rented" class="form-label me-2 fw-bold">No. of Veranda</label>
                             <input name="varanda" value="{{$list->varanda}}" type="number" class="form-control" id="flat_varanda_rented" placeholder="Enter No. of Veranda">
+                            <span class="text-danger">@error('varanda') {{$message}} @enderror</span>
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-12 col-12  mb-3 ">
                             <label for="flat_attached_toilet_rented" class="form-label me-2 fw-bold">No. of Toilets</label>
                             <input name="attached_toilet" value="{{$list->attached_toilet}}" type="number" class="form-control" id="flat_attached_toilet_rented" placeholder="Enter No. of Toilets">
+                            <span class="text-danger">@error('attached_toilet') {{$message}} @enderror</span>
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-12 col-12  mb-3 ">
                             <label for="flat_size_rented" class="form-label me-2 fw-bold">Flat Size</label>
                             <input name="flat_size" value="{{$list->flat_size}}" type="text" class="form-control" id="flat_size_rented" placeholder="Enter Flat Size">
+                            <span class="text-danger">@error('flat_size') {{$message}} @enderror</span>
                         </div>
                         <div class="col-12 mb-3 ">
                             <label for="address_rented" class="form-label me-2 fw-bold">Address</label>
                             <input name="address" value="{{$list->address}}" type="text" class="form-control" id="address_rented" placeholder="Enter Address">
+                            <span class="text-danger">@error('address') {{$message}} @enderror</span>
                         </div>
                         <div class="col-12 mb-3 ">
                             <label for="description_rented" class="form-label me-2 fw-bold">Description</label>
@@ -193,13 +205,11 @@
                                     Parking
                                 </label>
                             </div>
-
                         </div>
                         <div class="col-lg-9 col-md-9 col-sm-12 col-12">
                             <h2 class="fw-bold mb-3">Gallery Section</h2>
                             <div class="row">
                                 <div class="col-6 p-2">
-
                                     @if($list->photo == '')
                                     <img src="{{asset('/Frontend/assets/img/th.webp')}}" alt="" srcset="" class="update_section_image img-fluid img-thumbnail">
                                     <div class=" input-group mt-2 update_section_file_input">
@@ -211,12 +221,11 @@
                                     <div class="d-flex justify-content-between">
                                         <div class="input-group mt-2 update_section_file_input">
                                             <input type="file" class="form-control" name="photo" id="photo_Rent" placeholder="asd" onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])">
+                                            <span class="text-danger">@error('photo') {{$message}} @enderror</span>
                                         </div>
                                         <!-- <a href="{{route('image_delete',['Flat',$list->id,'flats','photo',$list->photo])}}" class="btn btn-primary update_section_file_input_dlt_btn ms-1 p-1"><i class="fa-solid fa-trash-can"></i></a> -->
                                     </div>
-
                                     @endif
-
                                     <label for="photo_Rent" class="d-block mt-2"> Main Image</label>
                                 </div>
                             </div>
@@ -364,14 +373,17 @@
                         <div class=" col-12 mb-3 ">
                             <label for="room_name_rented" class="form-label me-2 fw-bold">Post Title</label>
                             <input name="title" value="{{$list->title}}" type="text" class="form-control" id="room_name_rented" placeholder="Enter Post Title">
+                            <span class="text-danger">@error('title') {{$message}} @enderror</span>
                         </div>
                         <div class=" col-lg-4 col-md-4 col-sm-12 col-12 mb-3">
                             <label for="date_rented" class="form-label me-2 fw-bold">Date</label>
                             <input name="date" value="{{$list->date}}" type="date" class="form-control" id="date_rented" onfocus="this.showPicker()">
+                            <span class="text-danger">@error('date') {{$message}} @enderror</span>
                         </div>
                         <div class=" col-lg-4 col-md-4 col-sm-12 col-12 mb-3">
                             <label for="phone_rented" class="form-label me-2 fw-bold">Mobile</label>
                             <input name="phone" value="{{$list->phone}}" type="tel" class="form-control" id="phone_rented">
+                            <span class="text-danger">@error('phone') {{$message}} @enderror</span>
                         </div>
 
                         <div class="col-lg-4 col-md-4 col-sm-12 col-12 mb-3 ">
@@ -398,6 +410,8 @@
                                         </select>
                                     </div>
                                 </div>
+                                <span class="text-danger">@error('price') {{$message}} @enderror</span>
+                                <span class="text-danger">@error('per_price') {{$message}} @enderror</span>
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-12 col-12 mb-3 ">
@@ -424,6 +438,8 @@
                                         </select>
                                     </div>
                                 </div>
+                                <span class="text-danger">@error('s_charge') {{$message}} @enderror</span>
+                                <span class="text-danger">@error('s_per_price') {{$message}} @enderror</span>
                             </div>
                         </div>
 
@@ -431,38 +447,47 @@
                         <div class="col-lg-4 col-md-4 col-sm-12 col-12 mb-3 ">
                             <label for="floor_level_rented" class="form-label me-2 fw-bold">Floor Level</label>
                             <input name="floor_level" value="{{$list->floor_level}}" type="number" class="form-control" id="floor_level_rented" placeholder="Enter Floor Level">
+                            <span class="text-danger">@error('floor_level') {{$message}} @enderror</span>
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-12 col-12 mb-3 ">
                             <label for="bedroom_rented" class="form-label me-2 fw-bold">No. of Bedrooms</label>
                             <input name="bedrooms" value="{{$list->bedrooms}}" type="number" class="form-control" id="bedroom_rented" placeholder="Enter Bedrooms">
+                            <span class="text-danger">@error('bedrooms') {{$message}} @enderror</span>
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-12 col-12 mb-3 ">
                             <label for="Drawing_rented" class="form-label me-2 fw-bold">No. of Drawing Rooms</label>
                             <input name="drawing" value="{{$list->drawing}}" type="number" class="form-control" id="Drawing_rented" placeholder="Enter Drawing rooms">
+                            <span class="text-danger">@error('drawing') {{$message}} @enderror</span>
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-12 col-12 mb-3 ">
                             <label for="Dining_rented" class="form-label me-2 fw-bold">No. of Dining Rooms</label>
                             <input name="dining" value="{{$list->dining}}" type="number" class="form-control" id="Dining_rented" placeholder="Enter Dining rooms">
+                            <span class="text-danger">@error('dining') {{$message}} @enderror</span>
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-12 col-12 mb-3 ">
                             <label for="Kitchen_rented" class="form-label me-2 fw-bold">No. of Kitchen Rooms</label>
                             <input name="kitchen" value="{{$list->kitchen}}" type="number" class="form-control" id="Kitchen_rented" placeholder="Enter Kitchen rooms">
+                            <span class="text-danger">@error('kitchen') {{$message}} @enderror</span>
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-12 col-12 mb-3 ">
                             <label for="flat_varanda_rented" class="form-label me-2 fw-bold">No. of Veranda</label>
                             <input name="varanda" value="{{$list->varanda}}" type="number" class="form-control" id="flat_varanda_rented" placeholder="Enter No. of Veranda">
+                            <span class="text-danger">@error('varanda') {{$message}} @enderror</span>
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-12 col-12 mb-3 ">
                             <label for="flat_attached_toilet_rented" class="form-label me-2 fw-bold">No. of Toilets</label>
                             <input name="attached_toilet" value="{{$list->attached_toilet}}" type="number" class="form-control" id="flat_attached_toilet_rented" placeholder="Enter No. of Toilets">
+                            <span class="text-danger">@error('attached_toilet') {{$message}} @enderror</span>
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-12 col-12 mb-3 ">
                             <label for="flat_size_rented" class="form-label me-2 fw-bold">Flat Size</label>
                             <input name="flat_size" value="{{$list->flat_size}}" type="text" class="form-control" id="flat_size_rented" placeholder="Enter Flat Size">
+                            <span class="text-danger">@error('flat_size') {{$message}} @enderror</span>
                         </div>
-                        <div class="col-12 mb-3 ">
+                        <div class="col-12 m  b-3 ">
                             <label for="address_rented" class="form-label me-2 fw-bold">Address</label>
                             <input name="address" value="{{$list->address}}" type="text" class="form-control" id="address_rented" placeholder="Enter Address">
+                            <span class="text-danger">@error('address') {{$message}} @enderror</span>
                         </div>
                         <div class="col-12 mb-3 ">
                             <label for="description_rented" class="form-label me-2 fw-bold">Description</label>
