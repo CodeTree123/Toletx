@@ -10,7 +10,7 @@
             <div class="col-md-12 ">
                 <ul class="nav nav-tabs " id="myTab" role="tablist">
                     <li class="nav-item" role="presentation">
-                        <a class="nav-link active {{request()->is('profile') ? 'active': '' }} " href="{{url('/profile')}}" role="tab" aria-controls="home" aria-selected="true">My
+                        <a class="nav-link {{request()->is('profile') ? 'active': '' }} " href="{{url('/profile')}}" role="tab" aria-controls="home" aria-selected="true">My
                             Information</a>
                     </li>
 
@@ -21,7 +21,7 @@
 
                 </ul>
                 <div class="tab-content" id="myTabContent">
-                    <div class="tab-pane {{request()->is('profile') ? 'active': '' }} profile-tab-pane mt-2 fade show active" id="{{url('/profile')}}" role="tabpanel" aria-labelledby="home-tab">
+                    <div class="tab-pane {{request()->is('profile') ? 'active': '' }} profile-tab-pane mt-2" id="{{url('/profile')}}" role="tabpanel" aria-labelledby="home-tab">
                         <table class="table table-bordered text-center align-middle">
 
                             <thead>
@@ -48,7 +48,7 @@
                             </tbody>
                         </table>
                     </div>
-                    <div class="tab-pane {{request()->is('services_posted_list') ? 'active': '' }} profile-tab-pane mt-2 fade" id="{{url('/services_posted_list')}}"  role="tabpanel" aria-labelledby="profile-tab">
+                    <div class="tab-pane {{request()->is('services_posted_list') ? 'active': '' }} profile-tab-pane mt-2" id="{{url('/services_posted_list')}}"  role="tabpanel" aria-labelledby="profile-tab">
 
                         <div class="post_list inPost_Scroll">
                             <table class="table table-bordered text-center align-middle">

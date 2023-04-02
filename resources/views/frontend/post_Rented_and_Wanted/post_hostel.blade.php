@@ -275,8 +275,8 @@
                 <div class="row">
                     <div class="col-12 mb-3 ">
                         <label for="hostel_post_wanted" class="form-label me-2 fw-bold">Post Title</label>
-                        <input name="w_post_title" type="text" class="form-control" id="hostel_post_wanted" placeholder="Enter Post Title" value="{{old('w_post_title')}}">
-                        <span class="text-danger">@error('w_post_title') {{$message}} @enderror</span>
+                        <input name="w_title" type="text" class="form-control" id="hostel_post_wanted" placeholder="Enter Post Title" value="{{old('w_title')}}">
+                        <span class="text-danger">@error('w_title') {{$message}} @enderror</span>
                     </div>
                     <div class="col-lg-4 co-md-4 col-sm-12 col-12 mb-3 ">
                         <label for="hostel_name_wanted" class="form-label me-2 fw-bold">Hostel Name</label>
