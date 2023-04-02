@@ -141,120 +141,154 @@
                                 <!-- <span aria-hidden="true"><i class="fa-solid fa-xmark"></i></span> -->
                             </button>
                         </div>
+
+                        <style>
+                            .test-modal {
+                                width: 100px;
+                                border-radius: 20px;
+                                padding: 17px 0 17px 0;
+                                margin: 5px 0 5px 0;
+                                box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+                                transition: all .2s;
+                            }
+
+                            .test-modal:hover {
+
+                                box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+                                -ms-transform: scale(1.5);
+                                /* IE 9 */
+                                -webkit-transform: scale(1.5);
+                                /* Safari 3-8 */
+                                transform: scale(1.05);
+                            }
+
+                            span.service_item_modal {
+                                font-size: 55px;
+
+                            }
+
+                            span.service_item {
+                                font-weight: 500;
+                            }
+                        </style>
+                        
                         <div class="modal-body">
                             <link rel="stylesheet" href="{{asset('Frontend/assets/css/icon.css')}}">
-                            <div class="row m-0 mt-2  justify-content-center service-group-row">
-                                <a class="  col-lg-3 col-md-3 col-sm-3 col-3 col-small p-0 me-2 mb-2    text-center" href="{{route('post_room')}}">
-                                    <span class="icon-room service_item "></span>
+                            <div class="row m-0 mt-2  justify-content-evenly service-group-row">
+                                <a class="  col-lg-3 col-md-3 col-sm-3 col-3 test-modal text-center" href="{{route('post_room')}}">
+                                    <span class="icon-room  service_item"></span>
                                     <br>
-                                    <span class="service_item_name"> Room</span>
+                                    <span class="service_item_name fs-6"> Room</span>
                                 </a>
-                                <a class="  col-lg-3 col-md-3 col-sm-3 col-3 col-small p-0 me-2 mb-2    text-center" href="{{route('post_flat')}}">
-                                    <span class="icon-flat service_item"></span>
+                                <a class="  col-lg-3 col-md-3 col-sm-3 col-3 test-modal text-center" href="{{route('post_flat')}}">
+                                    <span class="icon-flat  service_item"></span>
                                     <br>
-                                    <span class="service_item_name"> Flat</span>
+                                    <span class="service_item_name fs-6"> Flat</span>
                                 </a>
-                                <a class="  col-lg-3 col-md-3 col-sm-3 col-3 col-small p-0 me-2 mb-2    text-center" href="{{route('post_building')}}">
-                                    <span class="icon-building service_item"></span>
+                                <a class="  col-lg-3 col-md-3 col-sm-3 col-3 test-modal text-center" href="{{route('post_building')}}">
+                                    <span class="icon-building  service_item"></span>
                                     <br>
-                                    <span class="service_item_name"> Building</span>
+                                    <span class="service_item_name fs-6"> Building</span>
                                 </a>
-                                <a class="  col-lg-3 col-md-3 col-sm-3 col-3 col-small p-0 me-2 mb-2    text-center" href="{{route('post_parking_spot')}}">
-                                    <span class="icon-garage service_item"></span>
+                                <a class="  col-lg-3 col-md-3 col-sm-3 col-3 test-modal  text-center" href="{{route('post_parking_spot')}}">
+                                    <span class="icon-garage  service_item"></span>
                                     <br>
-                                    <span class="service_item_name"> Garage</span>
+                                    <span class="service_item_name fs-6"> Garage</span>
                                 </a>
-                                <a class="  col-lg-3 col-md-3 col-sm-3 col-3 col-small p-0 me-2 mb-2    text-center" href="{{route('post_hotel')}}">
-                                    <span class="icon-hotel service_item"></span>
+                                <a class="  col-lg-3 col-md-3 col-sm-3 col-3 test-modal text-center" href="{{route('post_hotel')}}">
+                                    <span class="icon-hotel  service_item"></span>
                                     <br>
-                                    <span class="service_item_name"> Hotel</span>
+                                    <span class="service_item_name fs-6"> Hotel</span>
                                 </a>
-                                <a class="  col-lg-3 col-md-3 col-sm-3 col-3 col-small p-0 me-2 mb-2    text-center" href="{{route('post_hostel')}}">
-                                    <span class="icon-hostel service_item"></span>
+                                <a class="  col-lg-3 col-md-3 col-sm-3 col-3 test-modal text-center" href="{{route('post_hostel')}}">
+                                    <span class="icon-hostel  service_item"></span>
                                     <br>
-                                    <span class="service_item_name"> Hostel</span>
+                                    <span class="service_item_name fs-6"> Hostel</span>
                                 </a>
-                                <a class="  col-lg-3 col-md-3 col-sm-3 col-3 col-small p-0 me-2 mb-2    text-center" href="{{route('post_resort')}}">
-                                    <span class="icon-resort service_item"></span>
+                                <a class="  col-lg-3 col-md-3 col-sm-3 col-3 test-modal text-center" href="{{route('post_resort')}}">
+                                    <span class="icon-resort  service_item"></span>
                                     <br>
-                                    <span class="service_item_name"> Resort</span>
+                                    <span class="service_item_name fs-6"> Resort</span>
                                 </a>
-                                <a class="  col-lg-3 col-md-3 col-sm-3 col-3 col-small p-0 me-2 mb-2    text-center" href="{{route('post_office')}}">
-                                    <span class="icon-office service_item"></span>
+                                <a class="  col-lg-3 col-md-3 col-sm-3 col-3 test-modal text-center" href="{{route('post_office')}}">
+                                    <span class="icon-office  service_item"></span>
                                     <br>
-                                    <span class="service_item_name"> Office</span>
+                                    <span class="service_item_name fs-6"> Office</span>
                                 </a>
-                                <a class="  col-lg-3 col-md-3 col-sm-3 col-3 col-small p-0 me-2 mb-2    text-center" href="{{route('post_shop')}}">
-                                    <span class="icon-shop service_item"></span>
+                                <a class="  col-lg-3 col-md-3 col-sm-3 col-3 test-modal  text-center" href="{{route('post_shop')}}">
+                                    <span class="icon-shop  service_item"></span>
                                     <br>
-                                    <span class="service_item_name"> Shop</span>
+                                    <span class="service_item_name fs-6"> Shop</span>
                                 </a>
-                                <a class="  col-lg-3 col-md-3 col-sm-3 col-3 col-small p-0 me-2 mb-2    text-center" href="{{route('post_community')}}">
-                                    <span class="icon-community_hall service_item"></span>
+                                <a class="  col-lg-3 col-md-3 col-sm-3 col-3 test-modal text-center" href="{{route('post_community')}}">
+                                    <span class="icon-community_hall  service_item"></span>
                                     <br>
-                                    <span class="service_item_name"> Community Hall</span>
+                                    <span class="service_item_name fs-6"> Community Hall</span>
                                 </a>
-                                <a class="  col-lg-3 col-md-3 col-sm-3 col-3 col-small p-0 me-2 mb-2    text-center" href="{{route('post_factory')}}">
-                                    <span class="icon-factory service_item"></span>
+                                <a class="  col-lg-3 col-md-3 col-sm-3 col-3 test-modal text-center" href="{{route('post_factory')}}">
+                                    <span class="icon-factory  service_item"></span>
                                     <br>
-                                    <span class="service_item_name"> Factory</span>
+                                    <span class="service_item_name fs-6"> Factory</span>
                                 </a>
-                                <a class="  col-lg-3 col-md-3 col-sm-3 col-3 col-small p-0 me-2 mb-2    text-center" href="{{route('post_warehouse')}}">
-                                    <span class="icon-warehouse service_item"></span>
+                                <a class="  col-lg-3 col-md-3 col-sm-3 col-3 test-modal text-center" href="{{route('post_warehouse')}}">
+                                    <span class="icon-warehouse  service_item"></span>
                                     <br>
-                                    <span class="service_item_name"> Warehouse</span>
+                                    <span class="service_item_name fs-6"> Warehouse</span>
                                 </a>
-                                <a class="  col-lg-3 col-md-3 col-sm-3 col-3 col-small p-0 me-2 mb-2    text-center" href="{{route('post_land')}}">
-                                    <span class="icon-land service_item"></span>
+                                <a class="  col-lg-3 col-md-3 col-sm-3 col-3 test-modal text-center" href="{{route('post_land')}}">
+                                    <span class="icon-land  service_item"></span>
                                     <br>
-                                    <span class="service_item_name"> Land</span>
+                                    <span class="service_item_name fs-6"> Land</span>
                                 </a>
-                                <a class="  col-lg-3 col-md-3 col-sm-3 col-3 col-small p-0 me-2 mb-2    text-center" href="{{route('post_pond')}}">
-                                    <span class="icon-pond service_item"></span>
+                                <a class="  col-lg-3 col-md-3 col-sm-3 col-3 test-modal text-center" href="{{route('post_pond')}}">
+                                    <span class="icon-pond  service_item"></span>
                                     <br>
-                                    <span class="service_item_name"> Pond</span>
+                                    <span class="service_item_name fs-6"> Pond</span>
                                 </a>
-                                <a class="  col-lg-3 col-md-3 col-sm-3 col-3 col-small p-0 me-2 mb-2    text-center" href="{{route('post_ghat')}}">
-                                    <span class="icon-ghat service_item"></span>
+                                <a class="  col-lg-3 col-md-3 col-sm-3 col-3 test-modal text-center" href="{{route('post_ghat')}}">
+                                    <span class="icon-ghat  service_item"></span>
                                     <br>
-                                    <span class="service_item_name"> Ghat</span>
+                                    <span class="service_item_name fs-6"> Ghat</span>
                                 </a>
-                                <a class="  col-lg-3 col-md-3 col-sm-3 col-3 col-small p-0 me-2 mb-2    text-center" href="{{route('post_swimmingpool')}}">
-                                    <span class="icon-swimming_pool service_item"></span>
+                                <a class="  col-lg-3 col-md-3 col-sm-3 col-3 test-modal text-center" href="{{route('post_swimmingpool')}}">
+                                    <span class="icon-swimming_pool  service_item"></span>
                                     <br>
-                                    <span class="service_item_name"> Swimming Pool</span>
+                                    <span class="service_item_name fs-6"> Swimming Pool</span>
                                 </a>
-                                <a class="  col-lg-3 col-md-3 col-sm-3 col-3 col-small p-0 me-2 mb-2    text-center" href="{{route('post_playground')}}">
-                                    <span class="icon-camping service_item"></span>
+                                <a class="  col-lg-3 col-md-3 col-sm-3 col-3 test-modal text-center" href="{{route('post_playground')}}">
+                                    <span class="icon-camping  service_item"></span>
                                     <br>
-                                    <span class="service_item_name"> Camp Site</span>
+                                    <span class="service_item_name fs-6"> Camp Site</span>
                                 </a>
-                                <a class="  col-lg-3 col-md-3 col-sm-3 col-3 col-small p-0 me-2 mb-2    text-center" href="{{route('post_shooting')}}">
-                                    <span class="icon-shooting_spot service_item"></span>
+                                <a class="  col-lg-3 col-md-3 col-sm-3 col-3 test-modal text-center" href="{{route('post_shooting')}}">
+                                    <span class="icon-shooting_spot  service_item"></span>
                                     <br>
-                                    <span class="service_item_name"> Shooting Spot</span>
+                                    <span class="service_item_name fs-6"> Shooting Spot</span>
                                 </a>
-                                <a class="  col-lg-3 col-md-3 col-sm-3 col-3 col-small p-0 me-2 mb-2    text-center" href="{{route('post_picnic')}}">
-                                    <span class="icon-picnic-spot service_item"></span>
+                                <a class="  col-lg-3 col-md-3 col-sm-3 col-3 test-modal text-center" href="{{route('post_picnic')}}">
+                                    <span class="icon-picnic-spot  service_item"></span>
                                     <br>
-                                    <span class="service_item_name"> Picnic Spot</span>
+                                    <span class="service_item_name fs-6"> Picnic Spot</span>
                                 </a>
-                                <a class="  col-lg-3 col-md-3 col-sm-3 col-3 col-small p-0 me-2 mb-2    text-center" href="{{route('post_exhibution')}}">
-                                    <span class="icon-exhibition_center service_item"></span>
+                                <a class="  col-lg-3 col-md-3 col-sm-3 col-3 test-modal text-center" href="{{route('post_exhibution')}}">
+                                    <span class="icon-exhibition_center  service_item"></span>
                                     <br>
-                                    <span class="service_item_name"> Exhibition
+                                    <span class="service_item_name fs-6"> Exhibition
                                         Center</span>
                                 </a>
-                                <a class="  col-lg-3 col-md-3 col-sm-3 col-3 col-small p-0 me-2 mb-2    text-center" href="{{route('post_rooftop')}}">
-                                    <span class="icon-rooftop service_item"></span>
-                                    <br>
-                                    <span class="service_item_name"> Rooftop</span>
-                                </a>
-                                <a class="  col-lg-3 col-md-3 col-sm-3 col-3 col-small p-0 me-2 mb-2    text-center" href="{{route('post_bilboard')}}">
-                                    <span class="icon-bilboard service_item"></span>
-                                    <br>
-                                    <span class="service_item_name"> Bilboard</span>
-                                </a>
+                                <div class="row justify-content-center">
+                                    <a class="  col-lg-3 col-md-3 col-sm-3 col-3 test-modal mx-2 text-center" href="{{route('post_rooftop')}}">
+                                        <span class="icon-rooftop  service_item"></span>
+                                        <br>
+                                        <span class="service_item_name fs-6"> Rooftop</span>
+                                    </a>
+                                    <a class="  col-lg-3 col-md-3 col-sm-3 col-3 test-modal mx-2 text-center" href="{{route('post_bilboard')}}">
+                                        <span class="icon-bilboard  service_item"></span>
+                                        <br>
+                                        <span class="service_item_name fs-6"> Bilboard</span>
+                                    </a>
+                                </div>
+
                             </div>
                         </div>
                     </div>
