@@ -922,9 +922,9 @@ class PostController extends Controller
             'address' => 'required',
             'price' => 'required',
             'per_price' => 'required|in:hour,day,night,week,month,year',
-            'floor_level' => 'required|Ground,lavel 1,lavel 2',
+            'floor_level' => 'required|in:Ground,lavel 1,lavel 2',
             'floor_height' => 'required',
-            'vehicle_type' => 'required|Truck,Motor bike,Pickup,Privet car,Everything',
+            'vehicle_type' => 'required|in:Truck,Motor bike,Pickup,Privet car,Everything',
             'photo' => 'required|image|mimes:jpeg,png,jpg',
         ], [
             'title.required' => 'This field is required.',
@@ -1031,9 +1031,9 @@ class PostController extends Controller
             'w_address' => 'required',
             'w_price' => 'required',
             'w_per_price' => 'required|in:hour,day,night,week,month,year',
-            'w_floor_level' => 'required|Ground,lavel 1,lavel 2',
+            'w_floor_level' => 'required|in:Ground,lavel 1,lavel 2',
             'w_floor_height' => 'required',
-            'w_vehicle_type' => 'required|Truck,Motor bike,Pickup,Privet car,Everything',
+            'w_vehicle_type' => 'required|in:Truck,Motor bike,Pickup,Privet car,Everything',
         ], [
             'w_title.required' => 'This field is required.',
             'w_date.required' => 'This field is required.',

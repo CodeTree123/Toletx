@@ -15,9 +15,9 @@
             <form method="POST" action="{{ route('post_parking_spot_rented') }}" enctype="multipart/form-data">
                 @csrf
                 <div class="col-md-6">
-                    <input id="user_id" type="hidden" class="form-control" name="user_id" value="{{ Auth::user()->id }}"  autocomplete="user_id" autofocus>
+                    <input id="user_id" type="hidden" class="form-control" name="user_id" value="{{ Auth::user()->id }}" autocomplete="user_id" autofocus>
                 </div>
-                <input class="form-control" type="hidden" id="post_rent" name="post_type">
+                <input class="form-control" type="hidden" id="post_rent" name="post_type" value="{{old('post_type')}}">
                 <div class="row">
                     <div class="col-lg-12 co-md-12 col-sm-12 col-12 mb-3 ">
                         <label for="room_name_Rent" class="form-label me-2 fw-bold">Post Title</label>
@@ -40,7 +40,7 @@
                         <div class="row">
                             <div class="col-4 pe-0">
                                 <div class="input-group">
-                                    <input name="price" type="number" class="form-control" id="price_Rent" placeholder="Enter Rent" value="{{old('')}}">
+                                    <input name="price" type="number" class="form-control" id="price_Rent" placeholder="Enter Rent" value="{{old('price')}}">
                                 </div>
                             </div>
                             <div class="col-1">
@@ -50,27 +50,27 @@
                                 <div class="input-group">
                                     <select class="form-select form-select-md" aria-label=".form-select-lg example" id="per_price_Rent" name="per_price">
                                         <option selected hidden>Choose Rent Type</option>
-                                        <option value="hour">Hour</option>
-                                        <option value="day"> Day</option>
-                                        <option value="night"> Only Night</option>
-                                        <option value="week"> Week</option>
-                                        <option value="month"> Month</option>
-                                        <option value="year"> Year</option>
+                                        <option value="hour" @selected(old('per_price')=="hour" )>Hour</option>
+                                        <option value="day" @selected(old('per_price')=="day" )> Day</option>
+                                        <option value="night" @selected(old('per_price')=="night" )> Only Night</option>
+                                        <option value="week" @selected(old('per_price')=="week" )> Week</option>
+                                        <option value="month" @selected(old('per_price')=="month" )> Month</option>
+                                        <option value="year" @selected(old('per_price')=="year" )> Year</option>
                                     </select>
                                 </div>
                             </div>
                         </div>
-                        <span class="text-danger">@error('price') {{$message}} @enderror</span><br>
-                        <span class="text-danger">@error('per_price') {{$message}} @enderror</span>
+                        <p class="text-danger mb-0">@error('price') {{$message}} @enderror</p>
+                        <p class="text-danger mb-0">@error('per_price') {{$message}} @enderror</p>
                     </div>
 
                     <div class=" col-lg-4 co-md-4 col-sm-12 col-12 mb-3">
                         <label for="level_Rent" class="form-label me-2 fw-bold">Floor Level</label>
                         <select id="level_Rent" class="form-select" name="floor_level">
                             <option selected hidden>Choose number</option>
-                            <option value="Ground">Ground</option>
-                            <option value="lavel 1">lavel 1</option>
-                            <option value="lavel 2">lavel 2</option>
+                            <option value="Ground" @selected(old('floor_level')=="Ground" )>Ground</option>
+                            <option value="lavel 1" @selected(old('floor_level')=="lavel 1" )>lavel 1</option>
+                            <option value="lavel 2" @selected(old('floor_level')=="lavel 2" )>lavel 2</option>
                         </select>
                         <span class="text-danger">@error('floor_level') {{$message}} @enderror</span>
                     </div>
@@ -81,18 +81,17 @@
                         <label for="floor_height_Rent" class="form-label me-2 fw-bold">Floor Height</label>
                         <input name="floor_height" type="text" class="form-control" id="floor_height_Rent" placeholder="Enter Floor Height" value="{{old('floor_height')}}">
                         <span class="text-danger">@error('floor_height') {{$message}} @enderror</span>
-                        <span class="text-danger">@error('') {{$message}} @enderror</span>
                     </div>
 
                     <div class=" col-lg-4 co-md-4 col-sm-12 col-12 mb-3">
                         <label for="vehicle_type_Rent" class="form-label me-2 fw-bold">Vehicle type</label>
                         <select id="vehicle_type_Rent" class="form-select" name="vehicle_type">
                             <option selected hidden>Choose number</option>
-                            <option value="Truck">Truck</option>
-                            <option value="Motor bike">Motor bike</option>
-                            <option value="Pickup">Pickup</option>
-                            <option value="Privet car">Privet car</option>
-                            <option value="Everything">Everything</option>
+                            <option value="Truck" @selected(old('vehicle_type')=="Truck" )>Truck</option>
+                            <option value="Motor bike" @selected(old('vehicle_type')=="Motor bike" )>Motor bike</option>
+                            <option value="Pickup" @selected(old('vehicle_type')=="Pickup" )>Pickup</option>
+                            <option value="Privet car" @selected(old('vehicle_type')=="Privet car" )>Privet car</option>
+                            <option value="Everything" @selected(old('vehicle_type')=="Everything" )>Everything</option>
                         </select>
                         <span class="text-danger">@error('vehicle_type') {{$message}} @enderror</span>
                     </div>
@@ -161,24 +160,24 @@
             <form method="POST" action="{{ route('post_parking_spot_wanted') }}" enctype="multipart/form-data">
                 @csrf
                 <div class="col-md-6">
-                    <input id="user_id" type="hidden" class="form-control" name="user_id" value="{{ Auth::user()->id }}"  autocomplete="user_id" autofocus>
+                    <input id="user_id" type="hidden" class="form-control" name="user_id" value="{{ Auth::user()->id }}" autocomplete="user_id" autofocus>
                 </div>
                 <input class="form-control" type="hidden" id="post_want" name="post_type" value="{{old('post_type')}}">
                 <div class="row">
                     <div class="col-lg-12 co-md-12 col-sm-12 col-12 mb-3 ">
                         <label for="room_name_Want" class="form-label me-2 fw-bold">Post Title</label>
-                        <input name="title" type="text" class="form-control" id="room_name_Want" placeholder="Enter Post Title" value="{{old('title')}}">
+                        <input name="w_title" type="text" class="form-control" id="room_name_Want" placeholder="Enter Post Title" value="{{old('w_title')}}">
                         <span class="text-danger">@error('title') {{$message}} @enderror</span>
                     </div>
                     <div class=" col-lg-4 co-md-4 col-sm-12 col-12 mb-3">
                         <label for="date_Want" class="form-label me-2 fw-bold">Date</label>
-                        <input name="date" type="date" class="form-control" id="date_Want" min="{{\Carbon\Carbon::today()->format('Y-m-d')}}" onfocus="this.showPicker()" value="{{old('date')}}">
-                        <span class="text-danger">@error('date') {{$message}} @enderror</span>
+                        <input name="w_date" type="date" class="form-control" id="date_Want" min="{{\Carbon\Carbon::today()->format('Y-m-d')}}" onfocus="this.showPicker()" value="{{old('w_date')}}">
+                        <span class="text-danger">@error('w_date') {{$message}} @enderror</span>
                     </div>
                     <div class=" col-lg-4 co-md-4 col-sm-12 col-12 mb-3">
                         <label for="phone_Want" class="form-label me-2 fw-bold">Mobile</label>
-                        <input name="phone" type="number" class="form-control" id="phone_Want" placeholder="Enter " value="{{$list->phone}}" readonly>
-                        <span class="text-danger">@error('phone') {{$message}} @enderror</span>
+                        <input name="w_phone" type="number" class="form-control" id="phone_Want" placeholder="Enter " value="{{$list->phone}}" readonly>
+                        <span class="text-danger">@error('w_phone') {{$message}} @enderror</span>
                     </div>
 
                     <div class="col-lg-4 co-md-4 col-sm-12 col-12 mb-3 ">
@@ -186,7 +185,7 @@
                         <div class="row">
                             <div class="col-4 pe-0">
                                 <div class="input-group">
-                                    <input name="price" type="number" class="form-control" id="price_Want" placeholder="Enter Rent" value="{{old('')}}">
+                                    <input name="w_price" type="number" class="form-control" id="price_Want" placeholder="Enter Rent" value="{{old('w_price')}}">
                                 </div>
                             </div>
                             <div class="col-1">
@@ -194,61 +193,61 @@
                             </div>
                             <div class="col-7 ps-0">
                                 <div class="input-group">
-                                    <select class="form-select form-select-md" aria-label=".form-select-lg example" id="per_price_Want" name="per_price">
+                                    <select class="form-select form-select-md" aria-label=".form-select-lg example" id="per_price_Want" name="w_per_price">
                                         <option selected hidden>Choose Rent Type</option>
-                                        <option value="hour">Hour</option>
-                                        <option value="day"> Day</option>
-                                        <option value="night"> Only Night</option>
-                                        <option value="week"> Week</option>
-                                        <option value="month"> Month</option>
-                                        <option value="year"> Year</option>
+                                        <option value="hour" @selected(old('w_per_price')=="hour" )>Hour</option>
+                                        <option value="day" @selected(old('w_per_price')=="day" )> Day</option>
+                                        <option value="night" @selected(old('w_per_price')=="night" )> Only Night</option>
+                                        <option value="week" @selected(old('w_per_price')=="week" )> Week</option>
+                                        <option value="month" @selected(old('w_per_price')=="month" )> Month</option>
+                                        <option value="year" @selected(old('w_per_price')=="year" )> Year</option>
                                     </select>
                                 </div>
                             </div>
                         </div>
-                        <span class="text-danger">@error('price') {{$message}} @enderror</span><br>
-                        <span class="text-danger">@error('per_price') {{$message}} @enderror</span>
+                        <p class="text-danger mb-0">@error('w_price') {{$message}} @enderror</p>
+                        <p class="text-danger mb-0">@error('w_per_price') {{$message}} @enderror</p>
                     </div>
 
                     <div class=" col-lg-4 co-md-4 col-sm-12 col-12 mb-3">
                         <label for="level_Want" class="form-label me-2 fw-bold">Floor Level</label>
-                        <select id="level_Want" class="form-select" name="floor_level">
+                        <select id="level_Want" class="form-select" name="w_floor_level">
                             <option selected hidden>Choose number</option>
-                            <option value="Ground">Ground</option>
-                            <option value="lavel 1">lavel 1</option>
-                            <option value="lavel 2">lavel 2</option>
+                            <option value="Ground" @selected(old('w_floor_level')=="Ground" )>Ground</option>
+                            <option value="lavel 1" @selected(old('w_floor_level')=="lavel 1" )>lavel 1</option>
+                            <option value="lavel 2" @selected(old('w_floor_level')=="lavel 2" )>lavel 2</option>
                         </select>
-                        <span class="text-danger">@error('floor_level') {{$message}} @enderror</span>
+                        <span class="text-danger">@error('w_floor_level') {{$message}} @enderror</span>
                     </div>
 
 
 
                     <div class=" col-lg-4 co-md-4 col-sm-12 col-12 mb-3">
                         <label for="floor_height_Want" class="form-label me-2 fw-bold">Floor Hieght</label>
-                        <input name="floor_height" type="text" class="form-control" id="floor_height_Want" placeholder="Enter Floor Height">
-                        <span class="text-danger">@error('floor_height') {{$message}} @enderror</span>
+                        <input name="w_floor_height" type="text" class="form-control" id="floor_height_Want" placeholder="Enter Floor Height">
+                        <span class="text-danger">@error('w_floor_height') {{$message}} @enderror</span>
                     </div>
 
                     <div class=" col-lg-4 co-md-4 col-sm-12 col-12 mb-3">
                         <label for="vehicle_type_Want" class="form-label me-2 fw-bold">Vehicle type</label>
-                        <select id="vehicle_type_Want" class="form-select" name="vehicle_type">
+                        <select id="vehicle_type_Want" class="form-select" name="w_vehicle_type">
                             <option selected hidden>Choose number</option>
-                            <option value="Truck">Truck</option>
-                            <option value="Motor bike">Motor bike</option>
-                            <option value="Pickup">Pickup</option>
-                            <option value="Privet car">Privet car</option>
-                            <option value="Everything">Everything</option>
+                            <option value="Truck" @selected(old('w_vehicle_type')=="Truck" )>Truck</option>
+                            <option value="Motor bike" @selected(old('w_vehicle_type')=="Motor bike" )>Motor bike</option>
+                            <option value="Pickup" @selected(old('w_vehicle_type')=="Pickup" )>Pickup</option>
+                            <option value="Privet car" @selected(old('w_vehicle_type')=="Privet car" )>Privet car</option>
+                            <option value="Everything" @selected(old('w_vehicle_type')=="Everything" )>Everything</option>
                         </select>
-                        <span class="text-danger">@error('vehicle_type') {{$message}} @enderror</span>
+                        <span class="text-danger">@error('w_vehicle_type') {{$message}} @enderror</span>
                     </div>
                     <div class="col-12 mb-3 ">
                         <label for="address_Want" class="form-label me-2 fw-bold">Address</label>
-                        <input name="address" type="text" class="form-control" placeholder="Enter Address" value="{{old('')}}">
-                        <span class="text-danger">@error('address') {{$message}} @enderror</span>
+                        <input name="w_address" type="text" class="form-control" placeholder="Enter Address" value="{{old('w_address`')}}">
+                        <span class="text-danger">@error('w_address') {{$message}} @enderror</span>
                     </div>
                     <div class="col-12 mb-3 ">
                         <label for="description_Want" class="form-label me-2 fw-bold">Description</label>
-                        <textarea name="description" type="text" class="form-control" id="description_Want" rows="3" placeholder="Enter Description">{{old('description')}}</textarea>
+                        <textarea name="w_description" type="text" class="form-control" id="description_Want" rows="3" placeholder="Enter Description">{{old('w_description')}}</textarea>
                     </div>
                     <button class="btn btn-primary w-25 mx-auto" type="submit">Submit</button>
             </form>
