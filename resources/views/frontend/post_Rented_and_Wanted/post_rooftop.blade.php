@@ -14,7 +14,7 @@
             <form method="POST" action="{{ route('post_rooftop_rented') }}" enctype="multipart/form-data">
                 @csrf
                 <div class="col-md-6">
-                    <input id="user_id" type="hidden" class="form-control" name="user_id" value="{{ Auth::user()->id }}"  autocomplete="user_id" autofocus>
+                    <input id="user_id" type="hidden" class="form-control" name="user_id" value="{{ Auth::user()->id }}" autocomplete="user_id" autofocus>
                 </div>
                 <input class="form-control" type="hidden" id="post_rent" name="post_type" value="{{old('post_type')}}">
                 <div class="row">
@@ -48,7 +48,7 @@
                         <div class="row">
                             <div class="col-4 pe-0">
                                 <div class="input-group">
-                                    <input name="price" type="number" class="form-control" id="price_Rent" placeholder="Enter Rent" value="{{old('')}}">
+                                    <input name="price" type="number" class="form-control" id="price_Rent" placeholder="Enter Rent" value="{{old('price')}}">
                                 </div>
                             </div>
                             <div class="col-1">
@@ -58,12 +58,12 @@
                                 <div class="input-group">
                                     <select class="form-select form-select-md" aria-label=".form-select-lg example" name="per_price">
                                         <option selected hidden>Choose Rent Type</option>
-                                        <option value="hour">Hour</option>
-                                        <option value="day"> Day</option>
-                                        <option value="night"> Only Night</option>
-                                        <option value="week"> Week</option>
-                                        <option value="month"> Month</option>
-                                        <option value="year"> Year</option>
+                                        <option value="hour" @selected(old('per_price')=="hour" )>Hour</option>
+                                        <option value="day" @selected(old('per_price')=="day" )> Day</option>
+                                        <option value="night" @selected(old('per_price')=="night" )> Only Night</option>
+                                        <option value="week" @selected(old('per_price')=="week" )> Week</option>
+                                        <option value="month" @selected(old('per_price')=="month" )> Month</option>
+                                        <option value="year" @selected(old('per_price')=="year" )> Year</option>
                                     </select>
                                 </div>
                             </div>
@@ -84,19 +84,19 @@
                     <div class="col-lg-4 co-md-4 col-sm-12 col-12 mb-3 ">
                         <h2 class="fw-bold mb-3">Amenities</h2>
                         <div class="form-check ms-5 mb-2">
-                            <input class="form-check-input" type="checkbox" id="water_Rent" name="water">
+                            <input class="form-check-input" type="checkbox" id="water_Rent" name="water" @checked(old('water'))>
                             <label class="form-check-label" for="water_Rent">
                                 Water
                             </label>
                         </div>
                         <div class="form-check ms-5 mb-2">
-                            <input class="form-check-input" type="checkbox" id="electricity_Rent" name="electricity">
+                            <input class="form-check-input" type="checkbox" id="electricity_Rent" name="electricity" @checked(old('electricity'))>
                             <label class="form-check-label" for="electricity_Rent">
                                 Electricity
                             </label>
                         </div>
                         <div class="form-check ms-5 mb-2">
-                            <input class="form-check-input" type="checkbox" id="p_Rent" name="p_protection">
+                            <input class="form-check-input" type="checkbox" id="p_Rent" name="p_protection" @checked(old('p_protection'))>
                             <label class="form-check-label" for="p_Rent">
                                 Periphery Protection
                             </label>
@@ -108,25 +108,25 @@
                             </label>
                         </div>
                         <div class="form-check ms-5 mb-2">
-                            <input class="form-check-input" type="checkbox" id="gen_Rent" name="generator">
+                            <input class="form-check-input" type="checkbox" id="gen_Rent" name="generator" @checked(old('generator'))>
                             <label class="form-check-label" for="gen_Rent">
                                 Generator
                             </label>
                         </div>
                         <div class="form-check ms-5 mb-2">
-                            <input class="form-check-input" type="checkbox" id="attatched_toilet_Rent" name="toilet">
+                            <input class="form-check-input" type="checkbox" id="attatched_toilet_Rent" name="toilet" @checked(old('toilet'))>
                             <label class="form-check-label" for="attatched_toilet_Rent">
                                 Toilet
                             </label>
                         </div>
                         <div class="form-check ms-5 mb-2">
-                            <input class="form-check-input" type="checkbox" id="shed_Rent" name="shed">
+                            <input class="form-check-input" type="checkbox" id="shed_Rent" name="shed" @checked(old('shed'))>
                             <label class="form-check-label" for="shed_Rent">
                                 Shed
                             </label>
                         </div>
                         <div class="form-check ms-5 mb-2">
-                            <input class="form-check-input" type="checkbox" id="parking_Rent" name="parking">
+                            <input class="form-check-input" type="checkbox" id="parking_Rent" name="parking" @checked(old('parking'))>
                             <label class="form-check-label" for="parking_Rent">
                                 Parking
                             </label>
@@ -187,7 +187,7 @@
             <form method="POST" action="{{ route('post_rooftop_wanted') }}">
                 @csrf
                 <div class="col-md-6">
-                    <input id="user_id" type="hidden" class="form-control" name="user_id" value="{{ Auth::user()->id }}"  autocomplete="user_id" autofocus>
+                    <input id="user_id" type="hidden" class="form-control" name="user_id" value="{{ Auth::user()->id }}" autocomplete="user_id" autofocus>
                 </div>
                 <input class="form-control" type="hidden" id="post_want" name="post_type" value="{{old('post_type')}}">
                 <div class="row">
@@ -221,7 +221,7 @@
                         <div class="row">
                             <div class="col-4 pe-0">
                                 <div class="input-group">
-                                    <input name="w_price" type="number" id="price_Rent" class="form-control" placeholder="Enter Rent" value="{{old('w_')}}" aria-label="Text input with dropdown button">
+                                    <input name="w_price" type="number" id="price_Rent" class="form-control" placeholder="Enter Rent" value="{{old('w_price')}}" aria-label="Text input with dropdown button">
                                 </div>
                             </div>
                             <div class="col-1">
@@ -231,12 +231,12 @@
                                 <div class="input-group">
                                     <select class="form-select form-select-md" aria-label=".form-select-lg example" name="w_per_price">
                                         <option selected hidden>Choose Rent Type</option>
-                                        <option value="hour">Hour </option>
-                                        <option value="day"> Day </option>
-                                        <option value="night"> Only Night </option>
-                                        <option value="week"> Week </option>
-                                        <option value="month"> Month </option>
-                                        <option value="year"> Year </option>
+                                        <option value="hour" @selected(old('w_per_price')=="hour" )>Hour </option>
+                                        <option value="day" @selected(old('w_per_price')=="day" )> Day </option>
+                                        <option value="night" @selected(old('w_per_price')=="night" )> Only Night </option>
+                                        <option value="week" @selected(old('w_per_price')=="week" )> Week </option>
+                                        <option value="month" @selected(old('w_per_price')=="month" )> Month </option>
+                                        <option value="year" @selected(old('w_per_price')=="year" )> Year </option>
                                     </select>
                                 </div>
                             </div>
@@ -259,49 +259,49 @@
                         <h2 class="fw-bold mb-3">Amenities</h2>
                         <div class="row ms-3 ps-2">
                             <div class="col-2 form-check mb-2">
-                                <input class="form-check-input" type="checkbox" id="water_Want" name="w_water">
+                                <input class="form-check-input" type="checkbox" id="water_Want" name="w_water" @checked(old('w_water'))>
                                 <label class="form-check-label" for="water_Want">
                                     Water
                                 </label>
                             </div>
                             <div class="col-2 form-check mb-2">
-                                <input class="form-check-input" type="checkbox" id="electricity_Want" name="w_electricity">
+                                <input class="form-check-input" type="checkbox" id="electricity_Want" name="w_electricity" @checked(old('w_electricity'))>
                                 <label class="form-check-label" for="electricity_Want">
                                     Electricity
                                 </label>
                             </div>
                             <div class="col-2 form-check mb-2">
-                                <input class="form-check-input" type="checkbox" id="p_Want" name="w_p_protection">
+                                <input class="form-check-input" type="checkbox" id="p_Want" name="w_p_protection" @checked(old('w_p_protection'))>
                                 <label class="form-check-label" for="p_Want">
                                     Periphery Protection
                                 </label>
                             </div>
                             <div class="col-2 form-check mb-2">
-                                <input class="form-check-input" type="checkbox" id="lift_Want" name="w_lift">
+                                <input class="form-check-input" type="checkbox" id="lift_Want" name="w_lift" @checked(old('w_lift'))>
                                 <label class="form-check-label" for="lift_Want">
                                     Lift
                                 </label>
                             </div>
                             <div class="col-2 form-check mb-2">
-                                <input class="form-check-input" type="checkbox" id="gen_Want" name="w_generator">
+                                <input class="form-check-input" type="checkbox" id="gen_Want" name="w_generator" @checked(old('w_generator'))>
                                 <label class="form-check-label" for="gen_Want">
                                     Generator
                                 </label>
                             </div>
                             <div class="col-2 form-check mb-2">
-                                <input class="form-check-input" type="checkbox" id="attatched_toilet_Want" name="w_toilet">
+                                <input class="form-check-input" type="checkbox" id="attatched_toilet_Want" name="w_toilet" @checked(old('w_toilet'))>
                                 <label class="form-check-label" for="attatched_toilet_Want">
                                     Toilet
                                 </label>
                             </div>
                             <div class="col-2 form-check mb-2">
-                                <input class="form-check-input" type="checkbox" id="shed_Want" name="w_shed">
+                                <input class="form-check-input" type="checkbox" id="shed_Want" name="w_shed" @checked(old('w_shed'))>
                                 <label class="form-check-label" for="shed_Want">
                                     Shed
                                 </label>
                             </div>
                             <div class="col-2 form-check mb-2">
-                                <input class="form-check-input" type="checkbox" id="parking_Want" name="w_parking">
+                                <input class="form-check-input" type="checkbox" id="parking_Want" name="w_parking" @checked(old('w_parking'))>
                                 <label class="form-check-label" for="parking_Want">
                                     Parking
                                 </label>

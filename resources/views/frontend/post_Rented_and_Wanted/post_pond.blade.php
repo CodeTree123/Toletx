@@ -16,7 +16,7 @@
             <form method="POST" action="{{ route('post_pond_rented') }}" enctype="multipart/form-data">
                 @csrf
                 <div class="col-md-6">
-                    <input id="user_id" type="hidden" class="form-control" name="user_id" value="{{ Auth::user()->id }}"  autocomplete="user_id" autofocus>
+                    <input id="user_id" type="hidden" class="form-control" name="user_id" value="{{ Auth::user()->id }}" autocomplete="user_id" autofocus>
                 </div>
                 <input class="form-control" type="hidden" id="post_rent" name="post_type" value="{{old('post_type')}}">
                 <div class="row">
@@ -41,7 +41,7 @@
                         <div class="row">
                             <div class="col-4 pe-0">
                                 <div class="input-group">
-                                    <input name="price" type="number" class="form-control" id="price_Rent" placeholder="Enter Rent">
+                                    <input name="price" type="number" class="form-control" id="price_Rent" placeholder="Enter Rent" value="{{old('price')}}">
                                 </div>
                             </div>
                             <div class="col-1">
@@ -51,12 +51,12 @@
                                 <div class="input-group">
                                     <select class="form-select form-select-md" aria-label=".form-select-lg example" name="per_price">
                                         <option selected hidden>Choose Rent Type</option>
-                                        <option value="hour">Hour</option>
-                                        <option value="day"> Day</option>
-                                        <option value="night"> Only Night</option>
-                                        <option value="week"> Week</option>
-                                        <option value="month"> Month</option>
-                                        <option value="year"> Year</option>
+                                        <option value="hour" @selected(old('per_price')=="hour" )>Hour</option>
+                                        <option value="day" @selected(old('per_price')=="day" )> Day</option>
+                                        <option value="night" @selected(old('per_price')=="night" )> Only Night</option>
+                                        <option value="week" @selected(old('per_price')=="week" )> Week</option>
+                                        <option value="month" @selected(old('per_price')=="month" )> Month</option>
+                                        <option value="year" @selected(old('per_price')=="year" )> Year</option>
                                     </select>
                                 </div>
                             </div>
@@ -143,7 +143,7 @@
             <form method="POST" action="{{ route('post_pond_wanted') }}">
                 @csrf
                 <div class="col-md-6">
-                    <input id="user_id" type="hidden" class="form-control" name="user_id" value="{{ Auth::user()->id }}"  autocomplete="user_id" autofocus>
+                    <input id="user_id" type="hidden" class="form-control" name="user_id" value="{{ Auth::user()->id }}" autocomplete="user_id" autofocus>
                 </div>
                 <input class="form-control" type="hidden" id="post_want" name="post_type" value="{{old('post_type')}}">
                 <div class="row">
@@ -168,7 +168,7 @@
                         <div class="row">
                             <div class="col-4 pe-0">
                                 <div class="input-group">
-                                    <input name="w_price" type="number" class="form-control" id="price_Want" placeholder="Enter Rent">
+                                    <input name="w_price" type="number" class="form-control" id="price_Want" placeholder="Enter Rent" value="{{old('w_price')}}">
                                 </div>
                             </div>
                             <div class="col-1">
@@ -178,12 +178,12 @@
                                 <div class="input-group">
                                     <select class="form-select form-select-md" aria-label=".form-select-lg example" name="w_per_price">
                                         <option selected hidden>Choose Rent Type</option>
-                                        <option value="hour">Hour</option>
-                                        <option value="day"> Day</option>
-                                        <option value="night"> Only Night</option>
-                                        <option value="week"> Week</option>
-                                        <option value="month"> Month</option>
-                                        <option value="year"> Year</option>
+                                        <option value="hour" @selected(old('w_per_price')=="hour" )>Hour</option>
+                                        <option value="day" @selected(old('w_per_price')=="day" )> Day</option>
+                                        <option value="night" @selected(old('w_per_price')=="night" )> Only Night</option>
+                                        <option value="week" @selected(old('w_per_price')=="week" )> Week</option>
+                                        <option value="month" @selected(old('w_per_price')=="month" )> Month</option>
+                                        <option value="year" @selected(old('w_per_price')=="year" )> Year</option>
                                     </select>
                                 </div>
                             </div>
@@ -219,7 +219,6 @@
                 </div>
             </form>
         </div>
-
     </div>
 </div>
 @endsection

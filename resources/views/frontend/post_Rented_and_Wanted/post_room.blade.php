@@ -369,7 +369,7 @@
                                 </label>
                             </div>
                             <div class="col-2 form-check mb-2">
-                                <input class="form-check-input" type="checkbox" id="attatched_toilet_Want" name="w_attached_toilet" @chew_attached_toiletcked(old(''))>
+                                <input class="form-check-input" type="checkbox" id="attatched_toilet_Want" name="w_attached_toilet" @checked(old('w_attached_toilet'))>
                                 <label class="form-check-label" for="attatched_toilet_Want">
                                     Attached Toilet
                                 </label>

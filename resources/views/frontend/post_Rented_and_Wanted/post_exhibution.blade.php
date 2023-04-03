@@ -16,7 +16,7 @@
             <form method="POST" action="{{ route('post_exibution_center_rented') }}" enctype="multipart/form-data">
                 @csrf
                 <div class="col-md-6">
-                    <input id="user_id" type="hidden" class="form-control" name="user_id" value="{{ Auth::user()->id }}"  autocomplete="user_id" autofocus>
+                    <input id="user_id" type="hidden" class="form-control" name="user_id" value="{{ Auth::user()->id }}" autocomplete="user_id" autofocus>
                 </div>
                 <input class="form-control" type="hidden" id="post_rent" name="post_type" value="{{old('post_type')}}">
                 <div class="row">
@@ -50,9 +50,9 @@
                         <label for="interior_rented" class="form-label me-2 fw-bold">Interior Condition</label>
                         <select id="interior_rented" class="form-select" name="interior_condition">
                             <option selected hidden>Choose Interior Condition</option>
-                            <option value="good">good</option>
-                            <option value="moderate">moderate</option>
-                            <option value="best">best</option>
+                            <option value="good" @selected(old('interior_condition')=="good" )>good</option>
+                            <option value="moderate" @selected(old('interior_condition')=="moderate" )>moderate</option>
+                            <option value="best" @selected(old('interior_condition')=="best" )>best</option>
                         </select>
                         <span class="text-danger">@error('interior_condition') {{$message}} @enderror</span>
                     </div>
@@ -60,22 +60,22 @@
                         <label for="floor_rented" class="form-label me-2 fw-bold">Floor Levels</label>
                         <select id="floor_rented" class="form-select" name="floor_level">
                             <option selected hidden>Choose Floor Levels</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                            <option value="7">7</option>
-                            <option value="8">8</option>
-                            <option value="9">9</option>
-                            <option value="10">10</option>
-                            <option value="11">11</option>
-                            <option value="12">12</option>
-                            <option value="13">13</option>
-                            <option value="14">14</option>
-                            <option value="15">15</option>
-                            <option value="15">15+</option>
+                            <option value="1" @selected(old('floor_level')=="1" )>1</option>
+                            <option value="2" @selected(old('floor_level')=="2" )>2</option>
+                            <option value="3" @selected(old('floor_level')=="3" )>3</option>
+                            <option value="4" @selected(old('floor_level')=="4" )>4</option>
+                            <option value="5" @selected(old('floor_level')=="5" )>5</option>
+                            <option value="6" @selected(old('floor_level')=="6" )>6</option>
+                            <option value="7" @selected(old('floor_level')=="7" )>7</option>
+                            <option value="8" @selected(old('floor_level')=="8" )>8</option>
+                            <option value="9" @selected(old('floor_level')=="9" )>9</option>
+                            <option value="10" @selected(old('floor_level')=="10" )>10</option>
+                            <option value="11" @selected(old('floor_level')=="11" )>11</option>
+                            <option value="12" @selected(old('floor_level')=="12" )>12</option>
+                            <option value="13" @selected(old('floor_level')=="13" )>13</option>
+                            <option value="14" @selected(old('floor_level')=="14" )>14</option>
+                            <option value="15" @selected(old('floor_level')=="15" )>15</option>
+                            <option value="15+" @selected(old('floor_level')=="15+" )>15+</option>
                         </select>
                         <span class="text-danger">@error('floor_level') {{$message}} @enderror</span>
                     </div>
@@ -106,31 +106,31 @@
                     <div class="col-lg-4 co-md-4 col-sm-12 col-12 mb-3">
                         <h2 class="fw-bold mb-3">Amenities</h2>
                         <div class="form-check ms-5 mb-2">
-                            <input class="form-check-input" type="checkbox" id="Toilet_rented" name="toilet">
+                            <input class="form-check-input" type="checkbox" id="Toilet_rented" name="toilet" @checked(old('toilet'))>
                             <label class="form-check-label" for="Toilet_rented">
                                 Toilet
                             </label>
                         </div>
                         <div class="form-check ms-5 mb-2">
-                            <input class="form-check-input" type="checkbox" id="Exit_rented" name="fire_exit">
+                            <input class="form-check-input" type="checkbox" id="Exit_rented" name="fire_exit" @checked(old('fire_exit'))>
                             <label class="form-check-label" for="Exit_rented">
                                 Fire Exit
                             </label>
                         </div>
                         <div class="form-check ms-5 mb-2">
-                            <input class="form-check-input" type="checkbox" id="lift_rented" name="lift">
+                            <input class="form-check-input" type="checkbox" id="lift_rented" name="lift" @checked(old('lift'))>
                             <label class="form-check-label" for="lift_rented">
                                 Lift
                             </label>
                         </div>
                         <div class="form-check ms-5 mb-2">
-                            <input class="form-check-input" type="checkbox" id="gen_rented" name="generator">
+                            <input class="form-check-input" type="checkbox" id="gen_rented" name="generator" @checked(old('generator'))>
                             <label class="form-check-label" for="gen_rented">
                                 Generator
                             </label>
                         </div>
                         <div class="form-check ms-5 mb-2">
-                            <input class="form-check-input" type="checkbox" id="parking_rented" name="parking">
+                            <input class="form-check-input" type="checkbox" id="parking_rented" name="parking" @checked(old('parking'))>
                             <label class="form-check-label" for="parking_rented">
                                 Parking
                             </label>
@@ -186,7 +186,7 @@
             <form method="POST" action="{{ route('post_exibution_center_wanted') }}">
                 @csrf
                 <div class="col-md-6">
-                    <input id="user_id" type="hidden" class="form-control" name="user_id" value="{{ Auth::user()->id }}"  autocomplete="user_id" autofocus>
+                    <input id="user_id" type="hidden" class="form-control" name="user_id" value="{{ Auth::user()->id }}" autocomplete="user_id" autofocus>
                 </div>
                 <input class="form-control" type="hidden" id="post_want" name="post_type" value="{{old('post_type')}}">
                 <div class="row">
@@ -220,9 +220,9 @@
                         <label for="interior_wanted" class="form-label me-2 fw-bold">Interior Condition</label>
                         <select id="interior_wanted" class="form-select" name="w_interior_condition">
                             <option selected hidden>Choose Interior Condition</option>
-                            <option value="good">good</option>
-                            <option value="moderate">moderate</option>
-                            <option value="best">best</option>
+                            <option value="good" @selected(old('w_interior_condition')=="good" )>good</option>
+                            <option value="moderate" @selected(old('w_interior_condition')=="moderate" )>moderate</option>
+                            <option value="best" @selected(old('w_interior_condition')=="best" )>best</option>
                         </select>
                         <span class="text-danger">@error('w_interior_condition') {{$message}} @enderror</span>
                     </div>
@@ -230,22 +230,22 @@
                         <label for="floor_wanted" class="form-label me-2 fw-bold">Floor Levels</label>
                         <select id="floor_wanted" class="form-select" name="w_floor_level">
                             <option selected hidden>Choose Floor Levels</option>
-                            <option value="1">1</option>
-                            <option value="2">2</option>
-                            <option value="3">3</option>
-                            <option value="4">4</option>
-                            <option value="5">5</option>
-                            <option value="6">6</option>
-                            <option value="7">7</option>
-                            <option value="8">8</option>
-                            <option value="9">9</option>
-                            <option value="10">10</option>
-                            <option value="11">11</option>
-                            <option value="12">12</option>
-                            <option value="13">13</option>
-                            <option value="14">14</option>
-                            <option value="15">15</option>
-                            <option value="15">15+</option>
+                            <option value="1" @selected(old('w_floor_level')=="1" )>1</option>
+                            <option value="2" @selected(old('w_floor_level')=="2" )>2</option>
+                            <option value="3" @selected(old('w_floor_level')=="3" )>3</option>
+                            <option value="4" @selected(old('w_floor_level')=="4" )>4</option>
+                            <option value="5" @selected(old('w_floor_level')=="5" )>5</option>
+                            <option value="6" @selected(old('w_floor_level')=="6" )>6</option>
+                            <option value="7" @selected(old('w_floor_level')=="7" )>7</option>
+                            <option value="8" @selected(old('w_floor_level')=="8" )>8</option>
+                            <option value="9" @selected(old('w_floor_level')=="9" )>9</option>
+                            <option value="10" @selected(old('w_floor_level')=="10" )>10</option>
+                            <option value="11" @selected(old('w_floor_level')=="11" )>11</option>
+                            <option value="12" @selected(old('w_floor_level')=="12" )>12</option>
+                            <option value="13" @selected(old('w_floor_level')=="13" )>13</option>
+                            <option value="14" @selected(old('w_floor_level')=="14" )>14</option>
+                            <option value="15" @selected(old('w_floor_level')=="15" )>15</option>
+                            <option value="15+" @selected(old('w_floor_level')=="15+" )>15+</option>
                         </select>
                         <span class="text-danger">@error('w_floor_level') {{$message}} @enderror</span>
                     </div>
@@ -277,31 +277,31 @@
                         <h2 class="fw-bold mb-3">Amenities</h2>
                         <div class="row ms-3 ps-2">
                             <div class="col-2 form-check mb-2">
-                                <input class="form-check-input" type="checkbox" id="Toilet_wanted" name="w_toilet">
+                                <input class="form-check-input" type="checkbox" id="Toilet_wanted" name="w_toilet" @checked(old('w_toilet'))>
                                 <label class="form-check-label" for="Toilet_wanted">
                                     Toilet
                                 </label>
                             </div>
                             <div class="col-2 form-check mb-2">
-                                <input class="form-check-input" type="checkbox" id="Exit_wanted" name="w_fire_exit">
+                                <input class="form-check-input" type="checkbox" id="Exit_wanted" name="w_fire_exit" @checked(old('w_fire_exit'))>
                                 <label class="form-check-label" for="Exit_wanted">
                                     Fire Exit
                                 </label>
                             </div>
                             <div class="col-2 form-check mb-2">
-                                <input class="form-check-input" type="checkbox" id="lift_wanted" name="w_lift">
+                                <input class="form-check-input" type="checkbox" id="lift_wanted" name="w_lift" @checked(old('w_lift'))>
                                 <label class="form-check-label" for="lift_wanted">
                                     Lift
                                 </label>
                             </div>
                             <div class="col-2 form-check mb-2">
-                                <input class="form-check-input" type="checkbox" id="gen_wanted" name="w_generator">
+                                <input class="form-check-input" type="checkbox" id="gen_wanted" name="w_generator" @checked(old('w_generator'))>
                                 <label class="form-check-label" for="gen_wanted">
                                     Generator
                                 </label>
                             </div>
                             <div class="col-2 form-check mb-2">
-                                <input class="form-check-input" type="checkbox" id="parking_wanted" name="w_parking">
+                                <input class="form-check-input" type="checkbox" id="parking_wanted" name="w_parking" @checked(old('w_parking'))>
                                 <label class="form-check-label" for="parking_wanted">
                                     Parking
                                 </label>

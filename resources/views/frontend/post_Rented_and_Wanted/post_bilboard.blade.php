@@ -65,7 +65,7 @@
                     <div class="col-lg-4 co-md-4 col-sm-12 col-12 mb-3 ">
                         <h2 class="fw-bold mb-3">Amenities</h2>
                         <div class="form-check ms-5 mb-2">
-                            <input class="form-check-input" type="checkbox" id="electricity_Rent" name="electricity">
+                            <input class="form-check-input" type="checkbox" id="electricity_Rent" name="electricity"  @checked(old('electricity'))>
                             <label class="form-check-label" for="electricity_Rent">
                                 Electricity
                             </label>
@@ -167,7 +167,7 @@
                         <h2 class="fw-bold mb-3">Amenities</h2>
                         <div class="row ms-3 ps-2">
                             <div class="col-2 form-check mb-2">
-                                <input class="form-check-input" type="checkbox" id="electricity_Want" name="w_electricity">
+                                <input class="form-check-input" type="checkbox" id="electricity_Want" name="w_electricity"   @checked(old('w_electricity'))>
                                 <label class="form-check-label" for="electricity_Want">
                                     Electricity
                                 </label>

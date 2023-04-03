@@ -41,7 +41,7 @@
                         <div class="row">
                             <div class="col-4 pe-0">
                                 <div class="input-group">
-                                    <input name="price" type="number" class="form-control" id="price_rented" placeholder="Enter Rent" value="{{old('')}}">
+                                    <input name="price" type="number" class="form-control" id="price_rented" placeholder="Enter Rent" value="{{old('price')}}">
                                 </div>
                             </div>
                             <div class="col-1">
@@ -51,12 +51,12 @@
                                 <div class="input-group">
                                     <select class="form-select form-select-md" aria-label=".form-select-lg example" id="per_price_rented" name="per_price">
                                         <option selected hidden>Choose Rent Type</option>
-                                        <option value="hour">Hour</option>
-                                        <option value="day"> Day</option>
-                                        <option value="night"> Only Night</option>
-                                        <option value="week"> Week</option>
-                                        <option value="month"> Month</option>
-                                        <option value="year"> Year</option>
+                                        <option value="hour"  @selected(old('per_price')=="hour" )>Hour</option>
+                                        <option value="day"  @selected(old('per_price')=="day" )> Day</option>
+                                        <option value="night"  @selected(old('per_price')=="night" )> Only Night</option>
+                                        <option value="week"  @selected(old('per_price')=="week" )> Week</option>
+                                        <option value="month"  @selected(old('per_price')=="month" )> Month</option>
+                                        <option value="year"  @selected(old('per_price')=="year" )> Year</option>
                                     </select>
                                 </div>
                             </div>
@@ -76,13 +76,13 @@
                     <div class="col-lg-4 co-md-4 col-sm-12 col-12 mb-3 ">
                         <h2 class="fw-bold mb-3">Amenities</h2>
                         <div class="form-check ms-5 mb-2">
-                            <input class="form-check-input" type="checkbox" id="toilet_rented" name="toilet">
+                            <input class="form-check-input" type="checkbox" id="toilet_rented" name="toilet" @checked(old('toilet'))>
                             <label class="form-check-label" for="toilet_rented">
                                 Toilet
                             </label>
                         </div>
                         <div class="form-check ms-5 mb-2">
-                            <input class="form-check-input" type="checkbox" id="parking_rented" name="parking">
+                            <input class="form-check-input" type="checkbox" id="parking_rented" name="parking" @checked(old('parking'))>
                             <label class="form-check-label" for="parking_rented">
                                 Parking
                             </label>
@@ -165,7 +165,7 @@
                         <div class="row">
                             <div class="col-4 pe-0">
                                 <div class="input-group">
-                                    <input name="w_price" type="number" class="form-control" id="price_wanted" placeholder="Enter Rent">
+                                    <input name="w_price" type="number" class="form-control" id="price_wanted" placeholder="Enter Rent" value="{{old('w_price')}}">
                                 </div>
                             </div>
                             <div class="col-1">
@@ -175,12 +175,12 @@
                                 <div class="input-group">
                                     <select class="form-select form-select-md" aria-label=".form-select-lg example" id="per_price_wanted" name="w_per_price">
                                         <option selected hidden>Choose Rent Type</option>
-                                        <option value="hour">Hour</option>
-                                        <option value="day"> Day</option>
-                                        <option value="night"> Only Night</option>
-                                        <option value="week"> Week</option>
-                                        <option value="month"> Month</option>
-                                        <option value="year"> Year</option>
+                                        <option value="hour"  @selected(old('w_per_price')=="hour" )>Hour</option>
+                                        <option value="day"  @selected(old('w_per_price')=="day" )> Day</option>
+                                        <option value="night"  @selected(old('w_per_price')=="night" )> Only Night</option>
+                                        <option value="week"  @selected(old('w_per_price')=="week" )> Week</option>
+                                        <option value="month"  @selected(old('w_per_price')=="month" )> Month</option>
+                                        <option value="year"  @selected(old('w_per_price')=="year" )> Year</option>
                                     </select>
                                 </div>
                             </div>
@@ -201,13 +201,13 @@
                         <h2 class="fw-bold mb-3">Amenities</h2>
                         <div class="row ms-3 ps-2">
                             <div class="col-2 form-check mb-2">
-                                <input class="form-check-input" type="checkbox" id="toilet_wanted" name="w_toilet">
+                                <input class="form-check-input" type="checkbox" id="toilet_wanted" name="w_toilet" @checked(old('w_toilet'))>
                                 <label class="form-check-label" for="toilet_wanted">
                                     Toilet
                                 </label>
                             </div>
                             <div class="col-2 form-check mb-2">
-                                <input class="form-check-input" type="checkbox" id="parking_wanted" name="w_parking">
+                                <input class="form-check-input" type="checkbox" id="parking_wanted" name="w_parking" @checked(old('w_parking'))>
                                 <label class="form-check-label" for="parking_wanted">
                                     Parking
                                 </label>
