@@ -13,17 +13,17 @@
                         <div class="col-12 mb-3 ">
                             <label for="title_rented" class="form-label me-2 fw-bold">Post Title</label>
                             <input name="title" value="{{$list->title}}" type="text" class="form-control" id="title_rented" placeholder="Enter Post Title">
-                                <span class="text-danger">@error('title') {{$message}} @enderror</span>                        
+                            <span class="text-danger">@error('title') {{$message}} @enderror</span>
                         </div>
                         <div class=" col-lg-4 col-md-4 col-sm-12 col-12 mb-3">
                             <label for="date_rented" class="form-label me-2 fw-bold">Date</label>
                             <input name="date" value="{{$list->date}}" min="{{\Carbon\Carbon::today()->format('Y-m-d')}}" type="date" class="form-control" id="date_rented" onfocus="this.showPicker()">
-                                <span class="text-danger">@error('date') {{$message}} @enderror</span>                        
+                            <span class="text-danger">@error('date') {{$message}} @enderror</span>
                         </div>
                         <div class=" col-lg-4 col-md-4 col-sm-12 col-12 mb-3">
                             <label for="phone_rented" class="form-label me-2 fw-bold">Mobile</label>
                             <input type="number" name="phone" value="{{$list->phone}}" class="form-control">
-                                <span class="text-danger">@error('phone') {{$message}} @enderror</span>                       
+                            <span class="text-danger">@error('phone') {{$message}} @enderror</span>
                         </div>
 
                         <div class="col-lg-4 col-md-4 col-sm-12 col-12 mb-3 ">
@@ -50,14 +50,14 @@
                                         </select>
                                     </div>
                                 </div>
-                                <span class="text-danger">@error('price') {{$message}} @enderror</span>                           
-                                <span class="text-danger">@error('per_price') {{$message}} @enderror</span>                           
+                                <span class="text-danger">@error('price') {{$message}} @enderror</span>
+                                <span class="text-danger">@error('per_price') {{$message}} @enderror</span>
                             </div>
                         </div>
                         <div class="col-lg-12 col-md-12 col-sm-12 col-12 mb-3 ">
                             <label for="address_rented" class="form-label me-2 fw-bold">Address</label>
                             <input name="address" value="{{$list->address}}" type="text" class="form-control" id="address_rented" placeholder="Enter Address">
-                                <span class="text-danger">@error('address') {{$message}} @enderror</span>                       
+                            <span class="text-danger">@error('address') {{$message}} @enderror</span>
                         </div>
                         <div class="col-12 mb-3 ">
                             <label for="description_rented" class="form-label me-2 fw-bold">Description</label>
@@ -93,7 +93,7 @@
                                     <div class="d-flex justify-content-between align-items-center">
                                         <div class="input-group mt-2 update_section_file_input update_section_file_input">
                                             <input type="file" class="form-control" name="photo" id="photo_Rent" placeholder="asd" onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])">
-                                <span class="text-danger">@error('photo') {{$message}} @enderror</span>                                       
+                                            <span class="text-danger">@error('photo') {{$message}} @enderror</span>
                                         </div>
                                         <!-- <a href="{{route('image_delete',['Ghat',$list->id,'ghats','photo',$list->photo])}}" class="btn btn-primary update_section_file_input_dlt_btn ms-1 p-2"><i class="fa-solid fa-trash-can"></i></a> -->
                                     </div>
@@ -250,17 +250,17 @@
                         <div class="col-12 mb-3 ">
                             <label for="title_wanted" class="form-label me-2 fw-bold">Post Title</label>
                             <input name="title" value="{{$list->title}}" type="text" class="form-control" id="title_wanted" placeholder="Enter Post Title">
-                                <span class="text-danger">@error('title') {{$message}} @enderror</span>                       
+                            <span class="text-danger">@error('title') {{$message}} @enderror</span>
                         </div>
                         <div class=" col-lg-4 col-md-4 col-sm-12 col-12 mb-3">
                             <label for="date_wanted" class="form-label me-2 fw-bold">Date</label>
                             <input name="date" value="{{$list->date}}" min="{{\Carbon\Carbon::today()->format('Y-m-d')}}" type="date" class="form-control" id="date_wanted" onfocus="this.showPicker()">
-                                <span class="text-danger">@error('date') {{$message}} @enderror</span>                       
+                            <span class="text-danger">@error('date') {{$message}} @enderror</span>
                         </div>
                         <div class=" col-lg-4 col-md-4 col-sm-12 col-12 mb-3">
                             <label for="phone_wanted" class="form-label me-2 fw-bold">Mobile</label>
                             <input type="number" name="phone" value="{{$list->phone}}" class="form-control">
-                                <span class="text-danger">@error('phone') {{$message}} @enderror</span>                        
+                            <span class="text-danger">@error('phone') {{$message}} @enderror</span>
                         </div>
 
                         <div class="col-lg-4 col-md-4 col-sm-12 col-12 mb-3 ">
@@ -287,14 +287,14 @@
                                         </select>
                                     </div>
                                 </div>
-                                <span class="text-danger">@error('price') {{$message}} @enderror</span>                           
-                                <span class="text-danger">@error('per_price') {{$message}} @enderror</span>                           
+                                <span class="text-danger">@error('price') {{$message}} @enderror</span>
+                                <span class="text-danger">@error('per_price') {{$message}} @enderror</span>
                             </div>
                         </div>
                         <div class="col-lg-12 col-md-12 col-sm-12 col-12 mb-3 ">
                             <label for="address_wanted" class="form-label me-2 fw-bold">Address</label>
                             <input name="address" value="{{$list->address}}" type="text" class="form-control" id="address_wanted" placeholder="Enter Address">
-                                <span class="text-danger">@error('address') {{$message}} @enderror</span>                       
+                            <span class="text-danger">@error('address') {{$message}} @enderror</span>
                         </div>
                         <div class="col-12 mb-3 ">
                             <label for="description_wanted" class="form-label me-2 fw-bold"> Description</label>

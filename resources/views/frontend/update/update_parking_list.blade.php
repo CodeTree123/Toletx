@@ -13,15 +13,21 @@
                         <div class=" col-12 mb-3 ">
                             <label for="title_rented" class="form-label me-2 fw-bold">Post Title</label>
                             <input name="title" type="text" value="{{$list->title}}" class="form-control" id="title_rented" placeholder="Enter Post Title">
+                            <span class="text-danger">@error('title') {{$message}} @enderror</span>
+
                         </div>
 
                         <div class=" col-lg-4 col-md-4 col-sm-12 col-12 mb-3">
                             <label for="date_Rent" class="form-label me-2 fw-bold">Date</label>
                             <input name="date" value="{{$list->date}}" min="{{\Carbon\Carbon::today()->format('Y-m-d')}}" type="date" class="form-control" id="date_Rent" onfocus="this.showPicker()">
+                            <span class="text-danger">@error('date') {{$message}} @enderror</span>
+
                         </div>
                         <div class=" col-lg-4 col-md-4 col-sm-12 col-12 mb-3">
                             <label for="phone_Rent" class="form-label me-2 fw-bold">Mobile</label>
                             <input name="phone" value="{{$list->phone}}" type="tel" class="form-control" id="phone_Rent">
+                            <span class="text-danger">@error('phone') {{$message}} @enderror</span>
+
                         </div>
 
                         <div class="col-lg-4 col-md-4 col-sm-12 col-12 mb-3 ">
@@ -48,6 +54,9 @@
                                         </select>
                                     </div>
                                 </div>
+                                <span class="text-danger">@error('price') {{$message}} @enderror</span>
+                                <span class="text-danger">@error('per_price') {{$message}} @enderror</span>
+
                             </div>
                         </div>
 
@@ -59,10 +68,14 @@
                                 <option value="lavel 1" {{$list->floor_level == "lavel 1" ? 'selected':''}}>lavel 1</option>
                                 <option value="lavel 2" {{$list->floor_level == "lavel 2" ? 'selected':''}}>lavel 2</option>
                             </select>
+                            <span class="text-danger">@error('floor_level') {{$message}} @enderror</span>
+
                         </div>
                         <div class=" col-lg-4 col-md-4 col-sm-12 col-12 mb-3">
                             <label for="floor_height_Rent" class="form-label me-2 fw-bold">Floor Hieght</label>
                             <input name="floor_height" type="text" class="form-control" value="{{$list->floor_height}}" id="floor_height_Rent" placeholder="Enter Floor Height" required>
+                            <span class="text-danger">@error('floor_height') {{$message}} @enderror</span>
+
                         </div>
 
                         <div class=" col-lg-4 col-md-4 col-sm-12 col-12 mb-3">
@@ -75,10 +88,14 @@
                                 <option value="Privet car" {{$list->vehicle_type == "Privet car" ? 'selected':''}}>Privet car</option>
                                 <option value="Everything" {{$list->vehicle_type == "Everything" ? 'selected':''}}>Everything</option>
                             </select>
+                            <span class="text-danger">@error('vehicle_type') {{$message}} @enderror</span>
+
                         </div>
                         <div class="col-12 mb-3 ">
                             <label for="address_Rent" class="form-label me-2 fw-bold">Address</label>
                             <input name="address" value="{{$list->address}}" type="text" class="form-control" id="address_Rent" placeholder="Enter Address">
+                            <span class="text-danger">@error('address') {{$message}} @enderror</span>
+
                         </div>
                         <div class="col-12 mb-3 ">
                             <label for="description_Rent" class="form-label me-2 fw-bold">Description</label>
@@ -101,6 +118,8 @@
                                 <div class="d-flex justify-content-between align-items-center">
                                     <div class="input-group update_section_file_input">
                                         <input type="file" class="form-control" name="photo" id="photo_Rent" placeholder="asd" onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])">
+                                        <span class="text-danger">@error('photo') {{$message}} @enderror</span>
+
                                     </div>
                                     <!-- <a href="{{route('image_delete',['Parking_Spot',$list->id,'garages','photo',$list->photo])}}" class="btn btn-primary update_section_file_input_dlt_btn ms-1 p-1"><i class="fa-solid fa-trash-can"></i></a> -->
                                 </div>
@@ -251,15 +270,21 @@
                         <div class=" col-12 mb-3 ">
                             <label for="title_wanted" class="form-label me-2 fw-bold">Post Title</label>
                             <input name="title" type="text" value="{{$list->title}}" class="form-control" id="title_wanted" placeholder="Enter Post Title">
+                            <span class="text-danger">@error('title') {{$message}} @enderror</span>
+
                         </div>
 
                         <div class=" col-lg-4 col-md-4 col-sm-12 col-12 mb-3">
                             <label for="date_Rent" class="form-label me-2 fw-bold">Date</label>
                             <input name="date" value="{{$list->date}}" min="{{\Carbon\Carbon::today()->format('Y-m-d')}}" type="date" class="form-control" id="date_Rent" onfocus="this.showPicker()">
+                            <span class="text-danger">@error('date') {{$message}} @enderror</span>
+
                         </div>
                         <div class=" col-lg-4 col-md-4 col-sm-12 col-12 mb-3">
                             <label for="phone_Rent" class="form-label me-2 fw-bold">Mobile</label>
                             <input name="phone" value="{{$list->phone}}" type="tel" class="form-control" id="phone_Rent">
+                            <span class="text-danger">@error('phone') {{$message}} @enderror</span>
+
                         </div>
 
                         <div class="col-lg-4 col-md-4 col-sm-12 col-12 mb-3 ">
@@ -286,6 +311,9 @@
                                         </select>
                                     </div>
                                 </div>
+                                <span class="text-danger">@error('price') {{$message}} @enderror</span>
+                                <span class="text-danger">@error('per_price') {{$message}} @enderror</span>
+
                             </div>
                         </div>
 
@@ -297,10 +325,14 @@
                                 <option value="lavel 1" {{$list->floor_level == "lavel 1" ? 'selected':''}}>lavel 1</option>
                                 <option value="lavel 2" {{$list->floor_level == "lavel 2" ? 'selected':''}}>lavel 2</option>
                             </select>
+                            <span class="text-danger">@error('floor_level') {{$message}} @enderror</span>
+
                         </div>
                         <div class=" col-lg-4 col-md-4 col-sm-12 col-12 mb-3">
                             <label for="floor_height_Rent" class="form-label me-2 fw-bold">Floor Hieght</label>
                             <input name="floor_height" type="text" class="form-control" value="{{$list->floor_height}}" id="floor_height_Rent" placeholder="Enter Floor Height" required>
+                            <span class="text-danger">@error('floor_height') {{$message}} @enderror</span>
+
                         </div>
 
                         <div class=" col-lg-4 col-md-4 col-sm-12 col-12 mb-3">
@@ -313,10 +345,14 @@
                                 <option value="Privet car" {{$list->vehicle_type == "Privet car" ? 'selected':''}}>Privet car</option>
                                 <option value="Everything" {{$list->vehicle_type == "Everything" ? 'selected':''}}>Everything</option>
                             </select>
+                            <span class="text-danger">@error('vehicle_type') {{$message}} @enderror</span>
+
                         </div>
                         <div class="col-12 mb-3 ">
                             <label for="address_Rent" class="form-label me-2 fw-bold">Address</label>
                             <input name="address" value="{{$list->address}}" type="text" class="form-control" id="address_Rent" placeholder="Enter Address">
+                            <span class="text-danger">@error('address') {{$message}} @enderror</span>
+
                         </div>
                         <div class="col-12 mb-3 ">
                             <label for="description_Rent" class="form-label me-2 fw-bold">Description</label>

@@ -13,22 +13,27 @@
                         <div class=" col-12 mb-3 ">
                             <label for="title_Rent" class="form-label me-2 fw-bold">Post Title</label>
                             <input name="title" value="{{$list->title}}" type="text" class="form-control" id="title_Rent" placeholder="Enter Post Title">
+                            <span class="text-danger">@error('title') {{$message}} @enderror</span>
                         </div>
                         <div class=" col-lg-4 col-md-4 col-sm-12 col-12 mb-3 ">
                             <label for="c_name_Rent" class="form-label me-2 fw-bold">Shooting Spot Name</label>
                             <input name="c_name" value="{{$list->c_name}}" type="text" class="form-control" id="c_name_Rent" placeholder="Enter Shooting Spot Name">
+                            <span class="text-danger">@error('c_name') {{$message}} @enderror</span>
                         </div>
                         <div class=" col-lg-4 col-md-4 col-sm-12 col-12 mb-3">
                             <label for="date_Rent" class="form-label me-2 fw-bold">Date</label>
                             <input name="date" value="{{$list->date}}" min="{{\Carbon\Carbon::today()->format('Y-m-d')}}" type="date" class="form-control" id="date_Rent" onfocus="this.showPicker()">
+                            <span class="text-danger">@error('date') {{$message}} @enderror</span>
                         </div>
                         <div class=" col-lg-4 col-md-4 col-sm-12 col-12 mb-3">
                             <label for="phone_Rent" class="form-label me-2 fw-bold">Mobile</label>
                             <input type="number" name="phone" value="{{$list->phone}}" readonly class="form-control">
+                            <span class="text-danger">@error('phone') {{$message}} @enderror</span>
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-12 col-12 mb-3 ">
                             <label for="Area_Rent" class="form-label me-2 fw-bold">Rooftop Area</label>
                             <input name="floor_area" value="{{$list->floor_area}}" type="text" class="form-control" id="Area_Rent" placeholder="Enter Rooftop Area">
+                            <span class="text-danger">@error('floor_area') {{$message}} @enderror</span>
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-12 col-12 mb-3 ">
                             <label for="price_rented" class="form-label me-2 fw-bold">Rent</label>
@@ -55,10 +60,13 @@
                                     </div>
                                 </div>
                             </div>
+                            <span class="text-danger">@error('price') {{$message}} @enderror</span>
+                            <span class="text-danger">@error('per_price') {{$message}} @enderror</span>
                         </div>
                         <div class=" col-12 mb-3 ">
                             <label for="address_Rent" class="form-label me-2 fw-bold">Address</label>
                             <input name="address" value="{{$list->address}}" type="text" class="form-control" id="address_Rent" placeholder="Enter Address">
+                            <span class="text-danger">@error('address') {{$message}} @enderror</span>
                         </div>
 
                         <div class="col-12 mb-3 ">
@@ -134,6 +142,7 @@
                                     <div class="d-flex justify-content-between align-items-center">
                                         <div class="input-group mt-2 update_section_file_input">
                                             <input type="file" class="form-control" name="photo" id="photo_Rent" placeholder="asd" onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])">
+                                            <span class="text-danger">@error('photo') {{$message}} @enderror</span>
                                         </div>
                                         <!-- <a href="{{route('image_delete',['Rooftop',$list->id,'rooftops','photo',$list->photo])}}" class="btn btn-primary update_section_file_input_dlt_btn ms-1 p-1"><i class="fa-solid fa-trash-can"></i></a> -->
                                     </div>
@@ -292,22 +301,27 @@
                         <div class=" col-12 mb-3 ">
                             <label for="title_Want" class="form-label me-2 fw-bold">Post Title</label>
                             <input name="title" value="{{$list->title}}" type="text" class="form-control" id="title_Want" placeholder="Enter Post Title">
+                            <span class="text-danger">@error('title') {{$message}} @enderror</span>
                         </div>
                         <div class=" col-lg-4 col-md-4 col-sm-12 col-12 mb-3 ">
                             <label for="c_name_want" class="form-label me-2 fw-bold">Shooting Spot Name</label>
                             <input name="c_name" value="{{$list->c_name}}" type="text" class="form-control" id="c_name_want" placeholder="Enter Shooting Spot Name">
+                            <span class="text-danger">@error('c_name') {{$message}} @enderror</span>
                         </div>
                         <div class=" col-lg-4 col-md-4 col-sm-12 col-12 mb-3">
                             <label for="date_Want" class="form-label me-2 fw-bold">Date</label>
                             <input name="date" value="{{$list->date}}" min="{{\Carbon\Carbon::today()->format('Y-m-d')}}" type="date" class="form-control" id="date_Want" onfocus="this.showPicker()">
+                            <span class="text-danger">@error('date') {{$message}} @enderror</span>
                         </div>
                         <div class=" col-lg-4 col-md-4 col-sm-12 col-12 mb-3">
                             <label for="phone_Want" class="form-label me-2 fw-bold">Mobile</label>
                             <input type="number" name="phone" value="{{$list->phone}}" readonly class="form-control">
+                            <span class="text-danger">@error('phone') {{$message}} @enderror</span>
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-12 col-12 mb-3 ">
                             <label for="Area_Want" class="form-label me-2 fw-bold">Rooftop Area</label>
                             <input name="floor_area" value="{{$list->floor_area}}" type="text" class="form-control" id="Area_Want" placeholder="Enter Rooftop Area">
+                            <span class="text-danger">@error('floor_area') {{$message}} @enderror</span>
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-12 col-12 mb-3 ">
                             <label for="price_rented" class="form-label me-2 fw-bold">Rent</label>
@@ -334,10 +348,13 @@
                                     </div>
                                 </div>
                             </div>
+                            <span class="text-danger">@error('price') {{$message}} @enderror</span>
+                            <span class="text-danger">@error('per_price') {{$message}} @enderror</span>
                         </div>
                         <div class=" col-12 mb-3 ">
                             <label for="address_Want" class="form-label me-2 fw-bold">Address</label>
                             <input name="address" value="{{$list->address}}" type="text" class="form-control" id="address_Want" placeholder="Enter Address">
+                            <span class="text-danger">@error('address') {{$message}} @enderror</span>
                         </div>
 
                         <div class="col-12 mb-3 ">

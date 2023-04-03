@@ -13,16 +13,18 @@
                         <div class=" col-12 mb-3 ">
                             <label for="Swmming_Pool_Rent" class="form-label me-2 fw-bold">Post Title</label>
                             <input name="title" value="{{$list->title}}" type="text" class="form-control" id="Swmming_Pool_Rent" placeholder="Enter Post Title">
+                            <span class="text-danger">@error('title') {{$message}} @enderror</span>
                         </div>
                         <div class=" col-lg-4 col-md-4 col-sm-12 col-12 mb-3">
                             <label for="date_Rent" class="form-label me-2 fw-bold">Date</label>
                             <input name="date" value="{{$list->date}}" type="date" class="form-control" id="date_Rent" onfocus="this.showPicker()">
+                            <span class="text-danger">@error('date') {{$message}} @enderror</span>
                         </div>
                         <div class=" col-lg-4 col-md-4 col-sm-12 col-12 mb-3">
                             <label for="phone_Rent" class="form-label me-2 fw-bold">Mobile</label>
                             <input type="number" name="phone" value="{{$list->phone}}" class="form-control">
+                            <span class="text-danger">@error('phone') {{$message}} @enderror</span>
                         </div>
-
                         <div class="col-lg-4 col-md-4 col-sm-12 col-12 mb-3 ">
                             <label for="price_Rent" class="form-label me-2 fw-bold"> Rent Per Person</label>
                             <div class="row">
@@ -46,12 +48,13 @@
                                     </div>
                                 </div>
                             </div>
+                            <span class="text-danger">@error('price') {{$message}} @enderror</span>
+                            <span class="text-danger">@error('per_price') {{$message}} @enderror</span>
                         </div>
-
-
                         <div class="col-lg-4 col-md-4 col-sm-12 col-12 mb-3 ">
                             <label for="size_Rent" class="form-label me-2 fw-bold">Pool Size</label>
                             <input name="size" value="{{$list->size}}" type="text" class="form-control" id="size_Rent" placeholder="Enter Pool Size">
+                            <span class="text-danger">@error('size') {{$message}} @enderror</span>
                         </div>
                         <div class=" col-lg-4 col-md-4 col-sm-12 col-12 mb-3">
                             <label for="room_type_Rent" class="form-label me-2 fw-bold">Pool Type</label>
@@ -66,10 +69,12 @@
                                 <option value="Diving" {{$list->type == "Diving" ? 'selected':''}}>Diving</option>
                                 <option value="Others" {{$list->type == "Others" ? 'selected':''}}>Others</option>
                             </select>
+                            <span class="text-danger">@error('type') {{$message}} @enderror</span>
                         </div>
                         <div class="col-12 mb-3 ">
                             <label for="address_Rent" class="form-label me-2 fw-bold">Address</label>
                             <input name="address" value="{{$list->address}}" type="text" class="form-control" id="address_Rent" placeholder="Enter Address">
+                            <span class="text-danger">@error('address') {{$message}} @enderror</span>
                         </div>
                         <div class="col-12 mb-3 ">
                             <label for="description_Rent" class="form-label me-2 fw-bold">Description</label>
@@ -135,6 +140,7 @@
                                     <div class="d-flex justify-content-between align-items-center">
                                         <div class="input-group mt-2 update_section_file_input">
                                             <input type="file" class="form-control" name="photo" id="photo_Rent" placeholder="asd" onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])">
+                                            <span class="text-danger">@error('photo') {{$message}} @enderror</span>
                                         </div>
                                         <!-- <a href="{{route('image_delete',['Swimming_Pool',$list->id,'swimmingpools','photo',$list->photo])}}" class="btn btn-primary update_section_file_input_dlt_btn ms-1 p-1"><i class="fa-solid fa-trash-can"></i></a> -->
                                     </div>
@@ -290,15 +296,18 @@
                         <div class=" col-12 mb-3 ">
                             <label for="Swimming_Pool_Want" class="form-label me-2 fw-bold">Post Title</label>
                             <input name="title" value="{{$list->title}}" type="text" class="form-control" id="Swimming_Pool_Want" placeholder="Enter post Title">
+                            <span class="text-danger">@error('title') {{$message}} @enderror</span>
                         </div>
                         <div class=" col-lg-4 col-md-4 col-sm-12 col-12 mb-3">
                             <label for="date_Want" class="form-label me-2 fw-bold">Date</label>
                             <input name="date" value="{{$list->date}}" type="date" class="form-control" id="date_Want" onfocus="this.showPicker()">
+                            <span class="text-danger">@error('date') {{$message}} @enderror</span>
                         </div>
                         <div class=" col-lg-4 col-md-4 col-sm-12 col-12 mb-3">
                             <label for="phone_Want" class="form-label me-2 fw-bold">Mobile</label>
                             <input type="number" name="phone" value="{{$list->phone}}" class="form-control">
 
+                            <span class="text-danger">@error('phone') {{$message}} @enderror</span>
                         </div>
 
                         <div class="col-lg-4 col-md-4 col-sm-12 col-12 mb-3 ">
@@ -324,12 +333,13 @@
                                     </div>
                                 </div>
                             </div>
+                            <span class="text-danger">@error('price') {{$message}} @enderror</span>
+                            <span class="text-danger">@error('per_price') {{$message}} @enderror</span>
                         </div>
-
-
                         <div class="col-lg-4 col-md-4 col-sm-12 col-12 mb-3 ">
                             <label for="size_Want" class="form-label me-2 fw-bold">Pool Size</label>
                             <input name="size" value="{{$list->size}}" type="text" class="form-control" id="size_Want" placeholder="Enter Pool Size">
+                            <span class="text-danger">@error('size') {{$message}} @enderror</span>
                         </div>
                         <div class=" col-lg-4 col-md-4 col-sm-12 col-12 mb-3">
                             <label for="room_type_Want" class="form-label me-2 fw-bold">Pool Type</label>
@@ -344,10 +354,12 @@
                                 <option value="Diving" {{$list->type == "Diving" ? 'selected':''}}>Diving</option>
                                 <option value="Others" {{$list->type == "Others" ? 'selected':''}}>Others</option>
                             </select>
+                            <span class="text-danger">@error('type') {{$message}} @enderror</span>
                         </div>
                         <div class="col-12 mb-3 ">
                             <label for="address_Want" class="form-label me-2 fw-bold">Address</label>
                             <input name="address" value="{{$list->address}}" type="text" class="form-control" id="address_Want" placeholder="Enter Address">
+                            <span class="text-danger">@error('address') {{$message}} @enderror</span>
                         </div>
                         <div class="col-12 mb-3 ">
                             <label for="description_Want" class="form-label me-2 fw-bold">Description</label>

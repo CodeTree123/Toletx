@@ -316,7 +316,7 @@
                         <input type="number" name="phone" value="{{$list->phone}}" class="form-control">
                         <span class="text-danger">@error('phone') {{$message}} @enderror</span>
                     </div>
-                    
+
                     <div class="col-lg-4 col-md-4 col-sm-12 col-12 mb-3 ">
                         <label for="price_wanted" class="form-label me-2 fw-bold">Rent Per Day</label>
                         <input name="price" value="{{$list->price}}" type="number" class="form-control" id="price_wanted" placeholder="Enter Price">

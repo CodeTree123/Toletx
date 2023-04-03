@@ -12,18 +12,22 @@
                         <div class="col-12 mb-3 ">
                             <label for="post_title_Rent" class="form-label me-2 fw-bold">Post Title</label>
                             <input name="post_title" type="text" value="{{$list->post_title}}" class="form-control" id="post_title_Rent" placeholder="Enter Post Title" required>
+                            <span class="text-danger">@error('post_title') {{$message}} @enderror</span>
                         </div>
                         <div class="col-12 mb-3 ">
                             <label for="hostel_name_Rent" class="form-label me-2 fw-bold">Hotel Name</label>
                             <input name="hotel_name" value="{{$list->hotel_name}}" type="text" class="form-control" id="hostel_name_Rent" placeholder="Enter Hotel Name">
+                            <span class="text-danger">@error('hotel_name') {{$message}} @enderror</span>
                         </div>
                         <div class=" col-lg-4 col-md-4 col-sm-12 col-12 mb-3">
                             <label for="date_Rent" class="form-label me-2 fw-bold">Date</label>
                             <input name="date" value="{{$list->date}}" type="date" class="form-control" id="date_Rent" onfocus="this.showPicker()">
+                            <span class="text-danger">@error('date') {{$message}} @enderror</span>
                         </div>
                         <div class=" col-lg-4 col-md-4 col-sm-12 col-12 mb-3">
                             <label for="phone_Rent" class="form-label me-2 fw-bold">Mobile</label>
                             <input name="phone" value="{{$list->phone}}" type="tel" class="form-control" id="phone_Rent">
+                            <span class="text-danger">@error('phone') {{$message}} @enderror</span>
                         </div>
                         <div class=" col-lg-4 col-md-4 col-sm-12 col-12 mb-3">
                             <label for="room_type_Rent" class="form-label me-2 fw-bold">Room Type</label>
@@ -38,6 +42,7 @@
                                 <option value="Honeymoon Suite" {{$list->room_type == "Honeymoon Suite" ? 'selected':''}}>Honeymoon Suite</option>
                                 <option value="Presidential Suite" {{$list->room_type == "Presidential Suite" ? 'selected':''}}>Presidential Suite</option>
                             </select>
+                            <span class="text-danger">@error('room_type') {{$message}} @enderror</span>
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-12 col-12 mb-3 ">
                             <label for="price_Rent" class="form-label me-2 fw-bold">Rent</label>
@@ -63,6 +68,8 @@
                                         </select>
                                     </div>
                                 </div>
+                                <span class="text-danger">@error('price') {{$message}} @enderror</span>
+                                <span class="text-danger">@error('per_price') {{$message}} @enderror</span>
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-12 col-12 mb-3 ">
@@ -89,16 +96,20 @@
                                         </select>
                                     </div>
                                 </div>
+                                <span class="text-danger">@error('s_charge') {{$message}} @enderror</span>
+                                <span class="text-danger">@error('s_per_price') {{$message}} @enderror</span>
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-12 col-12 mb-3 ">
                             <label for="guest_Rent" class="form-label me-2 fw-bold">Guest</label>
                             <input name="guest_count" value="{{$list->guest_count}}" type="number" class="form-control" id="guest_Rent" placeholder="Enter Guest">
+                            <span class="text-danger">@error('guest_count') {{$message}} @enderror</span>
                         </div>
 
                         <div class="col-12 mb-3 ">
                             <label for="address_Rent" class="form-label me-2 fw-bold">Location</label>
                             <input name="location" value="{{$list->location}}" type="text" class="form-control" id="address_Rent" placeholder="Enter Address">
+                            <span class="text-danger">@error('location') {{$message}} @enderror</span>
                         </div>
                         <div class="col-12 mb-3 ">
                             <label for="description_Rent" class="form-label me-2 fw-bold">Description</label>
@@ -195,6 +206,7 @@
                                     <div class="d-flex justify-content-between">
                                         <div class="input-group mt-2 update_section_file_input">
                                             <input type="file" class="form-control" name="photo" id="photo_Rent" placeholder="asd" onchange="document.getElementById('blah').src = window.URL.createObjectURL(this.files[0])">
+                                            <span class="text-danger">@error('photo') {{$message}} @enderror</span>
                                         </div>
                                         <!-- <a href="{{route('image_delete',['Hotel',$list->id,'hotels','photo',$list->photo])}}" class="btn btn-primary update_section_file_input_dlt_btn ms-1 p-1"><i class="fa-solid fa-trash-can"></i></a> -->
                                     </div>
@@ -349,19 +361,23 @@
                         <div class="col-12 mb-3 ">
                             <label for="post_title_Want" class="form-label me-2 fw-bold">Post Title</label>
                             <input name="post_title" type="text" value="{{$list->post_title}}" class="form-control" id="post_title_Want" placeholder="Enter Post Title" required>
+                            <span class="text-danger">@error('post_title') {{$message}} @enderror</span>
                         </div>
                         <div class="col-12 mb-3 ">
                             <label for="hostel_name_Rent" class="form-label me-2 fw-bold">Hotel Name</label>
                             <input name="hotel_name" value="{{$list->hotel_name}}" type="text" class="form-control" id="hostel_name_Rent" placeholder="Enter Hotel Name">
+                            <span class="text-danger">@error('hotel_name') {{$message}} @enderror</span>
                         </div>
                         <div class=" col-lg-4 col-md-4 col-sm-12 col-12 mb-3">
                             <label for="date_Rent" class="form-label me-2 fw-bold">Date</label>
                             <input name="date" value="{{$list->date}}" type="date" class="form-control" id="date_Rent" onfocus="this.showPicker()">
+                            <span class="text-danger">@error('date') {{$message}} @enderror</span>
                         </div>
                         <div class=" col-lg-4 col-md-4 col-sm-12 col-12 mb-3">
                             <label for="phone_Rent" class="form-label me-2 fw-bold">Mobile</label>
                             <input name="phone" value="{{$list->phone}}" type="tel" class="form-control" id="phone_Rent">
 
+                            <span class="text-danger">@error('phone') {{$message}} @enderror</span>
                         </div>
                         <div class=" col-lg-4 col-md-4 col-sm-12 col-12 mb-3">
                             <label for="room_type_Rent" class="form-label me-2 fw-bold">Room Type</label>
@@ -376,6 +392,7 @@
                                 <option value="Honeymoon Suite" {{$list->room_type == "Honeymoon Suite" ? 'selected':''}}>Honeymoon Suite</option>
                                 <option value="Presidential Suite" {{$list->room_type == "Presidential Suite" ? 'selected':''}}>Presidential Suite</option>
                             </select>
+                            <span class="text-danger">@error('room_type') {{$message}} @enderror</span>
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-12 col-12 mb-3 ">
                             <label for="price_Rent" class="form-label me-2 fw-bold">Rent</label>
@@ -401,6 +418,8 @@
                                         </select>
                                     </div>
                                 </div>
+                                <span class="text-danger">@error('price') {{$message}} @enderror</span>
+                                <span class="text-danger">@error('per_price') {{$message}} @enderror</span>
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-12 col-12 mb-3 ">
@@ -427,16 +446,20 @@
                                         </select>
                                     </div>
                                 </div>
+                                <span class="text-danger">@error('s_charge') {{$message}} @enderror</span>
+                                <span class="text-danger">@error('s_per_price') {{$message}} @enderror</span>
                             </div>
                         </div>
                         <div class="col-lg-4 col-md-4 col-sm-12 col-12 mb-3 ">
                             <label for="guest_Rent" class="form-label me-2 fw-bold">Guest</label>
                             <input name="guest_count" value="{{$list->guest_count}}" type="number" class="form-control" id="guest_Rent" placeholder="Enter Guest">
+                            <span class="text-danger">@error('guest_count') {{$message}} @enderror</span>
                         </div>
 
                         <div class="col-12 mb-3 ">
                             <label for="address_Rent" class="form-label me-2 fw-bold">Location</label>
                             <input name="location" value="{{$list->location}}" type="text" class="form-control" id="address_Rent" placeholder="Enter Address">
+                            <span class="text-danger">@error('location') {{$message}} @enderror</span>
                         </div>
                         <div class="col-12 mb-3 ">
                             <label for="description_Rent" class="form-label me-2 fw-bold">Description</label>
