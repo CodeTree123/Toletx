@@ -78,11 +78,11 @@
     </style>
     <!-- offcanvas end-->
     <div class=" container-fluid">
-        <div class="  row px-4 px-xs align-items-center bg-dark  justify-content-lg-between justify-content-md-between justify-content-sm-between  justify-content-xs-between justify-content-between">
+        <div class="  row px-4 px-xs align-items-center bg-dark  justify-content-lg-between justify-content-md-between justify-content-sm-between  justify-content-xs-between justify-content-between text-center">
             <a class="col-lg-1 col-md-1 col-sm-1 col-1 mt-2" href="#sidebar" data-bs-toggle="offcanvas" role="button" aria-controlls="sidebar">
                 <i class="  fas  h3 icon-hamburger_with_search"></i>
             </a>
-            <div class="col-lg-2 col-md-2 col-sm-3 col-3">
+            <div class="col-lg-2 col-md-3 col-sm-3 col-3">
                 <a class="navbar-brand" href="{{route('index')}}">
                     <img src="{{asset('Frontend/assets/img/header/toletx_logo.png')}}" alt="..." class="logo">
                 </a>
@@ -104,10 +104,13 @@
                 <button class="btn bell px-lg-0 px-md-0 px-sm-0 px-3" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="Dropstart">
                     <i class="far fa-bell notification-icon "></i>
                 </button>
-
+                
             </div> -->
             <!-- Settings -->
-            <div class="col-lg-1  col-md-1 col-sm-1 col-2 dropdown ps-0 ">
+            <div class="col-lg-2  col-md-1 col-sm-2 col-2 dropdown ps-0">
+                <!-- <button class="btn bell px-lg-0 px-md-0 px-sm-0 px-3" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="Dropstart">
+                    <i class="far fa-bell notification-icon "></i>
+                </button> -->
                 <button class="btn setting px-lg-0 px-md-0 px-sm-0 px-3" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
                     @if (auth()->user()->image == null )
                     @if(auth()->user()->gender == 'Male' )
@@ -130,165 +133,212 @@
                     <!-- <i class="fa-solid fa-plus white-text"></i> -->
                     Post
                 </button>
-            </div>
-            <!-- Modal -->
-            <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div class="modal-dialog" role="document">
-                    <div class="modal-content  post-modal">
-                        <div class="modal-header text-center">
-                            <h5 class="modal-title " id="exampleModalLabel">Choose a Service</h5>
-                            <button type="button" class="btn-close close modal-close" data-bs-dismiss="modal" aria-label="Close">
-                                <!-- <span aria-hidden="true"><i class="fa-solid fa-xmark"></i></span> -->
-                            </button>
-                        </div>
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content  post-modal">
+                            <div class="modal-header text-center">
+                                <h5 class="modal-title " id="exampleModalLabel">Choose a Service</h5>
+                                <button type="button" class="btn-close close modal-close" data-bs-dismiss="modal" aria-label="Close">
+                                    <!-- <span aria-hidden="true"><i class="fa-solid fa-xmark"></i></span> -->
+                                </button>
+                            </div>
 
-                        <style>
-                            .test-modal {
-                                width: 100px;
-                                border-radius: 20px;
-                                padding: 17px 0 17px 0;
-                                margin: 5px 0 5px 0;
-                                box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
-                                transition: all .2s;
-                            }
+                            <style>
+                                .test-modal {
+                                    border-radius: 20px;
+                                    padding: 17px 0 17px 0;
+                                    /* margin: 5px 0 5px 0; */
+                                    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+                                    transition: all .2s;
+                                }
 
-                            .test-modal:hover {
+                                .test-modal:hover {
 
-                                box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
-                                -ms-transform: scale(1.5);
-                                /* IE 9 */
-                                -webkit-transform: scale(1.5);
-                                /* Safari 3-8 */
-                                transform: scale(1.05);
-                            }
+                                    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+                                    -ms-transform: scale(1.5);
+                                    /* IE 9 */
+                                    -webkit-transform: scale(1.5);
+                                    /* Safari 3-8 */
+                                    transform: scale(1.05);
+                                }
 
-                            span.service_item_modal {
-                                font-size: 55px;
+                                span.service_item_modal {
+                                    font-size: 50px;
 
-                            }
+                                }
 
-                            span.service_item {
-                                font-weight: 500;
-                            }
-                        </style>
-                        
-                        <div class="modal-body">
-                            <link rel="stylesheet" href="{{asset('Frontend/assets/css/icon.css')}}">
-                            <div class="row m-0 mt-2  justify-content-evenly service-group-row">
-                                <a class="  col-lg-3 col-md-3 col-sm-3 col-3 test-modal text-center" href="{{route('post_room')}}">
-                                    <span class="icon-room  service_item"></span>
-                                    <br>
-                                    <span class="service_item_name fs-6"> Room</span>
-                                </a>
-                                <a class="  col-lg-3 col-md-3 col-sm-3 col-3 test-modal text-center" href="{{route('post_flat')}}">
-                                    <span class="icon-flat  service_item"></span>
-                                    <br>
-                                    <span class="service_item_name fs-6"> Flat</span>
-                                </a>
-                                <a class="  col-lg-3 col-md-3 col-sm-3 col-3 test-modal text-center" href="{{route('post_building')}}">
-                                    <span class="icon-building  service_item"></span>
-                                    <br>
-                                    <span class="service_item_name fs-6"> Building</span>
-                                </a>
-                                <a class="  col-lg-3 col-md-3 col-sm-3 col-3 test-modal  text-center" href="{{route('post_parking_spot')}}">
-                                    <span class="icon-garage  service_item"></span>
-                                    <br>
-                                    <span class="service_item_name fs-6"> Garage</span>
-                                </a>
-                                <a class="  col-lg-3 col-md-3 col-sm-3 col-3 test-modal text-center" href="{{route('post_hotel')}}">
-                                    <span class="icon-hotel  service_item"></span>
-                                    <br>
-                                    <span class="service_item_name fs-6"> Hotel</span>
-                                </a>
-                                <a class="  col-lg-3 col-md-3 col-sm-3 col-3 test-modal text-center" href="{{route('post_hostel')}}">
-                                    <span class="icon-hostel  service_item"></span>
-                                    <br>
-                                    <span class="service_item_name fs-6"> Hostel</span>
-                                </a>
-                                <a class="  col-lg-3 col-md-3 col-sm-3 col-3 test-modal text-center" href="{{route('post_resort')}}">
-                                    <span class="icon-resort  service_item"></span>
-                                    <br>
-                                    <span class="service_item_name fs-6"> Resort</span>
-                                </a>
-                                <a class="  col-lg-3 col-md-3 col-sm-3 col-3 test-modal text-center" href="{{route('post_office')}}">
-                                    <span class="icon-office  service_item"></span>
-                                    <br>
-                                    <span class="service_item_name fs-6"> Office</span>
-                                </a>
-                                <a class="  col-lg-3 col-md-3 col-sm-3 col-3 test-modal  text-center" href="{{route('post_shop')}}">
-                                    <span class="icon-shop  service_item"></span>
-                                    <br>
-                                    <span class="service_item_name fs-6"> Shop</span>
-                                </a>
-                                <a class="  col-lg-3 col-md-3 col-sm-3 col-3 test-modal text-center" href="{{route('post_community')}}">
-                                    <span class="icon-community_hall  service_item"></span>
-                                    <br>
-                                    <span class="service_item_name fs-6"> Community Hall</span>
-                                </a>
-                                <a class="  col-lg-3 col-md-3 col-sm-3 col-3 test-modal text-center" href="{{route('post_factory')}}">
-                                    <span class="icon-factory  service_item"></span>
-                                    <br>
-                                    <span class="service_item_name fs-6"> Factory</span>
-                                </a>
-                                <a class="  col-lg-3 col-md-3 col-sm-3 col-3 test-modal text-center" href="{{route('post_warehouse')}}">
-                                    <span class="icon-warehouse  service_item"></span>
-                                    <br>
-                                    <span class="service_item_name fs-6"> Warehouse</span>
-                                </a>
-                                <a class="  col-lg-3 col-md-3 col-sm-3 col-3 test-modal text-center" href="{{route('post_land')}}">
-                                    <span class="icon-land  service_item"></span>
-                                    <br>
-                                    <span class="service_item_name fs-6"> Land</span>
-                                </a>
-                                <a class="  col-lg-3 col-md-3 col-sm-3 col-3 test-modal text-center" href="{{route('post_pond')}}">
-                                    <span class="icon-pond  service_item"></span>
-                                    <br>
-                                    <span class="service_item_name fs-6"> Pond</span>
-                                </a>
-                                <a class="  col-lg-3 col-md-3 col-sm-3 col-3 test-modal text-center" href="{{route('post_ghat')}}">
-                                    <span class="icon-ghat  service_item"></span>
-                                    <br>
-                                    <span class="service_item_name fs-6"> Ghat</span>
-                                </a>
-                                <a class="  col-lg-3 col-md-3 col-sm-3 col-3 test-modal text-center" href="{{route('post_swimmingpool')}}">
-                                    <span class="icon-swimming_pool  service_item"></span>
-                                    <br>
-                                    <span class="service_item_name fs-6"> Swimming Pool</span>
-                                </a>
-                                <a class="  col-lg-3 col-md-3 col-sm-3 col-3 test-modal text-center" href="{{route('post_playground')}}">
-                                    <span class="icon-camping  service_item"></span>
-                                    <br>
-                                    <span class="service_item_name fs-6"> Camp Site</span>
-                                </a>
-                                <a class="  col-lg-3 col-md-3 col-sm-3 col-3 test-modal text-center" href="{{route('post_shooting')}}">
-                                    <span class="icon-shooting_spot  service_item"></span>
-                                    <br>
-                                    <span class="service_item_name fs-6"> Shooting Spot</span>
-                                </a>
-                                <a class="  col-lg-3 col-md-3 col-sm-3 col-3 test-modal text-center" href="{{route('post_picnic')}}">
-                                    <span class="icon-picnic-spot  service_item"></span>
-                                    <br>
-                                    <span class="service_item_name fs-6"> Picnic Spot</span>
-                                </a>
-                                <a class="  col-lg-3 col-md-3 col-sm-3 col-3 test-modal text-center" href="{{route('post_exhibution')}}">
-                                    <span class="icon-exhibition_center  service_item"></span>
-                                    <br>
-                                    <span class="service_item_name fs-6"> Exhibition
-                                        Center</span>
-                                </a>
-                                <div class="row justify-content-center">
-                                    <a class="  col-lg-3 col-md-3 col-sm-3 col-3 test-modal mx-2 text-center" href="{{route('post_rooftop')}}">
-                                        <span class="icon-rooftop  service_item"></span>
-                                        <br>
-                                        <span class="service_item_name fs-6"> Rooftop</span>
+                                span.service_item {
+                                    font-weight: 500;
+                                }
+
+                                @media screen and (max-width: 991px) and (min-width: 370px) {
+                                    .test-modal {
+                                        font-size: .9rem;
+                                    }
+                                }
+                            </style>
+
+                            <div class="modal-body">
+                                <link rel="stylesheet" href="{{asset('Frontend/assets/css/icon.css')}}">
+                                <div class="row justify-content-center g-2 service-group-row">
+                                    <a class="  col-lg-3 col-md-3 col-sm-3 col-3 text-center" href="{{route('post_room')}}">
+                                        <div class="test-modal">
+                                            <span class="icon-room  service_item"></span>
+                                            <br>
+                                            <span class="service_item_name"> Room</span>
+                                        </div>
                                     </a>
-                                    <a class="  col-lg-3 col-md-3 col-sm-3 col-3 test-modal mx-2 text-center" href="{{route('post_bilboard')}}">
-                                        <span class="icon-bilboard  service_item"></span>
-                                        <br>
-                                        <span class="service_item_name fs-6"> Bilboard</span>
+                                    <a class="  col-lg-3 col-md-3 col-sm-3 col-3 text-center" href="{{route('post_flat')}}">
+                                        <div class="test-modal">
+                                            <span class="icon-flat  service_item"></span>
+                                            <br>
+                                            <span class="service_item_name"> Flat</span>
+                                        </div>
                                     </a>
+                                    <a class="  col-lg-3 col-md-3 col-sm-3 col-3 text-center" href="{{route('post_building')}}">
+                                        <div class="test-modal">
+                                            <span class="icon-building  service_item"></span>
+                                            <br>
+                                            <span class="service_item_name"> Building</span>
+                                        </div>
+                                    </a>
+                                    <a class="  col-lg-3 col-md-3 col-sm-3 col-3  text-center" href="{{route('post_parking_spot')}}">
+                                        <div class="test-modal">
+                                            <span class="icon-garage  service_item"></span>
+                                            <br>
+                                            <span class="service_item_name"> Garage</span>
+                                        </div>
+                                    </a>
+                                    <a class="  col-lg-3 col-md-3 col-sm-3 col-3 text-center" href="{{route('post_hotel')}}">
+                                        <div class="test-modal">
+                                            <span class="icon-hotel  service_item"></span>
+                                            <br>
+                                            <span class="service_item_name"> Hotel</span>
+                                        </div>
+                                    </a>
+                                    <a class="  col-lg-3 col-md-3 col-sm-3 col-3 text-center" href="{{route('post_hostel')}}">
+                                        <div class="test-modal">
+                                            <span class="icon-hostel  service_item"></span>
+                                            <br>
+                                            <span class="service_item_name"> Hostel</span>
+                                        </div>
+                                    </a>
+                                    <a class="  col-lg-3 col-md-3 col-sm-3 col-3 text-center" href="{{route('post_resort')}}">
+                                        <div class="test-modal">
+                                            <span class="icon-resort  service_item"></span>
+                                            <br>
+                                            <span class="service_item_name"> Resort</span>
+                                        </div>
+                                    </a>
+                                    <a class="  col-lg-3 col-md-3 col-sm-3 col-3 text-center" href="{{route('post_office')}}">
+                                        <div class="test-modal">
+                                            <span class="icon-office  service_item"></span>
+                                            <br>
+                                            <span class="service_item_name"> Office</span>
+                                        </div>
+                                    </a>
+                                    <a class="  col-lg-3 col-md-3 col-sm-3 col-3  text-center" href="{{route('post_shop')}}">
+                                        <div class="test-modal">
+                                            <span class="icon-shop  service_item"></span>
+                                            <br>
+                                            <span class="service_item_name"> Shop</span>
+                                        </div>
+                                    </a>
+                                    <a class="  col-lg-3 col-md-3 col-sm-3 col-3 text-center" href="{{route('post_factory')}}">
+                                        <div class="test-modal">
+                                            <span class="icon-factory  service_item"></span>
+                                            <br>
+                                            <span class="service_item_name"> Factory</span>
+                                        </div>
+                                    </a>
+                                    <a class="  col-lg-3 col-md-3 col-sm-3 col-3 text-center" href="{{route('post_warehouse')}}">
+                                        <div class="test-modal">
+                                            <span class="icon-warehouse  service_item"></span>
+                                            <br>
+                                            <span class="service_item_name"> Warehouse</span>
+                                        </div>
+                                    </a>
+                                    <a class="  col-lg-3 col-md-3 col-sm-3 col-3 text-center" href="{{route('post_land')}}">
+                                        <div class="test-modal">
+                                            <span class="icon-land  service_item"></span>
+                                            <br>
+                                            <span class="service_item_name"> Land</span>
+                                        </div>
+                                    </a>
+                                    <a class="  col-lg-3 col-md-3 col-sm-3 col-3 text-center" href="{{route('post_pond')}}">
+                                        <div class="test-modal">
+                                            <span class="icon-pond  service_item"></span>
+                                            <br>
+                                            <span class="service_item_name"> Pond</span>
+                                        </div>
+                                    </a>
+                                    <a class="  col-lg-3 col-md-3 col-sm-3 col-3 text-center" href="{{route('post_ghat')}}">
+                                        <div class="test-modal">
+                                            <span class="icon-ghat  service_item"></span>
+                                            <br>
+                                            <span class="service_item_name"> Ghat</span>
+                                        </div>
+                                    </a>
+                                    <a class="  col-lg-3 col-md-3 col-sm-3 col-3 text-center" href="{{route('post_swimmingpool')}}">
+                                        <div class="test-modal">
+                                            <span class="icon-swimming_pool  service_item"></span>
+                                            <br>
+                                            <span class="service_item_name"> Swimming Pool</span>
+                                        </div>
+                                    </a>
+                                    <a class="  col-lg-3 col-md-3 col-sm-3 col-3 text-center" href="{{route('post_playground')}}">
+                                        <div class="test-modal">
+                                            <span class="icon-camping  service_item"></span>
+                                            <br>
+                                            <span class="service_item_name"> Camp Site</span>
+                                        </div>
+                                    </a>
+                                    <a class="  col-lg-3 col-md-3 col-sm-3 col-3 text-center" href="{{route('post_shooting')}}">
+                                        <div class="test-modal">
+                                            <span class="icon-shooting_spot  service_item"></span>
+                                            <br>
+                                            <span class="service_item_name"> Shooting Spot</span>
+                                        </div>
+                                    </a>
+                                    <a class="  col-lg-3 col-md-3 col-sm-3 col-3 text-center" href="{{route('post_picnic')}}">
+                                        <div class="test-modal">
+                                            <span class="icon-picnic-spot  service_item"></span>
+                                            <br>
+                                            <span class="service_item_name"> Picnic Spot</span>
+                                        </div>
+                                    </a>
+                                    <a class="col-lg-3 col-md-3 col-sm-3 col-3 text-center" href="{{route('post_rooftop')}}">
+                                        <div class="test-modal px-0">
+                                            <span class="icon-rooftop service_item"></span>
+                                            <br>
+                                            <span class="service_item_name"> Rooftop</span>
+                                        </div>
+                                    </a>
+                                    <a class="col-lg-3 col-md-3 col-sm-3 col-3 text-center" href="{{route('post_bilboard')}}">
+                                        <div class="test-modal">
+                                            <span class="icon-bilboard  service_item"></span>
+                                            <br>
+                                            <span class="service_item_name"> Bilboard</span>
+                                        </div>
+                                    </a>
+                                    <div class="row px-0 justify-content-start g-2">
+                                        <a class="  col-lg-3 col-md-3 col-sm-3 col-3 text-center" href="{{route('post_community')}}">
+                                            <div class="test-modal">
+                                                <span class="icon-community_hall  service_item"></span>
+                                                <br>
+                                                <span class="service_item_name"> Community Hall</span>
+                                            </div>
+                                        </a>
+                                        <a class="  col-lg-3 col-md-3 col-sm-3 col-3 text-center" href="{{route('post_exhibution')}}">
+                                            <div class="test-modal">
+                                                <span class="icon-exhibition_center  service_item"></span>
+                                                <br>
+                                                <span class="service_item_name"> Exhibition Center</span>
+                                            </div>
+                                        </a>
+                                    </div>
                                 </div>
-
                             </div>
                         </div>
                     </div>
