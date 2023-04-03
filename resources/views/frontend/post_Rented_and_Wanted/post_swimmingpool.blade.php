@@ -142,39 +142,39 @@
                     <div class="col-8">
                         <h2 class="fw-bold mb-3">Gallery Section</h2>
                         <div class="mb-3 ">
-                            <label for="photo_Rent" class="d-block"> Photo 1</label>
+                            <label for="photo_Rent" ></label> Photo 1</label>
 
                             <input type="file" class="form-control" name="photo" id="photo_Rent" placeholder="asd" >
                             <span class="text-danger">@error('photo') {{$message}} @enderror</span>
                         </div>
 
                         <div class="mb-3">
-                            <label for="photo1_Rent" class="d-block"> Photo 2</label>
+                            <label for="photo1_Rent" > Photo 2</label>
                             <input type="file" class="form-control" name="photo1" id="photo1_Rent">
                         </div>
 
                         <div class="mb-3">
-                            <label for="photo2_Rent" class="d-block"> Photo 3</label>
+                            <label for="photo2_Rent" > Photo 3</label>
                             <input type="file" class="form-control" name="photo2" id="photo2_Rent">
                         </div>
 
                         <div class="mb-3">
-                            <label for="photo3_Rent" class="d-block"> Photo 4</label>
+                            <label for="photo3_Rent" > Photo 4</label>
                             <input type="file" class="form-control" name="photo3" id="photo3_Rent">
                         </div>
 
                         <div class="mb-3">
-                            <label for="photo4_Rent" class="d-block"> Photo 5</label>
+                            <label for="photo4_Rent" > Photo 5</label>
                             <input type="file" class="form-control" name="photo4" id="photo4_Rent">
                         </div>
 
                         <div class="mb-3">
-                            <label for="photo5_Rent" class="d-block"> Photo 6</label>
+                            <label for="photo5_Rent" > Photo 6</label>
                             <input type="file" class="form-control" name="photo5" id="photo5_Rent">
                         </div>
 
                         <div class="mb-3">
-                            <label for="photo6_Rent" class="d-block"> Photo 7</label>
+                            <label for="photo6_Rent" > Photo 7</label>
                             <input type="file" class="form-control" name="photo6" id="photo6_Rent">
                         </div>
 
