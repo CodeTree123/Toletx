@@ -12,7 +12,9 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Redirect;
 
-use Validator;
+// use Validator;
+use Illuminate\Support\Facades\Validator;
+use Image;
 
 class LoginController extends Controller
 {
@@ -104,68 +106,152 @@ class LoginController extends Controller
         return redirect()->back();
     }
 
-    public function register(Request $request)
+    public function stepper_1(Request $request)
     {
-
-        $custom_id = User::latest('id')->first();
-        if (empty($custom_id)) {
-            $k = 0;
-        } else {
-            $k = $custom_id->id;
-        }
-        $k++;
-        $i = $k;
-        $n = $request->name;
-        $date = date('dmY');
-        $view = $n . '-' . $date . '-' . $i;
+        // dd($request->all());
         $validator = Validator::make($request->all(), [
             'name' => 'required',
             'phone' => 'required',
-            'trems' => 'required',
+            'email' => 'nullable|email',
             'password' => 'required',
             'password_confirmation' => 'required|same:password',
+            'photo' => 'image|mimes:jpeg,png,jpg'
+        ], [
+            'name.required' => 'Name Field Is Required!',
+            'phone.required' => 'Phone Field Is Required!',
+            'email.email' => 'Email Field Must Be Email Formatted!',
+            'password.required' => 'Password Field Is Required!',
+            'password_confirmation.required' => 'Password Confirmation Field Is Required!',
+            'password_confirmation.same' => 'Password & Password Confirmation Value Must Be Same!',
+            'photo.image' => 'Profile Picture Field Must Be Image Format.',
+            'photo.mimes' => 'Profile Picture Field Must Be jpeg,png,jpg format.'
         ]);
+
         if ($validator->fails()) {
-            return back()->with('success', 'Are you Agree Our Terms And Conditon?');
-        }
-        $phone = Phoneotp::where(['phone_number' => $request->phone, 'isverified' => 1])->exists();
-        if (!$phone) {
-            return redirect()->back()->withErrors(['msg' => 'Phone is not verified']);
-        }
-
-        $check = User::where('phone', $request->phone)->first();
-        if ($check) {
-            return back()->with('success2', 'You Already have account');
+            return response()->json([
+                'status' => 404,
+                'error' => $validator->errors()
+            ]);
         } else {
+            if (!$request->new_uID) {
+                // create
+                $custom_id = User::latest('id')->first();
+                if (empty($custom_id)) {
+                    $k = 0;
+                } else {
+                    $k = $custom_id->id;
+                }
+                $k++;
+                $i = $k;
+                $n = $request->name;
+                $date = date('dmY');
+                $view = $n . '-' . $date . '-' . $i;
 
-            $auth_image = User::create([
-                'unique_id' => $view,
-                'name' => $request->name,
-                'phone' => $request->phone,
-                'photo' => $request->photo,
-                'email' => $request->email,
+                // $phone = Phoneotp::where(['phone_number' => $request->phone, 'isverified' => 1])->exists();
+                // if (!$phone) {
+                //     return redirect()->back()->withErrors(['msg' => 'Phone is not verified']);
+                // }
+
+                $check = User::where('phone', $request->phone)->first();
+                if ($check) {
+                    return back()->with('success2','You Already have account');
+                }else{
+                    $auth_image = User::create([
+                        'unique_id' => $view,
+                        'name' => $request->name,
+                        'phone' => $request->phone,
+                        'email' => $request->email,
+                        'role_id' => 2,
+                        'password' => Hash::make($request['password']),
+                    ]);
+
+                    if ($request->file('photo')) {
+                        $file = $request->file('photo');
+                        $filename = date('YmdHi') . $file->getClientOriginalName();
+                        $file->move(public_path('/uploads/registers/'), $filename);
+                        $auth_image['image'] = $filename;
+                    }
+                    $auth_image->save();
+
+                }
+
+                return response()->json([
+                    'status' => 200,
+                    'newUser_id' => $auth_image->id,
+                ]);
+
+            } else {
+                // update
+                if ($request->hasFile('photo')) {
+                    $photo = $request->photo;
+                    $photoName = $request->new_uID . '.' . $photo->getClientOriginalExtension();
+                    if (User::findOrFail($request->new_uID)) {
+                        image::make($photo)->save(base_path("public/uploads/registers/" . $photoName), 100);
+                        User::findOrFail($request->new_uID)->update([
+                            'image' => $photoName,
+                        ]);
+                    } else {
+                        (base_path("/uploads/auths/" . $photoName));
+                        Image::make($photo)->save(base_path("/uploads/registers/" . $photoName), 100);
+                    }
+                }
+
+                User::find($request->new_uID)->update([
+                    'name' => $request->name,
+                    'phone' => $request->phone,
+                    'email' => $request->email,
+                    'role_id' => 2,
+                    'password' => Hash::make($request['password'])
+                ]);
+                
+                return response()->json([
+                    'status' => 200,
+                    'newUser_id' => $request->new_uID,
+                ]);
+            }
+        }
+    }
+
+    public function stepper_2(Request $request)
+    {
+        // dd($request->all());
+        $validator = Validator::make($request->all(), [
+            'date_of_birth' => 'required',
+            'gender' => 'required|in:Male,Female,Other',
+            'trems' => 'required',
+            'n_photo1' => 'image|mimes:jpeg,png,jpg',
+            'n_photo2' => 'image|mimes:jpeg,png,jpg'
+        ], [
+            'date_of_birth.required' => 'Date of Birth Field Is Required!',
+            'gender.required' => 'Gender Field Is Required!',
+            'gender.in' => 'Gender Field Must Be Selected!',
+            'trems.required' => 'Please Check Terms & Condition!',
+            'n_photo1.image' => 'NID Front Field Must Be Image Format.',
+            'n_photo1.mimes' => 'NID Front Field Must Be jpeg,png,jpg format.',
+            'n_photo2.image' => 'NID Back Field Must Be Image Format.',
+            'n_photo2.mimes' => 'NID Back Field Must Be jpeg,png,jpg format.'
+        ]);
+
+        if ($validator->fails()) {
+            return response()->json([
+                'status' => 404,
+                'error' => $validator->errors()
+            ]);
+        } else {
+            // update
+            $auth_image = User::find($request->new_uID);
+            $auth_image->update([
                 'nationality' => $request->nationality,
                 'father_name' => $request->father_name,
                 'mother_name' => $request->mother_name,
                 'address' => $request->address,
                 'date_of_birth' => $request->date_of_birth,
                 'gender' => $request->gender,
-                'n_photo1' => $request->n_photo1,
-                'n_photo2' => $request->n_photo2,
-                'role_id' => 2,
-                'password' => Hash::make($request['password']),
                 'fav_qt1' => $request->fav_qt1,
                 'fav_ans1' => $request->fav_ans1,
                 'terms' => 1,
-
             ]);
-            if ($request->file('photo')) {
-                $file = $request->file('photo');
-                $filename = date('YmdHi') . $file->getClientOriginalName();
-                $file->move(public_path('/uploads/registers/'), $filename);
-                $auth_image['photo'] = $filename;
-            }
-            $auth_image->save();
+
             if ($request->file('n_photo1')) {
                 $file = $request->file('n_photo1');
                 $filename = date('YmdHi') . $file->getClientOriginalName();
@@ -181,13 +267,98 @@ class LoginController extends Controller
             }
             $auth_image->save();
 
-            if (Auth::attempt(['phone' => request('phone'), 'password' => request('password')])) {
-                return redirect()->route('index')->with('success', 'Please Complete your profile information.');
-            } else {
-                return Redirect::back();
-            }
+            Auth::login($auth_image);
+
+            return response()->json([
+                'status' => 200,
+            ]);
         }
     }
+
+    // public function register(Request $request)
+    // {
+
+    //     $custom_id = User::latest('id')->first();
+    //     if (empty($custom_id)) {
+    //         $k = 0;
+    //     } else {
+    //         $k = $custom_id->id;
+    //     }
+    //     $k++;
+    //     $i = $k;
+    //     $n = $request->name;
+    //     $date = date('dmY');
+    //     $view = $n . '-' . $date . '-' . $i;
+    //     $validator = Validator::make($request->all(), [
+    //         'name' => 'required',
+    //         'phone' => 'required',
+    //         'trems' => 'required',
+    //         'password' => 'required',
+    //         'password_confirmation' => 'required|same:password',
+    //     ]);
+    //     if ($validator->fails()) {
+    //         return back()->with('success', 'Are you Agree Our Terms And Conditon?');
+    //     }
+    //     $phone = Phoneotp::where(['phone_number' => $request->phone, 'isverified' => 1])->exists();
+    //     if (!$phone) {
+    //         return redirect()->back()->withErrors(['msg' => 'Phone is not verified']);
+    //     }
+
+    //     $check = User::where('phone', $request->phone)->first();
+    //     if ($check) {
+    //         return back()->with('success2', 'You Already have account');
+    //     } else {
+
+    //         $auth_image = User::create([
+    //             'unique_id' => $view,
+    //             'name' => $request->name,
+    //             'phone' => $request->phone,
+    //             'photo' => $request->photo,
+    //             'email' => $request->email,
+    //             'nationality' => $request->nationality,
+    //             'father_name' => $request->father_name,
+    //             'mother_name' => $request->mother_name,
+    //             'address' => $request->address,
+    //             'date_of_birth' => $request->date_of_birth,
+    //             'gender' => $request->gender,
+    //             'n_photo1' => $request->n_photo1,
+    //             'n_photo2' => $request->n_photo2,
+    //             'role_id' => 2,
+    //             'password' => Hash::make($request['password']),
+    //             'fav_qt1' => $request->fav_qt1,
+    //             'fav_ans1' => $request->fav_ans1,
+    //             'terms' => 1,
+
+    //         ]);
+    //         if ($request->file('photo')) {
+    //             $file = $request->file('photo');
+    //             $filename = date('YmdHi') . $file->getClientOriginalName();
+    //             $file->move(public_path('/uploads/registers/'), $filename);
+    //             $auth_image['photo'] = $filename;
+    //         }
+    //         $auth_image->save();
+    //         if ($request->file('n_photo1')) {
+    //             $file = $request->file('n_photo1');
+    //             $filename = date('YmdHi') . $file->getClientOriginalName();
+    //             $file->move(public_path('/uploads/registers/'), $filename);
+    //             $auth_image['n_photo1'] = $filename;
+    //         }
+    //         $auth_image->save();
+    //         if ($request->file('n_photo2')) {
+    //             $file = $request->file('n_photo2');
+    //             $filename = date('YmdHi') . $file->getClientOriginalName();
+    //             $file->move(public_path('/uploads/registers/'), $filename);
+    //             $auth_image['n_photo2'] = $filename;
+    //         }
+    //         $auth_image->save();
+
+    //         if (Auth::attempt(['phone' => request('phone'), 'password' => request('password')])) {
+    //             return redirect()->route('index')->with('success', 'Please Complete your profile information.');
+    //         } else {
+    //             return Redirect::back();
+    //         }
+    //     }
+    // }
 
     public function change_pass()
     {

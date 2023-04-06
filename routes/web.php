@@ -33,7 +33,12 @@ Auth::routes(["verify" => true]);
     Route::get('/verify/otp', [LoginController::class, 'verifyOtp'])->name('verify.otp');
 
     Route::get('/registration', [UserController::class, 'registration'])->name('registration');
-    Route::post('/new/register', [LoginController::class, 'register'])->name('register');
+
+    Route::post('/stepper_1', [LoginController::class, 'stepper_1'])->name('stepper_1');
+    Route::post('/stepper_2', [LoginController::class, 'stepper_2'])->name('stepper_2');
+    
+    // Route::get('/test', [UserController::class, 'test'])->name('test');
+    // Route::post('/new/register', [LoginController::class, 'register'])->name('register');
 
     Route::get('change-password', [LoginController::class, 'change_pass'])->name('change_password_form');
     Route::post('change-password', [LoginController::class, 'store_pass'])->name('change_password');

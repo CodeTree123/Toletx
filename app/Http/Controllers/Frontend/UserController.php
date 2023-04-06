@@ -46,7 +46,8 @@ class UserController extends Controller
     }
     function registration()
     {
-        return view('frontend.layouts.registration');
+        // return view('frontend.layouts.registration');
+        return view('frontend.layouts.stepper_registration');
     }
 
     function faq()

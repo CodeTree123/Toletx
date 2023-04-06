@@ -74,7 +74,7 @@
                                                     <strong>Account</strong>
                                                 </li>
                                                 <li id="personal"><strong>Personal</strong></li>
-                                                <li id="confirm"><strong>Finish</strong></li>
+                                                <!-- <li id="confirm"><strong>Finish</strong></li> -->
                                             </ul>
                                             <!-- fieldsets -->
                                             <fieldset>
@@ -103,15 +103,15 @@
 
                                                     <div class="col-md-12">
                                                         <label for="password-field" class="form-label">Password</label>
-                                                        <input type="password" name="password" class="form-control msform" id="password-field"> 
+                                                        <input type="password" name="password" class="form-control msform" id="password-field">
                                                     </div>
                                                     <div class="col-md-12">
                                                         <label for="password-field" class="form-label">Confirm Password</label>
-                                                        <input type="password" name="password_confirmation" class="form-control msform msform" id="password-field-confirm"> 
+                                                        <input type="password" name="password_confirmation" class="form-control msform msform" id="password-field-confirm">
                                                     </div>
-                                                    <div class="my-3 password_toggler">
+                                                    <div class="my-3 password_toggler" style="cursor: pointer;">
                                                         <i class="fa fa-eye-slash" id="eye_icon" aria-hidden="true"></i>
-                                                        <span   id="show_hide_password" class="">
+                                                        <span id="show_hide_password" class="">
                                                             Show Password
                                                         </span>
                                                     </div>
@@ -193,7 +193,7 @@
                                                     </div>
                                                 </div>
                                                 <input type="button" name="previous" class="previous action-button-previous" value="Previous" />
-                                                <input type="submit"  class="next action-button" value="Submit" />
+                                                <input type="submit" class="next action-button" value="Submit" />
                                             </fieldset>
                                         </form>
                                     </div>
@@ -219,35 +219,37 @@
             $('[data-toggle="tooltip"]').tooltip()
         })
     </script>
- 
+
 
     <script>
-        $(document).ready(function () {
-                $(".password_toggler").on("click", function (event) {
-                    // event.preventDefault();
-                    if ($("#password-field").attr("type") == "text") {
+        $(document).ready(function() {
+            $(".password_toggler").on("click", function(event) {
+                // event.preventDefault();
+                if ($("#password-field").attr("type") == "text") {
 
-                        $("#password-field").attr("type", "password");
-                        $("#password-field-confirm ").attr("type", "password");
-                        $("#eye_icon").removeClass("fa-eye");
-                        $("#eye_icon").addClass("fa-eye-slash"); 
-                        $("#show_hide_password").text("Show Password");
+                    $("#password-field").attr("type", "password");
+                    $("#password-field-confirm ").attr("type", "password");
+                    $("#eye_icon").removeClass("fa-eye");
+                    $("#eye_icon").addClass("fa-eye-slash");
+                    $("#show_hide_password").text("Show Password");
 
-                    }
-                     else if ($("#password-field").attr("type") == "password") {
+                } else if ($("#password-field").attr("type") == "password") {
 
-                        $("#password-field").attr("type", "text");
-                        $("#password-field-confirm ").attr("type", "text"); 
-                        $("#eye_icon").removeClass("fa-eye-slash");
-                        $("#eye_icon").addClass("fa-eye"); 
-                        $("#show_hide_password").text("Hide Password");
+                    $("#password-field").attr("type", "text");
+                    $("#password-field-confirm ").attr("type", "text");
+                    $("#eye_icon").removeClass("fa-eye-slash");
+                    $("#eye_icon").addClass("fa-eye");
+                    $("#show_hide_password").text("Hide Password");
 
-                    }
-                });
+                }
             });
+
+
+        });
     </script>
 
 
 
 </body>
+
 </html>

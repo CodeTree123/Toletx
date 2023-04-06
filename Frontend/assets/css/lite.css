@@ -222,3 +222,8 @@ input#max_price {
     outline: 1px solid slategrey;
 }
 
+
+[data-theme="lite"] .tooltip-inner {
+    color: #fff !important;
+}
+
