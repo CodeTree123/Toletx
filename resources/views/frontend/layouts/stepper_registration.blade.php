@@ -181,8 +181,6 @@
                                             .formSteps .step_img_input {
                                                 width: 65%;
                                             }
-
-                                            .deactivate {}
                                         </style>
                                         <form action="{{route('stepper_1')}}" method="POST" enctype="multipart/form" id="formStep1" class="mx-4 formSteps">
                                             @csrf
@@ -366,7 +364,7 @@
     <script>
         $(document).ready(function() {
             $('[data-toggle="tooltip"]').tooltip();
-            
+
             $('#formStep1').hide();
             $('#formStep3').hide();
             $(".password_toggler").on("click", function(event) {
