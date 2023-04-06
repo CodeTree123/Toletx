@@ -149,7 +149,11 @@ class LoginController extends Controller
 
                 // $phone = Phoneotp::where(['phone_number' => $request->phone, 'isverified' => 1])->exists();
                 // if (!$phone) {
-                //     return redirect()->back()->withErrors(['msg' => 'Phone is not verified']);
+                //     // return redirect()->back()->withErrors(['msg' => 'Phone is not verified']);
+                //     return response()->json([
+                //         'status' => 404,
+                //         'msg' => 'Phone is not verified'
+                //     ]);
                 // }
 
                 $check = User::where('phone', $request->phone)->first();

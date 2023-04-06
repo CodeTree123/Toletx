@@ -193,7 +193,7 @@
 
                                             <div class="mb-3">
                                                 <label for="phone" class="form-label">Phone No.</label>
-                                                <input type="tel" name="phone" value="1" class="form-control " id="phone" readonly>
+                                                <input type="tel" name="phone" value="{{request('phone')}}" class="form-control " id="phone" readonly>
                                                 <span class="text-danger phone_error clean_error"></span>
                                             </div>
 
@@ -309,7 +309,7 @@
                                                 <div class="form-check ps-4">
                                                     <input class="form-check-input" type="checkbox" name="trems" value="1" id="terms">
                                                     <label class="form-check-label" for="terms">
-                                                        Agree to our <a href="#" class="text-decoration-underline">terms & conditions</a>
+                                                        Agree to our <a href="{{route('term')}}" target="_blank" class="text-decoration-underline">terms & conditions</a>
                                                     </label>
                                                 </div>
                                                 <span class="text-danger trems_error clean_error"></span>
@@ -365,7 +365,7 @@
         $(document).ready(function() {
             $('[data-toggle="tooltip"]').tooltip();
 
-            $('#formStep1').hide();
+            $('#formStep2').hide();
             $('#formStep3').hide();
             $(".password_toggler").on("click", function(event) {
                 // event.preventDefault();
